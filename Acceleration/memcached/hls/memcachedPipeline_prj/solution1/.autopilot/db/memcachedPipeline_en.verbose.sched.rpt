@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'memcachedPipeline_en'
 ================================================================
-* Date:           Fri Nov  9 23:08:20 2018
+* Date:           Tue Nov 13 22:50:30 2018
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        memcachedPipeline_prj
@@ -75,7 +75,7 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 2.39>
-ST_1 : Operation 2 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %flushAck_V_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 2 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %flushAck_V_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str7, [1 x i8]* @p_str8, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str9, [1 x i8]* @p_str10)"   --->   Operation 2 'specinterface' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%flushAck_V_read = call i1 @_ssdm_op_Read.ap_auto.i1(i1 %flushAck_V)"   --->   Operation 3 'read' 'flushAck_V_read' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 4 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i1P(i1* %flushAck_V_out, i1 %flushAck_V_read)"   --->   Operation 4 'write' <Predicate = true> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 2> <FIFO>
 ST_1 : Operation 5 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 5 'ret' <Predicate = true> <Delay = 0.00>

@@ -92,19 +92,9 @@
 			<location>/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/memcachedPipeline.cpp</location>
 		</link>
 		<link>
-			<name>source/merger.cpp</name>
-			<type>1</type>
-			<location>/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/merger.cpp</location>
-		</link>
-		<link>
 			<name>source/requestParser.cpp</name>
 			<type>1</type>
 			<location>/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/requestParser/requestParser.cpp</location>
-		</link>
-		<link>
-			<name>source/splitter.cpp</name>
-			<type>1</type>
-			<location>/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/splitter.cpp</location>
 		</link>
 		<link>
 			<name>source/valueStore.cpp</name>

@@ -16,14 +16,14 @@ set C_modelArgList {
 	{ hashMdBuffer_V_V int 128 regular {fifo 0 volatile } {global 0}  }
 	{ hashKeyBuffer_V_V int 64 regular {fifo 0 volatile } {global 0}  }
 	{ hashValueBuffer_V_V int 64 regular {fifo 0 volatile } {global 0}  }
-	{ hashTable2splitter_V int 256 regular {fifo 1 volatile } {global 1}  }
+	{ hashTable2Dram_V int 256 regular {fifo 1 volatile } {global 1}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "memWr2out_V", "interface" : "fifo", "bitwidth" : 57, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "hashMdBuffer_V_V", "interface" : "fifo", "bitwidth" : 128, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "hashKeyBuffer_V_V", "interface" : "fifo", "bitwidth" : 64, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "hashValueBuffer_V_V", "interface" : "fifo", "bitwidth" : 64, "direction" : "READONLY", "extern" : 0} , 
- 	{ "Name" : "hashTable2splitter_V", "interface" : "fifo", "bitwidth" : 256, "direction" : "WRITEONLY", "extern" : 0} ]}
+ 	{ "Name" : "hashTable2Dram_V", "interface" : "fifo", "bitwidth" : 256, "direction" : "WRITEONLY", "extern" : 0} ]}
 # RTL Port declarations: 
 set portNum 25
 set portList { 
@@ -47,9 +47,9 @@ set portList {
 	{ memWr2out_V_dout sc_in sc_lv 57 signal 0 } 
 	{ memWr2out_V_empty_n sc_in sc_logic 1 signal 0 } 
 	{ memWr2out_V_read sc_out sc_logic 1 signal 0 } 
-	{ hashTable2splitter_V_din sc_out sc_lv 256 signal 4 } 
-	{ hashTable2splitter_V_full_n sc_in sc_logic 1 signal 4 } 
-	{ hashTable2splitter_V_write sc_out sc_logic 1 signal 4 } 
+	{ hashTable2Dram_V_din sc_out sc_lv 256 signal 4 } 
+	{ hashTable2Dram_V_full_n sc_in sc_logic 1 signal 4 } 
+	{ hashTable2Dram_V_write sc_out sc_logic 1 signal 4 } 
 	{ start_out sc_out sc_logic 1 signal -1 } 
 	{ start_write sc_out sc_logic 1 signal -1 } 
 }
@@ -74,9 +74,9 @@ set NewPortList {[
  	{ "name": "memWr2out_V_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":57, "type": "signal", "bundle":{"name": "memWr2out_V", "role": "dout" }} , 
  	{ "name": "memWr2out_V_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "memWr2out_V", "role": "empty_n" }} , 
  	{ "name": "memWr2out_V_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "memWr2out_V", "role": "read" }} , 
- 	{ "name": "hashTable2splitter_V_din", "direction": "out", "datatype": "sc_lv", "bitwidth":256, "type": "signal", "bundle":{"name": "hashTable2splitter_V", "role": "din" }} , 
- 	{ "name": "hashTable2splitter_V_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "hashTable2splitter_V", "role": "full_n" }} , 
- 	{ "name": "hashTable2splitter_V_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "hashTable2splitter_V", "role": "write" }} , 
+ 	{ "name": "hashTable2Dram_V_din", "direction": "out", "datatype": "sc_lv", "bitwidth":256, "type": "signal", "bundle":{"name": "hashTable2Dram_V", "role": "din" }} , 
+ 	{ "name": "hashTable2Dram_V_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "hashTable2Dram_V", "role": "full_n" }} , 
+ 	{ "name": "hashTable2Dram_V_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "hashTable2Dram_V", "role": "write" }} , 
  	{ "name": "start_out", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "start_out", "role": "default" }} , 
  	{ "name": "start_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "start_write", "role": "default" }}  ]}
 
@@ -110,9 +110,9 @@ set RtlHierarchyInfo {[
 			{"Name" : "hashValueBuffer_V_V", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "0", "DependentChan" : "0",
 				"BlockSignal" : [
 					{"Name" : "hashValueBuffer_V_V_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "hashTable2splitter_V", "Type" : "Fifo", "Direction" : "O", "DependentProc" : "0", "DependentChan" : "0",
+			{"Name" : "hashTable2Dram_V", "Type" : "Fifo", "Direction" : "O", "DependentProc" : "0", "DependentChan" : "0",
 				"BlockSignal" : [
-					{"Name" : "hashTable2splitter_V_blk_n", "Type" : "RtlSignal"}]}]}]}
+					{"Name" : "hashTable2Dram_V_blk_n", "Type" : "RtlSignal"}]}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -124,7 +124,7 @@ set ArgLastReadFirstWriteLatency {
 		hashMdBuffer_V_V {Type I LastRead 0 FirstWrite -1}
 		hashKeyBuffer_V_V {Type I LastRead 0 FirstWrite -1}
 		hashValueBuffer_V_V {Type I LastRead 0 FirstWrite -1}
-		hashTable2splitter_V {Type O LastRead -1 FirstWrite 1}}}
+		hashTable2Dram_V {Type O LastRead -1 FirstWrite 1}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -141,5 +141,5 @@ set Spec2ImplPortList {
 	hashMdBuffer_V_V { ap_fifo {  { hashMdBuffer_V_V_dout fifo_data 0 128 }  { hashMdBuffer_V_V_empty_n fifo_status 0 1 }  { hashMdBuffer_V_V_read fifo_update 1 1 } } }
 	hashKeyBuffer_V_V { ap_fifo {  { hashKeyBuffer_V_V_dout fifo_data 0 64 }  { hashKeyBuffer_V_V_empty_n fifo_status 0 1 }  { hashKeyBuffer_V_V_read fifo_update 1 1 } } }
 	hashValueBuffer_V_V { ap_fifo {  { hashValueBuffer_V_V_dout fifo_data 0 64 }  { hashValueBuffer_V_V_empty_n fifo_status 0 1 }  { hashValueBuffer_V_V_read fifo_update 1 1 } } }
-	hashTable2splitter_V { ap_fifo {  { hashTable2splitter_V_din fifo_data 1 256 }  { hashTable2splitter_V_full_n fifo_status 0 1 }  { hashTable2splitter_V_write fifo_update 1 1 } } }
+	hashTable2Dram_V { ap_fifo {  { hashTable2Dram_V_din fifo_data 1 256 }  { hashTable2Dram_V_full_n fifo_status 0 1 }  { hashTable2Dram_V_write fifo_update 1 1 } } }
 }

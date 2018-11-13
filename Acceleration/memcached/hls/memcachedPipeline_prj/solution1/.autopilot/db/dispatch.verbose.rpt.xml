@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'dispatch'" level="0">
-<item name = "Date">Fri Nov  9 23:11:25 2018
+<item name = "Date">Tue Nov 13 22:52:40 2018
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">memcachedPipeline_prj</item>
@@ -77,16 +77,16 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="tmp_259_i_fu_139_p2">+, 0, 0, 15, 1, 8</column>
+<column name="tmp_196_i_fu_161_p2">+, 0, 0, 15, 1, 8</column>
 <column name="ap_block_state2_io">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state2_pp0_stage0_iter1">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state3_io">and, 0, 0, 2, 1, 1</column>
 <column name="memRdCmd_V_1_load_A">and, 0, 0, 2, 1, 1</column>
 <column name="memRdCmd_V_1_load_B">and, 0, 0, 2, 1, 1</column>
 <column name="memRdCmd_V_1_state_cmp_full">icmp, 0, 0, 8, 2, 1</column>
-<column name="tmp_258_i_fu_120_p2">icmp, 0, 0, 13, 13, 13</column>
+<column name="tmp_195_i_fu_142_p2">icmp, 0, 0, 13, 13, 13</column>
 <column name="ap_block_state1_pp0_stage0_iter0">or, 0, 0, 2, 1, 1</column>
-<column name="tmp_count_V_fu_145_p3">select, 0, 0, 8, 1, 8</column>
+<column name="tmp_count_V_fu_167_p3">select, 0, 0, 8, 1, 8</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -107,17 +107,17 @@
 <column name="ap_CS_iter1_fsm">2, 0, 2, 0</column>
 <column name="ap_CS_iter2_fsm">2, 0, 2, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
-<column name="getCtrlWord_address_s_reg_164">32, 0, 32, 0</column>
+<column name="getCtrlWord_address_s_reg_186">32, 0, 32, 0</column>
 <column name="memRdCmd_V_1_payload_A">40, 0, 40, 0</column>
 <column name="memRdCmd_V_1_payload_B">40, 0, 40, 0</column>
 <column name="memRdCmd_V_1_sel_rd">1, 0, 1, 0</column>
 <column name="memRdCmd_V_1_sel_wr">1, 0, 1, 0</column>
 <column name="memRdCmd_V_1_state">2, 0, 2, 0</column>
-<column name="tmp_258_i_reg_174">1, 0, 1, 0</column>
-<column name="tmp_V_reg_179">12, 0, 12, 0</column>
-<column name="tmp_reg_160">1, 0, 1, 0</column>
-<column name="tmp_reg_160_pp0_iter1_reg">1, 0, 1, 0</column>
-<column name="tmp_s_reg_169">7, 0, 7, 0</column>
+<column name="tmp_195_i_reg_196">1, 0, 1, 0</column>
+<column name="tmp_V_reg_201">12, 0, 12, 0</column>
+<column name="tmp_reg_182">1, 0, 1, 0</column>
+<column name="tmp_reg_182_pp0_iter1_reg">1, 0, 1, 0</column>
+<column name="tmp_s_reg_191">7, 0, 7, 0</column>
 </table>
 </item>
 </section>

@@ -21,7 +21,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../sources/memcachedPipeline_tb.cpp ../../../../sources/memcachedPipeline.cpp ../../../../sources/splitter.cpp ../../../../sources/merger.cpp ../../../../sources/globals.cpp ../../../../sources/valueStore/flashValueStore.cpp ../../../../sources/valueStore/valueStore.cpp ../../../../sources/responseFormatter/binResponse.cpp ../../../../sources/requestParser/requestParser.cpp ../../../../sources/hashTable/memWrite.cpp ../../../../sources/hashTable/memRead.cpp ../../../../sources/hashTable/hashTable.cpp ../../../../sources/hashTable/hash.cpp ../../../../sources/hashTable/compare.cpp ../../../../sources/hashTable/cc.cpp
+HLS_SOURCES = ../../../../sources/memcachedPipeline_tb.cpp ../../../../sources/responseFormatter/binResponse.cpp ../../../../sources/hashTable/cc.cpp ../../../../sources/hashTable/compare.cpp ../../../../sources/valueStore/flashValueStore.cpp ../../../../sources/globals.cpp ../../../../sources/hashTable/hash.cpp ../../../../sources/hashTable/hashTable.cpp ../../../../sources/hashTable/memRead.cpp ../../../../sources/hashTable/memWrite.cpp ../../../../sources/memcachedPipeline.cpp ../../../../sources/requestParser/requestParser.cpp ../../../../sources/valueStore/valueStore.cpp
 
 TARGET := csim.exe
 
@@ -75,45 +75,9 @@ all: $(TARGET)
 
 $(ObjDir)/memcachedPipeline_tb.o: ../../../../sources/memcachedPipeline_tb.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../sources/memcachedPipeline_tb.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) $< -o $@ ; \
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/memcachedPipeline_tb.d
-
-$(ObjDir)/memcachedPipeline.o: ../../../../sources/memcachedPipeline.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../sources/memcachedPipeline.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/memcachedPipeline.d
-
-$(ObjDir)/splitter.o: ../../../../sources/splitter.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../sources/splitter.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/splitter.d
-
-$(ObjDir)/merger.o: ../../../../sources/merger.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../sources/merger.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/merger.d
-
-$(ObjDir)/globals.o: ../../../../sources/globals.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../sources/globals.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/globals.d
-
-$(ObjDir)/flashValueStore.o: ../../../../sources/valueStore/flashValueStore.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../sources/valueStore/flashValueStore.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/flashValueStore.d
-
-$(ObjDir)/valueStore.o: ../../../../sources/valueStore/valueStore.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../sources/valueStore/valueStore.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/valueStore.d
 
 $(ObjDir)/binResponse.o: ../../../../sources/responseFormatter/binResponse.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../sources/responseFormatter/binResponse.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
@@ -121,35 +85,11 @@ $(ObjDir)/binResponse.o: ../../../../sources/responseFormatter/binResponse.cpp $
 
 -include $(ObjDir)/binResponse.d
 
-$(ObjDir)/requestParser.o: ../../../../sources/requestParser/requestParser.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../sources/requestParser/requestParser.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/cc.o: ../../../../sources/hashTable/cc.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../sources/hashTable/cc.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
--include $(ObjDir)/requestParser.d
-
-$(ObjDir)/memWrite.o: ../../../../sources/hashTable/memWrite.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../sources/hashTable/memWrite.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/memWrite.d
-
-$(ObjDir)/memRead.o: ../../../../sources/hashTable/memRead.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../sources/hashTable/memRead.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/memRead.d
-
-$(ObjDir)/hashTable.o: ../../../../sources/hashTable/hashTable.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../sources/hashTable/hashTable.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/hashTable.d
-
-$(ObjDir)/hash.o: ../../../../sources/hashTable/hash.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../sources/hashTable/hash.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/hash.d
+-include $(ObjDir)/cc.d
 
 $(ObjDir)/compare.o: ../../../../sources/hashTable/compare.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../sources/hashTable/compare.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
@@ -157,8 +97,56 @@ $(ObjDir)/compare.o: ../../../../sources/hashTable/compare.cpp $(ObjDir)/.dir
 
 -include $(ObjDir)/compare.d
 
-$(ObjDir)/cc.o: ../../../../sources/hashTable/cc.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../sources/hashTable/cc.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/flashValueStore.o: ../../../../sources/valueStore/flashValueStore.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../sources/valueStore/flashValueStore.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
--include $(ObjDir)/cc.d
+-include $(ObjDir)/flashValueStore.d
+
+$(ObjDir)/globals.o: ../../../../sources/globals.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../sources/globals.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/globals.d
+
+$(ObjDir)/hash.o: ../../../../sources/hashTable/hash.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../sources/hashTable/hash.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/hash.d
+
+$(ObjDir)/hashTable.o: ../../../../sources/hashTable/hashTable.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../sources/hashTable/hashTable.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/hashTable.d
+
+$(ObjDir)/memRead.o: ../../../../sources/hashTable/memRead.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../sources/hashTable/memRead.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/memRead.d
+
+$(ObjDir)/memWrite.o: ../../../../sources/hashTable/memWrite.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../sources/hashTable/memWrite.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/memWrite.d
+
+$(ObjDir)/memcachedPipeline.o: ../../../../sources/memcachedPipeline.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../sources/memcachedPipeline.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/memcachedPipeline.d
+
+$(ObjDir)/requestParser.o: ../../../../sources/requestParser/requestParser.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../sources/requestParser/requestParser.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/requestParser.d
+
+$(ObjDir)/valueStore.o: ../../../../sources/valueStore/valueStore.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../sources/valueStore/valueStore.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/valueStore.d

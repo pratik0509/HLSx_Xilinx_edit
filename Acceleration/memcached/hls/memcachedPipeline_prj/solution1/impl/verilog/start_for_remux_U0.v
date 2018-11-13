@@ -16,8 +16,8 @@ module start_for_remux_U0_shiftReg (
     q);
 
 parameter DATA_WIDTH = 32'd1;
-parameter ADDR_WIDTH = 32'd5;
-parameter DEPTH = 6'd17;
+parameter ADDR_WIDTH = 32'd4;
+parameter DEPTH = 5'd16;
 
 input clk;
 input [DATA_WIDTH-1:0] data;
@@ -56,8 +56,8 @@ module start_for_remux_U0 (
 
 parameter MEM_STYLE   = "shiftreg";
 parameter DATA_WIDTH  = 32'd1;
-parameter ADDR_WIDTH  = 32'd5;
-parameter DEPTH       = 6'd17;
+parameter ADDR_WIDTH  = 32'd4;
+parameter DEPTH       = 5'd16;
 
 input clk;
 input reset;
@@ -92,17 +92,17 @@ always @ (posedge clk) begin
         if (((if_read & if_read_ce) == 1 & internal_empty_n == 1) && 
             ((if_write & if_write_ce) == 0 | internal_full_n == 0))
         begin
-            mOutPtr <= mOutPtr - 6'd1;
-            if (mOutPtr == 6'd0)
+            mOutPtr <= mOutPtr - 5'd1;
+            if (mOutPtr == 5'd0)
                 internal_empty_n <= 1'b0;
             internal_full_n <= 1'b1;
         end 
         else if (((if_read & if_read_ce) == 0 | internal_empty_n == 0) && 
             ((if_write & if_write_ce) == 1 & internal_full_n == 1))
         begin
-            mOutPtr <= mOutPtr + 6'd1;
+            mOutPtr <= mOutPtr + 5'd1;
             internal_empty_n <= 1'b1;
-            if (mOutPtr == DEPTH - 6'd2)
+            if (mOutPtr == DEPTH - 5'd2)
                 internal_full_n <= 1'b0;
         end 
     end

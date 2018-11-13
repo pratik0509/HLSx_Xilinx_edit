@@ -41,8 +41,8 @@ set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
 set TargetInfo "xc7vx690t:ffg1761:-2"
-set SourceFiles {sc {} c {../../sources/hashTable/cc.cpp ../../sources/hashTable/compare.cpp ../../sources/hashTable/hash.cpp ../../sources/hashTable/hashTable.cpp ../../sources/hashTable/memRead.cpp ../../sources/hashTable/memWrite.cpp ../../sources/requestParser/requestParser.cpp ../../sources/responseFormatter/binResponse.cpp ../../sources/valueStore/valueStore.cpp ../../sources/valueStore/flashValueStore.cpp ../../sources/globals.cpp ../../sources/merger.cpp ../../sources/splitter.cpp ../../sources/memcachedPipeline.cpp}}
-set SourceFlags {sc {} c {{} {} {} {} {} {} {} {} {} {} {} {} {} {}}}
+set SourceFiles {sc {} c {../../sources/valueStore/valueStore.cpp ../../sources/requestParser/requestParser.cpp ../../sources/memcachedPipeline.cpp ../../sources/hashTable/memWrite.cpp ../../sources/hashTable/memRead.cpp ../../sources/hashTable/hashTable.cpp ../../sources/hashTable/hash.cpp ../../sources/globals.cpp ../../sources/valueStore/flashValueStore.cpp ../../sources/hashTable/compare.cpp ../../sources/hashTable/cc.cpp ../../sources/responseFormatter/binResponse.cpp}}
+set SourceFlags {sc {} c {{} {} {} {} {} {} {} {} {} {} {} {}}}
 set DirectiveFile {/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/memcachedPipeline_prj/solution1/solution1.directive}
 set TBFiles {verilog ../../sources/memcachedPipeline_tb.cpp bc ../../sources/memcachedPipeline_tb.cpp vhdl ../../sources/memcachedPipeline_tb.cpp sc ../../sources/memcachedPipeline_tb.cpp cas ../../sources/memcachedPipeline_tb.cpp c {}}
 set SpecLanguage "C"

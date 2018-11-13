@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'hashKeyResizer'" level="0">
-<item name = "Date">Fri Nov  9 23:10:39 2018
+<item name = "Date">Tue Nov 13 22:51:44 2018
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">memcachedPipeline_prj</item>
@@ -77,8 +77,8 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="grp_fu_186_p2">+, 0, 0, 15, 6, 8</column>
-<column name="tmp_i_fu_264_p2">+, 0, 0, 15, 8, 6</column>
+<column name="grp_fu_244_p2">+, 0, 0, 15, 6, 8</column>
+<column name="tmp_i_fu_322_p2">+, 0, 0, 15, 8, 6</column>
 <column name="ap_condition_174">and, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op102_write_state2">and, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op108_write_state2">and, 0, 0, 2, 1, 1</column>
@@ -88,19 +88,19 @@
 <column name="ap_predicate_op46_read_state1">and, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op59_read_state1">and, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op92_write_state2">and, 0, 0, 2, 1, 1</column>
-<column name="tmp_183_i_fu_276_p2">icmp, 0, 0, 11, 8, 1</column>
-<column name="tmp_187_i_fu_368_p2">icmp, 0, 0, 11, 8, 4</column>
-<column name="tmp_189_i_fu_318_p2">icmp, 0, 0, 11, 8, 3</column>
-<column name="tmp_190_i_fu_258_p2">icmp, 0, 0, 11, 8, 4</column>
-<column name="tmp_191_i_fu_416_p2">icmp, 0, 0, 11, 8, 4</column>
+<column name="tmp_183_i_fu_334_p2">icmp, 0, 0, 11, 8, 1</column>
+<column name="tmp_187_i_fu_426_p2">icmp, 0, 0, 11, 8, 4</column>
+<column name="tmp_189_i_fu_376_p2">icmp, 0, 0, 11, 8, 3</column>
+<column name="tmp_190_i_fu_316_p2">icmp, 0, 0, 11, 8, 4</column>
+<column name="tmp_191_i_fu_474_p2">icmp, 0, 0, 11, 8, 4</column>
 <column name="ap_block_state1_pp0_stage0_iter0">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state2_pp0_stage0_iter1">or, 0, 0, 2, 1, 1</column>
-<column name="grp_fu_172_p3">select, 0, 0, 3, 1, 3</column>
-<column name="storemerge16_i_fu_282_p3">select, 0, 0, 4, 1, 1</column>
-<column name="storemerge17_i_fu_374_p3">select, 0, 0, 3, 1, 3</column>
-<column name="storemerge18_i_fu_382_p3">select, 0, 0, 3, 1, 3</column>
-<column name="storemerge19_i_fu_324_p3">select, 0, 0, 2, 1, 2</column>
-<column name="storemerge20_i_fu_332_p3">select, 0, 0, 3, 1, 3</column>
+<column name="grp_fu_230_p3">select, 0, 0, 3, 1, 3</column>
+<column name="storemerge16_i_fu_340_p3">select, 0, 0, 4, 1, 1</column>
+<column name="storemerge17_i_fu_432_p3">select, 0, 0, 3, 1, 3</column>
+<column name="storemerge18_i_fu_440_p3">select, 0, 0, 3, 1, 3</column>
+<column name="storemerge19_i_fu_382_p3">select, 0, 0, 2, 1, 2</column>
+<column name="storemerge20_i_fu_390_p3">select, 0, 0, 3, 1, 3</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -127,21 +127,21 @@
 <column name="ap_done_reg">1, 0, 1, 0</column>
 <column name="keyResizerLength_V">8, 0, 8, 0</column>
 <column name="keyResizerState">3, 0, 3, 0</column>
-<column name="keyResizerState_load_reg_506">3, 0, 3, 0</column>
-<column name="p_Val2_s_reg_510">128, 0, 128, 0</column>
+<column name="keyResizerState_load_reg_564">3, 0, 3, 0</column>
+<column name="p_Val2_s_reg_568">128, 0, 128, 0</column>
 <column name="resizedKeyOutput_V">96, 0, 96, 0</column>
 <column name="start_once_reg">1, 0, 1, 0</column>
 <column name="tempInput_data_V">128, 0, 128, 0</column>
-<column name="tmp_429_reg_540">1, 0, 1, 0</column>
-<column name="tmp_430_reg_531">1, 0, 1, 0</column>
-<column name="tmp_431_reg_517">1, 0, 1, 0</column>
-<column name="tmp_432_reg_553">1, 0, 1, 0</column>
-<column name="tmp_435_reg_544">64, 0, 64, 0</column>
-<column name="tmp_438_reg_535">32, 0, 32, 0</column>
-<column name="tmp_V_51_reg_521">96, 0, 96, 0</column>
-<column name="tmp_V_52_reg_557">8, 0, 8, 0</column>
-<column name="tmp_V_53_reg_562">96, 0, 96, 0</column>
-<column name="tmp_reg_549">1, 0, 1, 0</column>
+<column name="tmp_424_reg_598">1, 0, 1, 0</column>
+<column name="tmp_425_reg_589">1, 0, 1, 0</column>
+<column name="tmp_426_reg_575">1, 0, 1, 0</column>
+<column name="tmp_427_reg_611">1, 0, 1, 0</column>
+<column name="tmp_430_reg_602">64, 0, 64, 0</column>
+<column name="tmp_433_reg_593">32, 0, 32, 0</column>
+<column name="tmp_V_51_reg_579">96, 0, 96, 0</column>
+<column name="tmp_V_52_reg_615">8, 0, 8, 0</column>
+<column name="tmp_V_53_reg_620">96, 0, 96, 0</column>
+<column name="tmp_reg_607">1, 0, 1, 0</column>
 </table>
 </item>
 </section>

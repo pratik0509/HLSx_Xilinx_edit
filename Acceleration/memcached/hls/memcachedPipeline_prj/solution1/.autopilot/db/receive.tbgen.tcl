@@ -91,7 +91,7 @@ set RtlHierarchyInfo {[
 				"BlockSignal" : [
 					{"Name" : "memRdData_V_V_TDATA_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "getState", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "getValueLength_V_1", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "getValueLength_V", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "getCounter", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "disp2rec_V_V", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "0", "DependentChan" : "0",
 				"BlockSignal" : [
@@ -109,7 +109,7 @@ set ArgLastReadFirstWriteLatency {
 	receive {
 		memRdData_V_V {Type I LastRead 0 FirstWrite -1}
 		getState {Type IO LastRead -1 FirstWrite -1}
-		getValueLength_V_1 {Type IO LastRead -1 FirstWrite -1}
+		getValueLength_V {Type IO LastRead -1 FirstWrite -1}
 		getCounter {Type IO LastRead -1 FirstWrite -1}
 		disp2rec_V_V {Type I LastRead 0 FirstWrite -1}
 		memInputWord_V {Type IO LastRead -1 FirstWrite -1}

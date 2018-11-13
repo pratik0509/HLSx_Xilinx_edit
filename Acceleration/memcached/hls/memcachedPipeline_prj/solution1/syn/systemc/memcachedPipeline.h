@@ -12,7 +12,7 @@
 #include "AESL_pkg.h"
 
 #include "memcachedPipeline_en.h"
-#include "bp_f1192.h"
+#include "bp_f1244.h"
 #include "bp_r.h"
 #include "ht_inputLogic.h"
 #include "hashKeyResizer.h"
@@ -22,19 +22,12 @@
 #include "ht_compare.h"
 #include "memWrite.h"
 #include "ht_outputLogic.h"
-#include "splitter.h"
 #include "accessControl.h"
 #include "demux.h"
 #include "setPath.h"
 #include "dispatch.h"
 #include "receive.h"
 #include "remux.h"
-#include "flashDemux.h"
-#include "flashSetPathNoFilter.h"
-#include "flashDispatch.h"
-#include "flashReceiveNoFilter.h"
-#include "flashRemux.h"
-#include "merger.h"
 #include "response_f.h"
 #include "response_r.h"
 #include "fifo_w1_d2_A.h"
@@ -59,8 +52,6 @@
 #include "fifo_w66_d96_A.h"
 #include "fifo_w12_d16_A.h"
 #include "fifo_w64_d96_A.h"
-#include "fifo_w48_d16_A.h"
-#include "fifo_w16_d16_A.h"
 #include "fifo_w248_d8_A.h"
 #include "start_for_bp_r_U0.h"
 #include "start_for_ht_inpucud.h"
@@ -69,24 +60,18 @@
 #include "start_for_bobj_U0.h"
 #include "start_for_memReadfYi.h"
 #include "start_for_ht_outpg8j.h"
-#include "start_for_splittehbi.h"
-#include "start_for_accessCibs.h"
-#include "start_for_flashDejbC.h"
+#include "start_for_accessChbi.h"
 #include "start_for_demux_U0.h"
-#include "start_for_setPathkbM.h"
-#include "start_for_dispatclbW.h"
+#include "start_for_setPathibs.h"
+#include "start_for_dispatcjbC.h"
 #include "start_for_remux_U0.h"
-#include "start_for_merger_U0.h"
-#include "start_for_flashSemb6.h"
-#include "start_for_flashDincg.h"
-#include "start_for_flashReocq.h"
-#include "start_for_responspcA.h"
-#include "start_for_responsqcK.h"
+#include "start_for_responskbM.h"
+#include "start_for_responslbW.h"
 
 namespace ap_rtl {
 
 struct memcachedPipeline : public sc_module {
-    // Port declarations 62
+    // Port declarations 50
     sc_in< sc_lv<64> > inData_TDATA;
     sc_in< sc_lv<112> > inData_TUSER;
     sc_in< sc_lv<8> > inData_TKEEP;
@@ -99,10 +84,6 @@ struct memcachedPipeline : public sc_module {
     sc_in< sc_lv<512> > dramValueStoreMemRdData_V_V_TDATA;
     sc_out< sc_lv<40> > dramValueStoreMemWrCmd_V_TDATA;
     sc_out< sc_lv<512> > dramValueStoreMemWrData_V_V_TDATA;
-    sc_out< sc_lv<48> > flashValueStoreMemRdCmd_V_TDATA;
-    sc_in< sc_lv<64> > flashValueStoreMemRdData_V_V_TDATA;
-    sc_out< sc_lv<48> > flashValueStoreMemWrCmd_V_TDATA;
-    sc_out< sc_lv<64> > flashValueStoreMemWrData_V_V_TDATA;
     sc_in< sc_lv<512> > hashTableMemRdData_V_V_TDATA;
     sc_out< sc_lv<40> > hashTableMemRdCmd_V_TDATA;
     sc_out< sc_lv<512> > hashTableMemWrData_V_V_TDATA;
@@ -139,14 +120,6 @@ struct memcachedPipeline : public sc_module {
     sc_in< sc_logic > dramValueStoreMemRdCmd_V_TREADY;
     sc_in< sc_logic > dramValueStoreMemRdData_V_V_TVALID;
     sc_out< sc_logic > dramValueStoreMemRdData_V_V_TREADY;
-    sc_out< sc_logic > flashValueStoreMemWrCmd_V_TVALID;
-    sc_in< sc_logic > flashValueStoreMemWrCmd_V_TREADY;
-    sc_out< sc_logic > flashValueStoreMemWrData_V_V_TVALID;
-    sc_in< sc_logic > flashValueStoreMemWrData_V_V_TREADY;
-    sc_out< sc_logic > flashValueStoreMemRdCmd_V_TVALID;
-    sc_in< sc_logic > flashValueStoreMemRdCmd_V_TREADY;
-    sc_in< sc_logic > flashValueStoreMemRdData_V_V_TVALID;
-    sc_out< sc_logic > flashValueStoreMemRdData_V_V_TREADY;
     sc_out< sc_logic > outData_TVALID;
     sc_in< sc_logic > outData_TREADY;
     sc_signal< sc_logic > ap_var_for_const0;
@@ -163,7 +136,7 @@ struct memcachedPipeline : public sc_module {
     ofstream mHdltvinHandle;
     ofstream mHdltvoutHandle;
     memcachedPipeline_en* memcachedPipeline_en_U0;
-    bp_f1192* bp_f1192_U0;
+    bp_f1244* bp_f1244_U0;
     bp_r* bp_r_U0;
     ht_inputLogic* ht_inputLogic_U0;
     hashKeyResizer* hashKeyResizer_U0;
@@ -173,19 +146,12 @@ struct memcachedPipeline : public sc_module {
     ht_compare* ht_compare_U0;
     memWrite* memWrite_U0;
     ht_outputLogic* ht_outputLogic_U0;
-    splitter* splitter_U0;
     accessControl* accessControl_U0;
     demux* demux_U0;
     setPath* setPath_U0;
     dispatch* dispatch_U0;
     receive* receive_U0;
     remux* remux_U0;
-    flashDemux* flashDemux_U0;
-    flashSetPathNoFilter* flashSetPathNoFilter_U0;
-    flashDispatch* flashDispatch_U0;
-    flashReceiveNoFilter* flashReceiveNoFilter_U0;
-    flashRemux* flashRemux_U0;
-    merger* merger_U0;
     response_f* response_f_U0;
     response_r* response_r_U0;
     fifo_w1_d2_A* flushAck_V_c1_U;
@@ -215,9 +181,7 @@ struct memcachedPipeline : public sc_module {
     fifo_w64_d10_A* comp2memWrMd_V_U;
     fifo_w8_d2_A* comp2memWrStatus_V_b_U;
     fifo_w57_d2_A* memWr2out_V_U;
-    fifo_w256_d16_A* hashTable2splitter_V_U;
-    fifo_w256_d16_A* splitter2valueStoreF_1_U;
-    fifo_w256_d16_A* splitter2valueStoreD_1_U;
+    fifo_w256_d16_A* hashTable2Dram_V_U;
     fifo_w1_d16_A* filterPopSet_V_V_U;
     fifo_w1_d16_A* filterPopGet_V_V_U;
     fifo_w256_d16_A* accCtrl2demux_V_U;
@@ -229,15 +193,6 @@ struct memcachedPipeline : public sc_module {
     fifo_w12_d16_A* disp2rec_V_V_U;
     fifo_w64_d96_A* getPath2remux_V_V_U;
     fifo_w256_d16_A* valueStoreDram2merge_1_U;
-    fifo_w128_d24_A* flashMetadataBuffer_s_0_U;
-    fifo_w64_d48_A* flashKeyBuffer_V_V_U;
-    fifo_w48_d16_A* flashDemux2getPath_V_U;
-    fifo_w48_d16_A* flashDemux2setPathMe_1_U;
-    fifo_w66_d96_A* flashDemux2setPathVa_1_U;
-    fifo_w16_d16_A* flash_Disp2rec_V_V_U;
-    fifo_w64_d96_A* flashGetPath2remux_V_U;
-    fifo_w256_d16_A* valueStoreFlash2merg_1_U;
-    fifo_w256_d16_A* merger2responseForma_1_U;
     fifo_w64_d1024_A* valueBuffer_rf_V_V_U;
     fifo_w248_d8_A* metadataBuffer_rf_V_s_U;
     start_for_bp_r_U0* start_for_bp_r_U0_U;
@@ -247,19 +202,13 @@ struct memcachedPipeline : public sc_module {
     start_for_bobj_U0* start_for_bobj_U0_U;
     start_for_memReadfYi* start_for_memReadfYi_U;
     start_for_ht_outpg8j* start_for_ht_outpg8j_U;
-    start_for_splittehbi* start_for_splittehbi_U;
-    start_for_accessCibs* start_for_accessCibs_U;
-    start_for_flashDejbC* start_for_flashDejbC_U;
+    start_for_accessChbi* start_for_accessChbi_U;
     start_for_demux_U0* start_for_demux_U0_U;
-    start_for_setPathkbM* start_for_setPathkbM_U;
-    start_for_dispatclbW* start_for_dispatclbW_U;
+    start_for_setPathibs* start_for_setPathibs_U;
+    start_for_dispatcjbC* start_for_dispatcjbC_U;
     start_for_remux_U0* start_for_remux_U0_U;
-    start_for_merger_U0* start_for_merger_U0_U;
-    start_for_flashSemb6* start_for_flashSemb6_U;
-    start_for_flashDincg* start_for_flashDincg_U;
-    start_for_flashReocq* start_for_flashReocq_U;
-    start_for_responspcA* start_for_responspcA_U;
-    start_for_responsqcK* start_for_responsqcK_U;
+    start_for_responskbM* start_for_responskbM_U;
+    start_for_responslbW* start_for_responslbW_U;
     sc_signal< sc_logic > ap_rst_n_inv;
     sc_signal< sc_logic > memcachedPipeline_en_U0_ap_start;
     sc_signal< sc_logic > memcachedPipeline_en_U0_ap_done;
@@ -268,23 +217,23 @@ struct memcachedPipeline : public sc_module {
     sc_signal< sc_logic > memcachedPipeline_en_U0_ap_ready;
     sc_signal< sc_lv<1> > memcachedPipeline_en_U0_flushAck_V_out_din;
     sc_signal< sc_logic > memcachedPipeline_en_U0_flushAck_V_out_write;
-    sc_signal< sc_logic > bp_f1192_U0_ap_start;
-    sc_signal< sc_logic > bp_f1192_U0_ap_done;
-    sc_signal< sc_logic > bp_f1192_U0_ap_continue;
-    sc_signal< sc_logic > bp_f1192_U0_ap_idle;
-    sc_signal< sc_logic > bp_f1192_U0_ap_ready;
-    sc_signal< sc_logic > bp_f1192_U0_flushAck_V_read;
-    sc_signal< sc_lv<1> > bp_f1192_U0_flushAck_V_out_din;
-    sc_signal< sc_logic > bp_f1192_U0_flushAck_V_out_write;
-    sc_signal< sc_lv<64> > bp_f1192_U0_valueBuffer_rp_V_V_din;
-    sc_signal< sc_logic > bp_f1192_U0_valueBuffer_rp_V_V_write;
-    sc_signal< sc_lv<64> > bp_f1192_U0_keyBuffer_rp_V_V_din;
-    sc_signal< sc_logic > bp_f1192_U0_keyBuffer_rp_V_V_write;
-    sc_signal< sc_lv<248> > bp_f1192_U0_metadataBuffer_rp_V_s_din;
-    sc_signal< sc_logic > bp_f1192_U0_metadataBuffer_rp_V_s_write;
-    sc_signal< sc_logic > bp_f1192_U0_start_out;
-    sc_signal< sc_logic > bp_f1192_U0_start_write;
-    sc_signal< sc_logic > bp_f1192_U0_inData_TREADY;
+    sc_signal< sc_logic > bp_f1244_U0_ap_start;
+    sc_signal< sc_logic > bp_f1244_U0_ap_done;
+    sc_signal< sc_logic > bp_f1244_U0_ap_continue;
+    sc_signal< sc_logic > bp_f1244_U0_ap_idle;
+    sc_signal< sc_logic > bp_f1244_U0_ap_ready;
+    sc_signal< sc_logic > bp_f1244_U0_flushAck_V_read;
+    sc_signal< sc_lv<1> > bp_f1244_U0_flushAck_V_out_din;
+    sc_signal< sc_logic > bp_f1244_U0_flushAck_V_out_write;
+    sc_signal< sc_lv<64> > bp_f1244_U0_valueBuffer_rp_V_V_din;
+    sc_signal< sc_logic > bp_f1244_U0_valueBuffer_rp_V_V_write;
+    sc_signal< sc_lv<64> > bp_f1244_U0_keyBuffer_rp_V_V_din;
+    sc_signal< sc_logic > bp_f1244_U0_keyBuffer_rp_V_V_write;
+    sc_signal< sc_lv<248> > bp_f1244_U0_metadataBuffer_rp_V_s_din;
+    sc_signal< sc_logic > bp_f1244_U0_metadataBuffer_rp_V_s_write;
+    sc_signal< sc_logic > bp_f1244_U0_start_out;
+    sc_signal< sc_logic > bp_f1244_U0_start_write;
+    sc_signal< sc_logic > bp_f1244_U0_inData_TREADY;
     sc_signal< sc_logic > bp_r_U0_ap_start;
     sc_signal< sc_logic > bp_r_U0_ap_done;
     sc_signal< sc_logic > bp_r_U0_ap_continue;
@@ -427,23 +376,10 @@ struct memcachedPipeline : public sc_module {
     sc_signal< sc_logic > ht_outputLogic_U0_hashValueBuffer_V_V_read;
     sc_signal< sc_logic > ht_outputLogic_U0_hashMdBuffer_V_V_read;
     sc_signal< sc_logic > ht_outputLogic_U0_memWr2out_V_read;
-    sc_signal< sc_lv<256> > ht_outputLogic_U0_hashTable2splitter_V_din;
-    sc_signal< sc_logic > ht_outputLogic_U0_hashTable2splitter_V_write;
+    sc_signal< sc_lv<256> > ht_outputLogic_U0_hashTable2Dram_V_din;
+    sc_signal< sc_logic > ht_outputLogic_U0_hashTable2Dram_V_write;
     sc_signal< sc_logic > ht_outputLogic_U0_start_out;
     sc_signal< sc_logic > ht_outputLogic_U0_start_write;
-    sc_signal< sc_logic > splitter_U0_ap_start;
-    sc_signal< sc_logic > splitter_U0_start_full_n;
-    sc_signal< sc_logic > splitter_U0_ap_done;
-    sc_signal< sc_logic > splitter_U0_ap_continue;
-    sc_signal< sc_logic > splitter_U0_ap_idle;
-    sc_signal< sc_logic > splitter_U0_ap_ready;
-    sc_signal< sc_logic > splitter_U0_hashTable2splitter_V_read;
-    sc_signal< sc_lv<256> > splitter_U0_splitter2valueStoreF_1_din;
-    sc_signal< sc_logic > splitter_U0_splitter2valueStoreF_1_write;
-    sc_signal< sc_lv<256> > splitter_U0_splitter2valueStoreD_1_din;
-    sc_signal< sc_logic > splitter_U0_splitter2valueStoreD_1_write;
-    sc_signal< sc_logic > splitter_U0_start_out;
-    sc_signal< sc_logic > splitter_U0_start_write;
     sc_signal< sc_logic > accessControl_U0_ap_start;
     sc_signal< sc_logic > accessControl_U0_ap_done;
     sc_signal< sc_logic > accessControl_U0_ap_continue;
@@ -451,7 +387,7 @@ struct memcachedPipeline : public sc_module {
     sc_signal< sc_logic > accessControl_U0_ap_ready;
     sc_signal< sc_logic > accessControl_U0_filterPopGet_V_V_read;
     sc_signal< sc_logic > accessControl_U0_filterPopSet_V_V_read;
-    sc_signal< sc_logic > accessControl_U0_splitter2valueStoreD_1_read;
+    sc_signal< sc_logic > accessControl_U0_hashTable2Dram_V_read;
     sc_signal< sc_lv<256> > accessControl_U0_accCtrl2demux_V_din;
     sc_signal< sc_logic > accessControl_U0_accCtrl2demux_V_write;
     sc_signal< sc_logic > accessControl_U0_start_out;
@@ -523,78 +459,6 @@ struct memcachedPipeline : public sc_module {
     sc_signal< sc_logic > remux_U0_valueStoreDram2merge_1_write;
     sc_signal< sc_logic > remux_U0_start_out;
     sc_signal< sc_logic > remux_U0_start_write;
-    sc_signal< sc_logic > flashDemux_U0_ap_start;
-    sc_signal< sc_logic > flashDemux_U0_start_full_n;
-    sc_signal< sc_logic > flashDemux_U0_ap_done;
-    sc_signal< sc_logic > flashDemux_U0_ap_continue;
-    sc_signal< sc_logic > flashDemux_U0_ap_idle;
-    sc_signal< sc_logic > flashDemux_U0_ap_ready;
-    sc_signal< sc_logic > flashDemux_U0_splitter2valueStoreF_1_read;
-    sc_signal< sc_lv<128> > flashDemux_U0_flashMetadataBuffer_s_0_din;
-    sc_signal< sc_logic > flashDemux_U0_flashMetadataBuffer_s_0_write;
-    sc_signal< sc_lv<64> > flashDemux_U0_flashKeyBuffer_V_V_din;
-    sc_signal< sc_logic > flashDemux_U0_flashKeyBuffer_V_V_write;
-    sc_signal< sc_lv<66> > flashDemux_U0_flashDemux2setPathVa_1_din;
-    sc_signal< sc_logic > flashDemux_U0_flashDemux2setPathVa_1_write;
-    sc_signal< sc_lv<48> > flashDemux_U0_flashDemux2setPathMe_1_din;
-    sc_signal< sc_logic > flashDemux_U0_flashDemux2setPathMe_1_write;
-    sc_signal< sc_lv<48> > flashDemux_U0_flashDemux2getPath_V_din;
-    sc_signal< sc_logic > flashDemux_U0_flashDemux2getPath_V_write;
-    sc_signal< sc_logic > flashDemux_U0_start_out;
-    sc_signal< sc_logic > flashDemux_U0_start_write;
-    sc_signal< sc_logic > flashSetPathNoFilter_U0_ap_start;
-    sc_signal< sc_logic > flashSetPathNoFilter_U0_ap_done;
-    sc_signal< sc_logic > flashSetPathNoFilter_U0_ap_continue;
-    sc_signal< sc_logic > flashSetPathNoFilter_U0_ap_idle;
-    sc_signal< sc_logic > flashSetPathNoFilter_U0_ap_ready;
-    sc_signal< sc_logic > flashSetPathNoFilter_U0_flashDemux2setPathMe_1_read;
-    sc_signal< sc_logic > flashSetPathNoFilter_U0_flashDemux2setPathVa_1_read;
-    sc_signal< sc_lv<48> > flashSetPathNoFilter_U0_memWrCmd_V_TDATA;
-    sc_signal< sc_logic > flashSetPathNoFilter_U0_memWrCmd_V_TVALID;
-    sc_signal< sc_lv<64> > flashSetPathNoFilter_U0_memWrData_V_V_TDATA;
-    sc_signal< sc_logic > flashSetPathNoFilter_U0_memWrData_V_V_TVALID;
-    sc_signal< sc_logic > flashDispatch_U0_ap_start;
-    sc_signal< sc_logic > flashDispatch_U0_ap_done;
-    sc_signal< sc_logic > flashDispatch_U0_ap_continue;
-    sc_signal< sc_logic > flashDispatch_U0_ap_idle;
-    sc_signal< sc_logic > flashDispatch_U0_ap_ready;
-    sc_signal< sc_logic > flashDispatch_U0_flashDemux2getPath_V_read;
-    sc_signal< sc_lv<16> > flashDispatch_U0_flash_Disp2rec_V_V_din;
-    sc_signal< sc_logic > flashDispatch_U0_flash_Disp2rec_V_V_write;
-    sc_signal< sc_lv<48> > flashDispatch_U0_memRdCmd_V_TDATA;
-    sc_signal< sc_logic > flashDispatch_U0_memRdCmd_V_TVALID;
-    sc_signal< sc_logic > flashReceiveNoFilter_U0_ap_start;
-    sc_signal< sc_logic > flashReceiveNoFilter_U0_ap_done;
-    sc_signal< sc_logic > flashReceiveNoFilter_U0_ap_continue;
-    sc_signal< sc_logic > flashReceiveNoFilter_U0_ap_idle;
-    sc_signal< sc_logic > flashReceiveNoFilter_U0_ap_ready;
-    sc_signal< sc_logic > flashReceiveNoFilter_U0_flash_Disp2rec_V_V_read;
-    sc_signal< sc_lv<64> > flashReceiveNoFilter_U0_flashGetPath2remux_V_din;
-    sc_signal< sc_logic > flashReceiveNoFilter_U0_flashGetPath2remux_V_write;
-    sc_signal< sc_logic > flashReceiveNoFilter_U0_start_out;
-    sc_signal< sc_logic > flashReceiveNoFilter_U0_start_write;
-    sc_signal< sc_logic > flashReceiveNoFilter_U0_memRdData_V_V_TREADY;
-    sc_signal< sc_logic > flashRemux_U0_ap_start;
-    sc_signal< sc_logic > flashRemux_U0_ap_done;
-    sc_signal< sc_logic > flashRemux_U0_ap_continue;
-    sc_signal< sc_logic > flashRemux_U0_ap_idle;
-    sc_signal< sc_logic > flashRemux_U0_ap_ready;
-    sc_signal< sc_logic > flashRemux_U0_flashKeyBuffer_V_V_read;
-    sc_signal< sc_logic > flashRemux_U0_flashGetPath2remux_V_read;
-    sc_signal< sc_logic > flashRemux_U0_flashMetadataBuffer_s_0_read;
-    sc_signal< sc_lv<256> > flashRemux_U0_valueStoreFlash2merg_1_din;
-    sc_signal< sc_logic > flashRemux_U0_valueStoreFlash2merg_1_write;
-    sc_signal< sc_logic > merger_U0_ap_start;
-    sc_signal< sc_logic > merger_U0_ap_done;
-    sc_signal< sc_logic > merger_U0_ap_continue;
-    sc_signal< sc_logic > merger_U0_ap_idle;
-    sc_signal< sc_logic > merger_U0_ap_ready;
-    sc_signal< sc_logic > merger_U0_valueStoreDram2merge_1_read;
-    sc_signal< sc_logic > merger_U0_valueStoreFlash2merg_1_read;
-    sc_signal< sc_lv<256> > merger_U0_merger2responseForma_1_din;
-    sc_signal< sc_logic > merger_U0_merger2responseForma_1_write;
-    sc_signal< sc_logic > merger_U0_start_out;
-    sc_signal< sc_logic > merger_U0_start_write;
     sc_signal< sc_logic > response_f_U0_ap_start;
     sc_signal< sc_logic > response_f_U0_ap_done;
     sc_signal< sc_logic > response_f_U0_ap_continue;
@@ -606,7 +470,7 @@ struct memcachedPipeline : public sc_module {
     sc_signal< sc_logic > response_f_U0_valueBuffer_rf_V_V_write;
     sc_signal< sc_lv<248> > response_f_U0_metadataBuffer_rf_V_s_din;
     sc_signal< sc_logic > response_f_U0_metadataBuffer_rf_V_s_write;
-    sc_signal< sc_logic > response_f_U0_merger2responseForma_1_read;
+    sc_signal< sc_logic > response_f_U0_valueStoreDram2merge_1_read;
     sc_signal< sc_logic > response_r_U0_ap_start;
     sc_signal< sc_logic > response_r_U0_ap_done;
     sc_signal< sc_logic > response_r_U0_ap_continue;
@@ -700,15 +564,9 @@ struct memcachedPipeline : public sc_module {
     sc_signal< sc_logic > memWr2out_V_full_n;
     sc_signal< sc_lv<57> > memWr2out_V_dout;
     sc_signal< sc_logic > memWr2out_V_empty_n;
-    sc_signal< sc_logic > hashTable2splitter_V_full_n;
-    sc_signal< sc_lv<256> > hashTable2splitter_V_dout;
-    sc_signal< sc_logic > hashTable2splitter_V_empty_n;
-    sc_signal< sc_logic > splitter2valueStoreF_1_full_n;
-    sc_signal< sc_lv<256> > splitter2valueStoreF_1_dout;
-    sc_signal< sc_logic > splitter2valueStoreF_1_empty_n;
-    sc_signal< sc_logic > splitter2valueStoreD_1_full_n;
-    sc_signal< sc_lv<256> > splitter2valueStoreD_1_dout;
-    sc_signal< sc_logic > splitter2valueStoreD_1_empty_n;
+    sc_signal< sc_logic > hashTable2Dram_V_full_n;
+    sc_signal< sc_lv<256> > hashTable2Dram_V_dout;
+    sc_signal< sc_logic > hashTable2Dram_V_empty_n;
     sc_signal< sc_logic > filterPopSet_V_V_full_n;
     sc_signal< sc_lv<1> > filterPopSet_V_V_dout;
     sc_signal< sc_logic > filterPopSet_V_V_empty_n;
@@ -742,33 +600,6 @@ struct memcachedPipeline : public sc_module {
     sc_signal< sc_logic > valueStoreDram2merge_1_full_n;
     sc_signal< sc_lv<256> > valueStoreDram2merge_1_dout;
     sc_signal< sc_logic > valueStoreDram2merge_1_empty_n;
-    sc_signal< sc_logic > flashMetadataBuffer_s_0_full_n;
-    sc_signal< sc_lv<128> > flashMetadataBuffer_s_0_dout;
-    sc_signal< sc_logic > flashMetadataBuffer_s_0_empty_n;
-    sc_signal< sc_logic > flashKeyBuffer_V_V_full_n;
-    sc_signal< sc_lv<64> > flashKeyBuffer_V_V_dout;
-    sc_signal< sc_logic > flashKeyBuffer_V_V_empty_n;
-    sc_signal< sc_logic > flashDemux2getPath_V_full_n;
-    sc_signal< sc_lv<48> > flashDemux2getPath_V_dout;
-    sc_signal< sc_logic > flashDemux2getPath_V_empty_n;
-    sc_signal< sc_logic > flashDemux2setPathMe_1_full_n;
-    sc_signal< sc_lv<48> > flashDemux2setPathMe_1_dout;
-    sc_signal< sc_logic > flashDemux2setPathMe_1_empty_n;
-    sc_signal< sc_logic > flashDemux2setPathVa_1_full_n;
-    sc_signal< sc_lv<66> > flashDemux2setPathVa_1_dout;
-    sc_signal< sc_logic > flashDemux2setPathVa_1_empty_n;
-    sc_signal< sc_logic > flash_Disp2rec_V_V_full_n;
-    sc_signal< sc_lv<16> > flash_Disp2rec_V_V_dout;
-    sc_signal< sc_logic > flash_Disp2rec_V_V_empty_n;
-    sc_signal< sc_logic > flashGetPath2remux_V_full_n;
-    sc_signal< sc_lv<64> > flashGetPath2remux_V_dout;
-    sc_signal< sc_logic > flashGetPath2remux_V_empty_n;
-    sc_signal< sc_logic > valueStoreFlash2merg_1_full_n;
-    sc_signal< sc_lv<256> > valueStoreFlash2merg_1_dout;
-    sc_signal< sc_logic > valueStoreFlash2merg_1_empty_n;
-    sc_signal< sc_logic > merger2responseForma_1_full_n;
-    sc_signal< sc_lv<256> > merger2responseForma_1_dout;
-    sc_signal< sc_logic > merger2responseForma_1_empty_n;
     sc_signal< sc_logic > valueBuffer_rf_V_V_full_n;
     sc_signal< sc_lv<64> > valueBuffer_rf_V_V_dout;
     sc_signal< sc_logic > valueBuffer_rf_V_V_empty_n;
@@ -811,18 +642,10 @@ struct memcachedPipeline : public sc_module {
     sc_signal< sc_logic > start_for_ht_outputLogic_U0_full_n;
     sc_signal< sc_lv<1> > start_for_ht_outputLogic_U0_dout;
     sc_signal< sc_logic > start_for_ht_outputLogic_U0_empty_n;
-    sc_signal< sc_lv<1> > start_for_splitter_U0_din;
-    sc_signal< sc_logic > start_for_splitter_U0_full_n;
-    sc_signal< sc_lv<1> > start_for_splitter_U0_dout;
-    sc_signal< sc_logic > start_for_splitter_U0_empty_n;
     sc_signal< sc_lv<1> > start_for_accessControl_U0_din;
     sc_signal< sc_logic > start_for_accessControl_U0_full_n;
     sc_signal< sc_lv<1> > start_for_accessControl_U0_dout;
     sc_signal< sc_logic > start_for_accessControl_U0_empty_n;
-    sc_signal< sc_lv<1> > start_for_flashDemux_U0_din;
-    sc_signal< sc_logic > start_for_flashDemux_U0_full_n;
-    sc_signal< sc_lv<1> > start_for_flashDemux_U0_dout;
-    sc_signal< sc_logic > start_for_flashDemux_U0_empty_n;
     sc_signal< sc_lv<1> > start_for_demux_U0_din;
     sc_signal< sc_logic > start_for_demux_U0_full_n;
     sc_signal< sc_lv<1> > start_for_demux_U0_dout;
@@ -843,28 +666,6 @@ struct memcachedPipeline : public sc_module {
     sc_signal< sc_logic > start_for_remux_U0_full_n;
     sc_signal< sc_lv<1> > start_for_remux_U0_dout;
     sc_signal< sc_logic > start_for_remux_U0_empty_n;
-    sc_signal< sc_lv<1> > start_for_merger_U0_din;
-    sc_signal< sc_logic > start_for_merger_U0_full_n;
-    sc_signal< sc_lv<1> > start_for_merger_U0_dout;
-    sc_signal< sc_logic > start_for_merger_U0_empty_n;
-    sc_signal< sc_lv<1> > start_for_flashSetPathNoFilter_U0_din;
-    sc_signal< sc_logic > start_for_flashSetPathNoFilter_U0_full_n;
-    sc_signal< sc_lv<1> > start_for_flashSetPathNoFilter_U0_dout;
-    sc_signal< sc_logic > start_for_flashSetPathNoFilter_U0_empty_n;
-    sc_signal< sc_lv<1> > start_for_flashDispatch_U0_din;
-    sc_signal< sc_logic > start_for_flashDispatch_U0_full_n;
-    sc_signal< sc_lv<1> > start_for_flashDispatch_U0_dout;
-    sc_signal< sc_logic > start_for_flashDispatch_U0_empty_n;
-    sc_signal< sc_logic > flashSetPathNoFilter_U0_start_full_n;
-    sc_signal< sc_logic > flashSetPathNoFilter_U0_start_write;
-    sc_signal< sc_logic > flashDispatch_U0_start_full_n;
-    sc_signal< sc_logic > flashDispatch_U0_start_write;
-    sc_signal< sc_lv<1> > start_for_flashRemux_U0_din;
-    sc_signal< sc_logic > start_for_flashRemux_U0_full_n;
-    sc_signal< sc_lv<1> > start_for_flashRemux_U0_dout;
-    sc_signal< sc_logic > start_for_flashRemux_U0_empty_n;
-    sc_signal< sc_logic > flashRemux_U0_start_full_n;
-    sc_signal< sc_logic > flashRemux_U0_start_write;
     sc_signal< sc_lv<1> > start_for_response_f_U0_din;
     sc_signal< sc_logic > start_for_response_f_U0_full_n;
     sc_signal< sc_lv<1> > start_for_response_f_U0_dout;
@@ -881,7 +682,6 @@ struct memcachedPipeline : public sc_module {
     static const sc_lv<1> ap_const_lv1_0;
     static const sc_lv<40> ap_const_lv40_0;
     static const sc_lv<512> ap_const_lv512_lc_1;
-    static const sc_lv<48> ap_const_lv48_0;
     static const sc_lv<32> ap_const_lv32_0;
     static const sc_logic ap_const_logic_1;
     static const sc_logic ap_const_logic_0;
@@ -899,8 +699,8 @@ struct memcachedPipeline : public sc_module {
     void thread_bobj_U0_ap_start();
     void thread_bobj_U0_start_full_n();
     void thread_bobj_U0_start_write();
-    void thread_bp_f1192_U0_ap_continue();
-    void thread_bp_f1192_U0_ap_start();
+    void thread_bp_f1244_U0_ap_continue();
+    void thread_bp_f1244_U0_ap_start();
     void thread_bp_r_U0_ap_continue();
     void thread_bp_r_U0_ap_start();
     void thread_concurrencyControl_U0_ap_continue();
@@ -919,30 +719,6 @@ struct memcachedPipeline : public sc_module {
     void thread_dramValueStoreMemWrCmd_V_TVALID();
     void thread_dramValueStoreMemWrData_V_V_TDATA();
     void thread_dramValueStoreMemWrData_V_V_TVALID();
-    void thread_flashDemux_U0_ap_continue();
-    void thread_flashDemux_U0_ap_start();
-    void thread_flashDemux_U0_start_full_n();
-    void thread_flashDispatch_U0_ap_continue();
-    void thread_flashDispatch_U0_ap_start();
-    void thread_flashDispatch_U0_start_full_n();
-    void thread_flashDispatch_U0_start_write();
-    void thread_flashReceiveNoFilter_U0_ap_continue();
-    void thread_flashReceiveNoFilter_U0_ap_start();
-    void thread_flashRemux_U0_ap_continue();
-    void thread_flashRemux_U0_ap_start();
-    void thread_flashRemux_U0_start_full_n();
-    void thread_flashRemux_U0_start_write();
-    void thread_flashSetPathNoFilter_U0_ap_continue();
-    void thread_flashSetPathNoFilter_U0_ap_start();
-    void thread_flashSetPathNoFilter_U0_start_full_n();
-    void thread_flashSetPathNoFilter_U0_start_write();
-    void thread_flashValueStoreMemRdCmd_V_TDATA();
-    void thread_flashValueStoreMemRdCmd_V_TVALID();
-    void thread_flashValueStoreMemRdData_V_V_TREADY();
-    void thread_flashValueStoreMemWrCmd_V_TDATA();
-    void thread_flashValueStoreMemWrCmd_V_TVALID();
-    void thread_flashValueStoreMemWrData_V_V_TDATA();
-    void thread_flashValueStoreMemWrData_V_V_TVALID();
     void thread_flushDone_V();
     void thread_flushReq_V();
     void thread_hashKeyResizer_U0_ap_continue();
@@ -974,8 +750,6 @@ struct memcachedPipeline : public sc_module {
     void thread_memcachedPipeline_en_U0_ap_start();
     void thread_memcachedPipeline_en_U0_start_full_n();
     void thread_memcachedPipeline_en_U0_start_write();
-    void thread_merger_U0_ap_continue();
-    void thread_merger_U0_ap_start();
     void thread_outData_TDATA();
     void thread_outData_TKEEP();
     void thread_outData_TLAST();
@@ -995,29 +769,20 @@ struct memcachedPipeline : public sc_module {
     void thread_setPath_U0_ap_start();
     void thread_setPath_U0_start_full_n();
     void thread_setPath_U0_start_write();
-    void thread_splitter_U0_ap_continue();
-    void thread_splitter_U0_ap_start();
-    void thread_splitter_U0_start_full_n();
     void thread_start_for_accessControl_U0_din();
     void thread_start_for_bobj_U0_din();
     void thread_start_for_bp_r_U0_din();
     void thread_start_for_concurrencyControl_U0_din();
     void thread_start_for_demux_U0_din();
     void thread_start_for_dispatch_U0_din();
-    void thread_start_for_flashDemux_U0_din();
-    void thread_start_for_flashDispatch_U0_din();
-    void thread_start_for_flashRemux_U0_din();
-    void thread_start_for_flashSetPathNoFilter_U0_din();
     void thread_start_for_hashKeyResizer_U0_din();
     void thread_start_for_ht_inputLogic_U0_din();
     void thread_start_for_ht_outputLogic_U0_din();
     void thread_start_for_memRead_U0_din();
-    void thread_start_for_merger_U0_din();
     void thread_start_for_remux_U0_din();
     void thread_start_for_response_f_U0_din();
     void thread_start_for_response_r_U0_din();
     void thread_start_for_setPath_U0_din();
-    void thread_start_for_splitter_U0_din();
     void thread_hdltv_gen();
 };
 

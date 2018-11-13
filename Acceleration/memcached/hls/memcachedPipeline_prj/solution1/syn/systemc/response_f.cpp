@@ -46,7 +46,7 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_done_reg );
     sensitive << ( valueBuffer_rf_V_V_full_n );
     sensitive << ( metadataBuffer_rf_V_s_full_n );
-    sensitive << ( merger2responseForma_1_empty_n );
+    sensitive << ( valueStoreDram2merge_1_empty_n );
     sensitive << ( ap_predicate_op12_read_state1 );
     sensitive << ( ap_predicate_op30_write_state1 );
     sensitive << ( ap_predicate_op37_write_state1 );
@@ -54,11 +54,11 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_ap_condition_141);
     sensitive << ( ap_CS_fsm_state1 );
-    sensitive << ( tmp_nbwritereq_fu_72_p3 );
-    sensitive << ( tmp_7_nbwritereq_fu_80_p3 );
-    sensitive << ( tmp_8_nbreadreq_fu_88_p3 );
-    sensitive << ( or_cond_i_fu_212_p2 );
-    sensitive << ( tmp_i_fu_206_p2 );
+    sensitive << ( tmp_nbwritereq_fu_106_p3 );
+    sensitive << ( tmp_7_nbwritereq_fu_114_p3 );
+    sensitive << ( tmp_8_nbreadreq_fu_122_p3 );
+    sensitive << ( or_cond_i_fu_246_p2 );
+    sensitive << ( tmp_i_fu_240_p2 );
 
     SC_METHOD(thread_ap_condition_238);
     sensitive << ( real_start );
@@ -66,25 +66,25 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( valueBuffer_rf_V_V_full_n );
     sensitive << ( metadataBuffer_rf_V_s_full_n );
-    sensitive << ( merger2responseForma_1_empty_n );
-    sensitive << ( tmp_nbwritereq_fu_72_p3 );
-    sensitive << ( tmp_7_nbwritereq_fu_80_p3 );
-    sensitive << ( tmp_8_nbreadreq_fu_88_p3 );
+    sensitive << ( valueStoreDram2merge_1_empty_n );
+    sensitive << ( tmp_nbwritereq_fu_106_p3 );
+    sensitive << ( tmp_7_nbwritereq_fu_114_p3 );
+    sensitive << ( tmp_8_nbreadreq_fu_122_p3 );
     sensitive << ( ap_predicate_op12_read_state1 );
     sensitive << ( ap_predicate_op30_write_state1 );
     sensitive << ( ap_predicate_op37_write_state1 );
     sensitive << ( ap_predicate_op45_write_state1 );
 
     SC_METHOD(thread_ap_condition_239);
-    sensitive << ( or_cond_i_fu_212_p2 );
-    sensitive << ( tmp_i_fu_206_p2 );
-    sensitive << ( tmp_96_fu_222_p3 );
+    sensitive << ( or_cond_i_fu_246_p2 );
+    sensitive << ( tmp_i_fu_240_p2 );
+    sensitive << ( tmp_96_fu_256_p3 );
 
     SC_METHOD(thread_ap_condition_88);
     sensitive << ( ap_CS_fsm_state1 );
-    sensitive << ( tmp_nbwritereq_fu_72_p3 );
-    sensitive << ( tmp_7_nbwritereq_fu_80_p3 );
-    sensitive << ( tmp_8_nbreadreq_fu_88_p3 );
+    sensitive << ( tmp_nbwritereq_fu_106_p3 );
+    sensitive << ( tmp_7_nbwritereq_fu_114_p3 );
+    sensitive << ( tmp_8_nbreadreq_fu_122_p3 );
 
     SC_METHOD(thread_ap_done);
     sensitive << ( real_start );
@@ -92,7 +92,7 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( valueBuffer_rf_V_V_full_n );
     sensitive << ( metadataBuffer_rf_V_s_full_n );
-    sensitive << ( merger2responseForma_1_empty_n );
+    sensitive << ( valueStoreDram2merge_1_empty_n );
     sensitive << ( ap_predicate_op12_read_state1 );
     sensitive << ( ap_predicate_op30_write_state1 );
     sensitive << ( ap_predicate_op37_write_state1 );
@@ -102,50 +102,50 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( real_start );
     sensitive << ( ap_CS_fsm_state1 );
 
-    SC_METHOD(thread_ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6);
-    sensitive << ( or_cond_i_fu_212_p2 );
-    sensitive << ( tmp_i_fu_206_p2 );
-    sensitive << ( p_inWordCounter_V_fla_fu_262_p2 );
+    SC_METHOD(thread_ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6);
+    sensitive << ( or_cond_i_fu_246_p2 );
+    sensitive << ( tmp_i_fu_240_p2 );
+    sensitive << ( p_inWordCounter_V_fla_fu_296_p2 );
     sensitive << ( ap_condition_88 );
 
-    SC_METHOD(thread_ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4);
-    sensitive << ( tmp_96_fu_222_p3 );
+    SC_METHOD(thread_ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4);
+    sensitive << ( tmp_96_fu_256_p3 );
     sensitive << ( ap_condition_141 );
 
-    SC_METHOD(thread_ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6);
-    sensitive << ( or_cond_i_fu_212_p2 );
-    sensitive << ( tmp_i_fu_206_p2 );
-    sensitive << ( p_inWordCounter_V_new_fu_269_p3 );
+    SC_METHOD(thread_ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6);
+    sensitive << ( or_cond_i_fu_246_p2 );
+    sensitive << ( tmp_i_fu_240_p2 );
+    sensitive << ( p_inWordCounter_V_new_fu_303_p3 );
     sensitive << ( ap_condition_88 );
 
     SC_METHOD(thread_ap_predicate_op12_read_state1);
-    sensitive << ( tmp_nbwritereq_fu_72_p3 );
-    sensitive << ( tmp_7_nbwritereq_fu_80_p3 );
-    sensitive << ( tmp_8_nbreadreq_fu_88_p3 );
+    sensitive << ( tmp_nbwritereq_fu_106_p3 );
+    sensitive << ( tmp_7_nbwritereq_fu_114_p3 );
+    sensitive << ( tmp_8_nbreadreq_fu_122_p3 );
 
     SC_METHOD(thread_ap_predicate_op30_write_state1);
-    sensitive << ( tmp_nbwritereq_fu_72_p3 );
-    sensitive << ( tmp_7_nbwritereq_fu_80_p3 );
-    sensitive << ( tmp_8_nbreadreq_fu_88_p3 );
-    sensitive << ( or_cond_i_fu_212_p2 );
-    sensitive << ( tmp_i_fu_206_p2 );
-    sensitive << ( tmp_96_fu_222_p3 );
-    sensitive << ( tmp_53_i_fu_249_p2 );
+    sensitive << ( tmp_nbwritereq_fu_106_p3 );
+    sensitive << ( tmp_7_nbwritereq_fu_114_p3 );
+    sensitive << ( tmp_8_nbreadreq_fu_122_p3 );
+    sensitive << ( or_cond_i_fu_246_p2 );
+    sensitive << ( tmp_i_fu_240_p2 );
+    sensitive << ( tmp_96_fu_256_p3 );
+    sensitive << ( tmp_53_i_fu_283_p2 );
 
     SC_METHOD(thread_ap_predicate_op37_write_state1);
-    sensitive << ( tmp_nbwritereq_fu_72_p3 );
-    sensitive << ( tmp_7_nbwritereq_fu_80_p3 );
-    sensitive << ( tmp_8_nbreadreq_fu_88_p3 );
-    sensitive << ( or_cond_i_fu_212_p2 );
-    sensitive << ( tmp_94_fu_175_p3 );
-    sensitive << ( tmp_i_fu_206_p2 );
+    sensitive << ( tmp_nbwritereq_fu_106_p3 );
+    sensitive << ( tmp_7_nbwritereq_fu_114_p3 );
+    sensitive << ( tmp_8_nbreadreq_fu_122_p3 );
+    sensitive << ( or_cond_i_fu_246_p2 );
+    sensitive << ( tmp_94_fu_209_p3 );
+    sensitive << ( tmp_i_fu_240_p2 );
 
     SC_METHOD(thread_ap_predicate_op45_write_state1);
-    sensitive << ( tmp_nbwritereq_fu_72_p3 );
-    sensitive << ( tmp_7_nbwritereq_fu_80_p3 );
-    sensitive << ( tmp_8_nbreadreq_fu_88_p3 );
-    sensitive << ( or_cond_i_fu_212_p2 );
-    sensitive << ( tmp_94_fu_175_p3 );
+    sensitive << ( tmp_nbwritereq_fu_106_p3 );
+    sensitive << ( tmp_7_nbwritereq_fu_114_p3 );
+    sensitive << ( tmp_8_nbreadreq_fu_122_p3 );
+    sensitive << ( or_cond_i_fu_246_p2 );
+    sensitive << ( tmp_94_fu_209_p3 );
 
     SC_METHOD(thread_ap_ready);
     sensitive << ( internal_ap_ready );
@@ -156,26 +156,7 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( valueBuffer_rf_V_V_full_n );
     sensitive << ( metadataBuffer_rf_V_s_full_n );
-    sensitive << ( merger2responseForma_1_empty_n );
-    sensitive << ( ap_predicate_op12_read_state1 );
-    sensitive << ( ap_predicate_op30_write_state1 );
-    sensitive << ( ap_predicate_op37_write_state1 );
-    sensitive << ( ap_predicate_op45_write_state1 );
-
-    SC_METHOD(thread_merger2responseForma_1_blk_n);
-    sensitive << ( ap_CS_fsm_state1 );
-    sensitive << ( merger2responseForma_1_empty_n );
-    sensitive << ( tmp_nbwritereq_fu_72_p3 );
-    sensitive << ( tmp_7_nbwritereq_fu_80_p3 );
-    sensitive << ( tmp_8_nbreadreq_fu_88_p3 );
-
-    SC_METHOD(thread_merger2responseForma_1_read);
-    sensitive << ( real_start );
-    sensitive << ( ap_done_reg );
-    sensitive << ( ap_CS_fsm_state1 );
-    sensitive << ( valueBuffer_rf_V_V_full_n );
-    sensitive << ( metadataBuffer_rf_V_s_full_n );
-    sensitive << ( merger2responseForma_1_empty_n );
+    sensitive << ( valueStoreDram2merge_1_empty_n );
     sensitive << ( ap_predicate_op12_read_state1 );
     sensitive << ( ap_predicate_op30_write_state1 );
     sensitive << ( ap_predicate_op37_write_state1 );
@@ -184,13 +165,13 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_metadataBuffer_rf_V_s_blk_n);
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( metadataBuffer_rf_V_s_full_n );
-    sensitive << ( tmp_nbwritereq_fu_72_p3 );
-    sensitive << ( tmp_7_nbwritereq_fu_80_p3 );
-    sensitive << ( tmp_8_nbreadreq_fu_88_p3 );
-    sensitive << ( or_cond_i_fu_212_p2 );
-    sensitive << ( tmp_i_fu_206_p2 );
-    sensitive << ( tmp_96_fu_222_p3 );
-    sensitive << ( tmp_53_i_fu_249_p2 );
+    sensitive << ( tmp_nbwritereq_fu_106_p3 );
+    sensitive << ( tmp_7_nbwritereq_fu_114_p3 );
+    sensitive << ( tmp_8_nbreadreq_fu_122_p3 );
+    sensitive << ( or_cond_i_fu_246_p2 );
+    sensitive << ( tmp_i_fu_240_p2 );
+    sensitive << ( tmp_96_fu_256_p3 );
+    sensitive << ( tmp_53_i_fu_283_p2 );
 
     SC_METHOD(thread_metadataBuffer_rf_V_s_din);
     sensitive << ( real_start );
@@ -198,13 +179,13 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( valueBuffer_rf_V_V_full_n );
     sensitive << ( metadataBuffer_rf_V_s_full_n );
-    sensitive << ( merger2responseForma_1_empty_n );
+    sensitive << ( valueStoreDram2merge_1_empty_n );
     sensitive << ( bf_metadataTempBuffe );
     sensitive << ( ap_predicate_op12_read_state1 );
     sensitive << ( ap_predicate_op30_write_state1 );
     sensitive << ( ap_predicate_op37_write_state1 );
     sensitive << ( ap_predicate_op45_write_state1 );
-    sensitive << ( tmp_92_fu_163_p1 );
+    sensitive << ( tmp_92_fu_197_p1 );
 
     SC_METHOD(thread_metadataBuffer_rf_V_s_write);
     sensitive << ( real_start );
@@ -212,31 +193,31 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( valueBuffer_rf_V_V_full_n );
     sensitive << ( metadataBuffer_rf_V_s_full_n );
-    sensitive << ( merger2responseForma_1_empty_n );
+    sensitive << ( valueStoreDram2merge_1_empty_n );
     sensitive << ( ap_predicate_op12_read_state1 );
     sensitive << ( ap_predicate_op30_write_state1 );
     sensitive << ( ap_predicate_op37_write_state1 );
     sensitive << ( ap_predicate_op45_write_state1 );
 
-    SC_METHOD(thread_or_cond_i_fu_212_p2);
-    sensitive << ( tmp_i_fu_206_p2 );
-    sensitive << ( tmp_93_fu_167_p3 );
+    SC_METHOD(thread_or_cond_i_fu_246_p2);
+    sensitive << ( tmp_i_fu_240_p2 );
+    sensitive << ( tmp_93_fu_201_p3 );
 
-    SC_METHOD(thread_p_Result_12_fu_230_p5);
+    SC_METHOD(thread_p_Result_12_fu_264_p5);
     sensitive << ( bf_metadataTempBuffe );
-    sensitive << ( tmp_92_fu_163_p1 );
+    sensitive << ( tmp_92_fu_197_p1 );
 
-    SC_METHOD(thread_p_Result_s_fu_278_p5);
+    SC_METHOD(thread_p_Result_s_fu_312_p5);
     sensitive << ( bf_metadataTempBuffe );
-    sensitive << ( tmp_92_fu_163_p1 );
+    sensitive << ( tmp_92_fu_197_p1 );
 
-    SC_METHOD(thread_p_inWordCounter_V_fla_fu_262_p2);
-    sensitive << ( ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4 );
-    sensitive << ( tmp_95_fu_183_p3 );
+    SC_METHOD(thread_p_inWordCounter_V_fla_fu_296_p2);
+    sensitive << ( ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4 );
+    sensitive << ( tmp_95_fu_217_p3 );
 
-    SC_METHOD(thread_p_inWordCounter_V_new_fu_269_p3);
-    sensitive << ( tmp_54_i_fu_255_p2 );
-    sensitive << ( tmp_95_fu_183_p3 );
+    SC_METHOD(thread_p_inWordCounter_V_new_fu_303_p3);
+    sensitive << ( tmp_54_i_fu_289_p2 );
+    sensitive << ( tmp_95_fu_217_p3 );
 
     SC_METHOD(thread_real_start);
     sensitive << ( ap_start );
@@ -250,74 +231,74 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( real_start );
     sensitive << ( start_once_reg );
 
-    SC_METHOD(thread_tmp_53_i_fu_249_p2);
+    SC_METHOD(thread_tmp_53_i_fu_283_p2);
     sensitive << ( real_start );
     sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( valueBuffer_rf_V_V_full_n );
     sensitive << ( metadataBuffer_rf_V_s_full_n );
-    sensitive << ( merger2responseForma_1_empty_n );
+    sensitive << ( valueStoreDram2merge_1_empty_n );
     sensitive << ( inWordCounter_V );
-    sensitive << ( tmp_nbwritereq_fu_72_p3 );
-    sensitive << ( tmp_7_nbwritereq_fu_80_p3 );
-    sensitive << ( tmp_8_nbreadreq_fu_88_p3 );
-    sensitive << ( or_cond_i_fu_212_p2 );
-    sensitive << ( tmp_i_fu_206_p2 );
-    sensitive << ( tmp_96_fu_222_p3 );
+    sensitive << ( tmp_nbwritereq_fu_106_p3 );
+    sensitive << ( tmp_7_nbwritereq_fu_114_p3 );
+    sensitive << ( tmp_8_nbreadreq_fu_122_p3 );
+    sensitive << ( or_cond_i_fu_246_p2 );
+    sensitive << ( tmp_i_fu_240_p2 );
+    sensitive << ( tmp_96_fu_256_p3 );
     sensitive << ( ap_predicate_op12_read_state1 );
     sensitive << ( ap_predicate_op30_write_state1 );
     sensitive << ( ap_predicate_op37_write_state1 );
     sensitive << ( ap_predicate_op45_write_state1 );
 
-    SC_METHOD(thread_tmp_54_i_fu_255_p2);
+    SC_METHOD(thread_tmp_54_i_fu_289_p2);
     sensitive << ( inWordCounter_V );
 
-    SC_METHOD(thread_tmp_7_nbwritereq_fu_80_p3);
+    SC_METHOD(thread_tmp_7_nbwritereq_fu_114_p3);
     sensitive << ( metadataBuffer_rf_V_s_full_n );
 
-    SC_METHOD(thread_tmp_8_nbreadreq_fu_88_p3);
-    sensitive << ( merger2responseForma_1_empty_n );
+    SC_METHOD(thread_tmp_8_nbreadreq_fu_122_p3);
+    sensitive << ( valueStoreDram2merge_1_empty_n );
 
-    SC_METHOD(thread_tmp_92_fu_163_p1);
-    sensitive << ( merger2responseForma_1_dout );
+    SC_METHOD(thread_tmp_92_fu_197_p1);
+    sensitive << ( valueStoreDram2merge_1_dout );
 
-    SC_METHOD(thread_tmp_93_fu_167_p3);
-    sensitive << ( merger2responseForma_1_dout );
+    SC_METHOD(thread_tmp_93_fu_201_p3);
+    sensitive << ( valueStoreDram2merge_1_dout );
 
-    SC_METHOD(thread_tmp_94_fu_175_p3);
-    sensitive << ( merger2responseForma_1_dout );
+    SC_METHOD(thread_tmp_94_fu_209_p3);
+    sensitive << ( valueStoreDram2merge_1_dout );
 
-    SC_METHOD(thread_tmp_95_fu_183_p3);
-    sensitive << ( merger2responseForma_1_dout );
+    SC_METHOD(thread_tmp_95_fu_217_p3);
+    sensitive << ( valueStoreDram2merge_1_dout );
 
-    SC_METHOD(thread_tmp_96_fu_222_p3);
+    SC_METHOD(thread_tmp_96_fu_256_p3);
     sensitive << ( inWordCounter_V );
 
-    SC_METHOD(thread_tmp_i_fu_206_p2);
+    SC_METHOD(thread_tmp_i_fu_240_p2);
     sensitive << ( real_start );
     sensitive << ( ap_done_reg );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( valueBuffer_rf_V_V_full_n );
     sensitive << ( metadataBuffer_rf_V_s_full_n );
-    sensitive << ( merger2responseForma_1_empty_n );
+    sensitive << ( valueStoreDram2merge_1_empty_n );
     sensitive << ( inWordCounter_V );
     sensitive << ( ap_predicate_op12_read_state1 );
     sensitive << ( ap_predicate_op30_write_state1 );
     sensitive << ( ap_predicate_op37_write_state1 );
     sensitive << ( ap_predicate_op45_write_state1 );
 
-    SC_METHOD(thread_tmp_nbwritereq_fu_72_p3);
+    SC_METHOD(thread_tmp_nbwritereq_fu_106_p3);
     sensitive << ( valueBuffer_rf_V_V_full_n );
 
     SC_METHOD(thread_valueBuffer_rf_V_V_blk_n);
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( valueBuffer_rf_V_V_full_n );
-    sensitive << ( tmp_nbwritereq_fu_72_p3 );
-    sensitive << ( tmp_7_nbwritereq_fu_80_p3 );
-    sensitive << ( tmp_8_nbreadreq_fu_88_p3 );
-    sensitive << ( or_cond_i_fu_212_p2 );
-    sensitive << ( tmp_94_fu_175_p3 );
-    sensitive << ( tmp_i_fu_206_p2 );
+    sensitive << ( tmp_nbwritereq_fu_106_p3 );
+    sensitive << ( tmp_7_nbwritereq_fu_114_p3 );
+    sensitive << ( tmp_8_nbreadreq_fu_122_p3 );
+    sensitive << ( or_cond_i_fu_246_p2 );
+    sensitive << ( tmp_94_fu_209_p3 );
+    sensitive << ( tmp_i_fu_240_p2 );
 
     SC_METHOD(thread_valueBuffer_rf_V_V_din);
     sensitive << ( real_start );
@@ -325,8 +306,8 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( valueBuffer_rf_V_V_full_n );
     sensitive << ( metadataBuffer_rf_V_s_full_n );
-    sensitive << ( merger2responseForma_1_dout );
-    sensitive << ( merger2responseForma_1_empty_n );
+    sensitive << ( valueStoreDram2merge_1_dout );
+    sensitive << ( valueStoreDram2merge_1_empty_n );
     sensitive << ( ap_predicate_op12_read_state1 );
     sensitive << ( ap_predicate_op30_write_state1 );
     sensitive << ( ap_predicate_op37_write_state1 );
@@ -338,7 +319,26 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( valueBuffer_rf_V_V_full_n );
     sensitive << ( metadataBuffer_rf_V_s_full_n );
-    sensitive << ( merger2responseForma_1_empty_n );
+    sensitive << ( valueStoreDram2merge_1_empty_n );
+    sensitive << ( ap_predicate_op12_read_state1 );
+    sensitive << ( ap_predicate_op30_write_state1 );
+    sensitive << ( ap_predicate_op37_write_state1 );
+    sensitive << ( ap_predicate_op45_write_state1 );
+
+    SC_METHOD(thread_valueStoreDram2merge_1_blk_n);
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( valueStoreDram2merge_1_empty_n );
+    sensitive << ( tmp_nbwritereq_fu_106_p3 );
+    sensitive << ( tmp_7_nbwritereq_fu_114_p3 );
+    sensitive << ( tmp_8_nbreadreq_fu_122_p3 );
+
+    SC_METHOD(thread_valueStoreDram2merge_1_read);
+    sensitive << ( real_start );
+    sensitive << ( ap_done_reg );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( valueBuffer_rf_V_V_full_n );
+    sensitive << ( metadataBuffer_rf_V_s_full_n );
+    sensitive << ( valueStoreDram2merge_1_empty_n );
     sensitive << ( ap_predicate_op12_read_state1 );
     sensitive << ( ap_predicate_op30_write_state1 );
     sensitive << ( ap_predicate_op37_write_state1 );
@@ -351,7 +351,7 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( valueBuffer_rf_V_V_full_n );
     sensitive << ( metadataBuffer_rf_V_s_full_n );
-    sensitive << ( merger2responseForma_1_empty_n );
+    sensitive << ( valueStoreDram2merge_1_empty_n );
     sensitive << ( ap_predicate_op12_read_state1 );
     sensitive << ( ap_predicate_op30_write_state1 );
     sensitive << ( ap_predicate_op37_write_state1 );
@@ -386,9 +386,9 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, metadataBuffer_rf_V_s_din, "(port)metadataBuffer_rf_V_s_din");
     sc_trace(mVcdFile, metadataBuffer_rf_V_s_full_n, "(port)metadataBuffer_rf_V_s_full_n");
     sc_trace(mVcdFile, metadataBuffer_rf_V_s_write, "(port)metadataBuffer_rf_V_s_write");
-    sc_trace(mVcdFile, merger2responseForma_1_dout, "(port)merger2responseForma_1_dout");
-    sc_trace(mVcdFile, merger2responseForma_1_empty_n, "(port)merger2responseForma_1_empty_n");
-    sc_trace(mVcdFile, merger2responseForma_1_read, "(port)merger2responseForma_1_read");
+    sc_trace(mVcdFile, valueStoreDram2merge_1_dout, "(port)valueStoreDram2merge_1_dout");
+    sc_trace(mVcdFile, valueStoreDram2merge_1_empty_n, "(port)valueStoreDram2merge_1_empty_n");
+    sc_trace(mVcdFile, valueStoreDram2merge_1_read, "(port)valueStoreDram2merge_1_read");
 #endif
 #ifdef __HLS_TRACE_LEVEL_INT__
     sc_trace(mVcdFile, real_start, "real_start");
@@ -400,32 +400,32 @@ response_f::response_f(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, inWordCounter_V, "inWordCounter_V");
     sc_trace(mVcdFile, bf_metadataTempBuffe, "bf_metadataTempBuffe");
     sc_trace(mVcdFile, valueBuffer_rf_V_V_blk_n, "valueBuffer_rf_V_V_blk_n");
-    sc_trace(mVcdFile, tmp_nbwritereq_fu_72_p3, "tmp_nbwritereq_fu_72_p3");
-    sc_trace(mVcdFile, tmp_7_nbwritereq_fu_80_p3, "tmp_7_nbwritereq_fu_80_p3");
-    sc_trace(mVcdFile, tmp_8_nbreadreq_fu_88_p3, "tmp_8_nbreadreq_fu_88_p3");
-    sc_trace(mVcdFile, or_cond_i_fu_212_p2, "or_cond_i_fu_212_p2");
-    sc_trace(mVcdFile, tmp_94_fu_175_p3, "tmp_94_fu_175_p3");
-    sc_trace(mVcdFile, tmp_i_fu_206_p2, "tmp_i_fu_206_p2");
+    sc_trace(mVcdFile, tmp_nbwritereq_fu_106_p3, "tmp_nbwritereq_fu_106_p3");
+    sc_trace(mVcdFile, tmp_7_nbwritereq_fu_114_p3, "tmp_7_nbwritereq_fu_114_p3");
+    sc_trace(mVcdFile, tmp_8_nbreadreq_fu_122_p3, "tmp_8_nbreadreq_fu_122_p3");
+    sc_trace(mVcdFile, or_cond_i_fu_246_p2, "or_cond_i_fu_246_p2");
+    sc_trace(mVcdFile, tmp_94_fu_209_p3, "tmp_94_fu_209_p3");
+    sc_trace(mVcdFile, tmp_i_fu_240_p2, "tmp_i_fu_240_p2");
     sc_trace(mVcdFile, metadataBuffer_rf_V_s_blk_n, "metadataBuffer_rf_V_s_blk_n");
-    sc_trace(mVcdFile, tmp_96_fu_222_p3, "tmp_96_fu_222_p3");
-    sc_trace(mVcdFile, tmp_53_i_fu_249_p2, "tmp_53_i_fu_249_p2");
-    sc_trace(mVcdFile, merger2responseForma_1_blk_n, "merger2responseForma_1_blk_n");
-    sc_trace(mVcdFile, ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4, "ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4");
+    sc_trace(mVcdFile, tmp_96_fu_256_p3, "tmp_96_fu_256_p3");
+    sc_trace(mVcdFile, tmp_53_i_fu_283_p2, "tmp_53_i_fu_283_p2");
+    sc_trace(mVcdFile, valueStoreDram2merge_1_blk_n, "valueStoreDram2merge_1_blk_n");
+    sc_trace(mVcdFile, ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4, "ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4");
     sc_trace(mVcdFile, ap_predicate_op12_read_state1, "ap_predicate_op12_read_state1");
     sc_trace(mVcdFile, ap_predicate_op30_write_state1, "ap_predicate_op30_write_state1");
     sc_trace(mVcdFile, ap_predicate_op37_write_state1, "ap_predicate_op37_write_state1");
     sc_trace(mVcdFile, ap_predicate_op45_write_state1, "ap_predicate_op45_write_state1");
     sc_trace(mVcdFile, ap_block_state1, "ap_block_state1");
-    sc_trace(mVcdFile, tmp_54_i_fu_255_p2, "tmp_54_i_fu_255_p2");
-    sc_trace(mVcdFile, ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6, "ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6");
-    sc_trace(mVcdFile, p_inWordCounter_V_fla_fu_262_p2, "p_inWordCounter_V_fla_fu_262_p2");
-    sc_trace(mVcdFile, ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6, "ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6");
-    sc_trace(mVcdFile, p_inWordCounter_V_new_fu_269_p3, "p_inWordCounter_V_new_fu_269_p3");
-    sc_trace(mVcdFile, p_Result_12_fu_230_p5, "p_Result_12_fu_230_p5");
-    sc_trace(mVcdFile, p_Result_s_fu_278_p5, "p_Result_s_fu_278_p5");
-    sc_trace(mVcdFile, tmp_93_fu_167_p3, "tmp_93_fu_167_p3");
-    sc_trace(mVcdFile, tmp_92_fu_163_p1, "tmp_92_fu_163_p1");
-    sc_trace(mVcdFile, tmp_95_fu_183_p3, "tmp_95_fu_183_p3");
+    sc_trace(mVcdFile, tmp_54_i_fu_289_p2, "tmp_54_i_fu_289_p2");
+    sc_trace(mVcdFile, ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6, "ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6");
+    sc_trace(mVcdFile, p_inWordCounter_V_fla_fu_296_p2, "p_inWordCounter_V_fla_fu_296_p2");
+    sc_trace(mVcdFile, ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6, "ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6");
+    sc_trace(mVcdFile, p_inWordCounter_V_new_fu_303_p3, "p_inWordCounter_V_new_fu_303_p3");
+    sc_trace(mVcdFile, p_Result_12_fu_264_p5, "p_Result_12_fu_264_p5");
+    sc_trace(mVcdFile, p_Result_s_fu_312_p5, "p_Result_s_fu_312_p5");
+    sc_trace(mVcdFile, tmp_93_fu_201_p3, "tmp_93_fu_201_p3");
+    sc_trace(mVcdFile, tmp_92_fu_197_p1, "tmp_92_fu_197_p1");
+    sc_trace(mVcdFile, tmp_95_fu_217_p3, "tmp_95_fu_217_p3");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
     sc_trace(mVcdFile, ap_condition_88, "ap_condition_88");
     sc_trace(mVcdFile, ap_condition_141, "ap_condition_141");
@@ -454,7 +454,7 @@ void response_f::thread_ap_clk_pos_reset_() {
         if (esl_seteq<1,1,1>(ap_const_logic_1, ap_continue.read())) {
             ap_done_reg = ap_const_logic_0;
         } else if ((!(esl_seteq<1,1,1>(real_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || (esl_seteq<1,1,1>(metadataBuffer_rf_V_s_full_n.read(), ap_const_logic_0) && 
-  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(merger2responseForma_1_empty_n.read(), ap_const_logic_0) && 
+  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueStoreDram2merge_1_empty_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op12_read_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op45_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op37_write_state1.read(), ap_const_boolean_1))) && 
@@ -466,10 +466,10 @@ void response_f::thread_ap_clk_pos_reset_() {
         bf_metadataTempBuffe = ap_const_lv248_lc_1;
     } else {
         if (esl_seteq<1,1,1>(ap_condition_238.read(), ap_const_boolean_1)) {
-            if (esl_seteq<1,1,1>(ap_const_lv1_1, or_cond_i_fu_212_p2.read())) {
-                bf_metadataTempBuffe = p_Result_s_fu_278_p5.read();
+            if (esl_seteq<1,1,1>(ap_const_lv1_1, or_cond_i_fu_246_p2.read())) {
+                bf_metadataTempBuffe = p_Result_s_fu_312_p5.read();
             } else if (esl_seteq<1,1,1>(ap_condition_239.read(), ap_const_boolean_1)) {
-                bf_metadataTempBuffe = p_Result_12_fu_230_p5.read();
+                bf_metadataTempBuffe = p_Result_12_fu_264_p5.read();
             }
         }
     }
@@ -477,16 +477,16 @@ void response_f::thread_ap_clk_pos_reset_() {
         inWordCounter_V = ap_const_lv2_0;
     } else {
         if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-             esl_seteq<1,1,1>(tmp_nbwritereq_fu_72_p3.read(), ap_const_lv1_1) && 
-             esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_80_p3.read()) && 
-             esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_88_p3.read()) && 
+             esl_seteq<1,1,1>(tmp_nbwritereq_fu_106_p3.read(), ap_const_lv1_1) && 
+             esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_114_p3.read()) && 
+             esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_122_p3.read()) && 
              !(esl_seteq<1,1,1>(real_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || (esl_seteq<1,1,1>(metadataBuffer_rf_V_s_full_n.read(), ap_const_logic_0) && 
-  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(merger2responseForma_1_empty_n.read(), ap_const_logic_0) && 
+  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueStoreDram2merge_1_empty_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op12_read_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op45_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op37_write_state1.read(), ap_const_boolean_1))) && 
-             esl_seteq<1,1,1>(ap_const_lv1_1, ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6.read()))) {
-            inWordCounter_V = ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6.read();
+             esl_seteq<1,1,1>(ap_const_lv1_1, ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6.read()))) {
+            inWordCounter_V = ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6.read();
         }
     }
     if ( ap_rst.read() == ap_const_logic_1) {
@@ -507,35 +507,35 @@ void response_f::thread_ap_CS_fsm_state1() {
 
 void response_f::thread_ap_block_state1() {
     ap_block_state1 = (esl_seteq<1,1,1>(real_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || (esl_seteq<1,1,1>(metadataBuffer_rf_V_s_full_n.read(), ap_const_logic_0) && 
-  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(merger2responseForma_1_empty_n.read(), ap_const_logic_0) && 
+  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueStoreDram2merge_1_empty_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op12_read_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op45_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op37_write_state1.read(), ap_const_boolean_1)));
 }
 
 void response_f::thread_ap_condition_141() {
-    ap_condition_141 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(tmp_nbwritereq_fu_72_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_80_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_88_p3.read()) && esl_seteq<1,1,1>(or_cond_i_fu_212_p2.read(), ap_const_lv1_0) && esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_206_p2.read()));
+    ap_condition_141 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(tmp_nbwritereq_fu_106_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_114_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_122_p3.read()) && esl_seteq<1,1,1>(or_cond_i_fu_246_p2.read(), ap_const_lv1_0) && esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_240_p2.read()));
 }
 
 void response_f::thread_ap_condition_238() {
-    ap_condition_238 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(tmp_nbwritereq_fu_72_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_80_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_88_p3.read()) && !(esl_seteq<1,1,1>(real_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || (esl_seteq<1,1,1>(metadataBuffer_rf_V_s_full_n.read(), ap_const_logic_0) && 
-  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(merger2responseForma_1_empty_n.read(), ap_const_logic_0) && 
+    ap_condition_238 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(tmp_nbwritereq_fu_106_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_114_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_122_p3.read()) && !(esl_seteq<1,1,1>(real_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || (esl_seteq<1,1,1>(metadataBuffer_rf_V_s_full_n.read(), ap_const_logic_0) && 
+  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueStoreDram2merge_1_empty_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op12_read_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op45_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op37_write_state1.read(), ap_const_boolean_1))));
 }
 
 void response_f::thread_ap_condition_239() {
-    ap_condition_239 = (esl_seteq<1,1,1>(or_cond_i_fu_212_p2.read(), ap_const_lv1_0) && esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_206_p2.read()) && esl_seteq<1,1,1>(ap_const_lv1_0, tmp_96_fu_222_p3.read()));
+    ap_condition_239 = (esl_seteq<1,1,1>(or_cond_i_fu_246_p2.read(), ap_const_lv1_0) && esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_240_p2.read()) && esl_seteq<1,1,1>(ap_const_lv1_0, tmp_96_fu_256_p3.read()));
 }
 
 void response_f::thread_ap_condition_88() {
-    ap_condition_88 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(tmp_nbwritereq_fu_72_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_80_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_88_p3.read()));
+    ap_condition_88 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(tmp_nbwritereq_fu_106_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_114_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_122_p3.read()));
 }
 
 void response_f::thread_ap_done() {
     if ((!(esl_seteq<1,1,1>(real_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || (esl_seteq<1,1,1>(metadataBuffer_rf_V_s_full_n.read(), ap_const_logic_0) && 
-  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(merger2responseForma_1_empty_n.read(), ap_const_logic_0) && 
+  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueStoreDram2merge_1_empty_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op12_read_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op45_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op37_write_state1.read(), ap_const_boolean_1))) && 
@@ -555,67 +555,67 @@ void response_f::thread_ap_idle() {
     }
 }
 
-void response_f::thread_ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6() {
+void response_f::thread_ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6() {
     if (esl_seteq<1,1,1>(ap_condition_88.read(), ap_const_boolean_1)) {
-        if ((esl_seteq<1,1,1>(or_cond_i_fu_212_p2.read(), ap_const_lv1_0) && 
-             esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_206_p2.read()))) {
-            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6 = p_inWordCounter_V_fla_fu_262_p2.read();
-        } else if ((esl_seteq<1,1,1>(or_cond_i_fu_212_p2.read(), ap_const_lv1_0) && 
-                    esl_seteq<1,1,1>(ap_const_lv1_1, tmp_i_fu_206_p2.read()))) {
-            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6 = ap_const_lv1_0;
-        } else if (esl_seteq<1,1,1>(ap_const_lv1_1, or_cond_i_fu_212_p2.read())) {
-            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6 = ap_const_lv1_1;
+        if ((esl_seteq<1,1,1>(or_cond_i_fu_246_p2.read(), ap_const_lv1_0) && 
+             esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_240_p2.read()))) {
+            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6 = p_inWordCounter_V_fla_fu_296_p2.read();
+        } else if ((esl_seteq<1,1,1>(or_cond_i_fu_246_p2.read(), ap_const_lv1_0) && 
+                    esl_seteq<1,1,1>(ap_const_lv1_1, tmp_i_fu_240_p2.read()))) {
+            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6 = ap_const_lv1_0;
+        } else if (esl_seteq<1,1,1>(ap_const_lv1_1, or_cond_i_fu_246_p2.read())) {
+            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6 = ap_const_lv1_1;
         } else {
-            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6 = "X";
+            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6 = "X";
         }
     } else {
-        ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6 = "X";
+        ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6 = "X";
     }
 }
 
-void response_f::thread_ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4() {
+void response_f::thread_ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4() {
     if (esl_seteq<1,1,1>(ap_condition_141.read(), ap_const_boolean_1)) {
-        if (esl_seteq<1,1,1>(ap_const_lv1_1, tmp_96_fu_222_p3.read())) {
-            ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4 = ap_const_lv1_0;
-        } else if (esl_seteq<1,1,1>(ap_const_lv1_0, tmp_96_fu_222_p3.read())) {
-            ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4 = ap_const_lv1_1;
+        if (esl_seteq<1,1,1>(ap_const_lv1_1, tmp_96_fu_256_p3.read())) {
+            ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4 = ap_const_lv1_0;
+        } else if (esl_seteq<1,1,1>(ap_const_lv1_0, tmp_96_fu_256_p3.read())) {
+            ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4 = ap_const_lv1_1;
         } else {
-            ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4 = "X";
+            ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4 = "X";
         }
     } else {
-        ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4 = "X";
+        ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4 = "X";
     }
 }
 
-void response_f::thread_ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6() {
+void response_f::thread_ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6() {
     if (esl_seteq<1,1,1>(ap_condition_88.read(), ap_const_boolean_1)) {
-        if ((esl_seteq<1,1,1>(or_cond_i_fu_212_p2.read(), ap_const_lv1_0) && 
-             esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_206_p2.read()))) {
-            ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6 = p_inWordCounter_V_new_fu_269_p3.read();
-        } else if (esl_seteq<1,1,1>(ap_const_lv1_1, or_cond_i_fu_212_p2.read())) {
-            ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6 = ap_const_lv2_1;
+        if ((esl_seteq<1,1,1>(or_cond_i_fu_246_p2.read(), ap_const_lv1_0) && 
+             esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_240_p2.read()))) {
+            ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6 = p_inWordCounter_V_new_fu_303_p3.read();
+        } else if (esl_seteq<1,1,1>(ap_const_lv1_1, or_cond_i_fu_246_p2.read())) {
+            ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6 = ap_const_lv2_1;
         } else {
-            ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6 =  (sc_lv<2>) ("XX");
+            ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6 =  (sc_lv<2>) ("XX");
         }
     } else {
-        ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6 =  (sc_lv<2>) ("XX");
+        ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6 =  (sc_lv<2>) ("XX");
     }
 }
 
 void response_f::thread_ap_predicate_op12_read_state1() {
-    ap_predicate_op12_read_state1 = (esl_seteq<1,1,1>(tmp_nbwritereq_fu_72_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_80_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_88_p3.read()));
+    ap_predicate_op12_read_state1 = (esl_seteq<1,1,1>(tmp_nbwritereq_fu_106_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_114_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_122_p3.read()));
 }
 
 void response_f::thread_ap_predicate_op30_write_state1() {
-    ap_predicate_op30_write_state1 = (esl_seteq<1,1,1>(tmp_nbwritereq_fu_72_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_80_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_88_p3.read()) && esl_seteq<1,1,1>(or_cond_i_fu_212_p2.read(), ap_const_lv1_0) && esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_206_p2.read()) && esl_seteq<1,1,1>(ap_const_lv1_0, tmp_96_fu_222_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_53_i_fu_249_p2.read()));
+    ap_predicate_op30_write_state1 = (esl_seteq<1,1,1>(tmp_nbwritereq_fu_106_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_114_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_122_p3.read()) && esl_seteq<1,1,1>(or_cond_i_fu_246_p2.read(), ap_const_lv1_0) && esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_240_p2.read()) && esl_seteq<1,1,1>(ap_const_lv1_0, tmp_96_fu_256_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_53_i_fu_283_p2.read()));
 }
 
 void response_f::thread_ap_predicate_op37_write_state1() {
-    ap_predicate_op37_write_state1 = (esl_seteq<1,1,1>(tmp_nbwritereq_fu_72_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_80_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_88_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_94_fu_175_p3.read()) && esl_seteq<1,1,1>(or_cond_i_fu_212_p2.read(), ap_const_lv1_0) && esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_206_p2.read()));
+    ap_predicate_op37_write_state1 = (esl_seteq<1,1,1>(tmp_nbwritereq_fu_106_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_114_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_122_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_94_fu_209_p3.read()) && esl_seteq<1,1,1>(or_cond_i_fu_246_p2.read(), ap_const_lv1_0) && esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_240_p2.read()));
 }
 
 void response_f::thread_ap_predicate_op45_write_state1() {
-    ap_predicate_op45_write_state1 = (esl_seteq<1,1,1>(tmp_nbwritereq_fu_72_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_80_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_88_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, or_cond_i_fu_212_p2.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_94_fu_175_p3.read()));
+    ap_predicate_op45_write_state1 = (esl_seteq<1,1,1>(tmp_nbwritereq_fu_106_p3.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_114_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_122_p3.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, or_cond_i_fu_246_p2.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_94_fu_209_p3.read()));
 }
 
 void response_f::thread_ap_ready() {
@@ -624,7 +624,7 @@ void response_f::thread_ap_ready() {
 
 void response_f::thread_internal_ap_ready() {
     if ((!(esl_seteq<1,1,1>(real_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || (esl_seteq<1,1,1>(metadataBuffer_rf_V_s_full_n.read(), ap_const_logic_0) && 
-  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(merger2responseForma_1_empty_n.read(), ap_const_logic_0) && 
+  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueStoreDram2merge_1_empty_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op12_read_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op45_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op37_write_state1.read(), ap_const_boolean_1))) && 
@@ -635,40 +635,15 @@ void response_f::thread_internal_ap_ready() {
     }
 }
 
-void response_f::thread_merger2responseForma_1_blk_n() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-         esl_seteq<1,1,1>(tmp_nbwritereq_fu_72_p3.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_80_p3.read()) && 
-         esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_88_p3.read()))) {
-        merger2responseForma_1_blk_n = merger2responseForma_1_empty_n.read();
-    } else {
-        merger2responseForma_1_blk_n = ap_const_logic_1;
-    }
-}
-
-void response_f::thread_merger2responseForma_1_read() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-         esl_seteq<1,1,1>(ap_predicate_op12_read_state1.read(), ap_const_boolean_1) && 
-         !(esl_seteq<1,1,1>(real_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || (esl_seteq<1,1,1>(metadataBuffer_rf_V_s_full_n.read(), ap_const_logic_0) && 
-  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(merger2responseForma_1_empty_n.read(), ap_const_logic_0) && 
-  esl_seteq<1,1,1>(ap_predicate_op12_read_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
-  esl_seteq<1,1,1>(ap_predicate_op45_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
-  esl_seteq<1,1,1>(ap_predicate_op37_write_state1.read(), ap_const_boolean_1))))) {
-        merger2responseForma_1_read = ap_const_logic_1;
-    } else {
-        merger2responseForma_1_read = ap_const_logic_0;
-    }
-}
-
 void response_f::thread_metadataBuffer_rf_V_s_blk_n() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-         esl_seteq<1,1,1>(tmp_nbwritereq_fu_72_p3.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_80_p3.read()) && 
-         esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_88_p3.read()) && 
-         esl_seteq<1,1,1>(or_cond_i_fu_212_p2.read(), ap_const_lv1_0) && 
-         esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_206_p2.read()) && 
-         esl_seteq<1,1,1>(ap_const_lv1_0, tmp_96_fu_222_p3.read()) && 
-         esl_seteq<1,1,1>(ap_const_lv1_1, tmp_53_i_fu_249_p2.read()))) {
+         esl_seteq<1,1,1>(tmp_nbwritereq_fu_106_p3.read(), ap_const_lv1_1) && 
+         esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_114_p3.read()) && 
+         esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_122_p3.read()) && 
+         esl_seteq<1,1,1>(or_cond_i_fu_246_p2.read(), ap_const_lv1_0) && 
+         esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_240_p2.read()) && 
+         esl_seteq<1,1,1>(ap_const_lv1_0, tmp_96_fu_256_p3.read()) && 
+         esl_seteq<1,1,1>(ap_const_lv1_1, tmp_53_i_fu_283_p2.read()))) {
         metadataBuffer_rf_V_s_blk_n = metadataBuffer_rf_V_s_full_n.read();
     } else {
         metadataBuffer_rf_V_s_blk_n = ap_const_logic_1;
@@ -676,14 +651,14 @@ void response_f::thread_metadataBuffer_rf_V_s_blk_n() {
 }
 
 void response_f::thread_metadataBuffer_rf_V_s_din() {
-    metadataBuffer_rf_V_s_din = esl_partset<248,248,124,32,32>(bf_metadataTempBuffe.read(), tmp_92_fu_163_p1.read(), ap_const_lv32_7C, ap_const_lv32_F7);
+    metadataBuffer_rf_V_s_din = esl_partset<248,248,124,32,32>(bf_metadataTempBuffe.read(), tmp_92_fu_197_p1.read(), ap_const_lv32_7C, ap_const_lv32_F7);
 }
 
 void response_f::thread_metadataBuffer_rf_V_s_write() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
          esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1) && 
          !(esl_seteq<1,1,1>(real_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || (esl_seteq<1,1,1>(metadataBuffer_rf_V_s_full_n.read(), ap_const_logic_0) && 
-  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(merger2responseForma_1_empty_n.read(), ap_const_logic_0) && 
+  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueStoreDram2merge_1_empty_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op12_read_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op45_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op37_write_state1.read(), ap_const_boolean_1))))) {
@@ -693,24 +668,24 @@ void response_f::thread_metadataBuffer_rf_V_s_write() {
     }
 }
 
-void response_f::thread_or_cond_i_fu_212_p2() {
-    or_cond_i_fu_212_p2 = (tmp_93_fu_167_p3.read() & tmp_i_fu_206_p2.read());
+void response_f::thread_or_cond_i_fu_246_p2() {
+    or_cond_i_fu_246_p2 = (tmp_93_fu_201_p3.read() & tmp_i_fu_240_p2.read());
 }
 
-void response_f::thread_p_Result_12_fu_230_p5() {
-    p_Result_12_fu_230_p5 = esl_partset<248,248,124,32,32>(bf_metadataTempBuffe.read(), tmp_92_fu_163_p1.read(), ap_const_lv32_7C, ap_const_lv32_F7);
+void response_f::thread_p_Result_12_fu_264_p5() {
+    p_Result_12_fu_264_p5 = esl_partset<248,248,124,32,32>(bf_metadataTempBuffe.read(), tmp_92_fu_197_p1.read(), ap_const_lv32_7C, ap_const_lv32_F7);
 }
 
-void response_f::thread_p_Result_s_fu_278_p5() {
-    p_Result_s_fu_278_p5 = esl_partset<248,248,124,32,32>(bf_metadataTempBuffe.read(), tmp_92_fu_163_p1.read(), ap_const_lv32_0, ap_const_lv32_7B);
+void response_f::thread_p_Result_s_fu_312_p5() {
+    p_Result_s_fu_312_p5 = esl_partset<248,248,124,32,32>(bf_metadataTempBuffe.read(), tmp_92_fu_197_p1.read(), ap_const_lv32_0, ap_const_lv32_7B);
 }
 
-void response_f::thread_p_inWordCounter_V_fla_fu_262_p2() {
-    p_inWordCounter_V_fla_fu_262_p2 = (tmp_95_fu_183_p3.read() | ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4.read());
+void response_f::thread_p_inWordCounter_V_fla_fu_296_p2() {
+    p_inWordCounter_V_fla_fu_296_p2 = (tmp_95_fu_217_p3.read() | ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4.read());
 }
 
-void response_f::thread_p_inWordCounter_V_new_fu_269_p3() {
-    p_inWordCounter_V_new_fu_269_p3 = (!tmp_95_fu_183_p3.read()[0].is_01())? sc_lv<2>(): ((tmp_95_fu_183_p3.read()[0].to_bool())? ap_const_lv2_0: tmp_54_i_fu_255_p2.read());
+void response_f::thread_p_inWordCounter_V_new_fu_303_p3() {
+    p_inWordCounter_V_new_fu_303_p3 = (!tmp_95_fu_217_p3.read()[0].is_01())? sc_lv<2>(): ((tmp_95_fu_217_p3.read()[0].to_bool())? ap_const_lv2_0: tmp_54_i_fu_289_p2.read());
 }
 
 void response_f::thread_real_start() {
@@ -735,64 +710,64 @@ void response_f::thread_start_write() {
     }
 }
 
-void response_f::thread_tmp_53_i_fu_249_p2() {
-    tmp_53_i_fu_249_p2 = (!inWordCounter_V.read().is_01() || !ap_const_lv2_1.is_01())? sc_lv<1>(): sc_lv<1>(inWordCounter_V.read() == ap_const_lv2_1);
+void response_f::thread_tmp_53_i_fu_283_p2() {
+    tmp_53_i_fu_283_p2 = (!inWordCounter_V.read().is_01() || !ap_const_lv2_1.is_01())? sc_lv<1>(): sc_lv<1>(inWordCounter_V.read() == ap_const_lv2_1);
 }
 
-void response_f::thread_tmp_54_i_fu_255_p2() {
-    tmp_54_i_fu_255_p2 = (!inWordCounter_V.read().is_01() || !ap_const_lv2_1.is_01())? sc_lv<2>(): (sc_biguint<2>(inWordCounter_V.read()) + sc_biguint<2>(ap_const_lv2_1));
+void response_f::thread_tmp_54_i_fu_289_p2() {
+    tmp_54_i_fu_289_p2 = (!inWordCounter_V.read().is_01() || !ap_const_lv2_1.is_01())? sc_lv<2>(): (sc_biguint<2>(inWordCounter_V.read()) + sc_biguint<2>(ap_const_lv2_1));
 }
 
-void response_f::thread_tmp_7_nbwritereq_fu_80_p3() {
-    tmp_7_nbwritereq_fu_80_p3 =  (sc_lv<1>) (metadataBuffer_rf_V_s_full_n.read());
+void response_f::thread_tmp_7_nbwritereq_fu_114_p3() {
+    tmp_7_nbwritereq_fu_114_p3 =  (sc_lv<1>) (metadataBuffer_rf_V_s_full_n.read());
 }
 
-void response_f::thread_tmp_8_nbreadreq_fu_88_p3() {
-    tmp_8_nbreadreq_fu_88_p3 =  (sc_lv<1>) (merger2responseForma_1_empty_n.read());
+void response_f::thread_tmp_8_nbreadreq_fu_122_p3() {
+    tmp_8_nbreadreq_fu_122_p3 =  (sc_lv<1>) (valueStoreDram2merge_1_empty_n.read());
 }
 
-void response_f::thread_tmp_92_fu_163_p1() {
-    tmp_92_fu_163_p1 = merger2responseForma_1_dout.read().range(124-1, 0);
+void response_f::thread_tmp_92_fu_197_p1() {
+    tmp_92_fu_197_p1 = valueStoreDram2merge_1_dout.read().range(124-1, 0);
 }
 
-void response_f::thread_tmp_93_fu_167_p3() {
-    tmp_93_fu_167_p3 = merger2responseForma_1_dout.read().range(124, 124);
+void response_f::thread_tmp_93_fu_201_p3() {
+    tmp_93_fu_201_p3 = valueStoreDram2merge_1_dout.read().range(124, 124);
 }
 
-void response_f::thread_tmp_94_fu_175_p3() {
-    tmp_94_fu_175_p3 = merger2responseForma_1_dout.read().range(126, 126);
+void response_f::thread_tmp_94_fu_209_p3() {
+    tmp_94_fu_209_p3 = valueStoreDram2merge_1_dout.read().range(126, 126);
 }
 
-void response_f::thread_tmp_95_fu_183_p3() {
-    tmp_95_fu_183_p3 = merger2responseForma_1_dout.read().range(127, 127);
+void response_f::thread_tmp_95_fu_217_p3() {
+    tmp_95_fu_217_p3 = valueStoreDram2merge_1_dout.read().range(127, 127);
 }
 
-void response_f::thread_tmp_96_fu_222_p3() {
-    tmp_96_fu_222_p3 = inWordCounter_V.read().range(1, 1);
+void response_f::thread_tmp_96_fu_256_p3() {
+    tmp_96_fu_256_p3 = inWordCounter_V.read().range(1, 1);
 }
 
-void response_f::thread_tmp_i_fu_206_p2() {
-    tmp_i_fu_206_p2 = (!inWordCounter_V.read().is_01() || !ap_const_lv2_0.is_01())? sc_lv<1>(): sc_lv<1>(inWordCounter_V.read() == ap_const_lv2_0);
+void response_f::thread_tmp_i_fu_240_p2() {
+    tmp_i_fu_240_p2 = (!inWordCounter_V.read().is_01() || !ap_const_lv2_0.is_01())? sc_lv<1>(): sc_lv<1>(inWordCounter_V.read() == ap_const_lv2_0);
 }
 
-void response_f::thread_tmp_nbwritereq_fu_72_p3() {
-    tmp_nbwritereq_fu_72_p3 =  (sc_lv<1>) (valueBuffer_rf_V_V_full_n.read());
+void response_f::thread_tmp_nbwritereq_fu_106_p3() {
+    tmp_nbwritereq_fu_106_p3 =  (sc_lv<1>) (valueBuffer_rf_V_V_full_n.read());
 }
 
 void response_f::thread_valueBuffer_rf_V_V_blk_n() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(tmp_nbwritereq_fu_72_p3.read(), ap_const_lv1_1) && 
-          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_80_p3.read()) && 
-          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_88_p3.read()) && 
-          esl_seteq<1,1,1>(ap_const_lv1_1, or_cond_i_fu_212_p2.read()) && 
-          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_94_fu_175_p3.read())) || 
+          esl_seteq<1,1,1>(tmp_nbwritereq_fu_106_p3.read(), ap_const_lv1_1) && 
+          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_114_p3.read()) && 
+          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_122_p3.read()) && 
+          esl_seteq<1,1,1>(ap_const_lv1_1, or_cond_i_fu_246_p2.read()) && 
+          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_94_fu_209_p3.read())) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(tmp_nbwritereq_fu_72_p3.read(), ap_const_lv1_1) && 
-          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_80_p3.read()) && 
-          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_88_p3.read()) && 
-          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_94_fu_175_p3.read()) && 
-          esl_seteq<1,1,1>(or_cond_i_fu_212_p2.read(), ap_const_lv1_0) && 
-          esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_206_p2.read())))) {
+          esl_seteq<1,1,1>(tmp_nbwritereq_fu_106_p3.read(), ap_const_lv1_1) && 
+          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_114_p3.read()) && 
+          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_122_p3.read()) && 
+          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_94_fu_209_p3.read()) && 
+          esl_seteq<1,1,1>(or_cond_i_fu_246_p2.read(), ap_const_lv1_0) && 
+          esl_seteq<1,1,1>(ap_const_lv1_0, tmp_i_fu_240_p2.read())))) {
         valueBuffer_rf_V_V_blk_n = valueBuffer_rf_V_V_full_n.read();
     } else {
         valueBuffer_rf_V_V_blk_n = ap_const_logic_1;
@@ -800,27 +775,52 @@ void response_f::thread_valueBuffer_rf_V_V_blk_n() {
 }
 
 void response_f::thread_valueBuffer_rf_V_V_din() {
-    valueBuffer_rf_V_V_din = merger2responseForma_1_dout.read().range(191, 128);
+    valueBuffer_rf_V_V_din = valueStoreDram2merge_1_dout.read().range(191, 128);
 }
 
 void response_f::thread_valueBuffer_rf_V_V_write() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
           esl_seteq<1,1,1>(ap_predicate_op37_write_state1.read(), ap_const_boolean_1) && 
           !(esl_seteq<1,1,1>(real_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || (esl_seteq<1,1,1>(metadataBuffer_rf_V_s_full_n.read(), ap_const_logic_0) && 
-  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(merger2responseForma_1_empty_n.read(), ap_const_logic_0) && 
+  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueStoreDram2merge_1_empty_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op12_read_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op45_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op37_write_state1.read(), ap_const_boolean_1)))) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
           esl_seteq<1,1,1>(ap_predicate_op45_write_state1.read(), ap_const_boolean_1) && 
           !(esl_seteq<1,1,1>(real_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || (esl_seteq<1,1,1>(metadataBuffer_rf_V_s_full_n.read(), ap_const_logic_0) && 
-  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(merger2responseForma_1_empty_n.read(), ap_const_logic_0) && 
+  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueStoreDram2merge_1_empty_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op12_read_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op45_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
   esl_seteq<1,1,1>(ap_predicate_op37_write_state1.read(), ap_const_boolean_1)))))) {
         valueBuffer_rf_V_V_write = ap_const_logic_1;
     } else {
         valueBuffer_rf_V_V_write = ap_const_logic_0;
+    }
+}
+
+void response_f::thread_valueStoreDram2merge_1_blk_n() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+         esl_seteq<1,1,1>(tmp_nbwritereq_fu_106_p3.read(), ap_const_lv1_1) && 
+         esl_seteq<1,1,1>(ap_const_lv1_1, tmp_7_nbwritereq_fu_114_p3.read()) && 
+         esl_seteq<1,1,1>(ap_const_lv1_1, tmp_8_nbreadreq_fu_122_p3.read()))) {
+        valueStoreDram2merge_1_blk_n = valueStoreDram2merge_1_empty_n.read();
+    } else {
+        valueStoreDram2merge_1_blk_n = ap_const_logic_1;
+    }
+}
+
+void response_f::thread_valueStoreDram2merge_1_read() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+         esl_seteq<1,1,1>(ap_predicate_op12_read_state1.read(), ap_const_boolean_1) && 
+         !(esl_seteq<1,1,1>(real_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1) || (esl_seteq<1,1,1>(metadataBuffer_rf_V_s_full_n.read(), ap_const_logic_0) && 
+  esl_seteq<1,1,1>(ap_predicate_op30_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueStoreDram2merge_1_empty_n.read(), ap_const_logic_0) && 
+  esl_seteq<1,1,1>(ap_predicate_op12_read_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
+  esl_seteq<1,1,1>(ap_predicate_op45_write_state1.read(), ap_const_boolean_1)) || (esl_seteq<1,1,1>(valueBuffer_rf_V_V_full_n.read(), ap_const_logic_0) && 
+  esl_seteq<1,1,1>(ap_predicate_op37_write_state1.read(), ap_const_boolean_1))))) {
+        valueStoreDram2merge_1_read = ap_const_logic_1;
+    } else {
+        valueStoreDram2merge_1_read = ap_const_logic_0;
     }
 }
 

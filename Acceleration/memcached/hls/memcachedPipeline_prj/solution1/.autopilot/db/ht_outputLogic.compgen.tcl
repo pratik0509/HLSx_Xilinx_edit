@@ -71,14 +71,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 69 \
-    name hashTable2splitter_V \
+    name hashTable2Dram_V \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst false \
-    corename dc_hashTable2splitter_V \
+    corename dc_hashTable2Dram_V \
     op interface \
-    ports { hashTable2splitter_V_din { O 256 vector } hashTable2splitter_V_full_n { I 1 bit } hashTable2splitter_V_write { O 1 bit } } \
+    ports { hashTable2Dram_V_din { O 256 vector } hashTable2Dram_V_full_n { I 1 bit } hashTable2Dram_V_write { O 1 bit } } \
 } "
 }
 

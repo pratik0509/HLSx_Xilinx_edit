@@ -35386,7 +35386,6 @@ void merger(stream<pipelineWord> &flash2valueMerger, stream<pipelineWord> &dram2
 
 void memcachedPipeline(stream<extendedAxiWord> &inData, stream<extendedAxiWord> &outData,
         stream<memCtrlWord> &dramValueStoreMemRdCmd, stream<ap_uint<512> > &dramValueStoreMemRdData, stream<memCtrlWord> &dramValueStoreMemWrCmd, stream<ap_uint<512> > &dramValueStoreMemWrData,
-        stream<flashMemCtrlWord> &flashValueStoreMemRdCmd, stream<ap_uint<64> > &flashValueStoreMemRdData, stream<flashMemCtrlWord> &flashValueStoreMemWrCmd, stream<ap_uint<64> > &flashValueStoreMemWrData,
         stream<ap_uint<512> > &hashTableMemRdData, stream<memCtrlWord> &hashTableMemRdCmd, stream<ap_uint<512> > &hashTableMemWrData, stream<memCtrlWord> &hashTableMemWrCmd,
         stream<ap_uint<32> > &addressReturnOut, stream<ap_uint<32> > &addressAssignDramIn, stream<ap_uint<32> > &addressAssignFlashIn, ap_uint<1> &flushReq, ap_uint<1> flushAck, ap_uint<1> &flushDone);
 # 30 "sources/hashTable/memWrite.cpp" 2

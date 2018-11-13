@@ -539,14 +539,13 @@ int main(int argc, char *argv[]) {
 				// Call the memcached pipeline & DRAM model functions
 				memcachedPipeline(inFIFO, outFIFO,
 								  valueStoreMemRdCmd, valueStoreMemRdData, valueStoreMemWrCmd, valueStoreMemWrData,
-								  flashValueStoreMemRdCmd, flashValueStoreMemRdData, flashValueStoreMemWrCmd, flashValueStoreMemWrData,
 								  hashTableMemRdData, hashTableMemRdCmd, hashTableMemWrData, hashTableMemWrCmd,
 								  addressReturnOut, addressAssignDramIn, addressAssignFlashIn,flushReq, flushAck, flushDone);
 				//std::cout << "Pipeline Clear!" << std::endl;
 				bramModelHash(hashTableMemRdCmd, hashTableMemRdData, hashTableMemWrCmd, hashTableMemWrData);
 				//std::cout << hashTableMemRdData.empty() << std::endl;				//std::cout << "HT Model Clear!" << std::endl;
 				bramModelValueStore(valueStoreMemRdCmd, valueStoreMemRdData, valueStoreMemWrCmd, valueStoreMemWrData);
-				flashBramModelValueStore(flashValueStoreMemRdCmd, flashValueStoreMemRdData, flashValueStoreMemWrCmd, flashValueStoreMemWrData);
+				// flashBramModelValueStore(flashValueStoreMemRdCmd, flashValueStoreMemRdData, flashValueStoreMemWrCmd, flashValueStoreMemWrData);
 				dummyPCIeJoint(addressReturnOut, addressAssignFlashIn, addressAssignDramIn, flushReq, flushAck, flushDone);
 				//std::cout << "VS Model Clear!" << std::endl;
 				//std::cout << myCounter << std::endl;

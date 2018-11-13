@@ -1,20 +1,18 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
    Compiling ../../../../sources/memcachedPipeline_tb.cpp in debug mode
-   Compiling ../../../../sources/memcachedPipeline.cpp in debug mode
-   Compiling ../../../../sources/splitter.cpp in debug mode
-   Compiling ../../../../sources/merger.cpp in debug mode
-   Compiling ../../../../sources/globals.cpp in debug mode
-   Compiling ../../../../sources/valueStore/flashValueStore.cpp in debug mode
-   Compiling ../../../../sources/valueStore/valueStore.cpp in debug mode
    Compiling ../../../../sources/responseFormatter/binResponse.cpp in debug mode
-   Compiling ../../../../sources/requestParser/requestParser.cpp in debug mode
-   Compiling ../../../../sources/hashTable/memWrite.cpp in debug mode
-   Compiling ../../../../sources/hashTable/memRead.cpp in debug mode
-   Compiling ../../../../sources/hashTable/hashTable.cpp in debug mode
-   Compiling ../../../../sources/hashTable/hash.cpp in debug mode
-   Compiling ../../../../sources/hashTable/compare.cpp in debug mode
    Compiling ../../../../sources/hashTable/cc.cpp in debug mode
+   Compiling ../../../../sources/hashTable/compare.cpp in debug mode
+   Compiling ../../../../sources/valueStore/flashValueStore.cpp in debug mode
+   Compiling ../../../../sources/globals.cpp in debug mode
+   Compiling ../../../../sources/hashTable/hash.cpp in debug mode
+   Compiling ../../../../sources/hashTable/hashTable.cpp in debug mode
+   Compiling ../../../../sources/hashTable/memRead.cpp in debug mode
+   Compiling ../../../../sources/hashTable/memWrite.cpp in debug mode
+   Compiling ../../../../sources/memcachedPipeline.cpp in debug mode
+   Compiling ../../../../sources/requestParser/requestParser.cpp in debug mode
+   Compiling ../../../../sources/valueStore/valueStore.cpp in debug mode
    Generating csim.exe
 INFO: [SIM 1] CSim file generation done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************

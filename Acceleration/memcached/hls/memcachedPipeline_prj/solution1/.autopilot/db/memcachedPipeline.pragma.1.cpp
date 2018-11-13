@@ -35386,14 +35386,12 @@ void merger(stream<pipelineWord> &flash2valueMerger, stream<pipelineWord> &dram2
 
 void memcachedPipeline(stream<extendedAxiWord> &inData, stream<extendedAxiWord> &outData,
         stream<memCtrlWord> &dramValueStoreMemRdCmd, stream<ap_uint<512> > &dramValueStoreMemRdData, stream<memCtrlWord> &dramValueStoreMemWrCmd, stream<ap_uint<512> > &dramValueStoreMemWrData,
-        stream<flashMemCtrlWord> &flashValueStoreMemRdCmd, stream<ap_uint<64> > &flashValueStoreMemRdData, stream<flashMemCtrlWord> &flashValueStoreMemWrCmd, stream<ap_uint<64> > &flashValueStoreMemWrData,
         stream<ap_uint<512> > &hashTableMemRdData, stream<memCtrlWord> &hashTableMemRdCmd, stream<ap_uint<512> > &hashTableMemWrData, stream<memCtrlWord> &hashTableMemWrCmd,
         stream<ap_uint<32> > &addressReturnOut, stream<ap_uint<32> > &addressAssignDramIn, stream<ap_uint<32> > &addressAssignFlashIn, ap_uint<1> &flushReq, ap_uint<1> flushAck, ap_uint<1> &flushDone);
 # 30 "sources/memcachedPipeline.cpp" 2
 
 void memcachedPipeline(stream<extendedAxiWord> &inData, stream<extendedAxiWord> &outData,
         stream<memCtrlWord> &dramValueStoreMemRdCmd, stream<ap_uint<512> > &dramValueStoreMemRdData, stream<memCtrlWord> &dramValueStoreMemWrCmd, stream<ap_uint<512> > &dramValueStoreMemWrData,
-        stream<flashMemCtrlWord> &flashValueStoreMemRdCmd, stream<ap_uint<64> > &flashValueStoreMemRdData, stream<flashMemCtrlWord> &flashValueStoreMemWrCmd, stream<ap_uint<64> > &flashValueStoreMemWrData,
         stream<ap_uint<512> > &hashTableMemRdData, stream<memCtrlWord> &hashTableMemRdCmd, stream<ap_uint<512> > &hashTableMemWrData, stream<memCtrlWord> &hashTableMemWrCmd,
         stream<ap_uint<32> > &addressReturnOut, stream<ap_uint<32> > &addressAssignDramIn, stream<ap_uint<32> > &addressAssignFlashIn, ap_uint<1> &flushReq, ap_uint<1> flushAck, ap_uint<1> &flushDone) {
 
@@ -35412,10 +35410,6 @@ _ssdm_DataPack( &dramValueStoreMemRdCmd, 0, 0, "", "", "");
 _ssdm_DataPack( &dramValueStoreMemRdData, 0, 0, "", "", "");
 _ssdm_DataPack( &dramValueStoreMemWrCmd, 0, 0, "", "", "");
 _ssdm_DataPack( &dramValueStoreMemWrData, 0, 0, "", "", "");
-_ssdm_DataPack( &flashValueStoreMemRdCmd, 0, 0, "", "", "");
-_ssdm_DataPack( &flashValueStoreMemRdData, 0, 0, "", "", "");
-_ssdm_DataPack( &flashValueStoreMemWrCmd, 0, 0, "", "", "");
-_ssdm_DataPack( &flashValueStoreMemWrData, 0, 0, "", "", "");
 
 _ssdm_op_SpecInterface(&inData, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&outData, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
@@ -35423,15 +35417,11 @@ _ssdm_op_SpecInterface(&hashTableMemWrData, "axis", 1, 1, "both", 0, 0, "", "", 
 _ssdm_op_SpecInterface(&hashTableMemRdData, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&hashTableMemRdCmd, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&hashTableMemWrCmd, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecInterface(&flashValueStoreMemRdCmd, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecInterface(&flashValueStoreMemRdData, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecInterface(&flashValueStoreMemWrCmd, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecInterface(&flashValueStoreMemWrData, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&dramValueStoreMemRdCmd, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&dramValueStoreMemRdData, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&dramValueStoreMemWrCmd, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&dramValueStoreMemWrData, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
-# 88 "sources/memcachedPipeline.cpp"
+# 79 "sources/memcachedPipeline.cpp"
 _ssdm_op_SpecInterface(&addressReturnOut, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&addressAssignDramIn, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&addressAssignFlashIn, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
@@ -35439,34 +35429,22 @@ _ssdm_op_SpecInterface(&addressAssignFlashIn, "axis", 1, 1, "both", 0, 0, "", ""
 _ssdm_op_SpecDataflowPipeline(-1, "");
 
  static stream<pipelineWord> requestParser2hashTable("requestParser2hashTable");
- static stream<pipelineWord> hashTable2splitter("hashTable2splitter");
+ static stream<pipelineWord> hashTable2Dram("hashTable2Dram");
  static stream<pipelineWord> merger2responseFormatter("merger2responseFormatter");
- static stream<pipelineWord> splitter2valueStoreFlash("splitter2valueStoreFlash");
- static stream<pipelineWord> splitter2valueStoreDram("splitter2valueStoreDram");
- static stream<pipelineWord> valueStoreFlash2merger("valueStoreFlash2merger");
  static stream<pipelineWord> valueStoreDram2merger("valueStoreDram2Smerger");
 
 _ssdm_DataPack( &requestParser2hashTable, 0, 0, "", "", "");
-_ssdm_DataPack( &hashTable2splitter, 0, 0, "", "", "");
+_ssdm_DataPack( &hashTable2Dram, 0, 0, "", "", "");
 _ssdm_DataPack( &merger2responseFormatter, 0, 0, "", "", "");
-_ssdm_DataPack( &splitter2valueStoreFlash, 0, 0, "", "", "");
-_ssdm_DataPack( &splitter2valueStoreDram, 0, 0, "", "", "");
-_ssdm_DataPack( &valueStoreFlash2merger, 0, 0, "", "", "");
 _ssdm_DataPack( &valueStoreDram2merger, 0, 0, "", "", "");
 
 _ssdm_SpecStream( &requestParser2hashTable, 0, 16, "");
-_ssdm_SpecStream( &hashTable2splitter, 0, 16, "");
+_ssdm_SpecStream( &hashTable2Dram, 0, 16, "");
 _ssdm_SpecStream( &merger2responseFormatter, 0, 16, "");
-_ssdm_SpecStream( &splitter2valueStoreFlash, 0, 16, "");
-_ssdm_SpecStream( &splitter2valueStoreDram, 0, 16, "");
-_ssdm_SpecStream( &valueStoreFlash2merger, 0, 16, "");
 _ssdm_SpecStream( &valueStoreDram2merger, 0, 16, "");
 
  binaryParser(inData, requestParser2hashTable);
- hashTable(requestParser2hashTable, hashTable2splitter, hashTableMemRdData, hashTableMemRdCmd, hashTableMemWrData, hashTableMemWrCmd, addressReturnOut, addressAssignDramIn, addressAssignFlashIn, flushReq, flushAck, flushDone);
- splitter(hashTable2splitter, splitter2valueStoreFlash, splitter2valueStoreDram);
- valueStoreDram(splitter2valueStoreDram, dramValueStoreMemRdCmd, dramValueStoreMemRdData, dramValueStoreMemWrCmd, dramValueStoreMemWrData, valueStoreDram2merger);
- valueStoreFlash(splitter2valueStoreFlash, flashValueStoreMemRdCmd, flashValueStoreMemRdData, flashValueStoreMemWrCmd, flashValueStoreMemWrData, valueStoreFlash2merger);
- merger(valueStoreFlash2merger, valueStoreDram2merger, merger2responseFormatter);
- binaryResponse(merger2responseFormatter, outData);
+ hashTable(requestParser2hashTable, hashTable2Dram, hashTableMemRdData, hashTableMemRdCmd, hashTableMemWrData, hashTableMemWrCmd, addressReturnOut, addressAssignDramIn, addressAssignFlashIn, flushReq, flushAck, flushDone);
+ valueStoreDram(hashTable2Dram, dramValueStoreMemRdCmd, dramValueStoreMemRdData, dramValueStoreMemWrCmd, dramValueStoreMemWrData, valueStoreDram2merger);
+ binaryResponse(valueStoreDram2merger, outData);
 }

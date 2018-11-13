@@ -18,7 +18,7 @@
     "ClockPeriod": "6.66",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "42",
+    "Latency": "37",
     "Uncertainty": "0.8325"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 6.660 [get_ports ap_clk]"]},
@@ -34,25 +34,23 @@
   },
   "Files": {
     "CSource": [
-      "..\/..\/sources\/hashTable\/cc.cpp",
-      "..\/..\/sources\/hashTable\/compare.cpp",
-      "..\/..\/sources\/hashTable\/hash.cpp",
-      "..\/..\/sources\/hashTable\/hashTable.cpp",
-      "..\/..\/sources\/hashTable\/memRead.cpp",
-      "..\/..\/sources\/hashTable\/memWrite.cpp",
-      "..\/..\/sources\/requestParser\/requestParser.cpp",
-      "..\/..\/sources\/responseFormatter\/binResponse.cpp",
       "..\/..\/sources\/valueStore\/valueStore.cpp",
-      "..\/..\/sources\/valueStore\/flashValueStore.cpp",
+      "..\/..\/sources\/requestParser\/requestParser.cpp",
+      "..\/..\/sources\/memcachedPipeline.cpp",
+      "..\/..\/sources\/hashTable\/memWrite.cpp",
+      "..\/..\/sources\/hashTable\/memRead.cpp",
+      "..\/..\/sources\/hashTable\/hashTable.cpp",
+      "..\/..\/sources\/hashTable\/hash.cpp",
       "..\/..\/sources\/globals.cpp",
-      "..\/..\/sources\/merger.cpp",
-      "..\/..\/sources\/splitter.cpp",
-      "..\/..\/sources\/memcachedPipeline.cpp"
+      "..\/..\/sources\/valueStore\/flashValueStore.cpp",
+      "..\/..\/sources\/hashTable\/compare.cpp",
+      "..\/..\/sources\/hashTable\/cc.cpp",
+      "..\/..\/sources\/responseFormatter\/binResponse.cpp"
     ],
     "Vhdl": [
       "impl\/vhdl\/accessControl.vhd",
       "impl\/vhdl\/bobj.vhd",
-      "impl\/vhdl\/bp_f1192.vhd",
+      "impl\/vhdl\/bp_f1244.vhd",
       "impl\/vhdl\/bp_r.vhd",
       "impl\/vhdl\/concurrencyControl.vhd",
       "impl\/vhdl\/demux.vhd",
@@ -63,10 +61,8 @@
       "impl\/vhdl\/fifo_w2_d16_A.vhd",
       "impl\/vhdl\/fifo_w8_d2_A.vhd",
       "impl\/vhdl\/fifo_w12_d16_A.vhd",
-      "impl\/vhdl\/fifo_w16_d16_A.vhd",
       "impl\/vhdl\/fifo_w32_d2_A.vhd",
       "impl\/vhdl\/fifo_w45_d16_A.vhd",
-      "impl\/vhdl\/fifo_w48_d16_A.vhd",
       "impl\/vhdl\/fifo_w57_d2_A.vhd",
       "impl\/vhdl\/fifo_w64_d10_A.vhd",
       "impl\/vhdl\/fifo_w64_d48_A.vhd",
@@ -83,11 +79,6 @@
       "impl\/vhdl\/fifo_w248_d16_A.vhd",
       "impl\/vhdl\/fifo_w256_d16_A.vhd",
       "impl\/vhdl\/fifo_w512_d10_A.vhd",
-      "impl\/vhdl\/flashDemux.vhd",
-      "impl\/vhdl\/flashDispatch.vhd",
-      "impl\/vhdl\/flashReceiveNoFilter.vhd",
-      "impl\/vhdl\/flashRemux.vhd",
-      "impl\/vhdl\/flashSetPathNoFilter.vhd",
       "impl\/vhdl\/hashKeyResizer.vhd",
       "impl\/vhdl\/ht_compare.vhd",
       "impl\/vhdl\/ht_inputLogic.vhd",
@@ -96,39 +87,31 @@
       "impl\/vhdl\/memcachedPipelinebkb.vhd",
       "impl\/vhdl\/memRead.vhd",
       "impl\/vhdl\/memWrite.vhd",
-      "impl\/vhdl\/merger.vhd",
       "impl\/vhdl\/receive.vhd",
       "impl\/vhdl\/remux.vhd",
       "impl\/vhdl\/response_f.vhd",
       "impl\/vhdl\/response_r.vhd",
       "impl\/vhdl\/setPath.vhd",
-      "impl\/vhdl\/splitter.vhd",
-      "impl\/vhdl\/start_for_accessCibs.vhd",
+      "impl\/vhdl\/start_for_accessChbi.vhd",
       "impl\/vhdl\/start_for_bobj_U0.vhd",
       "impl\/vhdl\/start_for_bp_r_U0.vhd",
       "impl\/vhdl\/start_for_concurreOg.vhd",
       "impl\/vhdl\/start_for_demux_U0.vhd",
-      "impl\/vhdl\/start_for_dispatclbW.vhd",
-      "impl\/vhdl\/start_for_flashDejbC.vhd",
-      "impl\/vhdl\/start_for_flashDincg.vhd",
-      "impl\/vhdl\/start_for_flashReocq.vhd",
-      "impl\/vhdl\/start_for_flashSemb6.vhd",
+      "impl\/vhdl\/start_for_dispatcjbC.vhd",
       "impl\/vhdl\/start_for_hashKeydEe.vhd",
       "impl\/vhdl\/start_for_ht_inpucud.vhd",
       "impl\/vhdl\/start_for_ht_outpg8j.vhd",
       "impl\/vhdl\/start_for_memReadfYi.vhd",
-      "impl\/vhdl\/start_for_merger_U0.vhd",
       "impl\/vhdl\/start_for_remux_U0.vhd",
-      "impl\/vhdl\/start_for_responspcA.vhd",
-      "impl\/vhdl\/start_for_responsqcK.vhd",
-      "impl\/vhdl\/start_for_setPathkbM.vhd",
-      "impl\/vhdl\/start_for_splittehbi.vhd",
+      "impl\/vhdl\/start_for_responskbM.vhd",
+      "impl\/vhdl\/start_for_responslbW.vhd",
+      "impl\/vhdl\/start_for_setPathibs.vhd",
       "impl\/vhdl\/memcachedPipeline.vhd"
     ],
     "Verilog": [
       "impl\/verilog\/accessControl.v",
       "impl\/verilog\/bobj.v",
-      "impl\/verilog\/bp_f1192.v",
+      "impl\/verilog\/bp_f1244.v",
       "impl\/verilog\/bp_r.v",
       "impl\/verilog\/concurrencyControl.v",
       "impl\/verilog\/demux.v",
@@ -139,10 +122,8 @@
       "impl\/verilog\/fifo_w2_d16_A.v",
       "impl\/verilog\/fifo_w8_d2_A.v",
       "impl\/verilog\/fifo_w12_d16_A.v",
-      "impl\/verilog\/fifo_w16_d16_A.v",
       "impl\/verilog\/fifo_w32_d2_A.v",
       "impl\/verilog\/fifo_w45_d16_A.v",
-      "impl\/verilog\/fifo_w48_d16_A.v",
       "impl\/verilog\/fifo_w57_d2_A.v",
       "impl\/verilog\/fifo_w64_d10_A.v",
       "impl\/verilog\/fifo_w64_d48_A.v",
@@ -159,11 +140,6 @@
       "impl\/verilog\/fifo_w248_d16_A.v",
       "impl\/verilog\/fifo_w256_d16_A.v",
       "impl\/verilog\/fifo_w512_d10_A.v",
-      "impl\/verilog\/flashDemux.v",
-      "impl\/verilog\/flashDispatch.v",
-      "impl\/verilog\/flashReceiveNoFilter.v",
-      "impl\/verilog\/flashRemux.v",
-      "impl\/verilog\/flashSetPathNoFilter.v",
       "impl\/verilog\/hashKeyResizer.v",
       "impl\/verilog\/ht_compare.v",
       "impl\/verilog\/ht_inputLogic.v",
@@ -172,33 +148,25 @@
       "impl\/verilog\/memcachedPipelinebkb.v",
       "impl\/verilog\/memRead.v",
       "impl\/verilog\/memWrite.v",
-      "impl\/verilog\/merger.v",
       "impl\/verilog\/receive.v",
       "impl\/verilog\/remux.v",
       "impl\/verilog\/response_f.v",
       "impl\/verilog\/response_r.v",
       "impl\/verilog\/setPath.v",
-      "impl\/verilog\/splitter.v",
-      "impl\/verilog\/start_for_accessCibs.v",
+      "impl\/verilog\/start_for_accessChbi.v",
       "impl\/verilog\/start_for_bobj_U0.v",
       "impl\/verilog\/start_for_bp_r_U0.v",
       "impl\/verilog\/start_for_concurreOg.v",
       "impl\/verilog\/start_for_demux_U0.v",
-      "impl\/verilog\/start_for_dispatclbW.v",
-      "impl\/verilog\/start_for_flashDejbC.v",
-      "impl\/verilog\/start_for_flashDincg.v",
-      "impl\/verilog\/start_for_flashReocq.v",
-      "impl\/verilog\/start_for_flashSemb6.v",
+      "impl\/verilog\/start_for_dispatcjbC.v",
       "impl\/verilog\/start_for_hashKeydEe.v",
       "impl\/verilog\/start_for_ht_inpucud.v",
       "impl\/verilog\/start_for_ht_outpg8j.v",
       "impl\/verilog\/start_for_memReadfYi.v",
-      "impl\/verilog\/start_for_merger_U0.v",
       "impl\/verilog\/start_for_remux_U0.v",
-      "impl\/verilog\/start_for_responspcA.v",
-      "impl\/verilog\/start_for_responsqcK.v",
-      "impl\/verilog\/start_for_setPathkbM.v",
-      "impl\/verilog\/start_for_splittehbi.v",
+      "impl\/verilog\/start_for_responskbM.v",
+      "impl\/verilog\/start_for_responslbW.v",
+      "impl\/verilog\/start_for_setPathibs.v",
       "impl\/verilog\/memcachedPipeline.v"
     ],
     "Misc": ["impl\/misc\/logo.png"]
@@ -257,7 +225,7 @@
     "ap_clk": {
       "type": "clock",
       "ctype": {"CLK": {"Type": "bool"}},
-      "buses": "inData outData dramValueStoreMemRdCmd_V dramValueStoreMemRdData_V_V dramValueStoreMemWrCmd_V dramValueStoreMemWrData_V_V flashValueStoreMemRdCmd_V flashValueStoreMemRdData_V_V flashValueStoreMemWrCmd_V flashValueStoreMemWrData_V_V hashTableMemRdData_V_V hashTableMemRdCmd_V hashTableMemWrData_V_V hashTableMemWrCmd_V addressReturnOut_V_V addressAssignDramIn_V_V addressAssignFlashIn_V_V",
+      "buses": "inData outData dramValueStoreMemRdCmd_V dramValueStoreMemRdData_V_V dramValueStoreMemWrCmd_V dramValueStoreMemWrData_V_V hashTableMemRdData_V_V hashTableMemRdCmd_V hashTableMemWrData_V_V hashTableMemWrCmd_V addressReturnOut_V_V addressAssignDramIn_V_V addressAssignFlashIn_V_V",
       "reset": "ap_rst_n"
     },
     "ap_rst_n": {
@@ -344,88 +312,6 @@
         "TREADY": {"Type": "bool"}
       },
       "port_width": {"TDATA": "512"}
-    },
-    "flashValueStoreMemRdCmd_V": {
-      "type": "axi4stream",
-      "mode": "master",
-      "port_prefix": "flashValueStoreMemRdCmd_V",
-      "has_tready": "1",
-      "ctype": {
-        "TDATA": {
-          "Type": "struct",
-          "Width": "48",
-          "Fields": {
-            "address": {
-              "Type": "integer unsigned",
-              "Width": "32"
-            },
-            "count": {
-              "Type": "integer unsigned",
-              "Width": "13",
-              "Bits": "16"
-            }
-          }
-        },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"}
-      },
-      "port_width": {"TDATA": "48"}
-    },
-    "flashValueStoreMemRdData_V_V": {
-      "type": "axi4stream",
-      "mode": "slave",
-      "port_prefix": "flashValueStoreMemRdData_V_V",
-      "has_tready": "1",
-      "ctype": {
-        "TDATA": {
-          "Type": "integer unsigned",
-          "Width": "64"
-        },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"}
-      },
-      "port_width": {"TDATA": "64"}
-    },
-    "flashValueStoreMemWrCmd_V": {
-      "type": "axi4stream",
-      "mode": "master",
-      "port_prefix": "flashValueStoreMemWrCmd_V",
-      "has_tready": "1",
-      "ctype": {
-        "TDATA": {
-          "Type": "struct",
-          "Width": "48",
-          "Fields": {
-            "address": {
-              "Type": "integer unsigned",
-              "Width": "32"
-            },
-            "count": {
-              "Type": "integer unsigned",
-              "Width": "13",
-              "Bits": "16"
-            }
-          }
-        },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"}
-      },
-      "port_width": {"TDATA": "48"}
-    },
-    "flashValueStoreMemWrData_V_V": {
-      "type": "axi4stream",
-      "mode": "master",
-      "port_prefix": "flashValueStoreMemWrData_V_V",
-      "has_tready": "1",
-      "ctype": {
-        "TDATA": {
-          "Type": "integer unsigned",
-          "Width": "64"
-        },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"}
-      },
-      "port_width": {"TDATA": "64"}
     },
     "flushAck_V": {
       "type": "data",
@@ -698,54 +584,6 @@
       "dir": "in",
       "width": "1"
     },
-    "flashValueStoreMemRdCmd_V_TDATA": {
-      "dir": "out",
-      "width": "48"
-    },
-    "flashValueStoreMemRdCmd_V_TVALID": {
-      "dir": "out",
-      "width": "1"
-    },
-    "flashValueStoreMemRdCmd_V_TREADY": {
-      "dir": "in",
-      "width": "1"
-    },
-    "flashValueStoreMemRdData_V_V_TDATA": {
-      "dir": "in",
-      "width": "64"
-    },
-    "flashValueStoreMemRdData_V_V_TVALID": {
-      "dir": "in",
-      "width": "1"
-    },
-    "flashValueStoreMemRdData_V_V_TREADY": {
-      "dir": "out",
-      "width": "1"
-    },
-    "flashValueStoreMemWrCmd_V_TDATA": {
-      "dir": "out",
-      "width": "48"
-    },
-    "flashValueStoreMemWrCmd_V_TVALID": {
-      "dir": "out",
-      "width": "1"
-    },
-    "flashValueStoreMemWrCmd_V_TREADY": {
-      "dir": "in",
-      "width": "1"
-    },
-    "flashValueStoreMemWrData_V_V_TDATA": {
-      "dir": "out",
-      "width": "64"
-    },
-    "flashValueStoreMemWrData_V_V_TVALID": {
-      "dir": "out",
-      "width": "1"
-    },
-    "flashValueStoreMemWrData_V_V_TREADY": {
-      "dir": "in",
-      "width": "1"
-    },
     "hashTableMemRdData_V_V_TDATA": {
       "dir": "in",
       "width": "512"
@@ -910,25 +748,6 @@
       "dir": "out",
       "firstOutLatency": "1"
     },
-    "flashValueStoreMemRdCmd_V": {
-      "interfaceRef": "flashValueStoreMemRdCmd_V",
-      "dir": "out",
-      "firstOutLatency": "1"
-    },
-    "flashValueStoreMemRdData_V_V": {
-      "interfaceRef": "flashValueStoreMemRdData_V_V",
-      "dir": "in"
-    },
-    "flashValueStoreMemWrCmd_V": {
-      "interfaceRef": "flashValueStoreMemWrCmd_V",
-      "dir": "out",
-      "firstOutLatency": "1"
-    },
-    "flashValueStoreMemWrData_V_V": {
-      "interfaceRef": "flashValueStoreMemWrData_V_V",
-      "dir": "out",
-      "firstOutLatency": "1"
-    },
     "hashTableMemRdData_V_V": {
       "interfaceRef": "hashTableMemRdData_V_V",
       "dir": "in"
@@ -999,8 +818,8 @@
           "InstanceName": "response_r_U0"
         },
         {
-          "ModuleName": "bp_f1192",
-          "InstanceName": "bp_f1192_U0"
+          "ModuleName": "bp_f1244",
+          "InstanceName": "bp_f1244_U0"
         },
         {
           "ModuleName": "receive",
@@ -1017,10 +836,6 @@
         {
           "ModuleName": "ht_outputLogic",
           "InstanceName": "ht_outputLogic_U0"
-        },
-        {
-          "ModuleName": "flashRemux",
-          "InstanceName": "flashRemux_U0"
         },
         {
           "ModuleName": "remux",
@@ -1047,36 +862,12 @@
           "InstanceName": "memRead_U0"
         },
         {
-          "ModuleName": "flashDemux",
-          "InstanceName": "flashDemux_U0"
-        },
-        {
           "ModuleName": "demux",
           "InstanceName": "demux_U0"
         },
         {
           "ModuleName": "hashKeyResizer",
           "InstanceName": "hashKeyResizer_U0"
-        },
-        {
-          "ModuleName": "merger",
-          "InstanceName": "merger_U0"
-        },
-        {
-          "ModuleName": "splitter",
-          "InstanceName": "splitter_U0"
-        },
-        {
-          "ModuleName": "flashSetPathNoFilter",
-          "InstanceName": "flashSetPathNoFilter_U0"
-        },
-        {
-          "ModuleName": "flashReceiveNoFilter",
-          "InstanceName": "flashReceiveNoFilter_U0"
-        },
-        {
-          "ModuleName": "flashDispatch",
-          "InstanceName": "flashDispatch_U0"
         },
         {
           "ModuleName": "dispatch",
@@ -1114,7 +905,7 @@
           "DSP48E": "0"
         }
       },
-      "bp_f1192": {
+      "bp_f1244": {
         "Latency": {
           "LatencyBest": "1",
           "LatencyAvg": "1",
@@ -1324,27 +1115,6 @@
           "DSP48E": "0"
         }
       },
-      "splitter": {
-        "Latency": {
-          "LatencyBest": "2",
-          "LatencyAvg": "2",
-          "LatencyWorst": "2",
-          "PipelineII": "1",
-          "PipelineDepth": "3",
-          "PipelineType": "function"
-        },
-        "Timing": {
-          "Target": "6.66",
-          "Uncertainty": "0.83",
-          "Estimate": "3.651"
-        },
-        "Area": {
-          "FF": "528",
-          "LUT": "178",
-          "BRAM_18K": "0",
-          "DSP48E": "0"
-        }
-      },
       "accessControl": {
         "Latency": {
           "LatencyBest": "1",
@@ -1471,132 +1241,6 @@
           "DSP48E": "0"
         }
       },
-      "flashDemux": {
-        "Latency": {
-          "LatencyBest": "1",
-          "LatencyAvg": "1",
-          "LatencyWorst": "1",
-          "PipelineII": "1",
-          "PipelineDepth": "2",
-          "PipelineType": "function"
-        },
-        "Timing": {
-          "Target": "6.66",
-          "Uncertainty": "0.83",
-          "Estimate": "5.024"
-        },
-        "Area": {
-          "FF": "602",
-          "LUT": "374",
-          "BRAM_18K": "0",
-          "DSP48E": "0"
-        }
-      },
-      "flashSetPathNoFilter": {
-        "Latency": {
-          "LatencyBest": "2",
-          "LatencyAvg": "2",
-          "LatencyWorst": "2",
-          "PipelineII": "1",
-          "PipelineDepth": "3",
-          "PipelineType": "function"
-        },
-        "Timing": {
-          "Target": "6.66",
-          "Uncertainty": "0.83",
-          "Estimate": "4.347"
-        },
-        "Area": {
-          "FF": "422",
-          "LUT": "234",
-          "BRAM_18K": "0",
-          "DSP48E": "0"
-        }
-      },
-      "flashDispatch": {
-        "Latency": {
-          "LatencyBest": "2",
-          "LatencyAvg": "2",
-          "LatencyWorst": "2",
-          "PipelineII": "1",
-          "PipelineDepth": "3",
-          "PipelineType": "function"
-        },
-        "Timing": {
-          "Target": "6.66",
-          "Uncertainty": "0.83",
-          "Estimate": "2.391"
-        },
-        "Area": {
-          "FF": "169",
-          "LUT": "156",
-          "BRAM_18K": "0",
-          "DSP48E": "0"
-        }
-      },
-      "flashReceiveNoFilter": {
-        "Latency": {
-          "LatencyBest": "1",
-          "LatencyAvg": "1",
-          "LatencyWorst": "1",
-          "PipelineII": "1",
-          "PipelineDepth": "2",
-          "PipelineType": "function"
-        },
-        "Timing": {
-          "Target": "6.66",
-          "Uncertainty": "0.83",
-          "Estimate": "4.550"
-        },
-        "Area": {
-          "FF": "99",
-          "LUT": "201",
-          "BRAM_18K": "0",
-          "DSP48E": "0"
-        }
-      },
-      "flashRemux": {
-        "Latency": {
-          "LatencyBest": "1",
-          "LatencyAvg": "1",
-          "LatencyWorst": "1",
-          "PipelineII": "1",
-          "PipelineDepth": "2",
-          "PipelineType": "function"
-        },
-        "Timing": {
-          "Target": "6.66",
-          "Uncertainty": "0.83",
-          "Estimate": "7.515"
-        },
-        "Area": {
-          "FF": "1004",
-          "LUT": "1050",
-          "BRAM_18K": "0",
-          "DSP48E": "0"
-        }
-      },
-      "merger": {
-        "Latency": {
-          "LatencyBest": "1",
-          "LatencyAvg": "1",
-          "LatencyWorst": "1",
-          "PipelineII": "1",
-          "PipelineDepth": "2",
-          "PipelineType": "function"
-        },
-        "Timing": {
-          "Target": "6.66",
-          "Uncertainty": "0.83",
-          "Estimate": "2.391"
-        },
-        "Area": {
-          "FF": "524",
-          "LUT": "86",
-          "BRAM_18K": "0",
-          "DSP48E": "0"
-        }
-      },
       "response_f": {
         "Latency": {
           "LatencyBest": "0",
@@ -1641,9 +1285,9 @@
       },
       "memcachedPipeline": {
         "Latency": {
-          "LatencyBest": "42",
-          "LatencyAvg": "42",
-          "LatencyWorst": "42",
+          "LatencyBest": "37",
+          "LatencyAvg": "37",
+          "LatencyWorst": "37",
           "PipelineII": "1",
           "PipelineDepth": "",
           "PipelineType": "dataflow"
@@ -1654,9 +1298,9 @@
           "Estimate": "9.738"
         },
         "Area": {
-          "BRAM_18K": "311",
-          "FF": "33173",
-          "LUT": "145534",
+          "BRAM_18K": "225",
+          "FF": "28205",
+          "LUT": "142267",
           "DSP48E": "0"
         }
       }
@@ -1669,7 +1313,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2018-11-09 23:13:25 IST",
+    "Time": "2018-11-13 22:53:40 IST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

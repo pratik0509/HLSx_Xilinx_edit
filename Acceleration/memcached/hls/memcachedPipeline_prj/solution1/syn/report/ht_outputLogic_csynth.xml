@@ -291,8 +291,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>hashTable2splitter_V_din</name>
-<Object>hashTable2splitter_V</Object>
+<name>hashTable2Dram_V_din</name>
+<Object>hashTable2Dram_V</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -302,8 +302,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>hashTable2splitter_V_full_n</name>
-<Object>hashTable2splitter_V</Object>
+<name>hashTable2Dram_V_full_n</name>
+<Object>hashTable2Dram_V</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -313,8 +313,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>hashTable2splitter_V_write</name>
-<Object>hashTable2splitter_V</Object>
+<name>hashTable2Dram_V_write</name>
+<Object>hashTable2Dram_V</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>

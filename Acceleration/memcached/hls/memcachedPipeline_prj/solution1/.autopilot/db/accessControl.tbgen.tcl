@@ -14,13 +14,13 @@ set C_modelType { void 0 }
 set C_modelArgList {
 	{ filterPopSet_V_V int 1 regular {fifo 0 volatile } {global 0}  }
 	{ filterPopGet_V_V int 1 regular {fifo 0 volatile } {global 0}  }
-	{ splitter2valueStoreD_1 int 256 regular {fifo 0 volatile } {global 0}  }
+	{ hashTable2Dram_V int 256 regular {fifo 0 volatile } {global 0}  }
 	{ accCtrl2demux_V int 256 regular {fifo 1 volatile } {global 1}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "filterPopSet_V_V", "interface" : "fifo", "bitwidth" : 1, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "filterPopGet_V_V", "interface" : "fifo", "bitwidth" : 1, "direction" : "READONLY", "extern" : 0} , 
- 	{ "Name" : "splitter2valueStoreD_1", "interface" : "fifo", "bitwidth" : 256, "direction" : "READONLY", "extern" : 0} , 
+ 	{ "Name" : "hashTable2Dram_V", "interface" : "fifo", "bitwidth" : 256, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "accCtrl2demux_V", "interface" : "fifo", "bitwidth" : 256, "direction" : "WRITEONLY", "extern" : 0} ]}
 # RTL Port declarations: 
 set portNum 22
@@ -39,9 +39,9 @@ set portList {
 	{ filterPopSet_V_V_dout sc_in sc_lv 1 signal 0 } 
 	{ filterPopSet_V_V_empty_n sc_in sc_logic 1 signal 0 } 
 	{ filterPopSet_V_V_read sc_out sc_logic 1 signal 0 } 
-	{ splitter2valueStoreD_1_dout sc_in sc_lv 256 signal 2 } 
-	{ splitter2valueStoreD_1_empty_n sc_in sc_logic 1 signal 2 } 
-	{ splitter2valueStoreD_1_read sc_out sc_logic 1 signal 2 } 
+	{ hashTable2Dram_V_dout sc_in sc_lv 256 signal 2 } 
+	{ hashTable2Dram_V_empty_n sc_in sc_logic 1 signal 2 } 
+	{ hashTable2Dram_V_read sc_out sc_logic 1 signal 2 } 
 	{ accCtrl2demux_V_din sc_out sc_lv 256 signal 3 } 
 	{ accCtrl2demux_V_full_n sc_in sc_logic 1 signal 3 } 
 	{ accCtrl2demux_V_write sc_out sc_logic 1 signal 3 } 
@@ -63,9 +63,9 @@ set NewPortList {[
  	{ "name": "filterPopSet_V_V_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "filterPopSet_V_V", "role": "dout" }} , 
  	{ "name": "filterPopSet_V_V_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "filterPopSet_V_V", "role": "empty_n" }} , 
  	{ "name": "filterPopSet_V_V_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "filterPopSet_V_V", "role": "read" }} , 
- 	{ "name": "splitter2valueStoreD_1_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":256, "type": "signal", "bundle":{"name": "splitter2valueStoreD_1", "role": "dout" }} , 
- 	{ "name": "splitter2valueStoreD_1_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "splitter2valueStoreD_1", "role": "empty_n" }} , 
- 	{ "name": "splitter2valueStoreD_1_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "splitter2valueStoreD_1", "role": "read" }} , 
+ 	{ "name": "hashTable2Dram_V_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":256, "type": "signal", "bundle":{"name": "hashTable2Dram_V", "role": "dout" }} , 
+ 	{ "name": "hashTable2Dram_V_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "hashTable2Dram_V", "role": "empty_n" }} , 
+ 	{ "name": "hashTable2Dram_V_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "hashTable2Dram_V", "role": "read" }} , 
  	{ "name": "accCtrl2demux_V_din", "direction": "out", "datatype": "sc_lv", "bitwidth":256, "type": "signal", "bundle":{"name": "accCtrl2demux_V", "role": "din" }} , 
  	{ "name": "accCtrl2demux_V_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "accCtrl2demux_V", "role": "full_n" }} , 
  	{ "name": "accCtrl2demux_V_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "accCtrl2demux_V", "role": "write" }} , 
@@ -123,9 +123,9 @@ set RtlHierarchyInfo {[
 			{"Name" : "filterPopGet_V_V", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "0", "DependentChan" : "0",
 				"BlockSignal" : [
 					{"Name" : "filterPopGet_V_V_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "splitter2valueStoreD_1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "0", "DependentChan" : "0",
+			{"Name" : "hashTable2Dram_V", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "0", "DependentChan" : "0",
 				"BlockSignal" : [
-					{"Name" : "splitter2valueStoreD_1_blk_n", "Type" : "RtlSignal"}]},
+					{"Name" : "hashTable2Dram_V_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "filterSeq_V_V", "Type" : "Fifo", "Direction" : "IO"},
 			{"Name" : "inputWord_metadata_V", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "inputWord_SOP_V", "Type" : "OVld", "Direction" : "IO"},
@@ -175,7 +175,7 @@ set ArgLastReadFirstWriteLatency {
 		accessCtrl_rdPtr {Type IO LastRead -1 FirstWrite -1}
 		filterPopSet_V_V {Type I LastRead 0 FirstWrite -1}
 		filterPopGet_V_V {Type I LastRead 0 FirstWrite -1}
-		splitter2valueStoreD_1 {Type I LastRead 0 FirstWrite -1}
+		hashTable2Dram_V {Type I LastRead 0 FirstWrite -1}
 		filterSeq_V_V {Type IO LastRead -1 FirstWrite -1}
 		inputWord_metadata_V {Type IO LastRead -1 FirstWrite -1}
 		inputWord_SOP_V {Type IO LastRead -1 FirstWrite -1}
@@ -200,6 +200,6 @@ set PipelineEnableSignalInfo {[
 set Spec2ImplPortList { 
 	filterPopSet_V_V { ap_fifo {  { filterPopSet_V_V_dout fifo_data 0 1 }  { filterPopSet_V_V_empty_n fifo_status 0 1 }  { filterPopSet_V_V_read fifo_update 1 1 } } }
 	filterPopGet_V_V { ap_fifo {  { filterPopGet_V_V_dout fifo_data 0 1 }  { filterPopGet_V_V_empty_n fifo_status 0 1 }  { filterPopGet_V_V_read fifo_update 1 1 } } }
-	splitter2valueStoreD_1 { ap_fifo {  { splitter2valueStoreD_1_dout fifo_data 0 256 }  { splitter2valueStoreD_1_empty_n fifo_status 0 1 }  { splitter2valueStoreD_1_read fifo_update 1 1 } } }
+	hashTable2Dram_V { ap_fifo {  { hashTable2Dram_V_dout fifo_data 0 256 }  { hashTable2Dram_V_empty_n fifo_status 0 1 }  { hashTable2Dram_V_read fifo_update 1 1 } } }
 	accCtrl2demux_V { ap_fifo {  { accCtrl2demux_V_din fifo_data 1 256 }  { accCtrl2demux_V_full_n fifo_status 0 1 }  { accCtrl2demux_V_write fifo_update 1 1 } } }
 }

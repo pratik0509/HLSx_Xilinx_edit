@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'setPath'
 ================================================================
-* Date:           Fri Nov  9 23:09:40 2018
+* Date:           Tue Nov 13 22:51:21 2018
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        memcachedPipeline_prj
@@ -225,13 +225,13 @@ ST_2 : Operation 132 [1/1] (0.00ns)   --->   "br i1 %setValueBuffer_V_fla, label
 ST_2 : Operation 133 [1/1] (0.00ns)   --->   "store i512 %setValueBuffer_V_new, i512* @setValueBuffer_V, align 16" [sources/valueStore/valueStore.cpp:271]   --->   Operation 133 'store' <Predicate = (setValueBuffer_V_fla)> <Delay = 0.00>
 
 State 3 <SV = 2> <Delay = 0.00>
-ST_3 : Operation 134 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i45* @demux2setPathMetadat_1, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 134 'specinterface' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 135 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i66* @demux2setPathValue_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 135 'specinterface' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 136 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* @filterPopSet_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 136 'specinterface' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 137 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i512* %memWrData_V_V, [5 x i8]* @p_str3149, i32 1, i32 1, [5 x i8]* @p_str4150, i32 0, i32 0, [1 x i8]* @p_str1147, [1 x i8]* @p_str1147, [1 x i8]* @p_str1147, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1147, [1 x i8]* @p_str1147) nounwind"   --->   Operation 137 'specinterface' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 138 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i40* %memWrCmd_V, [5 x i8]* @p_str3149, i32 1, i32 1, [5 x i8]* @p_str4150, i32 0, i32 0, [1 x i8]* @p_str1147, [1 x i8]* @p_str1147, [1 x i8]* @p_str1147, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1147, [1 x i8]* @p_str1147) nounwind"   --->   Operation 138 'specinterface' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 139 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str65, i32 0, i32 0, [1 x i8]* @p_str166, i32 0, i32 0, [1 x i8]* @p_str166, [1 x i8]* @p_str166, [1 x i8]* @p_str166, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str166, [1 x i8]* @p_str166) nounwind" [sources/valueStore/valueStore.cpp:255]   --->   Operation 139 'specinterface' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 140 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 2, i32 1, i32 0, [1 x i8]* @p_str166) nounwind" [sources/valueStore/valueStore.cpp:258]   --->   Operation 140 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 134 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i45* @demux2setPathMetadat_1, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1175, i32 0, i32 0, [1 x i8]* @p_str1176, [1 x i8]* @p_str1177, [1 x i8]* @p_str1178, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1179, [1 x i8]* @p_str1180)"   --->   Operation 134 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 135 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i66* @demux2setPathValue_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1168, i32 0, i32 0, [1 x i8]* @p_str1169, [1 x i8]* @p_str1170, [1 x i8]* @p_str1171, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1172, [1 x i8]* @p_str1173)"   --->   Operation 135 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 136 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* @filterPopSet_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1147, i32 0, i32 0, [1 x i8]* @p_str1148, [1 x i8]* @p_str1149, [1 x i8]* @p_str1150, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1151, [1 x i8]* @p_str1152)"   --->   Operation 136 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 137 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i512* %memWrData_V_V, [5 x i8]* @p_str324, i32 1, i32 1, [5 x i8]* @p_str425, i32 0, i32 0, [1 x i8]* @p_str122, [1 x i8]* @p_str122, [1 x i8]* @p_str122, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str122, [1 x i8]* @p_str122) nounwind"   --->   Operation 137 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 138 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i40* %memWrCmd_V, [5 x i8]* @p_str324, i32 1, i32 1, [5 x i8]* @p_str425, i32 0, i32 0, [1 x i8]* @p_str122, [1 x i8]* @p_str122, [1 x i8]* @p_str122, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str122, [1 x i8]* @p_str122) nounwind"   --->   Operation 138 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 139 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [sources/valueStore/valueStore.cpp:255]   --->   Operation 139 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 140 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 2, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [sources/valueStore/valueStore.cpp:258]   --->   Operation 140 'specpipeline' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 141 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i512P(i512* %memWrData_V_V, i512 %p_Val2_s)" [sources/valueStore/valueStore.cpp:350]   --->   Operation 141 'write' <Predicate = (setState_load == 6)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
 ST_3 : Operation 142 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i512P(i512* %memWrData_V_V, i512 %p_Val2_s)" [sources/valueStore/valueStore.cpp:343]   --->   Operation 142 'write' <Predicate = (setState_load == 5)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
 ST_3 : Operation 143 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i40P(i40* %memWrCmd_V, i40 %tmp_429)" [sources/valueStore/valueStore.cpp:319]   --->   Operation 143 'write' <Predicate = (setState_load == 4)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
@@ -262,9 +262,8 @@ The critical path consists of the following:
 	'select' operation ('tmp_48', sources/valueStore/valueStore.cpp:329) [59]  (0 ns)
 	'and' operation ('tmp_53', sources/valueStore/valueStore.cpp:329) [65]  (0 ns)
 	'or' operation ('__Result__', sources/valueStore/valueStore.cpp:329) [66]  (0.895 ns)
-	multiplexor before 'phi' operation ('__Result__') with incoming values : ('__Result__', sources/valueStore/valueStore.cpp:329) ('__Result__', sources/valueStore/valueStore.cpp:293) ('__Result__', sources/valueStore/valueStore.cpp:281) [158]  (1 ns)
-	'phi' operation ('__Result__') with incoming values : ('__Result__', sources/valueStore/valueStore.cpp:329) ('__Result__', sources/valueStore/valueStore.cpp:293) ('__Result__', sources/valueStore/valueStore.cpp:281) [158]  (0 ns)
-	'store' operation (sources/valueStore/valueStore.cpp:271) of variable '__Result__' on static variable 'setValueBuffer_V' [161]  (0 ns)
+	multiplexor before 'phi' operation ('setValueBuffer_V_fla') [157]  (1 ns)
+	'phi' operation ('setValueBuffer_V_fla') [157]  (0 ns)
 
  <State 3>: 0ns
 The critical path consists of the following:

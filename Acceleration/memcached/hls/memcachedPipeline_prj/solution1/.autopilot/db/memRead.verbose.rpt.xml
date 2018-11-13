@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'memRead'" level="0">
-<item name = "Date">Fri Nov  9 23:10:52 2018
+<item name = "Date">Tue Nov 13 22:51:52 2018
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">memcachedPipeline_prj</item>
@@ -77,9 +77,9 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="memData_count_V_fu_332_p2">+, 0, 0, 15, 5, 5</column>
-<column name="tmp_341_fu_239_p2">-, 0, 0, 16, 9, 8</column>
-<column name="tmp_345_fu_261_p2">-, 0, 0, 16, 9, 8</column>
+<column name="memData_count_V_fu_378_p2">+, 0, 0, 15, 5, 5</column>
+<column name="tmp_336_fu_285_p2">-, 0, 0, 16, 9, 8</column>
+<column name="tmp_340_fu_307_p2">-, 0, 0, 16, 9, 8</column>
 <column name="ap_block_state2_io">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state3_io">and, 0, 0, 2, 1, 1</column>
 <column name="ap_condition_149">and, 0, 0, 2, 1, 1</column>
@@ -91,18 +91,18 @@
 <column name="ap_predicate_op9_read_state1">and, 0, 0, 2, 1, 1</column>
 <column name="memRdCtrl_V_1_load_A">and, 0, 0, 2, 1, 1</column>
 <column name="memRdCtrl_V_1_load_B">and, 0, 0, 2, 1, 1</column>
-<column name="p_Result_23_fu_277_p2">and, 0, 0, 128, 128, 128</column>
-<column name="p_Result_s_fu_255_p2">and, 0, 0, 128, 128, 128</column>
+<column name="p_Result_23_fu_323_p2">and, 0, 0, 128, 128, 128</column>
+<column name="p_Result_s_fu_301_p2">and, 0, 0, 128, 128, 128</column>
 <column name="memRdCtrl_V_1_state_cmp_full">icmp, 0, 0, 8, 2, 1</column>
-<column name="tmp_128_i_fu_209_p2">icmp, 0, 0, 11, 8, 8</column>
-<column name="tmp_129_i_fu_215_p2">icmp, 0, 0, 11, 8, 5</column>
-<column name="tmp_i_fu_185_p2">icmp, 0, 0, 11, 8, 4</column>
-<column name="tmp_343_fu_249_p2">lshr, 0, 0, 423, 2, 128</column>
-<column name="tmp_347_fu_271_p2">lshr, 0, 0, 423, 2, 128</column>
+<column name="tmp_128_i_fu_255_p2">icmp, 0, 0, 11, 8, 8</column>
+<column name="tmp_129_i_fu_261_p2">icmp, 0, 0, 11, 8, 5</column>
+<column name="tmp_i_fu_231_p2">icmp, 0, 0, 11, 8, 4</column>
+<column name="tmp_338_fu_295_p2">lshr, 0, 0, 423, 2, 128</column>
+<column name="tmp_342_fu_317_p2">lshr, 0, 0, 423, 2, 128</column>
 <column name="ap_block_state1_pp0_stage0_iter0">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state2_pp0_stage0_iter1">or, 0, 0, 2, 1, 1</column>
-<column name="p_0184_1_0_v_cast_i_c_fu_325_p3">select, 0, 0, 2, 1, 2</column>
-<column name="tmp_data_V_fu_283_p3">select, 0, 0, 128, 1, 128</column>
+<column name="p_0184_1_0_v_cast_i_c_fu_371_p3">select, 0, 0, 2, 1, 2</column>
+<column name="tmp_data_V_fu_329_p3">select, 0, 0, 128, 1, 128</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -132,20 +132,20 @@
 <column name="memRdCtrl_V_1_sel_wr">1, 0, 1, 0</column>
 <column name="memRdCtrl_V_1_state">2, 0, 2, 0</column>
 <column name="memRdState">1, 0, 1, 0</column>
-<column name="memRdState_load_reg_362">1, 0, 1, 0</column>
-<column name="memRdState_load_reg_362_pp0_iter1_reg">1, 0, 1, 0</column>
-<column name="tmp27_reg_374">64, 0, 64, 0</column>
-<column name="tmp_128_i_reg_393">1, 0, 1, 0</column>
-<column name="tmp_29_reg_370">1, 0, 1, 0</column>
-<column name="tmp_29_reg_370_pp0_iter1_reg">1, 0, 1, 0</column>
-<column name="tmp_30_reg_388">4, 0, 4, 0</column>
-<column name="tmp_46_i_reg_403">2, 0, 2, 0</column>
-<column name="tmp_5_reg_408">130, 0, 130, 0</column>
-<column name="tmp_data_V_reg_398">128, 0, 128, 0</column>
-<column name="tmp_i_reg_384">1, 0, 1, 0</column>
-<column name="tmp_i_reg_384_pp0_iter1_reg">1, 0, 1, 0</column>
-<column name="tmp_reg_366">1, 0, 1, 0</column>
-<column name="tmp_reg_366_pp0_iter1_reg">1, 0, 1, 0</column>
+<column name="memRdState_load_reg_408">1, 0, 1, 0</column>
+<column name="memRdState_load_reg_408_pp0_iter1_reg">1, 0, 1, 0</column>
+<column name="tmp27_reg_420">64, 0, 64, 0</column>
+<column name="tmp_128_i_reg_439">1, 0, 1, 0</column>
+<column name="tmp_29_reg_416">1, 0, 1, 0</column>
+<column name="tmp_29_reg_416_pp0_iter1_reg">1, 0, 1, 0</column>
+<column name="tmp_30_reg_434">4, 0, 4, 0</column>
+<column name="tmp_43_i_reg_449">2, 0, 2, 0</column>
+<column name="tmp_5_reg_454">130, 0, 130, 0</column>
+<column name="tmp_data_V_reg_444">128, 0, 128, 0</column>
+<column name="tmp_i_reg_430">1, 0, 1, 0</column>
+<column name="tmp_i_reg_430_pp0_iter1_reg">1, 0, 1, 0</column>
+<column name="tmp_reg_412">1, 0, 1, 0</column>
+<column name="tmp_reg_412_pp0_iter1_reg">1, 0, 1, 0</column>
 </table>
 </item>
 </section>

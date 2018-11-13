@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'dispatch'
 ================================================================
-* Date:           Fri Nov  9 23:11:25 2018
+* Date:           Tue Nov 13 22:52:40 2018
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        memcachedPipeline_prj
@@ -80,16 +80,16 @@
     +----------------------------------+----------+-------+---+----+------------+------------+
     |           Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +----------------------------------+----------+-------+---+----+------------+------------+
-    |tmp_259_i_fu_139_p2               |     +    |      0|  0|  15|           1|           8|
+    |tmp_196_i_fu_161_p2               |     +    |      0|  0|  15|           1|           8|
     |ap_block_state2_io                |    and   |      0|  0|   2|           1|           1|
     |ap_block_state2_pp0_stage0_iter1  |    and   |      0|  0|   2|           1|           1|
     |ap_block_state3_io                |    and   |      0|  0|   2|           1|           1|
     |memRdCmd_V_1_load_A               |    and   |      0|  0|   2|           1|           1|
     |memRdCmd_V_1_load_B               |    and   |      0|  0|   2|           1|           1|
     |memRdCmd_V_1_state_cmp_full       |   icmp   |      0|  0|   8|           2|           1|
-    |tmp_258_i_fu_120_p2               |   icmp   |      0|  0|  13|          13|          13|
+    |tmp_195_i_fu_142_p2               |   icmp   |      0|  0|  13|          13|          13|
     |ap_block_state1_pp0_stage0_iter0  |    or    |      0|  0|   2|           1|           1|
-    |tmp_count_V_fu_145_p3             |  select  |      0|  0|   8|           1|           8|
+    |tmp_count_V_fu_167_p3             |  select  |      0|  0|   8|           1|           8|
     +----------------------------------+----------+-------+---+----+------------+------------+
     |Total                             |          |      0|  0|  56|          23|          36|
     +----------------------------------+----------+-------+---+----+------------+------------+
@@ -118,17 +118,17 @@
     |ap_CS_iter1_fsm                |   2|   0|    2|          0|
     |ap_CS_iter2_fsm                |   2|   0|    2|          0|
     |ap_done_reg                    |   1|   0|    1|          0|
-    |getCtrlWord_address_s_reg_164  |  32|   0|   32|          0|
+    |getCtrlWord_address_s_reg_186  |  32|   0|   32|          0|
     |memRdCmd_V_1_payload_A         |  40|   0|   40|          0|
     |memRdCmd_V_1_payload_B         |  40|   0|   40|          0|
     |memRdCmd_V_1_sel_rd            |   1|   0|    1|          0|
     |memRdCmd_V_1_sel_wr            |   1|   0|    1|          0|
     |memRdCmd_V_1_state             |   2|   0|    2|          0|
-    |tmp_258_i_reg_174              |   1|   0|    1|          0|
-    |tmp_V_reg_179                  |  12|   0|   12|          0|
-    |tmp_reg_160                    |   1|   0|    1|          0|
-    |tmp_reg_160_pp0_iter1_reg      |   1|   0|    1|          0|
-    |tmp_s_reg_169                  |   7|   0|    7|          0|
+    |tmp_195_i_reg_196              |   1|   0|    1|          0|
+    |tmp_V_reg_201                  |  12|   0|   12|          0|
+    |tmp_reg_182                    |   1|   0|    1|          0|
+    |tmp_reg_182_pp0_iter1_reg      |   1|   0|    1|          0|
+    |tmp_s_reg_191                  |   7|   0|    7|          0|
     +-------------------------------+----+----+-----+-----------+
     |Total                          | 144|   0|  144|          0|
     +-------------------------------+----+----+-----+-----------+

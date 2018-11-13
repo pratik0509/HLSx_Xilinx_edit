@@ -33,22 +33,14 @@ void splitter(stream<pipelineWord> &valueSplitterIn, stream<pipelineWord> &value
 	#pragma HLS pipeline II=1
 
 	static bool 		is_validFlag 	= false;
-	static ap_uint<1>	dramOrFlash		= 0;	// 0 = Flash, 1 = DRAM
 
 	if (!valueSplitterIn.empty()) {
 		pipelineWord inputWord = valueSplitterIn.read();
 		if (inputWord.SOP == 1) {
 			is_validFlag = true;
-			if (inputWord.metadata.range(39, 8) > splitLength)
-				dramOrFlash = 0;
-			else
-				dramOrFlash = 1;
 		}
 		if (is_validFlag) {
-			if (dramOrFlash == 0)
-				valueSplitterOut2valueStoreFlash.write(inputWord);
-			else if (dramOrFlash == 1)
-				valueSplitterOut2valueStoreDram.write(inputWord);
+			valueSplitterOut2valueStoreDram.write(inputWord);
 			if (inputWord.EOP == 1)
 				is_validFlag = false;
 		}

@@ -10,7 +10,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 123 \
+    id 97 \
     name valueBuffer_rf_V_V \
     type fifo \
     dir O \
@@ -25,7 +25,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 124 \
+    id 98 \
     name metadataBuffer_rf_V_s \
     type fifo \
     dir O \
@@ -40,15 +40,15 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 125 \
-    name merger2responseForma_1 \
+    id 99 \
+    name valueStoreDram2merge_1 \
     type fifo \
     dir I \
     reset_level 1 \
     sync_rst false \
-    corename dc_merger2responseForma_1 \
+    corename dc_valueStoreDram2merge_1 \
     op interface \
-    ports { merger2responseForma_1_dout { I 256 vector } merger2responseForma_1_empty_n { I 1 bit } merger2responseForma_1_read { O 1 bit } } \
+    ports { valueStoreDram2merge_1_dout { I 256 vector } valueStoreDram2merge_1_empty_n { I 1 bit } valueStoreDram2merge_1_read { O 1 bit } } \
 } "
 }
 

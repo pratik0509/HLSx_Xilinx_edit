@@ -5,21 +5,19 @@
 ############################################################
 open_project memcachedPipeline_prj
 set_top memcachedPipeline
-add_files sources/memcachedPipeline.cpp
-add_files sources/splitter.cpp
-add_files sources/merger.cpp
-add_files sources/globals.cpp
-add_files sources/valueStore/flashValueStore.cpp
-add_files sources/valueStore/valueStore.cpp
 add_files sources/responseFormatter/binResponse.cpp
-add_files sources/requestParser/requestParser.cpp
-add_files sources/hashTable/memWrite.cpp
-add_files sources/hashTable/memRead.cpp
-add_files sources/hashTable/hashTable.cpp
-add_files sources/hashTable/hash.cpp
-add_files sources/hashTable/compare.cpp
 add_files sources/hashTable/cc.cpp
-add_files -tb sources/memcachedPipeline_tb.cpp -cflags "-Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas"
+add_files sources/hashTable/compare.cpp
+add_files sources/valueStore/flashValueStore.cpp
+add_files sources/globals.cpp
+add_files sources/hashTable/hash.cpp
+add_files sources/hashTable/hashTable.cpp
+add_files sources/hashTable/memRead.cpp
+add_files sources/hashTable/memWrite.cpp
+add_files sources/memcachedPipeline.cpp
+add_files sources/requestParser/requestParser.cpp
+add_files sources/valueStore/valueStore.cpp
+add_files -tb sources/memcachedPipeline_tb.cpp -cflags "-Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas"
 open_solution "solution1"
 set_part {xc7vx690tffg1761-2}
 create_clock -period 6.66 -name default

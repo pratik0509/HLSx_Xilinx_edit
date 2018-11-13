@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="memcachedPipeline.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/memcachedPipeline.cpp"/>
-    <originFiles name="splitter.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/splitter.cpp"/>
-    <originFiles name="merger.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/merger.cpp"/>
-    <originFiles name="globals.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/globals.cpp"/>
-    <originFiles name="flashValueStore.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/valueStore/flashValueStore.cpp"/>
-    <originFiles name="valueStore.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/valueStore/valueStore.cpp"/>
-    <originFiles name="binResponse.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/responseFormatter/binResponse.cpp"/>
-    <originFiles name="requestParser.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/requestParser/requestParser.cpp"/>
-    <originFiles name="memWrite.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/hashTable/memWrite.cpp"/>
-    <originFiles name="memRead.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/hashTable/memRead.cpp"/>
-    <originFiles name="hashTable.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/hashTable/hashTable.cpp"/>
-    <originFiles name="hash.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/hashTable/hash.cpp"/>
-    <originFiles name="compare.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/hashTable/compare.cpp"/>
     <originFiles name="cc.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/hashTable/cc.cpp"/>
+    <originFiles name="compare.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/hashTable/compare.cpp"/>
+    <originFiles name="hash.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/hashTable/hash.cpp"/>
+    <originFiles name="hashTable.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/hashTable/hashTable.cpp"/>
+    <originFiles name="memRead.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/hashTable/memRead.cpp"/>
+    <originFiles name="memWrite.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/hashTable/memWrite.cpp"/>
+    <originFiles name="requestParser.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/requestParser/requestParser.cpp"/>
+    <originFiles name="binResponse.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/responseFormatter/binResponse.cpp"/>
+    <originFiles name="valueStore.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/valueStore/valueStore.cpp"/>
+    <originFiles name="flashValueStore.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/valueStore/flashValueStore.cpp"/>
+    <originFiles name="globals.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/globals.cpp"/>
+    <originFiles name="memcachedPipeline.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/memcachedPipeline.cpp"/>
   </source>
   <testbench>
     <originFiles name="memcachedPipeline_tb.cpp" path="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/sources/memcachedPipeline_tb.cpp"/>

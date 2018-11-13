@@ -240,8 +240,8 @@ set Interface5 [list AP_STREAM 0]
 set DataType5 "[list ap_uint 512 ]"
 set Port5 [list $PortName5 $Interface5 $DataType5 $Pointer5 $Dims5 $Const5 $Volatile5 $ArrayOpt5]
 lappend PortList $Port5
-set PortName6 "flashValueStoreMemRdCmd"
-set BitWidth6 "64"
+set PortName6 "hashTableMemRdData"
+set BitWidth6 "512"
 set ArrayOpt6 ""
 set Const6 "0"
 set Volatile6 "0"
@@ -249,39 +249,10 @@ set Pointer6 "2"
 set Reference6 "1"
 set Dims6 [list 0]
 set Interface6 [list AP_STREAM 0] 
-set structMem6 ""
-set PortName60 "address"
-set BitWidth60 "32"
-set ArrayOpt60 ""
-set Const60 "0"
-set Volatile60 "0"
-set Pointer60 "0"
-set Reference60 "0"
-set Dims60 [list 0]
-set Interface60 "wire"
-set DataType60 "[list ap_uint 32 ]"
-set Port60 [list $PortName60 $Interface60 $DataType60 $Pointer60 $Dims60 $Const60 $Volatile60 $ArrayOpt60]
-lappend structMem6 $Port60
-set PortName61 "count"
-set BitWidth61 "16"
-set ArrayOpt61 ""
-set Const61 "0"
-set Volatile61 "0"
-set Pointer61 "0"
-set Reference61 "0"
-set Dims61 [list 0]
-set Interface61 "wire"
-set DataType61 "[list ap_uint 13 ]"
-set Port61 [list $PortName61 $Interface61 $DataType61 $Pointer61 $Dims61 $Const61 $Volatile61 $ArrayOpt61]
-lappend structMem6 $Port61
-set structParameter6 [list ]
-set structArgument6 [list ]
-set NameSpace6 [list ]
-set structIsPacked6 "0"
-set DataType6 [list "flashMemCtrlWord" "struct flashMemCtrlWord" $structMem6 1 0 $structParameter6 $structArgument6 $NameSpace6 $structIsPacked6]
+set DataType6 "[list ap_uint 512 ]"
 set Port6 [list $PortName6 $Interface6 $DataType6 $Pointer6 $Dims6 $Const6 $Volatile6 $ArrayOpt6]
 lappend PortList $Port6
-set PortName7 "flashValueStoreMemRdData"
+set PortName7 "hashTableMemRdCmd"
 set BitWidth7 "64"
 set ArrayOpt7 ""
 set Const7 "0"
@@ -290,11 +261,40 @@ set Pointer7 "2"
 set Reference7 "1"
 set Dims7 [list 0]
 set Interface7 [list AP_STREAM 0] 
-set DataType7 "[list ap_uint 64 ]"
+set structMem7 ""
+set PortName70 "address"
+set BitWidth70 "32"
+set ArrayOpt70 ""
+set Const70 "0"
+set Volatile70 "0"
+set Pointer70 "0"
+set Reference70 "0"
+set Dims70 [list 0]
+set Interface70 "wire"
+set DataType70 "[list ap_uint 32 ]"
+set Port70 [list $PortName70 $Interface70 $DataType70 $Pointer70 $Dims70 $Const70 $Volatile70 $ArrayOpt70]
+lappend structMem7 $Port70
+set PortName71 "count"
+set BitWidth71 "8"
+set ArrayOpt71 ""
+set Const71 "0"
+set Volatile71 "0"
+set Pointer71 "0"
+set Reference71 "0"
+set Dims71 [list 0]
+set Interface71 "wire"
+set DataType71 "[list ap_uint 8 ]"
+set Port71 [list $PortName71 $Interface71 $DataType71 $Pointer71 $Dims71 $Const71 $Volatile71 $ArrayOpt71]
+lappend structMem7 $Port71
+set structParameter7 [list ]
+set structArgument7 [list ]
+set NameSpace7 [list ]
+set structIsPacked7 "0"
+set DataType7 [list "memCtrlWord" "struct memCtrlWord" $structMem7 1 0 $structParameter7 $structArgument7 $NameSpace7 $structIsPacked7]
 set Port7 [list $PortName7 $Interface7 $DataType7 $Pointer7 $Dims7 $Const7 $Volatile7 $ArrayOpt7]
 lappend PortList $Port7
-set PortName8 "flashValueStoreMemWrCmd"
-set BitWidth8 "64"
+set PortName8 "hashTableMemWrData"
+set BitWidth8 "512"
 set ArrayOpt8 ""
 set Const8 "0"
 set Volatile8 "0"
@@ -302,39 +302,10 @@ set Pointer8 "2"
 set Reference8 "1"
 set Dims8 [list 0]
 set Interface8 [list AP_STREAM 0] 
-set structMem8 ""
-set PortName80 "address"
-set BitWidth80 "32"
-set ArrayOpt80 ""
-set Const80 "0"
-set Volatile80 "0"
-set Pointer80 "0"
-set Reference80 "0"
-set Dims80 [list 0]
-set Interface80 "wire"
-set DataType80 "[list ap_uint 32 ]"
-set Port80 [list $PortName80 $Interface80 $DataType80 $Pointer80 $Dims80 $Const80 $Volatile80 $ArrayOpt80]
-lappend structMem8 $Port80
-set PortName81 "count"
-set BitWidth81 "16"
-set ArrayOpt81 ""
-set Const81 "0"
-set Volatile81 "0"
-set Pointer81 "0"
-set Reference81 "0"
-set Dims81 [list 0]
-set Interface81 "wire"
-set DataType81 "[list ap_uint 13 ]"
-set Port81 [list $PortName81 $Interface81 $DataType81 $Pointer81 $Dims81 $Const81 $Volatile81 $ArrayOpt81]
-lappend structMem8 $Port81
-set structParameter8 [list ]
-set structArgument8 [list ]
-set NameSpace8 [list ]
-set structIsPacked8 "0"
-set DataType8 [list "flashMemCtrlWord" "struct flashMemCtrlWord" $structMem8 1 0 $structParameter8 $structArgument8 $NameSpace8 $structIsPacked8]
+set DataType8 "[list ap_uint 512 ]"
 set Port8 [list $PortName8 $Interface8 $DataType8 $Pointer8 $Dims8 $Const8 $Volatile8 $ArrayOpt8]
 lappend PortList $Port8
-set PortName9 "flashValueStoreMemWrData"
+set PortName9 "hashTableMemWrCmd"
 set BitWidth9 "64"
 set ArrayOpt9 ""
 set Const9 "0"
@@ -343,11 +314,40 @@ set Pointer9 "2"
 set Reference9 "1"
 set Dims9 [list 0]
 set Interface9 [list AP_STREAM 0] 
-set DataType9 "[list ap_uint 64 ]"
+set structMem9 ""
+set PortName90 "address"
+set BitWidth90 "32"
+set ArrayOpt90 ""
+set Const90 "0"
+set Volatile90 "0"
+set Pointer90 "0"
+set Reference90 "0"
+set Dims90 [list 0]
+set Interface90 "wire"
+set DataType90 "[list ap_uint 32 ]"
+set Port90 [list $PortName90 $Interface90 $DataType90 $Pointer90 $Dims90 $Const90 $Volatile90 $ArrayOpt90]
+lappend structMem9 $Port90
+set PortName91 "count"
+set BitWidth91 "8"
+set ArrayOpt91 ""
+set Const91 "0"
+set Volatile91 "0"
+set Pointer91 "0"
+set Reference91 "0"
+set Dims91 [list 0]
+set Interface91 "wire"
+set DataType91 "[list ap_uint 8 ]"
+set Port91 [list $PortName91 $Interface91 $DataType91 $Pointer91 $Dims91 $Const91 $Volatile91 $ArrayOpt91]
+lappend structMem9 $Port91
+set structParameter9 [list ]
+set structArgument9 [list ]
+set NameSpace9 [list ]
+set structIsPacked9 "0"
+set DataType9 [list "memCtrlWord" "struct memCtrlWord" $structMem9 1 0 $structParameter9 $structArgument9 $NameSpace9 $structIsPacked9]
 set Port9 [list $PortName9 $Interface9 $DataType9 $Pointer9 $Dims9 $Const9 $Volatile9 $ArrayOpt9]
 lappend PortList $Port9
-set PortName10 "hashTableMemRdData"
-set BitWidth10 "512"
+set PortName10 "addressReturnOut"
+set BitWidth10 "32"
 set ArrayOpt10 ""
 set Const10 "0"
 set Volatile10 "0"
@@ -355,11 +355,11 @@ set Pointer10 "2"
 set Reference10 "1"
 set Dims10 [list 0]
 set Interface10 [list AP_STREAM 0] 
-set DataType10 "[list ap_uint 512 ]"
+set DataType10 "[list ap_uint 32 ]"
 set Port10 [list $PortName10 $Interface10 $DataType10 $Pointer10 $Dims10 $Const10 $Volatile10 $ArrayOpt10]
 lappend PortList $Port10
-set PortName11 "hashTableMemRdCmd"
-set BitWidth11 "64"
+set PortName11 "addressAssignDramIn"
+set BitWidth11 "32"
 set ArrayOpt11 ""
 set Const11 "0"
 set Volatile11 "0"
@@ -367,40 +367,11 @@ set Pointer11 "2"
 set Reference11 "1"
 set Dims11 [list 0]
 set Interface11 [list AP_STREAM 0] 
-set structMem11 ""
-set PortName110 "address"
-set BitWidth110 "32"
-set ArrayOpt110 ""
-set Const110 "0"
-set Volatile110 "0"
-set Pointer110 "0"
-set Reference110 "0"
-set Dims110 [list 0]
-set Interface110 "wire"
-set DataType110 "[list ap_uint 32 ]"
-set Port110 [list $PortName110 $Interface110 $DataType110 $Pointer110 $Dims110 $Const110 $Volatile110 $ArrayOpt110]
-lappend structMem11 $Port110
-set PortName111 "count"
-set BitWidth111 "8"
-set ArrayOpt111 ""
-set Const111 "0"
-set Volatile111 "0"
-set Pointer111 "0"
-set Reference111 "0"
-set Dims111 [list 0]
-set Interface111 "wire"
-set DataType111 "[list ap_uint 8 ]"
-set Port111 [list $PortName111 $Interface111 $DataType111 $Pointer111 $Dims111 $Const111 $Volatile111 $ArrayOpt111]
-lappend structMem11 $Port111
-set structParameter11 [list ]
-set structArgument11 [list ]
-set NameSpace11 [list ]
-set structIsPacked11 "0"
-set DataType11 [list "memCtrlWord" "struct memCtrlWord" $structMem11 1 0 $structParameter11 $structArgument11 $NameSpace11 $structIsPacked11]
+set DataType11 "[list ap_uint 32 ]"
 set Port11 [list $PortName11 $Interface11 $DataType11 $Pointer11 $Dims11 $Const11 $Volatile11 $ArrayOpt11]
 lappend PortList $Port11
-set PortName12 "hashTableMemWrData"
-set BitWidth12 "512"
+set PortName12 "addressAssignFlashIn"
+set BitWidth12 "32"
 set ArrayOpt12 ""
 set Const12 "0"
 set Volatile12 "0"
@@ -408,122 +379,45 @@ set Pointer12 "2"
 set Reference12 "1"
 set Dims12 [list 0]
 set Interface12 [list AP_STREAM 0] 
-set DataType12 "[list ap_uint 512 ]"
+set DataType12 "[list ap_uint 32 ]"
 set Port12 [list $PortName12 $Interface12 $DataType12 $Pointer12 $Dims12 $Const12 $Volatile12 $ArrayOpt12]
 lappend PortList $Port12
-set PortName13 "hashTableMemWrCmd"
-set BitWidth13 "64"
+set PortName13 "flushReq"
+set BitWidth13 "8"
 set ArrayOpt13 ""
 set Const13 "0"
 set Volatile13 "0"
 set Pointer13 "2"
 set Reference13 "1"
 set Dims13 [list 0]
-set Interface13 [list AP_STREAM 0] 
-set structMem13 ""
-set PortName130 "address"
-set BitWidth130 "32"
-set ArrayOpt130 ""
-set Const130 "0"
-set Volatile130 "0"
-set Pointer130 "0"
-set Reference130 "0"
-set Dims130 [list 0]
-set Interface130 "wire"
-set DataType130 "[list ap_uint 32 ]"
-set Port130 [list $PortName130 $Interface130 $DataType130 $Pointer130 $Dims130 $Const130 $Volatile130 $ArrayOpt130]
-lappend structMem13 $Port130
-set PortName131 "count"
-set BitWidth131 "8"
-set ArrayOpt131 ""
-set Const131 "0"
-set Volatile131 "0"
-set Pointer131 "0"
-set Reference131 "0"
-set Dims131 [list 0]
-set Interface131 "wire"
-set DataType131 "[list ap_uint 8 ]"
-set Port131 [list $PortName131 $Interface131 $DataType131 $Pointer131 $Dims131 $Const131 $Volatile131 $ArrayOpt131]
-lappend structMem13 $Port131
-set structParameter13 [list ]
-set structArgument13 [list ]
-set NameSpace13 [list ]
-set structIsPacked13 "0"
-set DataType13 [list "memCtrlWord" "struct memCtrlWord" $structMem13 1 0 $structParameter13 $structArgument13 $NameSpace13 $structIsPacked13]
+set Interface13 "wire"
+set DataType13 "[list ap_uint 1 ]"
 set Port13 [list $PortName13 $Interface13 $DataType13 $Pointer13 $Dims13 $Const13 $Volatile13 $ArrayOpt13]
 lappend PortList $Port13
-set PortName14 "addressReturnOut"
-set BitWidth14 "32"
+set PortName14 "flushAck"
+set BitWidth14 "8"
 set ArrayOpt14 ""
 set Const14 "0"
 set Volatile14 "0"
-set Pointer14 "2"
-set Reference14 "1"
+set Pointer14 "0"
+set Reference14 "0"
 set Dims14 [list 0]
-set Interface14 [list AP_STREAM 0] 
-set DataType14 "[list ap_uint 32 ]"
+set Interface14 "wire"
+set DataType14 "[list ap_uint 1 ]"
 set Port14 [list $PortName14 $Interface14 $DataType14 $Pointer14 $Dims14 $Const14 $Volatile14 $ArrayOpt14]
 lappend PortList $Port14
-set PortName15 "addressAssignDramIn"
-set BitWidth15 "32"
+set PortName15 "flushDone"
+set BitWidth15 "8"
 set ArrayOpt15 ""
 set Const15 "0"
 set Volatile15 "0"
 set Pointer15 "2"
 set Reference15 "1"
 set Dims15 [list 0]
-set Interface15 [list AP_STREAM 0] 
-set DataType15 "[list ap_uint 32 ]"
+set Interface15 "wire"
+set DataType15 "[list ap_uint 1 ]"
 set Port15 [list $PortName15 $Interface15 $DataType15 $Pointer15 $Dims15 $Const15 $Volatile15 $ArrayOpt15]
 lappend PortList $Port15
-set PortName16 "addressAssignFlashIn"
-set BitWidth16 "32"
-set ArrayOpt16 ""
-set Const16 "0"
-set Volatile16 "0"
-set Pointer16 "2"
-set Reference16 "1"
-set Dims16 [list 0]
-set Interface16 [list AP_STREAM 0] 
-set DataType16 "[list ap_uint 32 ]"
-set Port16 [list $PortName16 $Interface16 $DataType16 $Pointer16 $Dims16 $Const16 $Volatile16 $ArrayOpt16]
-lappend PortList $Port16
-set PortName17 "flushReq"
-set BitWidth17 "8"
-set ArrayOpt17 ""
-set Const17 "0"
-set Volatile17 "0"
-set Pointer17 "2"
-set Reference17 "1"
-set Dims17 [list 0]
-set Interface17 "wire"
-set DataType17 "[list ap_uint 1 ]"
-set Port17 [list $PortName17 $Interface17 $DataType17 $Pointer17 $Dims17 $Const17 $Volatile17 $ArrayOpt17]
-lappend PortList $Port17
-set PortName18 "flushAck"
-set BitWidth18 "8"
-set ArrayOpt18 ""
-set Const18 "0"
-set Volatile18 "0"
-set Pointer18 "0"
-set Reference18 "0"
-set Dims18 [list 0]
-set Interface18 "wire"
-set DataType18 "[list ap_uint 1 ]"
-set Port18 [list $PortName18 $Interface18 $DataType18 $Pointer18 $Dims18 $Const18 $Volatile18 $ArrayOpt18]
-lappend PortList $Port18
-set PortName19 "flushDone"
-set BitWidth19 "8"
-set ArrayOpt19 ""
-set Const19 "0"
-set Volatile19 "0"
-set Pointer19 "2"
-set Reference19 "1"
-set Dims19 [list 0]
-set Interface19 "wire"
-set DataType19 "[list ap_uint 1 ]"
-set Port19 [list $PortName19 $Interface19 $DataType19 $Pointer19 $Dims19 $Const19 $Volatile19 $ArrayOpt19]
-lappend PortList $Port19
 set globalAPint "" 
 set returnAPInt "" 
 set hasCPPAPInt 1 

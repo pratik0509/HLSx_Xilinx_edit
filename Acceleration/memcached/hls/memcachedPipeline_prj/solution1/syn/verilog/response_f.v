@@ -24,9 +24,9 @@ module response_f (
         metadataBuffer_rf_V_s_din,
         metadataBuffer_rf_V_s_full_n,
         metadataBuffer_rf_V_s_write,
-        merger2responseForma_1_dout,
-        merger2responseForma_1_empty_n,
-        merger2responseForma_1_read
+        valueStoreDram2merge_1_dout,
+        valueStoreDram2merge_1_empty_n,
+        valueStoreDram2merge_1_read
 );
 
 parameter    ap_ST_fsm_state1 = 1'd1;
@@ -47,16 +47,16 @@ output   valueBuffer_rf_V_V_write;
 output  [247:0] metadataBuffer_rf_V_s_din;
 input   metadataBuffer_rf_V_s_full_n;
 output   metadataBuffer_rf_V_s_write;
-input  [255:0] merger2responseForma_1_dout;
-input   merger2responseForma_1_empty_n;
-output   merger2responseForma_1_read;
+input  [255:0] valueStoreDram2merge_1_dout;
+input   valueStoreDram2merge_1_empty_n;
+output   valueStoreDram2merge_1_read;
 
 reg ap_done;
 reg ap_idle;
 reg start_write;
 reg valueBuffer_rf_V_V_write;
 reg metadataBuffer_rf_V_s_write;
-reg merger2responseForma_1_read;
+reg valueStoreDram2merge_1_read;
 
 reg    real_start;
 reg    start_once_reg;
@@ -67,32 +67,32 @@ reg    internal_ap_ready;
 reg   [1:0] inWordCounter_V;
 reg   [247:0] bf_metadataTempBuffe;
 reg    valueBuffer_rf_V_V_blk_n;
-wire   [0:0] tmp_nbwritereq_fu_72_p3;
-wire   [0:0] tmp_7_nbwritereq_fu_80_p3;
-wire   [0:0] tmp_8_nbreadreq_fu_88_p3;
-wire   [0:0] or_cond_i_fu_212_p2;
-wire   [0:0] tmp_94_fu_175_p3;
-wire   [0:0] tmp_i_fu_206_p2;
+wire   [0:0] tmp_nbwritereq_fu_106_p3;
+wire   [0:0] tmp_7_nbwritereq_fu_114_p3;
+wire   [0:0] tmp_8_nbreadreq_fu_122_p3;
+wire   [0:0] or_cond_i_fu_246_p2;
+wire   [0:0] tmp_94_fu_209_p3;
+wire   [0:0] tmp_i_fu_240_p2;
 reg    metadataBuffer_rf_V_s_blk_n;
-wire   [0:0] tmp_96_fu_222_p3;
-wire   [0:0] tmp_53_i_fu_249_p2;
-reg    merger2responseForma_1_blk_n;
-reg   [0:0] ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4;
+wire   [0:0] tmp_96_fu_256_p3;
+wire   [0:0] tmp_53_i_fu_283_p2;
+reg    valueStoreDram2merge_1_blk_n;
+reg   [0:0] ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4;
 reg    ap_predicate_op12_read_state1;
 reg    ap_predicate_op30_write_state1;
 reg    ap_predicate_op37_write_state1;
 reg    ap_predicate_op45_write_state1;
 reg    ap_block_state1;
-wire   [1:0] tmp_54_i_fu_255_p2;
-reg   [0:0] ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6;
-wire   [0:0] p_inWordCounter_V_fla_fu_262_p2;
-reg   [1:0] ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6;
-wire   [1:0] p_inWordCounter_V_new_fu_269_p3;
-wire   [247:0] p_Result_12_fu_230_p5;
-wire   [247:0] p_Result_s_fu_278_p5;
-wire   [0:0] tmp_93_fu_167_p3;
-wire   [123:0] tmp_92_fu_163_p1;
-wire   [0:0] tmp_95_fu_183_p3;
+wire   [1:0] tmp_54_i_fu_289_p2;
+reg   [0:0] ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6;
+wire   [0:0] p_inWordCounter_V_fla_fu_296_p2;
+reg   [1:0] ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6;
+wire   [1:0] p_inWordCounter_V_new_fu_303_p3;
+wire   [247:0] p_Result_12_fu_264_p5;
+wire   [247:0] p_Result_s_fu_312_p5;
+wire   [0:0] tmp_93_fu_201_p3;
+wire   [123:0] tmp_92_fu_197_p1;
+wire   [0:0] tmp_95_fu_217_p3;
 reg   [0:0] ap_NS_fsm;
 reg    ap_condition_88;
 reg    ap_condition_141;
@@ -122,7 +122,7 @@ always @ (posedge ap_rst or posedge ap_clk) begin
     end else begin
         if ((ap_continue == 1'b1)) begin
             ap_done_reg <= 1'b0;
-        end else if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((merger2responseForma_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1))) begin
+        end else if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((valueStoreDram2merge_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1))) begin
             ap_done_reg <= 1'b1;
         end
     end
@@ -133,10 +133,10 @@ always @ (posedge ap_rst or posedge ap_clk) begin
         bf_metadataTempBuffe <= 248'd0;
     end else begin
         if ((1'b1 == ap_condition_238)) begin
-            if ((or_cond_i_fu_212_p2 == 1'd1)) begin
-                bf_metadataTempBuffe <= p_Result_s_fu_278_p5;
+            if ((or_cond_i_fu_246_p2 == 1'd1)) begin
+                bf_metadataTempBuffe <= p_Result_s_fu_312_p5;
             end else if ((1'b1 == ap_condition_239)) begin
-                bf_metadataTempBuffe <= p_Result_12_fu_230_p5;
+                bf_metadataTempBuffe <= p_Result_12_fu_264_p5;
             end
         end
     end
@@ -146,8 +146,8 @@ always @ (posedge ap_rst or posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
         inWordCounter_V <= 2'd0;
     end else begin
-        if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((merger2responseForma_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (tmp_8_nbreadreq_fu_88_p3 == 1'd1) & (tmp_7_nbwritereq_fu_80_p3 == 1'd1) & (ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6 == 1'd1) & (tmp_nbwritereq_fu_72_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
-            inWordCounter_V <= ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6;
+        if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((valueStoreDram2merge_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (tmp_8_nbreadreq_fu_122_p3 == 1'd1) & (tmp_7_nbwritereq_fu_114_p3 == 1'd1) & (ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6 == 1'd1) & (tmp_nbwritereq_fu_106_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+            inWordCounter_V <= ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6;
         end
     end
 end
@@ -165,7 +165,7 @@ always @ (posedge ap_rst or posedge ap_clk) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((merger2responseForma_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((valueStoreDram2merge_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = ap_done_reg;
@@ -182,50 +182,50 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_condition_88)) begin
-        if (((tmp_i_fu_206_p2 == 1'd0) & (or_cond_i_fu_212_p2 == 1'd0))) begin
-            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6 = p_inWordCounter_V_fla_fu_262_p2;
-        end else if (((or_cond_i_fu_212_p2 == 1'd0) & (tmp_i_fu_206_p2 == 1'd1))) begin
-            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6 = 1'd0;
-        end else if ((or_cond_i_fu_212_p2 == 1'd1)) begin
-            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6 = 1'd1;
+        if (((tmp_i_fu_240_p2 == 1'd0) & (or_cond_i_fu_246_p2 == 1'd0))) begin
+            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6 = p_inWordCounter_V_fla_fu_296_p2;
+        end else if (((or_cond_i_fu_246_p2 == 1'd0) & (tmp_i_fu_240_p2 == 1'd1))) begin
+            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6 = 1'd0;
+        end else if ((or_cond_i_fu_246_p2 == 1'd1)) begin
+            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6 = 1'd1;
         end else begin
-            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6 = 'bx;
+            ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6 = 'bx;
         end
     end else begin
-        ap_phi_mux_inWordCounter_V_flag_1_phi_fu_140_p6 = 'bx;
+        ap_phi_mux_inWordCounter_V_flag_1_phi_fu_174_p6 = 'bx;
     end
 end
 
 always @ (*) begin
     if ((1'b1 == ap_condition_141)) begin
-        if ((tmp_96_fu_222_p3 == 1'd1)) begin
-            ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4 = 1'd0;
-        end else if ((tmp_96_fu_222_p3 == 1'd0)) begin
-            ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4 = 1'd1;
+        if ((tmp_96_fu_256_p3 == 1'd1)) begin
+            ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4 = 1'd0;
+        end else if ((tmp_96_fu_256_p3 == 1'd0)) begin
+            ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4 = 1'd1;
         end else begin
-            ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4 = 'bx;
+            ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4 = 'bx;
         end
     end else begin
-        ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4 = 'bx;
+        ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4 = 'bx;
     end
 end
 
 always @ (*) begin
     if ((1'b1 == ap_condition_88)) begin
-        if (((tmp_i_fu_206_p2 == 1'd0) & (or_cond_i_fu_212_p2 == 1'd0))) begin
-            ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6 = p_inWordCounter_V_new_fu_269_p3;
-        end else if ((or_cond_i_fu_212_p2 == 1'd1)) begin
-            ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6 = 2'd1;
+        if (((tmp_i_fu_240_p2 == 1'd0) & (or_cond_i_fu_246_p2 == 1'd0))) begin
+            ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6 = p_inWordCounter_V_new_fu_303_p3;
+        end else if ((or_cond_i_fu_246_p2 == 1'd1)) begin
+            ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6 = 2'd1;
         end else begin
-            ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6 = 'bx;
+            ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6 = 'bx;
         end
     end else begin
-        ap_phi_mux_inWordCounter_V_new_1_phi_fu_153_p6 = 'bx;
+        ap_phi_mux_inWordCounter_V_new_1_phi_fu_187_p6 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((merger2responseForma_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((valueStoreDram2merge_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1))) begin
         internal_ap_ready = 1'b1;
     end else begin
         internal_ap_ready = 1'b0;
@@ -233,23 +233,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((tmp_8_nbreadreq_fu_88_p3 == 1'd1) & (tmp_7_nbwritereq_fu_80_p3 == 1'd1) & (tmp_nbwritereq_fu_72_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
-        merger2responseForma_1_blk_n = merger2responseForma_1_empty_n;
-    end else begin
-        merger2responseForma_1_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((merger2responseForma_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1) & (ap_predicate_op12_read_state1 == 1'b1))) begin
-        merger2responseForma_1_read = 1'b1;
-    end else begin
-        merger2responseForma_1_read = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((tmp_96_fu_222_p3 == 1'd0) & (tmp_i_fu_206_p2 == 1'd0) & (or_cond_i_fu_212_p2 == 1'd0) & (tmp_53_i_fu_249_p2 == 1'd1) & (tmp_8_nbreadreq_fu_88_p3 == 1'd1) & (tmp_7_nbwritereq_fu_80_p3 == 1'd1) & (tmp_nbwritereq_fu_72_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((tmp_96_fu_256_p3 == 1'd0) & (tmp_i_fu_240_p2 == 1'd0) & (or_cond_i_fu_246_p2 == 1'd0) & (tmp_53_i_fu_283_p2 == 1'd1) & (tmp_8_nbreadreq_fu_122_p3 == 1'd1) & (tmp_7_nbwritereq_fu_114_p3 == 1'd1) & (tmp_nbwritereq_fu_106_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
         metadataBuffer_rf_V_s_blk_n = metadataBuffer_rf_V_s_full_n;
     end else begin
         metadataBuffer_rf_V_s_blk_n = 1'b1;
@@ -257,7 +241,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((merger2responseForma_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1) & (ap_predicate_op30_write_state1 == 1'b1))) begin
+    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((valueStoreDram2merge_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1) & (ap_predicate_op30_write_state1 == 1'b1))) begin
         metadataBuffer_rf_V_s_write = 1'b1;
     end else begin
         metadataBuffer_rf_V_s_write = 1'b0;
@@ -281,7 +265,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((tmp_i_fu_206_p2 == 1'd0) & (or_cond_i_fu_212_p2 == 1'd0) & (tmp_94_fu_175_p3 == 1'd1) & (tmp_8_nbreadreq_fu_88_p3 == 1'd1) & (tmp_7_nbwritereq_fu_80_p3 == 1'd1) & (tmp_nbwritereq_fu_72_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1)) | ((tmp_94_fu_175_p3 == 1'd1) & (or_cond_i_fu_212_p2 == 1'd1) & (tmp_8_nbreadreq_fu_88_p3 == 1'd1) & (tmp_7_nbwritereq_fu_80_p3 == 1'd1) & (tmp_nbwritereq_fu_72_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1)))) begin
+    if ((((tmp_i_fu_240_p2 == 1'd0) & (or_cond_i_fu_246_p2 == 1'd0) & (tmp_94_fu_209_p3 == 1'd1) & (tmp_8_nbreadreq_fu_122_p3 == 1'd1) & (tmp_7_nbwritereq_fu_114_p3 == 1'd1) & (tmp_nbwritereq_fu_106_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1)) | ((tmp_94_fu_209_p3 == 1'd1) & (or_cond_i_fu_246_p2 == 1'd1) & (tmp_8_nbreadreq_fu_122_p3 == 1'd1) & (tmp_7_nbwritereq_fu_114_p3 == 1'd1) & (tmp_nbwritereq_fu_106_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1)))) begin
         valueBuffer_rf_V_V_blk_n = valueBuffer_rf_V_V_full_n;
     end else begin
         valueBuffer_rf_V_V_blk_n = 1'b1;
@@ -289,10 +273,26 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((merger2responseForma_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1) & (ap_predicate_op45_write_state1 == 1'b1)) | (~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((merger2responseForma_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1) & (ap_predicate_op37_write_state1 == 1'b1)))) begin
+    if (((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((valueStoreDram2merge_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1) & (ap_predicate_op45_write_state1 == 1'b1)) | (~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((valueStoreDram2merge_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1) & (ap_predicate_op37_write_state1 == 1'b1)))) begin
         valueBuffer_rf_V_V_write = 1'b1;
     end else begin
         valueBuffer_rf_V_V_write = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((tmp_8_nbreadreq_fu_122_p3 == 1'd1) & (tmp_7_nbwritereq_fu_114_p3 == 1'd1) & (tmp_nbwritereq_fu_106_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+        valueStoreDram2merge_1_blk_n = valueStoreDram2merge_1_empty_n;
+    end else begin
+        valueStoreDram2merge_1_blk_n = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((valueStoreDram2merge_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (1'b1 == ap_CS_fsm_state1) & (ap_predicate_op12_read_state1 == 1'b1))) begin
+        valueStoreDram2merge_1_read = 1'b1;
+    end else begin
+        valueStoreDram2merge_1_read = 1'b0;
     end
 end
 
@@ -310,79 +310,79 @@ end
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
 always @ (*) begin
-    ap_block_state1 = ((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((merger2responseForma_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1)));
+    ap_block_state1 = ((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((valueStoreDram2merge_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1)));
 end
 
 always @ (*) begin
-    ap_condition_141 = ((tmp_i_fu_206_p2 == 1'd0) & (or_cond_i_fu_212_p2 == 1'd0) & (tmp_8_nbreadreq_fu_88_p3 == 1'd1) & (tmp_7_nbwritereq_fu_80_p3 == 1'd1) & (tmp_nbwritereq_fu_72_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1));
+    ap_condition_141 = ((tmp_i_fu_240_p2 == 1'd0) & (or_cond_i_fu_246_p2 == 1'd0) & (tmp_8_nbreadreq_fu_122_p3 == 1'd1) & (tmp_7_nbwritereq_fu_114_p3 == 1'd1) & (tmp_nbwritereq_fu_106_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1));
 end
 
 always @ (*) begin
-    ap_condition_238 = (~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((merger2responseForma_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (tmp_8_nbreadreq_fu_88_p3 == 1'd1) & (tmp_7_nbwritereq_fu_80_p3 == 1'd1) & (tmp_nbwritereq_fu_72_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1));
+    ap_condition_238 = (~((real_start == 1'b0) | (ap_done_reg == 1'b1) | ((metadataBuffer_rf_V_s_full_n == 1'b0) & (ap_predicate_op30_write_state1 == 1'b1)) | ((valueStoreDram2merge_1_empty_n == 1'b0) & (ap_predicate_op12_read_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op45_write_state1 == 1'b1)) | ((valueBuffer_rf_V_V_full_n == 1'b0) & (ap_predicate_op37_write_state1 == 1'b1))) & (tmp_8_nbreadreq_fu_122_p3 == 1'd1) & (tmp_7_nbwritereq_fu_114_p3 == 1'd1) & (tmp_nbwritereq_fu_106_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1));
 end
 
 always @ (*) begin
-    ap_condition_239 = ((tmp_96_fu_222_p3 == 1'd0) & (tmp_i_fu_206_p2 == 1'd0) & (or_cond_i_fu_212_p2 == 1'd0));
+    ap_condition_239 = ((tmp_96_fu_256_p3 == 1'd0) & (tmp_i_fu_240_p2 == 1'd0) & (or_cond_i_fu_246_p2 == 1'd0));
 end
 
 always @ (*) begin
-    ap_condition_88 = ((tmp_8_nbreadreq_fu_88_p3 == 1'd1) & (tmp_7_nbwritereq_fu_80_p3 == 1'd1) & (tmp_nbwritereq_fu_72_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1));
+    ap_condition_88 = ((tmp_8_nbreadreq_fu_122_p3 == 1'd1) & (tmp_7_nbwritereq_fu_114_p3 == 1'd1) & (tmp_nbwritereq_fu_106_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state1));
 end
 
 always @ (*) begin
-    ap_predicate_op12_read_state1 = ((tmp_8_nbreadreq_fu_88_p3 == 1'd1) & (tmp_7_nbwritereq_fu_80_p3 == 1'd1) & (tmp_nbwritereq_fu_72_p3 == 1'd1));
+    ap_predicate_op12_read_state1 = ((tmp_8_nbreadreq_fu_122_p3 == 1'd1) & (tmp_7_nbwritereq_fu_114_p3 == 1'd1) & (tmp_nbwritereq_fu_106_p3 == 1'd1));
 end
 
 always @ (*) begin
-    ap_predicate_op30_write_state1 = ((tmp_96_fu_222_p3 == 1'd0) & (tmp_i_fu_206_p2 == 1'd0) & (or_cond_i_fu_212_p2 == 1'd0) & (tmp_53_i_fu_249_p2 == 1'd1) & (tmp_8_nbreadreq_fu_88_p3 == 1'd1) & (tmp_7_nbwritereq_fu_80_p3 == 1'd1) & (tmp_nbwritereq_fu_72_p3 == 1'd1));
+    ap_predicate_op30_write_state1 = ((tmp_96_fu_256_p3 == 1'd0) & (tmp_i_fu_240_p2 == 1'd0) & (or_cond_i_fu_246_p2 == 1'd0) & (tmp_53_i_fu_283_p2 == 1'd1) & (tmp_8_nbreadreq_fu_122_p3 == 1'd1) & (tmp_7_nbwritereq_fu_114_p3 == 1'd1) & (tmp_nbwritereq_fu_106_p3 == 1'd1));
 end
 
 always @ (*) begin
-    ap_predicate_op37_write_state1 = ((tmp_i_fu_206_p2 == 1'd0) & (or_cond_i_fu_212_p2 == 1'd0) & (tmp_94_fu_175_p3 == 1'd1) & (tmp_8_nbreadreq_fu_88_p3 == 1'd1) & (tmp_7_nbwritereq_fu_80_p3 == 1'd1) & (tmp_nbwritereq_fu_72_p3 == 1'd1));
+    ap_predicate_op37_write_state1 = ((tmp_i_fu_240_p2 == 1'd0) & (or_cond_i_fu_246_p2 == 1'd0) & (tmp_94_fu_209_p3 == 1'd1) & (tmp_8_nbreadreq_fu_122_p3 == 1'd1) & (tmp_7_nbwritereq_fu_114_p3 == 1'd1) & (tmp_nbwritereq_fu_106_p3 == 1'd1));
 end
 
 always @ (*) begin
-    ap_predicate_op45_write_state1 = ((tmp_94_fu_175_p3 == 1'd1) & (or_cond_i_fu_212_p2 == 1'd1) & (tmp_8_nbreadreq_fu_88_p3 == 1'd1) & (tmp_7_nbwritereq_fu_80_p3 == 1'd1) & (tmp_nbwritereq_fu_72_p3 == 1'd1));
+    ap_predicate_op45_write_state1 = ((tmp_94_fu_209_p3 == 1'd1) & (or_cond_i_fu_246_p2 == 1'd1) & (tmp_8_nbreadreq_fu_122_p3 == 1'd1) & (tmp_7_nbwritereq_fu_114_p3 == 1'd1) & (tmp_nbwritereq_fu_106_p3 == 1'd1));
 end
 
 assign ap_ready = internal_ap_ready;
 
-assign metadataBuffer_rf_V_s_din = {{tmp_92_fu_163_p1}, {bf_metadataTempBuffe[123:0]}};
+assign metadataBuffer_rf_V_s_din = {{tmp_92_fu_197_p1}, {bf_metadataTempBuffe[123:0]}};
 
-assign or_cond_i_fu_212_p2 = (tmp_i_fu_206_p2 & tmp_93_fu_167_p3);
+assign or_cond_i_fu_246_p2 = (tmp_i_fu_240_p2 & tmp_93_fu_201_p3);
 
-assign p_Result_12_fu_230_p5 = {{tmp_92_fu_163_p1}, {bf_metadataTempBuffe[123:0]}};
+assign p_Result_12_fu_264_p5 = {{tmp_92_fu_197_p1}, {bf_metadataTempBuffe[123:0]}};
 
-assign p_Result_s_fu_278_p5 = {{bf_metadataTempBuffe[247:124]}, {tmp_92_fu_163_p1}};
+assign p_Result_s_fu_312_p5 = {{bf_metadataTempBuffe[247:124]}, {tmp_92_fu_197_p1}};
 
-assign p_inWordCounter_V_fla_fu_262_p2 = (tmp_95_fu_183_p3 | ap_phi_mux_inWordCounter_V_flag_phi_fu_119_p4);
+assign p_inWordCounter_V_fla_fu_296_p2 = (tmp_95_fu_217_p3 | ap_phi_mux_inWordCounter_V_flag_phi_fu_153_p4);
 
-assign p_inWordCounter_V_new_fu_269_p3 = ((tmp_95_fu_183_p3[0:0] === 1'b1) ? 2'd0 : tmp_54_i_fu_255_p2);
+assign p_inWordCounter_V_new_fu_303_p3 = ((tmp_95_fu_217_p3[0:0] === 1'b1) ? 2'd0 : tmp_54_i_fu_289_p2);
 
 assign start_out = real_start;
 
-assign tmp_53_i_fu_249_p2 = ((inWordCounter_V == 2'd1) ? 1'b1 : 1'b0);
+assign tmp_53_i_fu_283_p2 = ((inWordCounter_V == 2'd1) ? 1'b1 : 1'b0);
 
-assign tmp_54_i_fu_255_p2 = (inWordCounter_V + 2'd1);
+assign tmp_54_i_fu_289_p2 = (inWordCounter_V + 2'd1);
 
-assign tmp_7_nbwritereq_fu_80_p3 = metadataBuffer_rf_V_s_full_n;
+assign tmp_7_nbwritereq_fu_114_p3 = metadataBuffer_rf_V_s_full_n;
 
-assign tmp_8_nbreadreq_fu_88_p3 = merger2responseForma_1_empty_n;
+assign tmp_8_nbreadreq_fu_122_p3 = valueStoreDram2merge_1_empty_n;
 
-assign tmp_92_fu_163_p1 = merger2responseForma_1_dout[123:0];
+assign tmp_92_fu_197_p1 = valueStoreDram2merge_1_dout[123:0];
 
-assign tmp_93_fu_167_p3 = merger2responseForma_1_dout[32'd124];
+assign tmp_93_fu_201_p3 = valueStoreDram2merge_1_dout[32'd124];
 
-assign tmp_94_fu_175_p3 = merger2responseForma_1_dout[32'd126];
+assign tmp_94_fu_209_p3 = valueStoreDram2merge_1_dout[32'd126];
 
-assign tmp_95_fu_183_p3 = merger2responseForma_1_dout[32'd127];
+assign tmp_95_fu_217_p3 = valueStoreDram2merge_1_dout[32'd127];
 
-assign tmp_96_fu_222_p3 = inWordCounter_V[32'd1];
+assign tmp_96_fu_256_p3 = inWordCounter_V[32'd1];
 
-assign tmp_i_fu_206_p2 = ((inWordCounter_V == 2'd0) ? 1'b1 : 1'b0);
+assign tmp_i_fu_240_p2 = ((inWordCounter_V == 2'd0) ? 1'b1 : 1'b0);
 
-assign tmp_nbwritereq_fu_72_p3 = valueBuffer_rf_V_V_full_n;
+assign tmp_nbwritereq_fu_106_p3 = valueBuffer_rf_V_V_full_n;
 
-assign valueBuffer_rf_V_V_din = {{merger2responseForma_1_dout[191:128]}};
+assign valueBuffer_rf_V_V_din = {{valueStoreDram2merge_1_dout[191:128]}};
 
 endmodule //response_f

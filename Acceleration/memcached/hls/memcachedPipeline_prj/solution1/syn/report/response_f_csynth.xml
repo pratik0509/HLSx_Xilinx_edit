@@ -225,8 +225,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>merger2responseForma_1_dout</name>
-<Object>merger2responseForma_1</Object>
+<name>valueStoreDram2merge_1_dout</name>
+<Object>valueStoreDram2merge_1</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -236,8 +236,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>merger2responseForma_1_empty_n</name>
-<Object>merger2responseForma_1</Object>
+<name>valueStoreDram2merge_1_empty_n</name>
+<Object>valueStoreDram2merge_1</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -247,8 +247,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>merger2responseForma_1_read</name>
-<Object>merger2responseForma_1</Object>
+<name>valueStoreDram2merge_1_read</name>
+<Object>valueStoreDram2merge_1</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>

@@ -23,10 +23,6 @@ port (
     dramValueStoreMemRdData_V_V_TDATA : IN STD_LOGIC_VECTOR (511 downto 0);
     dramValueStoreMemWrCmd_V_TDATA : OUT STD_LOGIC_VECTOR (39 downto 0);
     dramValueStoreMemWrData_V_V_TDATA : OUT STD_LOGIC_VECTOR (511 downto 0);
-    flashValueStoreMemRdCmd_V_TDATA : OUT STD_LOGIC_VECTOR (47 downto 0);
-    flashValueStoreMemRdData_V_V_TDATA : IN STD_LOGIC_VECTOR (63 downto 0);
-    flashValueStoreMemWrCmd_V_TDATA : OUT STD_LOGIC_VECTOR (47 downto 0);
-    flashValueStoreMemWrData_V_V_TDATA : OUT STD_LOGIC_VECTOR (63 downto 0);
     hashTableMemRdData_V_V_TDATA : IN STD_LOGIC_VECTOR (511 downto 0);
     hashTableMemRdCmd_V_TDATA : OUT STD_LOGIC_VECTOR (39 downto 0);
     hashTableMemWrData_V_V_TDATA : OUT STD_LOGIC_VECTOR (511 downto 0);
@@ -63,14 +59,6 @@ port (
     dramValueStoreMemRdCmd_V_TREADY : IN STD_LOGIC;
     dramValueStoreMemRdData_V_V_TVALID : IN STD_LOGIC;
     dramValueStoreMemRdData_V_V_TREADY : OUT STD_LOGIC;
-    flashValueStoreMemWrCmd_V_TVALID : OUT STD_LOGIC;
-    flashValueStoreMemWrCmd_V_TREADY : IN STD_LOGIC;
-    flashValueStoreMemWrData_V_V_TVALID : OUT STD_LOGIC;
-    flashValueStoreMemWrData_V_V_TREADY : IN STD_LOGIC;
-    flashValueStoreMemRdCmd_V_TVALID : OUT STD_LOGIC;
-    flashValueStoreMemRdCmd_V_TREADY : IN STD_LOGIC;
-    flashValueStoreMemRdData_V_V_TVALID : IN STD_LOGIC;
-    flashValueStoreMemRdData_V_V_TREADY : OUT STD_LOGIC;
     outData_TVALID : OUT STD_LOGIC;
     outData_TREADY : IN STD_LOGIC );
 end;
@@ -79,14 +67,13 @@ end;
 architecture behav of memcachedPipeline is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "memcachedPipeline,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7vx690tffg1761-2,HLS_INPUT_CLOCK=6.660000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=9.737800,HLS_SYN_LAT=42,HLS_SYN_TPT=1,HLS_SYN_MEM=311,HLS_SYN_DSP=0,HLS_SYN_FF=33173,HLS_SYN_LUT=145534,HLS_VERSION=2018_2}";
+    "memcachedPipeline,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7vx690tffg1761-2,HLS_INPUT_CLOCK=6.660000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=9.737800,HLS_SYN_LAT=37,HLS_SYN_TPT=1,HLS_SYN_MEM=225,HLS_SYN_DSP=0,HLS_SYN_FF=28205,HLS_SYN_LUT=142267,HLS_VERSION=2018_2}";
     constant ap_const_lv64_0 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000";
     constant ap_const_lv112_0 : STD_LOGIC_VECTOR (111 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
     constant ap_const_lv8_0 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_lv40_0 : STD_LOGIC_VECTOR (39 downto 0) := "0000000000000000000000000000000000000000";
     constant ap_const_lv512_lc_1 : STD_LOGIC_VECTOR (511 downto 0) := "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    constant ap_const_lv48_0 : STD_LOGIC_VECTOR (47 downto 0) := "000000000000000000000000000000000000000000000000";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
@@ -99,23 +86,23 @@ architecture behav of memcachedPipeline is
     signal memcachedPipeline_en_U0_ap_ready : STD_LOGIC;
     signal memcachedPipeline_en_U0_flushAck_V_out_din : STD_LOGIC_VECTOR (0 downto 0);
     signal memcachedPipeline_en_U0_flushAck_V_out_write : STD_LOGIC;
-    signal bp_f1192_U0_ap_start : STD_LOGIC;
-    signal bp_f1192_U0_ap_done : STD_LOGIC;
-    signal bp_f1192_U0_ap_continue : STD_LOGIC;
-    signal bp_f1192_U0_ap_idle : STD_LOGIC;
-    signal bp_f1192_U0_ap_ready : STD_LOGIC;
-    signal bp_f1192_U0_flushAck_V_read : STD_LOGIC;
-    signal bp_f1192_U0_flushAck_V_out_din : STD_LOGIC_VECTOR (0 downto 0);
-    signal bp_f1192_U0_flushAck_V_out_write : STD_LOGIC;
-    signal bp_f1192_U0_valueBuffer_rp_V_V_din : STD_LOGIC_VECTOR (63 downto 0);
-    signal bp_f1192_U0_valueBuffer_rp_V_V_write : STD_LOGIC;
-    signal bp_f1192_U0_keyBuffer_rp_V_V_din : STD_LOGIC_VECTOR (63 downto 0);
-    signal bp_f1192_U0_keyBuffer_rp_V_V_write : STD_LOGIC;
-    signal bp_f1192_U0_metadataBuffer_rp_V_s_din : STD_LOGIC_VECTOR (247 downto 0);
-    signal bp_f1192_U0_metadataBuffer_rp_V_s_write : STD_LOGIC;
-    signal bp_f1192_U0_start_out : STD_LOGIC;
-    signal bp_f1192_U0_start_write : STD_LOGIC;
-    signal bp_f1192_U0_inData_TREADY : STD_LOGIC;
+    signal bp_f1244_U0_ap_start : STD_LOGIC;
+    signal bp_f1244_U0_ap_done : STD_LOGIC;
+    signal bp_f1244_U0_ap_continue : STD_LOGIC;
+    signal bp_f1244_U0_ap_idle : STD_LOGIC;
+    signal bp_f1244_U0_ap_ready : STD_LOGIC;
+    signal bp_f1244_U0_flushAck_V_read : STD_LOGIC;
+    signal bp_f1244_U0_flushAck_V_out_din : STD_LOGIC_VECTOR (0 downto 0);
+    signal bp_f1244_U0_flushAck_V_out_write : STD_LOGIC;
+    signal bp_f1244_U0_valueBuffer_rp_V_V_din : STD_LOGIC_VECTOR (63 downto 0);
+    signal bp_f1244_U0_valueBuffer_rp_V_V_write : STD_LOGIC;
+    signal bp_f1244_U0_keyBuffer_rp_V_V_din : STD_LOGIC_VECTOR (63 downto 0);
+    signal bp_f1244_U0_keyBuffer_rp_V_V_write : STD_LOGIC;
+    signal bp_f1244_U0_metadataBuffer_rp_V_s_din : STD_LOGIC_VECTOR (247 downto 0);
+    signal bp_f1244_U0_metadataBuffer_rp_V_s_write : STD_LOGIC;
+    signal bp_f1244_U0_start_out : STD_LOGIC;
+    signal bp_f1244_U0_start_write : STD_LOGIC;
+    signal bp_f1244_U0_inData_TREADY : STD_LOGIC;
     signal bp_r_U0_ap_start : STD_LOGIC;
     signal bp_r_U0_ap_done : STD_LOGIC;
     signal bp_r_U0_ap_continue : STD_LOGIC;
@@ -258,23 +245,10 @@ architecture behav of memcachedPipeline is
     signal ht_outputLogic_U0_hashValueBuffer_V_V_read : STD_LOGIC;
     signal ht_outputLogic_U0_hashMdBuffer_V_V_read : STD_LOGIC;
     signal ht_outputLogic_U0_memWr2out_V_read : STD_LOGIC;
-    signal ht_outputLogic_U0_hashTable2splitter_V_din : STD_LOGIC_VECTOR (255 downto 0);
-    signal ht_outputLogic_U0_hashTable2splitter_V_write : STD_LOGIC;
+    signal ht_outputLogic_U0_hashTable2Dram_V_din : STD_LOGIC_VECTOR (255 downto 0);
+    signal ht_outputLogic_U0_hashTable2Dram_V_write : STD_LOGIC;
     signal ht_outputLogic_U0_start_out : STD_LOGIC;
     signal ht_outputLogic_U0_start_write : STD_LOGIC;
-    signal splitter_U0_ap_start : STD_LOGIC;
-    signal splitter_U0_start_full_n : STD_LOGIC;
-    signal splitter_U0_ap_done : STD_LOGIC;
-    signal splitter_U0_ap_continue : STD_LOGIC;
-    signal splitter_U0_ap_idle : STD_LOGIC;
-    signal splitter_U0_ap_ready : STD_LOGIC;
-    signal splitter_U0_hashTable2splitter_V_read : STD_LOGIC;
-    signal splitter_U0_splitter2valueStoreF_1_din : STD_LOGIC_VECTOR (255 downto 0);
-    signal splitter_U0_splitter2valueStoreF_1_write : STD_LOGIC;
-    signal splitter_U0_splitter2valueStoreD_1_din : STD_LOGIC_VECTOR (255 downto 0);
-    signal splitter_U0_splitter2valueStoreD_1_write : STD_LOGIC;
-    signal splitter_U0_start_out : STD_LOGIC;
-    signal splitter_U0_start_write : STD_LOGIC;
     signal accessControl_U0_ap_start : STD_LOGIC;
     signal accessControl_U0_ap_done : STD_LOGIC;
     signal accessControl_U0_ap_continue : STD_LOGIC;
@@ -282,7 +256,7 @@ architecture behav of memcachedPipeline is
     signal accessControl_U0_ap_ready : STD_LOGIC;
     signal accessControl_U0_filterPopGet_V_V_read : STD_LOGIC;
     signal accessControl_U0_filterPopSet_V_V_read : STD_LOGIC;
-    signal accessControl_U0_splitter2valueStoreD_1_read : STD_LOGIC;
+    signal accessControl_U0_hashTable2Dram_V_read : STD_LOGIC;
     signal accessControl_U0_accCtrl2demux_V_din : STD_LOGIC_VECTOR (255 downto 0);
     signal accessControl_U0_accCtrl2demux_V_write : STD_LOGIC;
     signal accessControl_U0_start_out : STD_LOGIC;
@@ -354,78 +328,6 @@ architecture behav of memcachedPipeline is
     signal remux_U0_valueStoreDram2merge_1_write : STD_LOGIC;
     signal remux_U0_start_out : STD_LOGIC;
     signal remux_U0_start_write : STD_LOGIC;
-    signal flashDemux_U0_ap_start : STD_LOGIC;
-    signal flashDemux_U0_start_full_n : STD_LOGIC;
-    signal flashDemux_U0_ap_done : STD_LOGIC;
-    signal flashDemux_U0_ap_continue : STD_LOGIC;
-    signal flashDemux_U0_ap_idle : STD_LOGIC;
-    signal flashDemux_U0_ap_ready : STD_LOGIC;
-    signal flashDemux_U0_splitter2valueStoreF_1_read : STD_LOGIC;
-    signal flashDemux_U0_flashMetadataBuffer_s_0_din : STD_LOGIC_VECTOR (127 downto 0);
-    signal flashDemux_U0_flashMetadataBuffer_s_0_write : STD_LOGIC;
-    signal flashDemux_U0_flashKeyBuffer_V_V_din : STD_LOGIC_VECTOR (63 downto 0);
-    signal flashDemux_U0_flashKeyBuffer_V_V_write : STD_LOGIC;
-    signal flashDemux_U0_flashDemux2setPathVa_1_din : STD_LOGIC_VECTOR (65 downto 0);
-    signal flashDemux_U0_flashDemux2setPathVa_1_write : STD_LOGIC;
-    signal flashDemux_U0_flashDemux2setPathMe_1_din : STD_LOGIC_VECTOR (47 downto 0);
-    signal flashDemux_U0_flashDemux2setPathMe_1_write : STD_LOGIC;
-    signal flashDemux_U0_flashDemux2getPath_V_din : STD_LOGIC_VECTOR (47 downto 0);
-    signal flashDemux_U0_flashDemux2getPath_V_write : STD_LOGIC;
-    signal flashDemux_U0_start_out : STD_LOGIC;
-    signal flashDemux_U0_start_write : STD_LOGIC;
-    signal flashSetPathNoFilter_U0_ap_start : STD_LOGIC;
-    signal flashSetPathNoFilter_U0_ap_done : STD_LOGIC;
-    signal flashSetPathNoFilter_U0_ap_continue : STD_LOGIC;
-    signal flashSetPathNoFilter_U0_ap_idle : STD_LOGIC;
-    signal flashSetPathNoFilter_U0_ap_ready : STD_LOGIC;
-    signal flashSetPathNoFilter_U0_flashDemux2setPathMe_1_read : STD_LOGIC;
-    signal flashSetPathNoFilter_U0_flashDemux2setPathVa_1_read : STD_LOGIC;
-    signal flashSetPathNoFilter_U0_memWrCmd_V_TDATA : STD_LOGIC_VECTOR (47 downto 0);
-    signal flashSetPathNoFilter_U0_memWrCmd_V_TVALID : STD_LOGIC;
-    signal flashSetPathNoFilter_U0_memWrData_V_V_TDATA : STD_LOGIC_VECTOR (63 downto 0);
-    signal flashSetPathNoFilter_U0_memWrData_V_V_TVALID : STD_LOGIC;
-    signal flashDispatch_U0_ap_start : STD_LOGIC;
-    signal flashDispatch_U0_ap_done : STD_LOGIC;
-    signal flashDispatch_U0_ap_continue : STD_LOGIC;
-    signal flashDispatch_U0_ap_idle : STD_LOGIC;
-    signal flashDispatch_U0_ap_ready : STD_LOGIC;
-    signal flashDispatch_U0_flashDemux2getPath_V_read : STD_LOGIC;
-    signal flashDispatch_U0_flash_Disp2rec_V_V_din : STD_LOGIC_VECTOR (15 downto 0);
-    signal flashDispatch_U0_flash_Disp2rec_V_V_write : STD_LOGIC;
-    signal flashDispatch_U0_memRdCmd_V_TDATA : STD_LOGIC_VECTOR (47 downto 0);
-    signal flashDispatch_U0_memRdCmd_V_TVALID : STD_LOGIC;
-    signal flashReceiveNoFilter_U0_ap_start : STD_LOGIC;
-    signal flashReceiveNoFilter_U0_ap_done : STD_LOGIC;
-    signal flashReceiveNoFilter_U0_ap_continue : STD_LOGIC;
-    signal flashReceiveNoFilter_U0_ap_idle : STD_LOGIC;
-    signal flashReceiveNoFilter_U0_ap_ready : STD_LOGIC;
-    signal flashReceiveNoFilter_U0_flash_Disp2rec_V_V_read : STD_LOGIC;
-    signal flashReceiveNoFilter_U0_flashGetPath2remux_V_din : STD_LOGIC_VECTOR (63 downto 0);
-    signal flashReceiveNoFilter_U0_flashGetPath2remux_V_write : STD_LOGIC;
-    signal flashReceiveNoFilter_U0_start_out : STD_LOGIC;
-    signal flashReceiveNoFilter_U0_start_write : STD_LOGIC;
-    signal flashReceiveNoFilter_U0_memRdData_V_V_TREADY : STD_LOGIC;
-    signal flashRemux_U0_ap_start : STD_LOGIC;
-    signal flashRemux_U0_ap_done : STD_LOGIC;
-    signal flashRemux_U0_ap_continue : STD_LOGIC;
-    signal flashRemux_U0_ap_idle : STD_LOGIC;
-    signal flashRemux_U0_ap_ready : STD_LOGIC;
-    signal flashRemux_U0_flashKeyBuffer_V_V_read : STD_LOGIC;
-    signal flashRemux_U0_flashGetPath2remux_V_read : STD_LOGIC;
-    signal flashRemux_U0_flashMetadataBuffer_s_0_read : STD_LOGIC;
-    signal flashRemux_U0_valueStoreFlash2merg_1_din : STD_LOGIC_VECTOR (255 downto 0);
-    signal flashRemux_U0_valueStoreFlash2merg_1_write : STD_LOGIC;
-    signal merger_U0_ap_start : STD_LOGIC;
-    signal merger_U0_ap_done : STD_LOGIC;
-    signal merger_U0_ap_continue : STD_LOGIC;
-    signal merger_U0_ap_idle : STD_LOGIC;
-    signal merger_U0_ap_ready : STD_LOGIC;
-    signal merger_U0_valueStoreDram2merge_1_read : STD_LOGIC;
-    signal merger_U0_valueStoreFlash2merg_1_read : STD_LOGIC;
-    signal merger_U0_merger2responseForma_1_din : STD_LOGIC_VECTOR (255 downto 0);
-    signal merger_U0_merger2responseForma_1_write : STD_LOGIC;
-    signal merger_U0_start_out : STD_LOGIC;
-    signal merger_U0_start_write : STD_LOGIC;
     signal response_f_U0_ap_start : STD_LOGIC;
     signal response_f_U0_ap_done : STD_LOGIC;
     signal response_f_U0_ap_continue : STD_LOGIC;
@@ -437,7 +339,7 @@ architecture behav of memcachedPipeline is
     signal response_f_U0_valueBuffer_rf_V_V_write : STD_LOGIC;
     signal response_f_U0_metadataBuffer_rf_V_s_din : STD_LOGIC_VECTOR (247 downto 0);
     signal response_f_U0_metadataBuffer_rf_V_s_write : STD_LOGIC;
-    signal response_f_U0_merger2responseForma_1_read : STD_LOGIC;
+    signal response_f_U0_valueStoreDram2merge_1_read : STD_LOGIC;
     signal response_r_U0_ap_start : STD_LOGIC;
     signal response_r_U0_ap_done : STD_LOGIC;
     signal response_r_U0_ap_continue : STD_LOGIC;
@@ -531,15 +433,9 @@ architecture behav of memcachedPipeline is
     signal memWr2out_V_full_n : STD_LOGIC;
     signal memWr2out_V_dout : STD_LOGIC_VECTOR (56 downto 0);
     signal memWr2out_V_empty_n : STD_LOGIC;
-    signal hashTable2splitter_V_full_n : STD_LOGIC;
-    signal hashTable2splitter_V_dout : STD_LOGIC_VECTOR (255 downto 0);
-    signal hashTable2splitter_V_empty_n : STD_LOGIC;
-    signal splitter2valueStoreF_1_full_n : STD_LOGIC;
-    signal splitter2valueStoreF_1_dout : STD_LOGIC_VECTOR (255 downto 0);
-    signal splitter2valueStoreF_1_empty_n : STD_LOGIC;
-    signal splitter2valueStoreD_1_full_n : STD_LOGIC;
-    signal splitter2valueStoreD_1_dout : STD_LOGIC_VECTOR (255 downto 0);
-    signal splitter2valueStoreD_1_empty_n : STD_LOGIC;
+    signal hashTable2Dram_V_full_n : STD_LOGIC;
+    signal hashTable2Dram_V_dout : STD_LOGIC_VECTOR (255 downto 0);
+    signal hashTable2Dram_V_empty_n : STD_LOGIC;
     signal filterPopSet_V_V_full_n : STD_LOGIC;
     signal filterPopSet_V_V_dout : STD_LOGIC_VECTOR (0 downto 0);
     signal filterPopSet_V_V_empty_n : STD_LOGIC;
@@ -573,33 +469,6 @@ architecture behav of memcachedPipeline is
     signal valueStoreDram2merge_1_full_n : STD_LOGIC;
     signal valueStoreDram2merge_1_dout : STD_LOGIC_VECTOR (255 downto 0);
     signal valueStoreDram2merge_1_empty_n : STD_LOGIC;
-    signal flashMetadataBuffer_s_0_full_n : STD_LOGIC;
-    signal flashMetadataBuffer_s_0_dout : STD_LOGIC_VECTOR (127 downto 0);
-    signal flashMetadataBuffer_s_0_empty_n : STD_LOGIC;
-    signal flashKeyBuffer_V_V_full_n : STD_LOGIC;
-    signal flashKeyBuffer_V_V_dout : STD_LOGIC_VECTOR (63 downto 0);
-    signal flashKeyBuffer_V_V_empty_n : STD_LOGIC;
-    signal flashDemux2getPath_V_full_n : STD_LOGIC;
-    signal flashDemux2getPath_V_dout : STD_LOGIC_VECTOR (47 downto 0);
-    signal flashDemux2getPath_V_empty_n : STD_LOGIC;
-    signal flashDemux2setPathMe_1_full_n : STD_LOGIC;
-    signal flashDemux2setPathMe_1_dout : STD_LOGIC_VECTOR (47 downto 0);
-    signal flashDemux2setPathMe_1_empty_n : STD_LOGIC;
-    signal flashDemux2setPathVa_1_full_n : STD_LOGIC;
-    signal flashDemux2setPathVa_1_dout : STD_LOGIC_VECTOR (65 downto 0);
-    signal flashDemux2setPathVa_1_empty_n : STD_LOGIC;
-    signal flash_Disp2rec_V_V_full_n : STD_LOGIC;
-    signal flash_Disp2rec_V_V_dout : STD_LOGIC_VECTOR (15 downto 0);
-    signal flash_Disp2rec_V_V_empty_n : STD_LOGIC;
-    signal flashGetPath2remux_V_full_n : STD_LOGIC;
-    signal flashGetPath2remux_V_dout : STD_LOGIC_VECTOR (63 downto 0);
-    signal flashGetPath2remux_V_empty_n : STD_LOGIC;
-    signal valueStoreFlash2merg_1_full_n : STD_LOGIC;
-    signal valueStoreFlash2merg_1_dout : STD_LOGIC_VECTOR (255 downto 0);
-    signal valueStoreFlash2merg_1_empty_n : STD_LOGIC;
-    signal merger2responseForma_1_full_n : STD_LOGIC;
-    signal merger2responseForma_1_dout : STD_LOGIC_VECTOR (255 downto 0);
-    signal merger2responseForma_1_empty_n : STD_LOGIC;
     signal valueBuffer_rf_V_V_full_n : STD_LOGIC;
     signal valueBuffer_rf_V_V_dout : STD_LOGIC_VECTOR (63 downto 0);
     signal valueBuffer_rf_V_V_empty_n : STD_LOGIC;
@@ -642,18 +511,10 @@ architecture behav of memcachedPipeline is
     signal start_for_ht_outputLogic_U0_full_n : STD_LOGIC;
     signal start_for_ht_outputLogic_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_ht_outputLogic_U0_empty_n : STD_LOGIC;
-    signal start_for_splitter_U0_din : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_splitter_U0_full_n : STD_LOGIC;
-    signal start_for_splitter_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_splitter_U0_empty_n : STD_LOGIC;
     signal start_for_accessControl_U0_din : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_accessControl_U0_full_n : STD_LOGIC;
     signal start_for_accessControl_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_accessControl_U0_empty_n : STD_LOGIC;
-    signal start_for_flashDemux_U0_din : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_flashDemux_U0_full_n : STD_LOGIC;
-    signal start_for_flashDemux_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_flashDemux_U0_empty_n : STD_LOGIC;
     signal start_for_demux_U0_din : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_demux_U0_full_n : STD_LOGIC;
     signal start_for_demux_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
@@ -674,28 +535,6 @@ architecture behav of memcachedPipeline is
     signal start_for_remux_U0_full_n : STD_LOGIC;
     signal start_for_remux_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_remux_U0_empty_n : STD_LOGIC;
-    signal start_for_merger_U0_din : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_merger_U0_full_n : STD_LOGIC;
-    signal start_for_merger_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_merger_U0_empty_n : STD_LOGIC;
-    signal start_for_flashSetPathNoFilter_U0_din : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_flashSetPathNoFilter_U0_full_n : STD_LOGIC;
-    signal start_for_flashSetPathNoFilter_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_flashSetPathNoFilter_U0_empty_n : STD_LOGIC;
-    signal start_for_flashDispatch_U0_din : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_flashDispatch_U0_full_n : STD_LOGIC;
-    signal start_for_flashDispatch_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_flashDispatch_U0_empty_n : STD_LOGIC;
-    signal flashSetPathNoFilter_U0_start_full_n : STD_LOGIC;
-    signal flashSetPathNoFilter_U0_start_write : STD_LOGIC;
-    signal flashDispatch_U0_start_full_n : STD_LOGIC;
-    signal flashDispatch_U0_start_write : STD_LOGIC;
-    signal start_for_flashRemux_U0_din : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_flashRemux_U0_full_n : STD_LOGIC;
-    signal start_for_flashRemux_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_flashRemux_U0_empty_n : STD_LOGIC;
-    signal flashRemux_U0_start_full_n : STD_LOGIC;
-    signal flashRemux_U0_start_write : STD_LOGIC;
     signal start_for_response_f_U0_din : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_response_f_U0_full_n : STD_LOGIC;
     signal start_for_response_f_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
@@ -723,7 +562,7 @@ architecture behav of memcachedPipeline is
     end component;
 
 
-    component bp_f1192 IS
+    component bp_f1244 IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -1049,33 +888,9 @@ architecture behav of memcachedPipeline is
         memWr2out_V_dout : IN STD_LOGIC_VECTOR (56 downto 0);
         memWr2out_V_empty_n : IN STD_LOGIC;
         memWr2out_V_read : OUT STD_LOGIC;
-        hashTable2splitter_V_din : OUT STD_LOGIC_VECTOR (255 downto 0);
-        hashTable2splitter_V_full_n : IN STD_LOGIC;
-        hashTable2splitter_V_write : OUT STD_LOGIC;
-        start_out : OUT STD_LOGIC;
-        start_write : OUT STD_LOGIC );
-    end component;
-
-
-    component splitter IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        start_full_n : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_continue : IN STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        hashTable2splitter_V_dout : IN STD_LOGIC_VECTOR (255 downto 0);
-        hashTable2splitter_V_empty_n : IN STD_LOGIC;
-        hashTable2splitter_V_read : OUT STD_LOGIC;
-        splitter2valueStoreF_1_din : OUT STD_LOGIC_VECTOR (255 downto 0);
-        splitter2valueStoreF_1_full_n : IN STD_LOGIC;
-        splitter2valueStoreF_1_write : OUT STD_LOGIC;
-        splitter2valueStoreD_1_din : OUT STD_LOGIC_VECTOR (255 downto 0);
-        splitter2valueStoreD_1_full_n : IN STD_LOGIC;
-        splitter2valueStoreD_1_write : OUT STD_LOGIC;
+        hashTable2Dram_V_din : OUT STD_LOGIC_VECTOR (255 downto 0);
+        hashTable2Dram_V_full_n : IN STD_LOGIC;
+        hashTable2Dram_V_write : OUT STD_LOGIC;
         start_out : OUT STD_LOGIC;
         start_write : OUT STD_LOGIC );
     end component;
@@ -1097,9 +912,9 @@ architecture behav of memcachedPipeline is
         filterPopSet_V_V_dout : IN STD_LOGIC_VECTOR (0 downto 0);
         filterPopSet_V_V_empty_n : IN STD_LOGIC;
         filterPopSet_V_V_read : OUT STD_LOGIC;
-        splitter2valueStoreD_1_dout : IN STD_LOGIC_VECTOR (255 downto 0);
-        splitter2valueStoreD_1_empty_n : IN STD_LOGIC;
-        splitter2valueStoreD_1_read : OUT STD_LOGIC;
+        hashTable2Dram_V_dout : IN STD_LOGIC_VECTOR (255 downto 0);
+        hashTable2Dram_V_empty_n : IN STD_LOGIC;
+        hashTable2Dram_V_read : OUT STD_LOGIC;
         accCtrl2demux_V_din : OUT STD_LOGIC_VECTOR (255 downto 0);
         accCtrl2demux_V_full_n : IN STD_LOGIC;
         accCtrl2demux_V_write : OUT STD_LOGIC;
@@ -1243,156 +1058,6 @@ architecture behav of memcachedPipeline is
     end component;
 
 
-    component flashDemux IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        start_full_n : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_continue : IN STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        splitter2valueStoreF_1_dout : IN STD_LOGIC_VECTOR (255 downto 0);
-        splitter2valueStoreF_1_empty_n : IN STD_LOGIC;
-        splitter2valueStoreF_1_read : OUT STD_LOGIC;
-        flashMetadataBuffer_s_0_din : OUT STD_LOGIC_VECTOR (127 downto 0);
-        flashMetadataBuffer_s_0_full_n : IN STD_LOGIC;
-        flashMetadataBuffer_s_0_write : OUT STD_LOGIC;
-        flashKeyBuffer_V_V_din : OUT STD_LOGIC_VECTOR (63 downto 0);
-        flashKeyBuffer_V_V_full_n : IN STD_LOGIC;
-        flashKeyBuffer_V_V_write : OUT STD_LOGIC;
-        flashDemux2setPathVa_1_din : OUT STD_LOGIC_VECTOR (65 downto 0);
-        flashDemux2setPathVa_1_full_n : IN STD_LOGIC;
-        flashDemux2setPathVa_1_write : OUT STD_LOGIC;
-        flashDemux2setPathMe_1_din : OUT STD_LOGIC_VECTOR (47 downto 0);
-        flashDemux2setPathMe_1_full_n : IN STD_LOGIC;
-        flashDemux2setPathMe_1_write : OUT STD_LOGIC;
-        flashDemux2getPath_V_din : OUT STD_LOGIC_VECTOR (47 downto 0);
-        flashDemux2getPath_V_full_n : IN STD_LOGIC;
-        flashDemux2getPath_V_write : OUT STD_LOGIC;
-        start_out : OUT STD_LOGIC;
-        start_write : OUT STD_LOGIC );
-    end component;
-
-
-    component flashSetPathNoFilter IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_continue : IN STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        flashDemux2setPathMe_1_dout : IN STD_LOGIC_VECTOR (47 downto 0);
-        flashDemux2setPathMe_1_empty_n : IN STD_LOGIC;
-        flashDemux2setPathMe_1_read : OUT STD_LOGIC;
-        flashDemux2setPathVa_1_dout : IN STD_LOGIC_VECTOR (65 downto 0);
-        flashDemux2setPathVa_1_empty_n : IN STD_LOGIC;
-        flashDemux2setPathVa_1_read : OUT STD_LOGIC;
-        memWrCmd_V_TREADY : IN STD_LOGIC;
-        memWrData_V_V_TREADY : IN STD_LOGIC;
-        memWrCmd_V_TDATA : OUT STD_LOGIC_VECTOR (47 downto 0);
-        memWrCmd_V_TVALID : OUT STD_LOGIC;
-        memWrData_V_V_TDATA : OUT STD_LOGIC_VECTOR (63 downto 0);
-        memWrData_V_V_TVALID : OUT STD_LOGIC );
-    end component;
-
-
-    component flashDispatch IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_continue : IN STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        flashDemux2getPath_V_dout : IN STD_LOGIC_VECTOR (47 downto 0);
-        flashDemux2getPath_V_empty_n : IN STD_LOGIC;
-        flashDemux2getPath_V_read : OUT STD_LOGIC;
-        flash_Disp2rec_V_V_din : OUT STD_LOGIC_VECTOR (15 downto 0);
-        flash_Disp2rec_V_V_full_n : IN STD_LOGIC;
-        flash_Disp2rec_V_V_write : OUT STD_LOGIC;
-        memRdCmd_V_TREADY : IN STD_LOGIC;
-        memRdCmd_V_TDATA : OUT STD_LOGIC_VECTOR (47 downto 0);
-        memRdCmd_V_TVALID : OUT STD_LOGIC );
-    end component;
-
-
-    component flashReceiveNoFilter IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        start_full_n : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_continue : IN STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        flash_Disp2rec_V_V_dout : IN STD_LOGIC_VECTOR (15 downto 0);
-        flash_Disp2rec_V_V_empty_n : IN STD_LOGIC;
-        flash_Disp2rec_V_V_read : OUT STD_LOGIC;
-        memRdData_V_V_TVALID : IN STD_LOGIC;
-        flashGetPath2remux_V_din : OUT STD_LOGIC_VECTOR (63 downto 0);
-        flashGetPath2remux_V_full_n : IN STD_LOGIC;
-        flashGetPath2remux_V_write : OUT STD_LOGIC;
-        start_out : OUT STD_LOGIC;
-        start_write : OUT STD_LOGIC;
-        memRdData_V_V_TDATA : IN STD_LOGIC_VECTOR (63 downto 0);
-        memRdData_V_V_TREADY : OUT STD_LOGIC );
-    end component;
-
-
-    component flashRemux IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_continue : IN STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        flashKeyBuffer_V_V_dout : IN STD_LOGIC_VECTOR (63 downto 0);
-        flashKeyBuffer_V_V_empty_n : IN STD_LOGIC;
-        flashKeyBuffer_V_V_read : OUT STD_LOGIC;
-        flashGetPath2remux_V_dout : IN STD_LOGIC_VECTOR (63 downto 0);
-        flashGetPath2remux_V_empty_n : IN STD_LOGIC;
-        flashGetPath2remux_V_read : OUT STD_LOGIC;
-        flashMetadataBuffer_s_0_dout : IN STD_LOGIC_VECTOR (127 downto 0);
-        flashMetadataBuffer_s_0_empty_n : IN STD_LOGIC;
-        flashMetadataBuffer_s_0_read : OUT STD_LOGIC;
-        valueStoreFlash2merg_1_din : OUT STD_LOGIC_VECTOR (255 downto 0);
-        valueStoreFlash2merg_1_full_n : IN STD_LOGIC;
-        valueStoreFlash2merg_1_write : OUT STD_LOGIC );
-    end component;
-
-
-    component merger IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        start_full_n : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_continue : IN STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        valueStoreDram2merge_1_dout : IN STD_LOGIC_VECTOR (255 downto 0);
-        valueStoreDram2merge_1_empty_n : IN STD_LOGIC;
-        valueStoreDram2merge_1_read : OUT STD_LOGIC;
-        valueStoreFlash2merg_1_dout : IN STD_LOGIC_VECTOR (255 downto 0);
-        valueStoreFlash2merg_1_empty_n : IN STD_LOGIC;
-        valueStoreFlash2merg_1_read : OUT STD_LOGIC;
-        merger2responseForma_1_din : OUT STD_LOGIC_VECTOR (255 downto 0);
-        merger2responseForma_1_full_n : IN STD_LOGIC;
-        merger2responseForma_1_write : OUT STD_LOGIC;
-        start_out : OUT STD_LOGIC;
-        start_write : OUT STD_LOGIC );
-    end component;
-
-
     component response_f IS
     port (
         ap_clk : IN STD_LOGIC;
@@ -1411,9 +1076,9 @@ architecture behav of memcachedPipeline is
         metadataBuffer_rf_V_s_din : OUT STD_LOGIC_VECTOR (247 downto 0);
         metadataBuffer_rf_V_s_full_n : IN STD_LOGIC;
         metadataBuffer_rf_V_s_write : OUT STD_LOGIC;
-        merger2responseForma_1_dout : IN STD_LOGIC_VECTOR (255 downto 0);
-        merger2responseForma_1_empty_n : IN STD_LOGIC;
-        merger2responseForma_1_read : OUT STD_LOGIC );
+        valueStoreDram2merge_1_dout : IN STD_LOGIC_VECTOR (255 downto 0);
+        valueStoreDram2merge_1_empty_n : IN STD_LOGIC;
+        valueStoreDram2merge_1_read : OUT STD_LOGIC );
     end component;
 
 
@@ -1771,36 +1436,6 @@ architecture behav of memcachedPipeline is
     end component;
 
 
-    component fifo_w48_d16_A IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (47 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (47 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component fifo_w16_d16_A IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (15 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (15 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
     component fifo_w248_d8_A IS
     port (
         clk : IN STD_LOGIC;
@@ -1921,37 +1556,7 @@ architecture behav of memcachedPipeline is
     end component;
 
 
-    component start_for_splittehbi IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (0 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (0 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component start_for_accessCibs IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (0 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (0 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component start_for_flashDejbC IS
+    component start_for_accessChbi IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -1981,7 +1586,7 @@ architecture behav of memcachedPipeline is
     end component;
 
 
-    component start_for_setPathkbM IS
+    component start_for_setPathibs IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -1996,7 +1601,7 @@ architecture behav of memcachedPipeline is
     end component;
 
 
-    component start_for_dispatclbW IS
+    component start_for_dispatcjbC IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -2026,7 +1631,7 @@ architecture behav of memcachedPipeline is
     end component;
 
 
-    component start_for_merger_U0 IS
+    component start_for_responskbM IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -2041,67 +1646,7 @@ architecture behav of memcachedPipeline is
     end component;
 
 
-    component start_for_flashSemb6 IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (0 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (0 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component start_for_flashDincg IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (0 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (0 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component start_for_flashReocq IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (0 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (0 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component start_for_responspcA IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (0 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (0 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component start_for_responsqcK IS
+    component start_for_responslbW IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -2132,36 +1677,36 @@ begin
         flushAck_V_out_full_n => flushAck_V_c1_full_n,
         flushAck_V_out_write => memcachedPipeline_en_U0_flushAck_V_out_write);
 
-    bp_f1192_U0 : component bp_f1192
+    bp_f1244_U0 : component bp_f1244
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => bp_f1192_U0_ap_start,
+        ap_start => bp_f1244_U0_ap_start,
         start_full_n => start_for_bp_r_U0_full_n,
-        ap_done => bp_f1192_U0_ap_done,
-        ap_continue => bp_f1192_U0_ap_continue,
-        ap_idle => bp_f1192_U0_ap_idle,
-        ap_ready => bp_f1192_U0_ap_ready,
+        ap_done => bp_f1244_U0_ap_done,
+        ap_continue => bp_f1244_U0_ap_continue,
+        ap_idle => bp_f1244_U0_ap_idle,
+        ap_ready => bp_f1244_U0_ap_ready,
         inData_TVALID => inData_TVALID,
         flushAck_V_dout => flushAck_V_c1_dout,
         flushAck_V_empty_n => flushAck_V_c1_empty_n,
-        flushAck_V_read => bp_f1192_U0_flushAck_V_read,
-        flushAck_V_out_din => bp_f1192_U0_flushAck_V_out_din,
+        flushAck_V_read => bp_f1244_U0_flushAck_V_read,
+        flushAck_V_out_din => bp_f1244_U0_flushAck_V_out_din,
         flushAck_V_out_full_n => flushAck_V_c_full_n,
-        flushAck_V_out_write => bp_f1192_U0_flushAck_V_out_write,
-        valueBuffer_rp_V_V_din => bp_f1192_U0_valueBuffer_rp_V_V_din,
+        flushAck_V_out_write => bp_f1244_U0_flushAck_V_out_write,
+        valueBuffer_rp_V_V_din => bp_f1244_U0_valueBuffer_rp_V_V_din,
         valueBuffer_rp_V_V_full_n => valueBuffer_rp_V_V_full_n,
-        valueBuffer_rp_V_V_write => bp_f1192_U0_valueBuffer_rp_V_V_write,
-        keyBuffer_rp_V_V_din => bp_f1192_U0_keyBuffer_rp_V_V_din,
+        valueBuffer_rp_V_V_write => bp_f1244_U0_valueBuffer_rp_V_V_write,
+        keyBuffer_rp_V_V_din => bp_f1244_U0_keyBuffer_rp_V_V_din,
         keyBuffer_rp_V_V_full_n => keyBuffer_rp_V_V_full_n,
-        keyBuffer_rp_V_V_write => bp_f1192_U0_keyBuffer_rp_V_V_write,
-        metadataBuffer_rp_V_s_din => bp_f1192_U0_metadataBuffer_rp_V_s_din,
+        keyBuffer_rp_V_V_write => bp_f1244_U0_keyBuffer_rp_V_V_write,
+        metadataBuffer_rp_V_s_din => bp_f1244_U0_metadataBuffer_rp_V_s_din,
         metadataBuffer_rp_V_s_full_n => metadataBuffer_rp_V_s_full_n,
-        metadataBuffer_rp_V_s_write => bp_f1192_U0_metadataBuffer_rp_V_s_write,
-        start_out => bp_f1192_U0_start_out,
-        start_write => bp_f1192_U0_start_write,
+        metadataBuffer_rp_V_s_write => bp_f1244_U0_metadataBuffer_rp_V_s_write,
+        start_out => bp_f1244_U0_start_out,
+        start_write => bp_f1244_U0_start_write,
         inData_TDATA => inData_TDATA,
-        inData_TREADY => bp_f1192_U0_inData_TREADY,
+        inData_TREADY => bp_f1244_U0_inData_TREADY,
         inData_TUSER => inData_TUSER,
         inData_TKEEP => inData_TKEEP,
         inData_TLAST => inData_TLAST);
@@ -2423,7 +1968,7 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
         ap_start => ht_outputLogic_U0_ap_start,
-        start_full_n => start_for_splitter_U0_full_n,
+        start_full_n => start_for_accessControl_U0_full_n,
         ap_done => ht_outputLogic_U0_ap_done,
         ap_continue => ht_outputLogic_U0_ap_continue,
         ap_idle => ht_outputLogic_U0_ap_idle,
@@ -2440,33 +1985,11 @@ begin
         memWr2out_V_dout => memWr2out_V_dout,
         memWr2out_V_empty_n => memWr2out_V_empty_n,
         memWr2out_V_read => ht_outputLogic_U0_memWr2out_V_read,
-        hashTable2splitter_V_din => ht_outputLogic_U0_hashTable2splitter_V_din,
-        hashTable2splitter_V_full_n => hashTable2splitter_V_full_n,
-        hashTable2splitter_V_write => ht_outputLogic_U0_hashTable2splitter_V_write,
+        hashTable2Dram_V_din => ht_outputLogic_U0_hashTable2Dram_V_din,
+        hashTable2Dram_V_full_n => hashTable2Dram_V_full_n,
+        hashTable2Dram_V_write => ht_outputLogic_U0_hashTable2Dram_V_write,
         start_out => ht_outputLogic_U0_start_out,
         start_write => ht_outputLogic_U0_start_write);
-
-    splitter_U0 : component splitter
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => splitter_U0_ap_start,
-        start_full_n => splitter_U0_start_full_n,
-        ap_done => splitter_U0_ap_done,
-        ap_continue => splitter_U0_ap_continue,
-        ap_idle => splitter_U0_ap_idle,
-        ap_ready => splitter_U0_ap_ready,
-        hashTable2splitter_V_dout => hashTable2splitter_V_dout,
-        hashTable2splitter_V_empty_n => hashTable2splitter_V_empty_n,
-        hashTable2splitter_V_read => splitter_U0_hashTable2splitter_V_read,
-        splitter2valueStoreF_1_din => splitter_U0_splitter2valueStoreF_1_din,
-        splitter2valueStoreF_1_full_n => splitter2valueStoreF_1_full_n,
-        splitter2valueStoreF_1_write => splitter_U0_splitter2valueStoreF_1_write,
-        splitter2valueStoreD_1_din => splitter_U0_splitter2valueStoreD_1_din,
-        splitter2valueStoreD_1_full_n => splitter2valueStoreD_1_full_n,
-        splitter2valueStoreD_1_write => splitter_U0_splitter2valueStoreD_1_write,
-        start_out => splitter_U0_start_out,
-        start_write => splitter_U0_start_write);
 
     accessControl_U0 : component accessControl
     port map (
@@ -2484,9 +2007,9 @@ begin
         filterPopSet_V_V_dout => filterPopSet_V_V_dout,
         filterPopSet_V_V_empty_n => filterPopSet_V_V_empty_n,
         filterPopSet_V_V_read => accessControl_U0_filterPopSet_V_V_read,
-        splitter2valueStoreD_1_dout => splitter2valueStoreD_1_dout,
-        splitter2valueStoreD_1_empty_n => splitter2valueStoreD_1_empty_n,
-        splitter2valueStoreD_1_read => accessControl_U0_splitter2valueStoreD_1_read,
+        hashTable2Dram_V_dout => hashTable2Dram_V_dout,
+        hashTable2Dram_V_empty_n => hashTable2Dram_V_empty_n,
+        hashTable2Dram_V_read => accessControl_U0_hashTable2Dram_V_read,
         accCtrl2demux_V_din => accessControl_U0_accCtrl2demux_V_din,
         accCtrl2demux_V_full_n => accCtrl2demux_V_full_n,
         accCtrl2demux_V_write => accessControl_U0_accCtrl2demux_V_write,
@@ -2598,7 +2121,7 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
         ap_start => remux_U0_ap_start,
-        start_full_n => start_for_merger_U0_full_n,
+        start_full_n => start_for_response_f_U0_full_n,
         ap_done => remux_U0_ap_done,
         ap_continue => remux_U0_ap_continue,
         ap_idle => remux_U0_ap_idle,
@@ -2618,144 +2141,6 @@ begin
         start_out => remux_U0_start_out,
         start_write => remux_U0_start_write);
 
-    flashDemux_U0 : component flashDemux
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => flashDemux_U0_ap_start,
-        start_full_n => flashDemux_U0_start_full_n,
-        ap_done => flashDemux_U0_ap_done,
-        ap_continue => flashDemux_U0_ap_continue,
-        ap_idle => flashDemux_U0_ap_idle,
-        ap_ready => flashDemux_U0_ap_ready,
-        splitter2valueStoreF_1_dout => splitter2valueStoreF_1_dout,
-        splitter2valueStoreF_1_empty_n => splitter2valueStoreF_1_empty_n,
-        splitter2valueStoreF_1_read => flashDemux_U0_splitter2valueStoreF_1_read,
-        flashMetadataBuffer_s_0_din => flashDemux_U0_flashMetadataBuffer_s_0_din,
-        flashMetadataBuffer_s_0_full_n => flashMetadataBuffer_s_0_full_n,
-        flashMetadataBuffer_s_0_write => flashDemux_U0_flashMetadataBuffer_s_0_write,
-        flashKeyBuffer_V_V_din => flashDemux_U0_flashKeyBuffer_V_V_din,
-        flashKeyBuffer_V_V_full_n => flashKeyBuffer_V_V_full_n,
-        flashKeyBuffer_V_V_write => flashDemux_U0_flashKeyBuffer_V_V_write,
-        flashDemux2setPathVa_1_din => flashDemux_U0_flashDemux2setPathVa_1_din,
-        flashDemux2setPathVa_1_full_n => flashDemux2setPathVa_1_full_n,
-        flashDemux2setPathVa_1_write => flashDemux_U0_flashDemux2setPathVa_1_write,
-        flashDemux2setPathMe_1_din => flashDemux_U0_flashDemux2setPathMe_1_din,
-        flashDemux2setPathMe_1_full_n => flashDemux2setPathMe_1_full_n,
-        flashDemux2setPathMe_1_write => flashDemux_U0_flashDemux2setPathMe_1_write,
-        flashDemux2getPath_V_din => flashDemux_U0_flashDemux2getPath_V_din,
-        flashDemux2getPath_V_full_n => flashDemux2getPath_V_full_n,
-        flashDemux2getPath_V_write => flashDemux_U0_flashDemux2getPath_V_write,
-        start_out => flashDemux_U0_start_out,
-        start_write => flashDemux_U0_start_write);
-
-    flashSetPathNoFilter_U0 : component flashSetPathNoFilter
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => flashSetPathNoFilter_U0_ap_start,
-        ap_done => flashSetPathNoFilter_U0_ap_done,
-        ap_continue => flashSetPathNoFilter_U0_ap_continue,
-        ap_idle => flashSetPathNoFilter_U0_ap_idle,
-        ap_ready => flashSetPathNoFilter_U0_ap_ready,
-        flashDemux2setPathMe_1_dout => flashDemux2setPathMe_1_dout,
-        flashDemux2setPathMe_1_empty_n => flashDemux2setPathMe_1_empty_n,
-        flashDemux2setPathMe_1_read => flashSetPathNoFilter_U0_flashDemux2setPathMe_1_read,
-        flashDemux2setPathVa_1_dout => flashDemux2setPathVa_1_dout,
-        flashDemux2setPathVa_1_empty_n => flashDemux2setPathVa_1_empty_n,
-        flashDemux2setPathVa_1_read => flashSetPathNoFilter_U0_flashDemux2setPathVa_1_read,
-        memWrCmd_V_TREADY => flashValueStoreMemWrCmd_V_TREADY,
-        memWrData_V_V_TREADY => flashValueStoreMemWrData_V_V_TREADY,
-        memWrCmd_V_TDATA => flashSetPathNoFilter_U0_memWrCmd_V_TDATA,
-        memWrCmd_V_TVALID => flashSetPathNoFilter_U0_memWrCmd_V_TVALID,
-        memWrData_V_V_TDATA => flashSetPathNoFilter_U0_memWrData_V_V_TDATA,
-        memWrData_V_V_TVALID => flashSetPathNoFilter_U0_memWrData_V_V_TVALID);
-
-    flashDispatch_U0 : component flashDispatch
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => flashDispatch_U0_ap_start,
-        ap_done => flashDispatch_U0_ap_done,
-        ap_continue => flashDispatch_U0_ap_continue,
-        ap_idle => flashDispatch_U0_ap_idle,
-        ap_ready => flashDispatch_U0_ap_ready,
-        flashDemux2getPath_V_dout => flashDemux2getPath_V_dout,
-        flashDemux2getPath_V_empty_n => flashDemux2getPath_V_empty_n,
-        flashDemux2getPath_V_read => flashDispatch_U0_flashDemux2getPath_V_read,
-        flash_Disp2rec_V_V_din => flashDispatch_U0_flash_Disp2rec_V_V_din,
-        flash_Disp2rec_V_V_full_n => flash_Disp2rec_V_V_full_n,
-        flash_Disp2rec_V_V_write => flashDispatch_U0_flash_Disp2rec_V_V_write,
-        memRdCmd_V_TREADY => flashValueStoreMemRdCmd_V_TREADY,
-        memRdCmd_V_TDATA => flashDispatch_U0_memRdCmd_V_TDATA,
-        memRdCmd_V_TVALID => flashDispatch_U0_memRdCmd_V_TVALID);
-
-    flashReceiveNoFilter_U0 : component flashReceiveNoFilter
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => flashReceiveNoFilter_U0_ap_start,
-        start_full_n => start_for_flashRemux_U0_full_n,
-        ap_done => flashReceiveNoFilter_U0_ap_done,
-        ap_continue => flashReceiveNoFilter_U0_ap_continue,
-        ap_idle => flashReceiveNoFilter_U0_ap_idle,
-        ap_ready => flashReceiveNoFilter_U0_ap_ready,
-        flash_Disp2rec_V_V_dout => flash_Disp2rec_V_V_dout,
-        flash_Disp2rec_V_V_empty_n => flash_Disp2rec_V_V_empty_n,
-        flash_Disp2rec_V_V_read => flashReceiveNoFilter_U0_flash_Disp2rec_V_V_read,
-        memRdData_V_V_TVALID => flashValueStoreMemRdData_V_V_TVALID,
-        flashGetPath2remux_V_din => flashReceiveNoFilter_U0_flashGetPath2remux_V_din,
-        flashGetPath2remux_V_full_n => flashGetPath2remux_V_full_n,
-        flashGetPath2remux_V_write => flashReceiveNoFilter_U0_flashGetPath2remux_V_write,
-        start_out => flashReceiveNoFilter_U0_start_out,
-        start_write => flashReceiveNoFilter_U0_start_write,
-        memRdData_V_V_TDATA => flashValueStoreMemRdData_V_V_TDATA,
-        memRdData_V_V_TREADY => flashReceiveNoFilter_U0_memRdData_V_V_TREADY);
-
-    flashRemux_U0 : component flashRemux
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => flashRemux_U0_ap_start,
-        ap_done => flashRemux_U0_ap_done,
-        ap_continue => flashRemux_U0_ap_continue,
-        ap_idle => flashRemux_U0_ap_idle,
-        ap_ready => flashRemux_U0_ap_ready,
-        flashKeyBuffer_V_V_dout => flashKeyBuffer_V_V_dout,
-        flashKeyBuffer_V_V_empty_n => flashKeyBuffer_V_V_empty_n,
-        flashKeyBuffer_V_V_read => flashRemux_U0_flashKeyBuffer_V_V_read,
-        flashGetPath2remux_V_dout => flashGetPath2remux_V_dout,
-        flashGetPath2remux_V_empty_n => flashGetPath2remux_V_empty_n,
-        flashGetPath2remux_V_read => flashRemux_U0_flashGetPath2remux_V_read,
-        flashMetadataBuffer_s_0_dout => flashMetadataBuffer_s_0_dout,
-        flashMetadataBuffer_s_0_empty_n => flashMetadataBuffer_s_0_empty_n,
-        flashMetadataBuffer_s_0_read => flashRemux_U0_flashMetadataBuffer_s_0_read,
-        valueStoreFlash2merg_1_din => flashRemux_U0_valueStoreFlash2merg_1_din,
-        valueStoreFlash2merg_1_full_n => valueStoreFlash2merg_1_full_n,
-        valueStoreFlash2merg_1_write => flashRemux_U0_valueStoreFlash2merg_1_write);
-
-    merger_U0 : component merger
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => merger_U0_ap_start,
-        start_full_n => start_for_response_f_U0_full_n,
-        ap_done => merger_U0_ap_done,
-        ap_continue => merger_U0_ap_continue,
-        ap_idle => merger_U0_ap_idle,
-        ap_ready => merger_U0_ap_ready,
-        valueStoreDram2merge_1_dout => valueStoreDram2merge_1_dout,
-        valueStoreDram2merge_1_empty_n => valueStoreDram2merge_1_empty_n,
-        valueStoreDram2merge_1_read => merger_U0_valueStoreDram2merge_1_read,
-        valueStoreFlash2merg_1_dout => valueStoreFlash2merg_1_dout,
-        valueStoreFlash2merg_1_empty_n => valueStoreFlash2merg_1_empty_n,
-        valueStoreFlash2merg_1_read => merger_U0_valueStoreFlash2merg_1_read,
-        merger2responseForma_1_din => merger_U0_merger2responseForma_1_din,
-        merger2responseForma_1_full_n => merger2responseForma_1_full_n,
-        merger2responseForma_1_write => merger_U0_merger2responseForma_1_write,
-        start_out => merger_U0_start_out,
-        start_write => merger_U0_start_write);
-
     response_f_U0 : component response_f
     port map (
         ap_clk => ap_clk,
@@ -2774,9 +2159,9 @@ begin
         metadataBuffer_rf_V_s_din => response_f_U0_metadataBuffer_rf_V_s_din,
         metadataBuffer_rf_V_s_full_n => metadataBuffer_rf_V_s_full_n,
         metadataBuffer_rf_V_s_write => response_f_U0_metadataBuffer_rf_V_s_write,
-        merger2responseForma_1_dout => merger2responseForma_1_dout,
-        merger2responseForma_1_empty_n => merger2responseForma_1_empty_n,
-        merger2responseForma_1_read => response_f_U0_merger2responseForma_1_read);
+        valueStoreDram2merge_1_dout => valueStoreDram2merge_1_dout,
+        valueStoreDram2merge_1_empty_n => valueStoreDram2merge_1_empty_n,
+        valueStoreDram2merge_1_read => response_f_U0_valueStoreDram2merge_1_read);
 
     response_r_U0 : component response_r
     port map (
@@ -2811,7 +2196,7 @@ begin
         if_write => memcachedPipeline_en_U0_flushAck_V_out_write,
         if_dout => flushAck_V_c1_dout,
         if_empty_n => flushAck_V_c1_empty_n,
-        if_read => bp_f1192_U0_flushAck_V_read);
+        if_read => bp_f1244_U0_flushAck_V_read);
 
     flushAck_V_c_U : component fifo_w1_d9_A
     port map (
@@ -2819,9 +2204,9 @@ begin
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => bp_f1192_U0_flushAck_V_out_din,
+        if_din => bp_f1244_U0_flushAck_V_out_din,
         if_full_n => flushAck_V_c_full_n,
-        if_write => bp_f1192_U0_flushAck_V_out_write,
+        if_write => bp_f1244_U0_flushAck_V_out_write,
         if_dout => flushAck_V_c_dout,
         if_empty_n => flushAck_V_c_empty_n,
         if_read => memWrite_U0_flushAck_V_read);
@@ -2832,9 +2217,9 @@ begin
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => bp_f1192_U0_metadataBuffer_rp_V_s_din,
+        if_din => bp_f1244_U0_metadataBuffer_rp_V_s_din,
         if_full_n => metadataBuffer_rp_V_s_full_n,
-        if_write => bp_f1192_U0_metadataBuffer_rp_V_s_write,
+        if_write => bp_f1244_U0_metadataBuffer_rp_V_s_write,
         if_dout => metadataBuffer_rp_V_s_dout,
         if_empty_n => metadataBuffer_rp_V_s_empty_n,
         if_read => bp_r_U0_metadataBuffer_rp_V_s_read);
@@ -2845,9 +2230,9 @@ begin
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => bp_f1192_U0_valueBuffer_rp_V_V_din,
+        if_din => bp_f1244_U0_valueBuffer_rp_V_V_din,
         if_full_n => valueBuffer_rp_V_V_full_n,
-        if_write => bp_f1192_U0_valueBuffer_rp_V_V_write,
+        if_write => bp_f1244_U0_valueBuffer_rp_V_V_write,
         if_dout => valueBuffer_rp_V_V_dout,
         if_empty_n => valueBuffer_rp_V_V_empty_n,
         if_read => bp_r_U0_valueBuffer_rp_V_V_read);
@@ -2858,9 +2243,9 @@ begin
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => bp_f1192_U0_keyBuffer_rp_V_V_din,
+        if_din => bp_f1244_U0_keyBuffer_rp_V_V_din,
         if_full_n => keyBuffer_rp_V_V_full_n,
-        if_write => bp_f1192_U0_keyBuffer_rp_V_V_write,
+        if_write => bp_f1244_U0_keyBuffer_rp_V_V_write,
         if_dout => keyBuffer_rp_V_V_dout,
         if_empty_n => keyBuffer_rp_V_V_empty_n,
         if_read => bp_r_U0_keyBuffer_rp_V_V_read);
@@ -3151,44 +2536,18 @@ begin
         if_empty_n => memWr2out_V_empty_n,
         if_read => ht_outputLogic_U0_memWr2out_V_read);
 
-    hashTable2splitter_V_U : component fifo_w256_d16_A
+    hashTable2Dram_V_U : component fifo_w256_d16_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => ht_outputLogic_U0_hashTable2splitter_V_din,
-        if_full_n => hashTable2splitter_V_full_n,
-        if_write => ht_outputLogic_U0_hashTable2splitter_V_write,
-        if_dout => hashTable2splitter_V_dout,
-        if_empty_n => hashTable2splitter_V_empty_n,
-        if_read => splitter_U0_hashTable2splitter_V_read);
-
-    splitter2valueStoreF_1_U : component fifo_w256_d16_A
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => splitter_U0_splitter2valueStoreF_1_din,
-        if_full_n => splitter2valueStoreF_1_full_n,
-        if_write => splitter_U0_splitter2valueStoreF_1_write,
-        if_dout => splitter2valueStoreF_1_dout,
-        if_empty_n => splitter2valueStoreF_1_empty_n,
-        if_read => flashDemux_U0_splitter2valueStoreF_1_read);
-
-    splitter2valueStoreD_1_U : component fifo_w256_d16_A
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => splitter_U0_splitter2valueStoreD_1_din,
-        if_full_n => splitter2valueStoreD_1_full_n,
-        if_write => splitter_U0_splitter2valueStoreD_1_write,
-        if_dout => splitter2valueStoreD_1_dout,
-        if_empty_n => splitter2valueStoreD_1_empty_n,
-        if_read => accessControl_U0_splitter2valueStoreD_1_read);
+        if_din => ht_outputLogic_U0_hashTable2Dram_V_din,
+        if_full_n => hashTable2Dram_V_full_n,
+        if_write => ht_outputLogic_U0_hashTable2Dram_V_write,
+        if_dout => hashTable2Dram_V_dout,
+        if_empty_n => hashTable2Dram_V_empty_n,
+        if_read => accessControl_U0_hashTable2Dram_V_read);
 
     filterPopSet_V_V_U : component fifo_w1_d16_A
     port map (
@@ -3331,124 +2690,7 @@ begin
         if_write => remux_U0_valueStoreDram2merge_1_write,
         if_dout => valueStoreDram2merge_1_dout,
         if_empty_n => valueStoreDram2merge_1_empty_n,
-        if_read => merger_U0_valueStoreDram2merge_1_read);
-
-    flashMetadataBuffer_s_0_U : component fifo_w128_d24_A
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => flashDemux_U0_flashMetadataBuffer_s_0_din,
-        if_full_n => flashMetadataBuffer_s_0_full_n,
-        if_write => flashDemux_U0_flashMetadataBuffer_s_0_write,
-        if_dout => flashMetadataBuffer_s_0_dout,
-        if_empty_n => flashMetadataBuffer_s_0_empty_n,
-        if_read => flashRemux_U0_flashMetadataBuffer_s_0_read);
-
-    flashKeyBuffer_V_V_U : component fifo_w64_d48_A
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => flashDemux_U0_flashKeyBuffer_V_V_din,
-        if_full_n => flashKeyBuffer_V_V_full_n,
-        if_write => flashDemux_U0_flashKeyBuffer_V_V_write,
-        if_dout => flashKeyBuffer_V_V_dout,
-        if_empty_n => flashKeyBuffer_V_V_empty_n,
-        if_read => flashRemux_U0_flashKeyBuffer_V_V_read);
-
-    flashDemux2getPath_V_U : component fifo_w48_d16_A
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => flashDemux_U0_flashDemux2getPath_V_din,
-        if_full_n => flashDemux2getPath_V_full_n,
-        if_write => flashDemux_U0_flashDemux2getPath_V_write,
-        if_dout => flashDemux2getPath_V_dout,
-        if_empty_n => flashDemux2getPath_V_empty_n,
-        if_read => flashDispatch_U0_flashDemux2getPath_V_read);
-
-    flashDemux2setPathMe_1_U : component fifo_w48_d16_A
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => flashDemux_U0_flashDemux2setPathMe_1_din,
-        if_full_n => flashDemux2setPathMe_1_full_n,
-        if_write => flashDemux_U0_flashDemux2setPathMe_1_write,
-        if_dout => flashDemux2setPathMe_1_dout,
-        if_empty_n => flashDemux2setPathMe_1_empty_n,
-        if_read => flashSetPathNoFilter_U0_flashDemux2setPathMe_1_read);
-
-    flashDemux2setPathVa_1_U : component fifo_w66_d96_A
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => flashDemux_U0_flashDemux2setPathVa_1_din,
-        if_full_n => flashDemux2setPathVa_1_full_n,
-        if_write => flashDemux_U0_flashDemux2setPathVa_1_write,
-        if_dout => flashDemux2setPathVa_1_dout,
-        if_empty_n => flashDemux2setPathVa_1_empty_n,
-        if_read => flashSetPathNoFilter_U0_flashDemux2setPathVa_1_read);
-
-    flash_Disp2rec_V_V_U : component fifo_w16_d16_A
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => flashDispatch_U0_flash_Disp2rec_V_V_din,
-        if_full_n => flash_Disp2rec_V_V_full_n,
-        if_write => flashDispatch_U0_flash_Disp2rec_V_V_write,
-        if_dout => flash_Disp2rec_V_V_dout,
-        if_empty_n => flash_Disp2rec_V_V_empty_n,
-        if_read => flashReceiveNoFilter_U0_flash_Disp2rec_V_V_read);
-
-    flashGetPath2remux_V_U : component fifo_w64_d96_A
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => flashReceiveNoFilter_U0_flashGetPath2remux_V_din,
-        if_full_n => flashGetPath2remux_V_full_n,
-        if_write => flashReceiveNoFilter_U0_flashGetPath2remux_V_write,
-        if_dout => flashGetPath2remux_V_dout,
-        if_empty_n => flashGetPath2remux_V_empty_n,
-        if_read => flashRemux_U0_flashGetPath2remux_V_read);
-
-    valueStoreFlash2merg_1_U : component fifo_w256_d16_A
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => flashRemux_U0_valueStoreFlash2merg_1_din,
-        if_full_n => valueStoreFlash2merg_1_full_n,
-        if_write => flashRemux_U0_valueStoreFlash2merg_1_write,
-        if_dout => valueStoreFlash2merg_1_dout,
-        if_empty_n => valueStoreFlash2merg_1_empty_n,
-        if_read => merger_U0_valueStoreFlash2merg_1_read);
-
-    merger2responseForma_1_U : component fifo_w256_d16_A
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => merger_U0_merger2responseForma_1_din,
-        if_full_n => merger2responseForma_1_full_n,
-        if_write => merger_U0_merger2responseForma_1_write,
-        if_dout => merger2responseForma_1_dout,
-        if_empty_n => merger2responseForma_1_empty_n,
-        if_read => response_f_U0_merger2responseForma_1_read);
+        if_read => response_f_U0_valueStoreDram2merge_1_read);
 
     valueBuffer_rf_V_V_U : component fifo_w64_d1024_A
     port map (
@@ -3484,7 +2726,7 @@ begin
         if_write_ce => ap_const_logic_1,
         if_din => start_for_bp_r_U0_din,
         if_full_n => start_for_bp_r_U0_full_n,
-        if_write => bp_f1192_U0_start_write,
+        if_write => bp_f1244_U0_start_write,
         if_dout => start_for_bp_r_U0_dout,
         if_empty_n => start_for_bp_r_U0_empty_n,
         if_read => bp_r_U0_ap_ready);
@@ -3567,20 +2809,7 @@ begin
         if_empty_n => start_for_ht_outputLogic_U0_empty_n,
         if_read => ht_outputLogic_U0_ap_ready);
 
-    start_for_splittehbi_U : component start_for_splittehbi
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => start_for_splitter_U0_din,
-        if_full_n => start_for_splitter_U0_full_n,
-        if_write => ht_outputLogic_U0_start_write,
-        if_dout => start_for_splitter_U0_dout,
-        if_empty_n => start_for_splitter_U0_empty_n,
-        if_read => splitter_U0_ap_ready);
-
-    start_for_accessCibs_U : component start_for_accessCibs
+    start_for_accessChbi_U : component start_for_accessChbi
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -3588,23 +2817,10 @@ begin
         if_write_ce => ap_const_logic_1,
         if_din => start_for_accessControl_U0_din,
         if_full_n => start_for_accessControl_U0_full_n,
-        if_write => splitter_U0_start_write,
+        if_write => ht_outputLogic_U0_start_write,
         if_dout => start_for_accessControl_U0_dout,
         if_empty_n => start_for_accessControl_U0_empty_n,
         if_read => accessControl_U0_ap_ready);
-
-    start_for_flashDejbC_U : component start_for_flashDejbC
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => start_for_flashDemux_U0_din,
-        if_full_n => start_for_flashDemux_U0_full_n,
-        if_write => splitter_U0_start_write,
-        if_dout => start_for_flashDemux_U0_dout,
-        if_empty_n => start_for_flashDemux_U0_empty_n,
-        if_read => flashDemux_U0_ap_ready);
 
     start_for_demux_U0_U : component start_for_demux_U0
     port map (
@@ -3619,7 +2835,7 @@ begin
         if_empty_n => start_for_demux_U0_empty_n,
         if_read => demux_U0_ap_ready);
 
-    start_for_setPathkbM_U : component start_for_setPathkbM
+    start_for_setPathibs_U : component start_for_setPathibs
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -3632,7 +2848,7 @@ begin
         if_empty_n => start_for_setPath_U0_empty_n,
         if_read => setPath_U0_ap_ready);
 
-    start_for_dispatclbW_U : component start_for_dispatclbW
+    start_for_dispatcjbC_U : component start_for_dispatcjbC
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -3658,59 +2874,7 @@ begin
         if_empty_n => start_for_remux_U0_empty_n,
         if_read => remux_U0_ap_ready);
 
-    start_for_merger_U0_U : component start_for_merger_U0
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => start_for_merger_U0_din,
-        if_full_n => start_for_merger_U0_full_n,
-        if_write => remux_U0_start_write,
-        if_dout => start_for_merger_U0_dout,
-        if_empty_n => start_for_merger_U0_empty_n,
-        if_read => merger_U0_ap_ready);
-
-    start_for_flashSemb6_U : component start_for_flashSemb6
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => start_for_flashSetPathNoFilter_U0_din,
-        if_full_n => start_for_flashSetPathNoFilter_U0_full_n,
-        if_write => flashDemux_U0_start_write,
-        if_dout => start_for_flashSetPathNoFilter_U0_dout,
-        if_empty_n => start_for_flashSetPathNoFilter_U0_empty_n,
-        if_read => flashSetPathNoFilter_U0_ap_ready);
-
-    start_for_flashDincg_U : component start_for_flashDincg
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => start_for_flashDispatch_U0_din,
-        if_full_n => start_for_flashDispatch_U0_full_n,
-        if_write => flashDemux_U0_start_write,
-        if_dout => start_for_flashDispatch_U0_dout,
-        if_empty_n => start_for_flashDispatch_U0_empty_n,
-        if_read => flashDispatch_U0_ap_ready);
-
-    start_for_flashReocq_U : component start_for_flashReocq
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => start_for_flashRemux_U0_din,
-        if_full_n => start_for_flashRemux_U0_full_n,
-        if_write => flashReceiveNoFilter_U0_start_write,
-        if_dout => start_for_flashRemux_U0_dout,
-        if_empty_n => start_for_flashRemux_U0_empty_n,
-        if_read => flashRemux_U0_ap_ready);
-
-    start_for_responspcA_U : component start_for_responspcA
+    start_for_responskbM_U : component start_for_responskbM
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -3718,12 +2882,12 @@ begin
         if_write_ce => ap_const_logic_1,
         if_din => start_for_response_f_U0_din,
         if_full_n => start_for_response_f_U0_full_n,
-        if_write => merger_U0_start_write,
+        if_write => remux_U0_start_write,
         if_dout => start_for_response_f_U0_dout,
         if_empty_n => start_for_response_f_U0_empty_n,
         if_read => response_f_U0_ap_ready);
 
-    start_for_responsqcK_U : component start_for_responsqcK
+    start_for_responslbW_U : component start_for_responslbW
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -3756,8 +2920,8 @@ begin
     bobj_U0_ap_start <= start_for_bobj_U0_empty_n;
     bobj_U0_start_full_n <= ap_const_logic_1;
     bobj_U0_start_write <= ap_const_logic_0;
-    bp_f1192_U0_ap_continue <= ap_const_logic_1;
-    bp_f1192_U0_ap_start <= ap_const_logic_1;
+    bp_f1244_U0_ap_continue <= ap_const_logic_1;
+    bp_f1244_U0_ap_start <= ap_const_logic_1;
     bp_r_U0_ap_continue <= ap_const_logic_1;
     bp_r_U0_ap_start <= start_for_bp_r_U0_empty_n;
     concurrencyControl_U0_ap_continue <= ap_const_logic_1;
@@ -3776,30 +2940,6 @@ begin
     dramValueStoreMemWrCmd_V_TVALID <= setPath_U0_memWrCmd_V_TVALID;
     dramValueStoreMemWrData_V_V_TDATA <= setPath_U0_memWrData_V_V_TDATA;
     dramValueStoreMemWrData_V_V_TVALID <= setPath_U0_memWrData_V_V_TVALID;
-    flashDemux_U0_ap_continue <= ap_const_logic_1;
-    flashDemux_U0_ap_start <= start_for_flashDemux_U0_empty_n;
-    flashDemux_U0_start_full_n <= (start_for_flashSetPathNoFilter_U0_full_n and start_for_flashDispatch_U0_full_n);
-    flashDispatch_U0_ap_continue <= ap_const_logic_1;
-    flashDispatch_U0_ap_start <= start_for_flashDispatch_U0_empty_n;
-    flashDispatch_U0_start_full_n <= ap_const_logic_1;
-    flashDispatch_U0_start_write <= ap_const_logic_0;
-    flashReceiveNoFilter_U0_ap_continue <= ap_const_logic_1;
-    flashReceiveNoFilter_U0_ap_start <= ap_const_logic_1;
-    flashRemux_U0_ap_continue <= ap_const_logic_1;
-    flashRemux_U0_ap_start <= start_for_flashRemux_U0_empty_n;
-    flashRemux_U0_start_full_n <= ap_const_logic_1;
-    flashRemux_U0_start_write <= ap_const_logic_0;
-    flashSetPathNoFilter_U0_ap_continue <= ap_const_logic_1;
-    flashSetPathNoFilter_U0_ap_start <= start_for_flashSetPathNoFilter_U0_empty_n;
-    flashSetPathNoFilter_U0_start_full_n <= ap_const_logic_1;
-    flashSetPathNoFilter_U0_start_write <= ap_const_logic_0;
-    flashValueStoreMemRdCmd_V_TDATA <= flashDispatch_U0_memRdCmd_V_TDATA;
-    flashValueStoreMemRdCmd_V_TVALID <= flashDispatch_U0_memRdCmd_V_TVALID;
-    flashValueStoreMemRdData_V_V_TREADY <= flashReceiveNoFilter_U0_memRdData_V_V_TREADY;
-    flashValueStoreMemWrCmd_V_TDATA <= flashSetPathNoFilter_U0_memWrCmd_V_TDATA;
-    flashValueStoreMemWrCmd_V_TVALID <= flashSetPathNoFilter_U0_memWrCmd_V_TVALID;
-    flashValueStoreMemWrData_V_V_TDATA <= flashSetPathNoFilter_U0_memWrData_V_V_TDATA;
-    flashValueStoreMemWrData_V_V_TVALID <= flashSetPathNoFilter_U0_memWrData_V_V_TVALID;
     flushDone_V <= memWrite_U0_flushDone_V;
     flushReq_V <= memWrite_U0_flushReq_V;
     hashKeyResizer_U0_ap_continue <= ap_const_logic_1;
@@ -3820,7 +2960,7 @@ begin
     ht_inputLogic_U0_start_full_n <= (start_for_hashKeyResizer_U0_full_n and start_for_concurrencyControl_U0_full_n);
     ht_outputLogic_U0_ap_continue <= ap_const_logic_1;
     ht_outputLogic_U0_ap_start <= start_for_ht_outputLogic_U0_empty_n;
-    inData_TREADY <= bp_f1192_U0_inData_TREADY;
+    inData_TREADY <= bp_f1244_U0_inData_TREADY;
     memRead_U0_ap_continue <= ap_const_logic_1;
     memRead_U0_ap_start <= start_for_memRead_U0_empty_n;
     memRead_U0_start_full_n <= ap_const_logic_1;
@@ -3831,8 +2971,6 @@ begin
     memcachedPipeline_en_U0_ap_start <= ap_const_logic_1;
     memcachedPipeline_en_U0_start_full_n <= ap_const_logic_1;
     memcachedPipeline_en_U0_start_write <= ap_const_logic_0;
-    merger_U0_ap_continue <= ap_const_logic_1;
-    merger_U0_ap_start <= start_for_merger_U0_empty_n;
     outData_TDATA <= response_r_U0_outData_TDATA;
     outData_TKEEP <= response_r_U0_outData_TKEEP;
     outData_TLAST <= response_r_U0_outData_TLAST;
@@ -3852,27 +2990,18 @@ begin
     setPath_U0_ap_start <= start_for_setPath_U0_empty_n;
     setPath_U0_start_full_n <= ap_const_logic_1;
     setPath_U0_start_write <= ap_const_logic_0;
-    splitter_U0_ap_continue <= ap_const_logic_1;
-    splitter_U0_ap_start <= start_for_splitter_U0_empty_n;
-    splitter_U0_start_full_n <= (start_for_flashDemux_U0_full_n and start_for_accessControl_U0_full_n);
     start_for_accessControl_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_bobj_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_bp_r_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_concurrencyControl_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_demux_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_dispatch_U0_din <= (0=>ap_const_logic_1, others=>'-');
-    start_for_flashDemux_U0_din <= (0=>ap_const_logic_1, others=>'-');
-    start_for_flashDispatch_U0_din <= (0=>ap_const_logic_1, others=>'-');
-    start_for_flashRemux_U0_din <= (0=>ap_const_logic_1, others=>'-');
-    start_for_flashSetPathNoFilter_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_hashKeyResizer_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_ht_inputLogic_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_ht_outputLogic_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_memRead_U0_din <= (0=>ap_const_logic_1, others=>'-');
-    start_for_merger_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_remux_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_response_f_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_response_r_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_setPath_U0_din <= (0=>ap_const_logic_1, others=>'-');
-    start_for_splitter_U0_din <= (0=>ap_const_logic_1, others=>'-');
 end behav;

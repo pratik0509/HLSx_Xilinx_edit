@@ -13,8 +13,8 @@ use IEEE.std_logic_unsigned.all;
 entity start_for_remux_U0_shiftReg is
     generic (
         DATA_WIDTH : integer := 1;
-        ADDR_WIDTH : integer := 5;
-        DEPTH : integer := 17);
+        ADDR_WIDTH : integer := 4;
+        DEPTH : integer := 16);
     port (
         clk : in std_logic;
         data : in std_logic_vector(DATA_WIDTH-1 downto 0);
@@ -51,8 +51,8 @@ entity start_for_remux_U0 is
     generic (
         MEM_STYLE  : string := "shiftreg"; 
         DATA_WIDTH : integer := 1;
-        ADDR_WIDTH : integer := 5;
-        DEPTH : integer := 17);
+        ADDR_WIDTH : integer := 4;
+        DEPTH : integer := 16);
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -71,8 +71,8 @@ architecture rtl of start_for_remux_U0 is
     component start_for_remux_U0_shiftReg is
     generic (
         DATA_WIDTH : integer := 1;
-        ADDR_WIDTH : integer := 5;
-        DEPTH : integer := 17);
+        ADDR_WIDTH : integer := 4;
+        DEPTH : integer := 16);
     port (
         clk : in std_logic;
         data : in std_logic_vector(DATA_WIDTH-1 downto 0);
@@ -104,16 +104,16 @@ begin
             else
                 if ((if_read and if_read_ce) = '1' and internal_empty_n = '1') and 
                    ((if_write and if_write_ce) = '0' or internal_full_n = '0') then
-                    mOutPtr <= mOutPtr - conv_std_logic_vector(1, 6);
-                    if (mOutPtr = conv_std_logic_vector(0, 6)) then 
+                    mOutPtr <= mOutPtr - conv_std_logic_vector(1, 5);
+                    if (mOutPtr = conv_std_logic_vector(0, 5)) then 
                         internal_empty_n <= '0';
                     end if;
                     internal_full_n <= '1';
                 elsif ((if_read and if_read_ce) = '0' or internal_empty_n = '0') and 
                    ((if_write and if_write_ce) = '1' and internal_full_n = '1') then
-                    mOutPtr <= mOutPtr + conv_std_logic_vector(1, 6);
+                    mOutPtr <= mOutPtr + conv_std_logic_vector(1, 5);
                     internal_empty_n <= '1';
-                    if (mOutPtr = conv_std_logic_vector(DEPTH, 6) - conv_std_logic_vector(2, 6)) then 
+                    if (mOutPtr = conv_std_logic_vector(DEPTH, 5) - conv_std_logic_vector(2, 5)) then 
                         internal_full_n <= '0';
                     end if;
                 end if;

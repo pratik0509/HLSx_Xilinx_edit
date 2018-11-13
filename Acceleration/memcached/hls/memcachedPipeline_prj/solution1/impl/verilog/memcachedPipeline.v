@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="memcachedPipeline,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7vx690tffg1761-2,HLS_INPUT_CLOCK=6.660000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=9.737800,HLS_SYN_LAT=42,HLS_SYN_TPT=1,HLS_SYN_MEM=311,HLS_SYN_DSP=0,HLS_SYN_FF=33173,HLS_SYN_LUT=145534,HLS_VERSION=2018_2}" *)
+(* CORE_GENERATION_INFO="memcachedPipeline,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7vx690tffg1761-2,HLS_INPUT_CLOCK=6.660000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=9.737800,HLS_SYN_LAT=37,HLS_SYN_TPT=1,HLS_SYN_MEM=225,HLS_SYN_DSP=0,HLS_SYN_FF=28205,HLS_SYN_LUT=142267,HLS_VERSION=2018_2}" *)
 
 module memcachedPipeline (
         inData_TDATA,
@@ -22,10 +22,6 @@ module memcachedPipeline (
         dramValueStoreMemRdData_V_V_TDATA,
         dramValueStoreMemWrCmd_V_TDATA,
         dramValueStoreMemWrData_V_V_TDATA,
-        flashValueStoreMemRdCmd_V_TDATA,
-        flashValueStoreMemRdData_V_V_TDATA,
-        flashValueStoreMemWrCmd_V_TDATA,
-        flashValueStoreMemWrData_V_V_TDATA,
         hashTableMemRdData_V_V_TDATA,
         hashTableMemRdCmd_V_TDATA,
         hashTableMemWrData_V_V_TDATA,
@@ -62,14 +58,6 @@ module memcachedPipeline (
         dramValueStoreMemRdCmd_V_TREADY,
         dramValueStoreMemRdData_V_V_TVALID,
         dramValueStoreMemRdData_V_V_TREADY,
-        flashValueStoreMemWrCmd_V_TVALID,
-        flashValueStoreMemWrCmd_V_TREADY,
-        flashValueStoreMemWrData_V_V_TVALID,
-        flashValueStoreMemWrData_V_V_TREADY,
-        flashValueStoreMemRdCmd_V_TVALID,
-        flashValueStoreMemRdCmd_V_TREADY,
-        flashValueStoreMemRdData_V_V_TVALID,
-        flashValueStoreMemRdData_V_V_TREADY,
         outData_TVALID,
         outData_TREADY
 );
@@ -87,10 +75,6 @@ output  [39:0] dramValueStoreMemRdCmd_V_TDATA;
 input  [511:0] dramValueStoreMemRdData_V_V_TDATA;
 output  [39:0] dramValueStoreMemWrCmd_V_TDATA;
 output  [511:0] dramValueStoreMemWrData_V_V_TDATA;
-output  [47:0] flashValueStoreMemRdCmd_V_TDATA;
-input  [63:0] flashValueStoreMemRdData_V_V_TDATA;
-output  [47:0] flashValueStoreMemWrCmd_V_TDATA;
-output  [63:0] flashValueStoreMemWrData_V_V_TDATA;
 input  [511:0] hashTableMemRdData_V_V_TDATA;
 output  [39:0] hashTableMemRdCmd_V_TDATA;
 output  [511:0] hashTableMemWrData_V_V_TDATA;
@@ -127,14 +111,6 @@ output   dramValueStoreMemRdCmd_V_TVALID;
 input   dramValueStoreMemRdCmd_V_TREADY;
 input   dramValueStoreMemRdData_V_V_TVALID;
 output   dramValueStoreMemRdData_V_V_TREADY;
-output   flashValueStoreMemWrCmd_V_TVALID;
-input   flashValueStoreMemWrCmd_V_TREADY;
-output   flashValueStoreMemWrData_V_V_TVALID;
-input   flashValueStoreMemWrData_V_V_TREADY;
-output   flashValueStoreMemRdCmd_V_TVALID;
-input   flashValueStoreMemRdCmd_V_TREADY;
-input   flashValueStoreMemRdData_V_V_TVALID;
-output   flashValueStoreMemRdData_V_V_TREADY;
 output   outData_TVALID;
 input   outData_TREADY;
 
@@ -146,23 +122,23 @@ wire    memcachedPipeline_en_U0_ap_idle;
 wire    memcachedPipeline_en_U0_ap_ready;
 wire   [0:0] memcachedPipeline_en_U0_flushAck_V_out_din;
 wire    memcachedPipeline_en_U0_flushAck_V_out_write;
-wire    bp_f1192_U0_ap_start;
-wire    bp_f1192_U0_ap_done;
-wire    bp_f1192_U0_ap_continue;
-wire    bp_f1192_U0_ap_idle;
-wire    bp_f1192_U0_ap_ready;
-wire    bp_f1192_U0_flushAck_V_read;
-wire   [0:0] bp_f1192_U0_flushAck_V_out_din;
-wire    bp_f1192_U0_flushAck_V_out_write;
-wire   [63:0] bp_f1192_U0_valueBuffer_rp_V_V_din;
-wire    bp_f1192_U0_valueBuffer_rp_V_V_write;
-wire   [63:0] bp_f1192_U0_keyBuffer_rp_V_V_din;
-wire    bp_f1192_U0_keyBuffer_rp_V_V_write;
-wire   [247:0] bp_f1192_U0_metadataBuffer_rp_V_s_din;
-wire    bp_f1192_U0_metadataBuffer_rp_V_s_write;
-wire    bp_f1192_U0_start_out;
-wire    bp_f1192_U0_start_write;
-wire    bp_f1192_U0_inData_TREADY;
+wire    bp_f1244_U0_ap_start;
+wire    bp_f1244_U0_ap_done;
+wire    bp_f1244_U0_ap_continue;
+wire    bp_f1244_U0_ap_idle;
+wire    bp_f1244_U0_ap_ready;
+wire    bp_f1244_U0_flushAck_V_read;
+wire   [0:0] bp_f1244_U0_flushAck_V_out_din;
+wire    bp_f1244_U0_flushAck_V_out_write;
+wire   [63:0] bp_f1244_U0_valueBuffer_rp_V_V_din;
+wire    bp_f1244_U0_valueBuffer_rp_V_V_write;
+wire   [63:0] bp_f1244_U0_keyBuffer_rp_V_V_din;
+wire    bp_f1244_U0_keyBuffer_rp_V_V_write;
+wire   [247:0] bp_f1244_U0_metadataBuffer_rp_V_s_din;
+wire    bp_f1244_U0_metadataBuffer_rp_V_s_write;
+wire    bp_f1244_U0_start_out;
+wire    bp_f1244_U0_start_write;
+wire    bp_f1244_U0_inData_TREADY;
 wire    bp_r_U0_ap_start;
 wire    bp_r_U0_ap_done;
 wire    bp_r_U0_ap_continue;
@@ -305,23 +281,10 @@ wire    ht_outputLogic_U0_hashKeyBuffer_V_V_read;
 wire    ht_outputLogic_U0_hashValueBuffer_V_V_read;
 wire    ht_outputLogic_U0_hashMdBuffer_V_V_read;
 wire    ht_outputLogic_U0_memWr2out_V_read;
-wire   [255:0] ht_outputLogic_U0_hashTable2splitter_V_din;
-wire    ht_outputLogic_U0_hashTable2splitter_V_write;
+wire   [255:0] ht_outputLogic_U0_hashTable2Dram_V_din;
+wire    ht_outputLogic_U0_hashTable2Dram_V_write;
 wire    ht_outputLogic_U0_start_out;
 wire    ht_outputLogic_U0_start_write;
-wire    splitter_U0_ap_start;
-wire    splitter_U0_start_full_n;
-wire    splitter_U0_ap_done;
-wire    splitter_U0_ap_continue;
-wire    splitter_U0_ap_idle;
-wire    splitter_U0_ap_ready;
-wire    splitter_U0_hashTable2splitter_V_read;
-wire   [255:0] splitter_U0_splitter2valueStoreF_1_din;
-wire    splitter_U0_splitter2valueStoreF_1_write;
-wire   [255:0] splitter_U0_splitter2valueStoreD_1_din;
-wire    splitter_U0_splitter2valueStoreD_1_write;
-wire    splitter_U0_start_out;
-wire    splitter_U0_start_write;
 wire    accessControl_U0_ap_start;
 wire    accessControl_U0_ap_done;
 wire    accessControl_U0_ap_continue;
@@ -329,7 +292,7 @@ wire    accessControl_U0_ap_idle;
 wire    accessControl_U0_ap_ready;
 wire    accessControl_U0_filterPopGet_V_V_read;
 wire    accessControl_U0_filterPopSet_V_V_read;
-wire    accessControl_U0_splitter2valueStoreD_1_read;
+wire    accessControl_U0_hashTable2Dram_V_read;
 wire   [255:0] accessControl_U0_accCtrl2demux_V_din;
 wire    accessControl_U0_accCtrl2demux_V_write;
 wire    accessControl_U0_start_out;
@@ -401,78 +364,6 @@ wire   [255:0] remux_U0_valueStoreDram2merge_1_din;
 wire    remux_U0_valueStoreDram2merge_1_write;
 wire    remux_U0_start_out;
 wire    remux_U0_start_write;
-wire    flashDemux_U0_ap_start;
-wire    flashDemux_U0_start_full_n;
-wire    flashDemux_U0_ap_done;
-wire    flashDemux_U0_ap_continue;
-wire    flashDemux_U0_ap_idle;
-wire    flashDemux_U0_ap_ready;
-wire    flashDemux_U0_splitter2valueStoreF_1_read;
-wire   [127:0] flashDemux_U0_flashMetadataBuffer_s_0_din;
-wire    flashDemux_U0_flashMetadataBuffer_s_0_write;
-wire   [63:0] flashDemux_U0_flashKeyBuffer_V_V_din;
-wire    flashDemux_U0_flashKeyBuffer_V_V_write;
-wire   [65:0] flashDemux_U0_flashDemux2setPathVa_1_din;
-wire    flashDemux_U0_flashDemux2setPathVa_1_write;
-wire   [47:0] flashDemux_U0_flashDemux2setPathMe_1_din;
-wire    flashDemux_U0_flashDemux2setPathMe_1_write;
-wire   [47:0] flashDemux_U0_flashDemux2getPath_V_din;
-wire    flashDemux_U0_flashDemux2getPath_V_write;
-wire    flashDemux_U0_start_out;
-wire    flashDemux_U0_start_write;
-wire    flashSetPathNoFilter_U0_ap_start;
-wire    flashSetPathNoFilter_U0_ap_done;
-wire    flashSetPathNoFilter_U0_ap_continue;
-wire    flashSetPathNoFilter_U0_ap_idle;
-wire    flashSetPathNoFilter_U0_ap_ready;
-wire    flashSetPathNoFilter_U0_flashDemux2setPathMe_1_read;
-wire    flashSetPathNoFilter_U0_flashDemux2setPathVa_1_read;
-wire   [47:0] flashSetPathNoFilter_U0_memWrCmd_V_TDATA;
-wire    flashSetPathNoFilter_U0_memWrCmd_V_TVALID;
-wire   [63:0] flashSetPathNoFilter_U0_memWrData_V_V_TDATA;
-wire    flashSetPathNoFilter_U0_memWrData_V_V_TVALID;
-wire    flashDispatch_U0_ap_start;
-wire    flashDispatch_U0_ap_done;
-wire    flashDispatch_U0_ap_continue;
-wire    flashDispatch_U0_ap_idle;
-wire    flashDispatch_U0_ap_ready;
-wire    flashDispatch_U0_flashDemux2getPath_V_read;
-wire   [15:0] flashDispatch_U0_flash_Disp2rec_V_V_din;
-wire    flashDispatch_U0_flash_Disp2rec_V_V_write;
-wire   [47:0] flashDispatch_U0_memRdCmd_V_TDATA;
-wire    flashDispatch_U0_memRdCmd_V_TVALID;
-wire    flashReceiveNoFilter_U0_ap_start;
-wire    flashReceiveNoFilter_U0_ap_done;
-wire    flashReceiveNoFilter_U0_ap_continue;
-wire    flashReceiveNoFilter_U0_ap_idle;
-wire    flashReceiveNoFilter_U0_ap_ready;
-wire    flashReceiveNoFilter_U0_flash_Disp2rec_V_V_read;
-wire   [63:0] flashReceiveNoFilter_U0_flashGetPath2remux_V_din;
-wire    flashReceiveNoFilter_U0_flashGetPath2remux_V_write;
-wire    flashReceiveNoFilter_U0_start_out;
-wire    flashReceiveNoFilter_U0_start_write;
-wire    flashReceiveNoFilter_U0_memRdData_V_V_TREADY;
-wire    flashRemux_U0_ap_start;
-wire    flashRemux_U0_ap_done;
-wire    flashRemux_U0_ap_continue;
-wire    flashRemux_U0_ap_idle;
-wire    flashRemux_U0_ap_ready;
-wire    flashRemux_U0_flashKeyBuffer_V_V_read;
-wire    flashRemux_U0_flashGetPath2remux_V_read;
-wire    flashRemux_U0_flashMetadataBuffer_s_0_read;
-wire   [255:0] flashRemux_U0_valueStoreFlash2merg_1_din;
-wire    flashRemux_U0_valueStoreFlash2merg_1_write;
-wire    merger_U0_ap_start;
-wire    merger_U0_ap_done;
-wire    merger_U0_ap_continue;
-wire    merger_U0_ap_idle;
-wire    merger_U0_ap_ready;
-wire    merger_U0_valueStoreDram2merge_1_read;
-wire    merger_U0_valueStoreFlash2merg_1_read;
-wire   [255:0] merger_U0_merger2responseForma_1_din;
-wire    merger_U0_merger2responseForma_1_write;
-wire    merger_U0_start_out;
-wire    merger_U0_start_write;
 wire    response_f_U0_ap_start;
 wire    response_f_U0_ap_done;
 wire    response_f_U0_ap_continue;
@@ -484,7 +375,7 @@ wire   [63:0] response_f_U0_valueBuffer_rf_V_V_din;
 wire    response_f_U0_valueBuffer_rf_V_V_write;
 wire   [247:0] response_f_U0_metadataBuffer_rf_V_s_din;
 wire    response_f_U0_metadataBuffer_rf_V_s_write;
-wire    response_f_U0_merger2responseForma_1_read;
+wire    response_f_U0_valueStoreDram2merge_1_read;
 wire    response_r_U0_ap_start;
 wire    response_r_U0_ap_done;
 wire    response_r_U0_ap_continue;
@@ -578,15 +469,9 @@ wire    comp2memWrStatus_V_b_empty_n;
 wire    memWr2out_V_full_n;
 wire   [56:0] memWr2out_V_dout;
 wire    memWr2out_V_empty_n;
-wire    hashTable2splitter_V_full_n;
-wire   [255:0] hashTable2splitter_V_dout;
-wire    hashTable2splitter_V_empty_n;
-wire    splitter2valueStoreF_1_full_n;
-wire   [255:0] splitter2valueStoreF_1_dout;
-wire    splitter2valueStoreF_1_empty_n;
-wire    splitter2valueStoreD_1_full_n;
-wire   [255:0] splitter2valueStoreD_1_dout;
-wire    splitter2valueStoreD_1_empty_n;
+wire    hashTable2Dram_V_full_n;
+wire   [255:0] hashTable2Dram_V_dout;
+wire    hashTable2Dram_V_empty_n;
 wire    filterPopSet_V_V_full_n;
 wire   [0:0] filterPopSet_V_V_dout;
 wire    filterPopSet_V_V_empty_n;
@@ -620,33 +505,6 @@ wire    getPath2remux_V_V_empty_n;
 wire    valueStoreDram2merge_1_full_n;
 wire   [255:0] valueStoreDram2merge_1_dout;
 wire    valueStoreDram2merge_1_empty_n;
-wire    flashMetadataBuffer_s_0_full_n;
-wire   [127:0] flashMetadataBuffer_s_0_dout;
-wire    flashMetadataBuffer_s_0_empty_n;
-wire    flashKeyBuffer_V_V_full_n;
-wire   [63:0] flashKeyBuffer_V_V_dout;
-wire    flashKeyBuffer_V_V_empty_n;
-wire    flashDemux2getPath_V_full_n;
-wire   [47:0] flashDemux2getPath_V_dout;
-wire    flashDemux2getPath_V_empty_n;
-wire    flashDemux2setPathMe_1_full_n;
-wire   [47:0] flashDemux2setPathMe_1_dout;
-wire    flashDemux2setPathMe_1_empty_n;
-wire    flashDemux2setPathVa_1_full_n;
-wire   [65:0] flashDemux2setPathVa_1_dout;
-wire    flashDemux2setPathVa_1_empty_n;
-wire    flash_Disp2rec_V_V_full_n;
-wire   [15:0] flash_Disp2rec_V_V_dout;
-wire    flash_Disp2rec_V_V_empty_n;
-wire    flashGetPath2remux_V_full_n;
-wire   [63:0] flashGetPath2remux_V_dout;
-wire    flashGetPath2remux_V_empty_n;
-wire    valueStoreFlash2merg_1_full_n;
-wire   [255:0] valueStoreFlash2merg_1_dout;
-wire    valueStoreFlash2merg_1_empty_n;
-wire    merger2responseForma_1_full_n;
-wire   [255:0] merger2responseForma_1_dout;
-wire    merger2responseForma_1_empty_n;
 wire    valueBuffer_rf_V_V_full_n;
 wire   [63:0] valueBuffer_rf_V_V_dout;
 wire    valueBuffer_rf_V_V_empty_n;
@@ -689,18 +547,10 @@ wire   [0:0] start_for_ht_outputLogic_U0_din;
 wire    start_for_ht_outputLogic_U0_full_n;
 wire   [0:0] start_for_ht_outputLogic_U0_dout;
 wire    start_for_ht_outputLogic_U0_empty_n;
-wire   [0:0] start_for_splitter_U0_din;
-wire    start_for_splitter_U0_full_n;
-wire   [0:0] start_for_splitter_U0_dout;
-wire    start_for_splitter_U0_empty_n;
 wire   [0:0] start_for_accessControl_U0_din;
 wire    start_for_accessControl_U0_full_n;
 wire   [0:0] start_for_accessControl_U0_dout;
 wire    start_for_accessControl_U0_empty_n;
-wire   [0:0] start_for_flashDemux_U0_din;
-wire    start_for_flashDemux_U0_full_n;
-wire   [0:0] start_for_flashDemux_U0_dout;
-wire    start_for_flashDemux_U0_empty_n;
 wire   [0:0] start_for_demux_U0_din;
 wire    start_for_demux_U0_full_n;
 wire   [0:0] start_for_demux_U0_dout;
@@ -721,28 +571,6 @@ wire   [0:0] start_for_remux_U0_din;
 wire    start_for_remux_U0_full_n;
 wire   [0:0] start_for_remux_U0_dout;
 wire    start_for_remux_U0_empty_n;
-wire   [0:0] start_for_merger_U0_din;
-wire    start_for_merger_U0_full_n;
-wire   [0:0] start_for_merger_U0_dout;
-wire    start_for_merger_U0_empty_n;
-wire   [0:0] start_for_flashSetPathNoFilter_U0_din;
-wire    start_for_flashSetPathNoFilter_U0_full_n;
-wire   [0:0] start_for_flashSetPathNoFilter_U0_dout;
-wire    start_for_flashSetPathNoFilter_U0_empty_n;
-wire   [0:0] start_for_flashDispatch_U0_din;
-wire    start_for_flashDispatch_U0_full_n;
-wire   [0:0] start_for_flashDispatch_U0_dout;
-wire    start_for_flashDispatch_U0_empty_n;
-wire    flashSetPathNoFilter_U0_start_full_n;
-wire    flashSetPathNoFilter_U0_start_write;
-wire    flashDispatch_U0_start_full_n;
-wire    flashDispatch_U0_start_write;
-wire   [0:0] start_for_flashRemux_U0_din;
-wire    start_for_flashRemux_U0_full_n;
-wire   [0:0] start_for_flashRemux_U0_dout;
-wire    start_for_flashRemux_U0_empty_n;
-wire    flashRemux_U0_start_full_n;
-wire    flashRemux_U0_start_write;
 wire   [0:0] start_for_response_f_U0_din;
 wire    start_for_response_f_U0_full_n;
 wire   [0:0] start_for_response_f_U0_dout;
@@ -768,35 +596,35 @@ memcachedPipeline_en memcachedPipeline_en_U0(
     .flushAck_V_out_write(memcachedPipeline_en_U0_flushAck_V_out_write)
 );
 
-bp_f1192 bp_f1192_U0(
+bp_f1244 bp_f1244_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .ap_start(bp_f1192_U0_ap_start),
+    .ap_start(bp_f1244_U0_ap_start),
     .start_full_n(start_for_bp_r_U0_full_n),
-    .ap_done(bp_f1192_U0_ap_done),
-    .ap_continue(bp_f1192_U0_ap_continue),
-    .ap_idle(bp_f1192_U0_ap_idle),
-    .ap_ready(bp_f1192_U0_ap_ready),
+    .ap_done(bp_f1244_U0_ap_done),
+    .ap_continue(bp_f1244_U0_ap_continue),
+    .ap_idle(bp_f1244_U0_ap_idle),
+    .ap_ready(bp_f1244_U0_ap_ready),
     .inData_TVALID(inData_TVALID),
     .flushAck_V_dout(flushAck_V_c1_dout),
     .flushAck_V_empty_n(flushAck_V_c1_empty_n),
-    .flushAck_V_read(bp_f1192_U0_flushAck_V_read),
-    .flushAck_V_out_din(bp_f1192_U0_flushAck_V_out_din),
+    .flushAck_V_read(bp_f1244_U0_flushAck_V_read),
+    .flushAck_V_out_din(bp_f1244_U0_flushAck_V_out_din),
     .flushAck_V_out_full_n(flushAck_V_c_full_n),
-    .flushAck_V_out_write(bp_f1192_U0_flushAck_V_out_write),
-    .valueBuffer_rp_V_V_din(bp_f1192_U0_valueBuffer_rp_V_V_din),
+    .flushAck_V_out_write(bp_f1244_U0_flushAck_V_out_write),
+    .valueBuffer_rp_V_V_din(bp_f1244_U0_valueBuffer_rp_V_V_din),
     .valueBuffer_rp_V_V_full_n(valueBuffer_rp_V_V_full_n),
-    .valueBuffer_rp_V_V_write(bp_f1192_U0_valueBuffer_rp_V_V_write),
-    .keyBuffer_rp_V_V_din(bp_f1192_U0_keyBuffer_rp_V_V_din),
+    .valueBuffer_rp_V_V_write(bp_f1244_U0_valueBuffer_rp_V_V_write),
+    .keyBuffer_rp_V_V_din(bp_f1244_U0_keyBuffer_rp_V_V_din),
     .keyBuffer_rp_V_V_full_n(keyBuffer_rp_V_V_full_n),
-    .keyBuffer_rp_V_V_write(bp_f1192_U0_keyBuffer_rp_V_V_write),
-    .metadataBuffer_rp_V_s_din(bp_f1192_U0_metadataBuffer_rp_V_s_din),
+    .keyBuffer_rp_V_V_write(bp_f1244_U0_keyBuffer_rp_V_V_write),
+    .metadataBuffer_rp_V_s_din(bp_f1244_U0_metadataBuffer_rp_V_s_din),
     .metadataBuffer_rp_V_s_full_n(metadataBuffer_rp_V_s_full_n),
-    .metadataBuffer_rp_V_s_write(bp_f1192_U0_metadataBuffer_rp_V_s_write),
-    .start_out(bp_f1192_U0_start_out),
-    .start_write(bp_f1192_U0_start_write),
+    .metadataBuffer_rp_V_s_write(bp_f1244_U0_metadataBuffer_rp_V_s_write),
+    .start_out(bp_f1244_U0_start_out),
+    .start_write(bp_f1244_U0_start_write),
     .inData_TDATA(inData_TDATA),
-    .inData_TREADY(bp_f1192_U0_inData_TREADY),
+    .inData_TREADY(bp_f1244_U0_inData_TREADY),
     .inData_TUSER(inData_TUSER),
     .inData_TKEEP(inData_TKEEP),
     .inData_TLAST(inData_TLAST)
@@ -1058,7 +886,7 @@ ht_outputLogic ht_outputLogic_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
     .ap_start(ht_outputLogic_U0_ap_start),
-    .start_full_n(start_for_splitter_U0_full_n),
+    .start_full_n(start_for_accessControl_U0_full_n),
     .ap_done(ht_outputLogic_U0_ap_done),
     .ap_continue(ht_outputLogic_U0_ap_continue),
     .ap_idle(ht_outputLogic_U0_ap_idle),
@@ -1075,33 +903,11 @@ ht_outputLogic ht_outputLogic_U0(
     .memWr2out_V_dout(memWr2out_V_dout),
     .memWr2out_V_empty_n(memWr2out_V_empty_n),
     .memWr2out_V_read(ht_outputLogic_U0_memWr2out_V_read),
-    .hashTable2splitter_V_din(ht_outputLogic_U0_hashTable2splitter_V_din),
-    .hashTable2splitter_V_full_n(hashTable2splitter_V_full_n),
-    .hashTable2splitter_V_write(ht_outputLogic_U0_hashTable2splitter_V_write),
+    .hashTable2Dram_V_din(ht_outputLogic_U0_hashTable2Dram_V_din),
+    .hashTable2Dram_V_full_n(hashTable2Dram_V_full_n),
+    .hashTable2Dram_V_write(ht_outputLogic_U0_hashTable2Dram_V_write),
     .start_out(ht_outputLogic_U0_start_out),
     .start_write(ht_outputLogic_U0_start_write)
-);
-
-splitter splitter_U0(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst_n_inv),
-    .ap_start(splitter_U0_ap_start),
-    .start_full_n(splitter_U0_start_full_n),
-    .ap_done(splitter_U0_ap_done),
-    .ap_continue(splitter_U0_ap_continue),
-    .ap_idle(splitter_U0_ap_idle),
-    .ap_ready(splitter_U0_ap_ready),
-    .hashTable2splitter_V_dout(hashTable2splitter_V_dout),
-    .hashTable2splitter_V_empty_n(hashTable2splitter_V_empty_n),
-    .hashTable2splitter_V_read(splitter_U0_hashTable2splitter_V_read),
-    .splitter2valueStoreF_1_din(splitter_U0_splitter2valueStoreF_1_din),
-    .splitter2valueStoreF_1_full_n(splitter2valueStoreF_1_full_n),
-    .splitter2valueStoreF_1_write(splitter_U0_splitter2valueStoreF_1_write),
-    .splitter2valueStoreD_1_din(splitter_U0_splitter2valueStoreD_1_din),
-    .splitter2valueStoreD_1_full_n(splitter2valueStoreD_1_full_n),
-    .splitter2valueStoreD_1_write(splitter_U0_splitter2valueStoreD_1_write),
-    .start_out(splitter_U0_start_out),
-    .start_write(splitter_U0_start_write)
 );
 
 accessControl accessControl_U0(
@@ -1119,9 +925,9 @@ accessControl accessControl_U0(
     .filterPopSet_V_V_dout(filterPopSet_V_V_dout),
     .filterPopSet_V_V_empty_n(filterPopSet_V_V_empty_n),
     .filterPopSet_V_V_read(accessControl_U0_filterPopSet_V_V_read),
-    .splitter2valueStoreD_1_dout(splitter2valueStoreD_1_dout),
-    .splitter2valueStoreD_1_empty_n(splitter2valueStoreD_1_empty_n),
-    .splitter2valueStoreD_1_read(accessControl_U0_splitter2valueStoreD_1_read),
+    .hashTable2Dram_V_dout(hashTable2Dram_V_dout),
+    .hashTable2Dram_V_empty_n(hashTable2Dram_V_empty_n),
+    .hashTable2Dram_V_read(accessControl_U0_hashTable2Dram_V_read),
     .accCtrl2demux_V_din(accessControl_U0_accCtrl2demux_V_din),
     .accCtrl2demux_V_full_n(accCtrl2demux_V_full_n),
     .accCtrl2demux_V_write(accessControl_U0_accCtrl2demux_V_write),
@@ -1233,7 +1039,7 @@ remux remux_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
     .ap_start(remux_U0_ap_start),
-    .start_full_n(start_for_merger_U0_full_n),
+    .start_full_n(start_for_response_f_U0_full_n),
     .ap_done(remux_U0_ap_done),
     .ap_continue(remux_U0_ap_continue),
     .ap_idle(remux_U0_ap_idle),
@@ -1254,144 +1060,6 @@ remux remux_U0(
     .start_write(remux_U0_start_write)
 );
 
-flashDemux flashDemux_U0(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst_n_inv),
-    .ap_start(flashDemux_U0_ap_start),
-    .start_full_n(flashDemux_U0_start_full_n),
-    .ap_done(flashDemux_U0_ap_done),
-    .ap_continue(flashDemux_U0_ap_continue),
-    .ap_idle(flashDemux_U0_ap_idle),
-    .ap_ready(flashDemux_U0_ap_ready),
-    .splitter2valueStoreF_1_dout(splitter2valueStoreF_1_dout),
-    .splitter2valueStoreF_1_empty_n(splitter2valueStoreF_1_empty_n),
-    .splitter2valueStoreF_1_read(flashDemux_U0_splitter2valueStoreF_1_read),
-    .flashMetadataBuffer_s_0_din(flashDemux_U0_flashMetadataBuffer_s_0_din),
-    .flashMetadataBuffer_s_0_full_n(flashMetadataBuffer_s_0_full_n),
-    .flashMetadataBuffer_s_0_write(flashDemux_U0_flashMetadataBuffer_s_0_write),
-    .flashKeyBuffer_V_V_din(flashDemux_U0_flashKeyBuffer_V_V_din),
-    .flashKeyBuffer_V_V_full_n(flashKeyBuffer_V_V_full_n),
-    .flashKeyBuffer_V_V_write(flashDemux_U0_flashKeyBuffer_V_V_write),
-    .flashDemux2setPathVa_1_din(flashDemux_U0_flashDemux2setPathVa_1_din),
-    .flashDemux2setPathVa_1_full_n(flashDemux2setPathVa_1_full_n),
-    .flashDemux2setPathVa_1_write(flashDemux_U0_flashDemux2setPathVa_1_write),
-    .flashDemux2setPathMe_1_din(flashDemux_U0_flashDemux2setPathMe_1_din),
-    .flashDemux2setPathMe_1_full_n(flashDemux2setPathMe_1_full_n),
-    .flashDemux2setPathMe_1_write(flashDemux_U0_flashDemux2setPathMe_1_write),
-    .flashDemux2getPath_V_din(flashDemux_U0_flashDemux2getPath_V_din),
-    .flashDemux2getPath_V_full_n(flashDemux2getPath_V_full_n),
-    .flashDemux2getPath_V_write(flashDemux_U0_flashDemux2getPath_V_write),
-    .start_out(flashDemux_U0_start_out),
-    .start_write(flashDemux_U0_start_write)
-);
-
-flashSetPathNoFilter flashSetPathNoFilter_U0(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst_n_inv),
-    .ap_start(flashSetPathNoFilter_U0_ap_start),
-    .ap_done(flashSetPathNoFilter_U0_ap_done),
-    .ap_continue(flashSetPathNoFilter_U0_ap_continue),
-    .ap_idle(flashSetPathNoFilter_U0_ap_idle),
-    .ap_ready(flashSetPathNoFilter_U0_ap_ready),
-    .flashDemux2setPathMe_1_dout(flashDemux2setPathMe_1_dout),
-    .flashDemux2setPathMe_1_empty_n(flashDemux2setPathMe_1_empty_n),
-    .flashDemux2setPathMe_1_read(flashSetPathNoFilter_U0_flashDemux2setPathMe_1_read),
-    .flashDemux2setPathVa_1_dout(flashDemux2setPathVa_1_dout),
-    .flashDemux2setPathVa_1_empty_n(flashDemux2setPathVa_1_empty_n),
-    .flashDemux2setPathVa_1_read(flashSetPathNoFilter_U0_flashDemux2setPathVa_1_read),
-    .memWrCmd_V_TREADY(flashValueStoreMemWrCmd_V_TREADY),
-    .memWrData_V_V_TREADY(flashValueStoreMemWrData_V_V_TREADY),
-    .memWrCmd_V_TDATA(flashSetPathNoFilter_U0_memWrCmd_V_TDATA),
-    .memWrCmd_V_TVALID(flashSetPathNoFilter_U0_memWrCmd_V_TVALID),
-    .memWrData_V_V_TDATA(flashSetPathNoFilter_U0_memWrData_V_V_TDATA),
-    .memWrData_V_V_TVALID(flashSetPathNoFilter_U0_memWrData_V_V_TVALID)
-);
-
-flashDispatch flashDispatch_U0(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst_n_inv),
-    .ap_start(flashDispatch_U0_ap_start),
-    .ap_done(flashDispatch_U0_ap_done),
-    .ap_continue(flashDispatch_U0_ap_continue),
-    .ap_idle(flashDispatch_U0_ap_idle),
-    .ap_ready(flashDispatch_U0_ap_ready),
-    .flashDemux2getPath_V_dout(flashDemux2getPath_V_dout),
-    .flashDemux2getPath_V_empty_n(flashDemux2getPath_V_empty_n),
-    .flashDemux2getPath_V_read(flashDispatch_U0_flashDemux2getPath_V_read),
-    .flash_Disp2rec_V_V_din(flashDispatch_U0_flash_Disp2rec_V_V_din),
-    .flash_Disp2rec_V_V_full_n(flash_Disp2rec_V_V_full_n),
-    .flash_Disp2rec_V_V_write(flashDispatch_U0_flash_Disp2rec_V_V_write),
-    .memRdCmd_V_TREADY(flashValueStoreMemRdCmd_V_TREADY),
-    .memRdCmd_V_TDATA(flashDispatch_U0_memRdCmd_V_TDATA),
-    .memRdCmd_V_TVALID(flashDispatch_U0_memRdCmd_V_TVALID)
-);
-
-flashReceiveNoFilter flashReceiveNoFilter_U0(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst_n_inv),
-    .ap_start(flashReceiveNoFilter_U0_ap_start),
-    .start_full_n(start_for_flashRemux_U0_full_n),
-    .ap_done(flashReceiveNoFilter_U0_ap_done),
-    .ap_continue(flashReceiveNoFilter_U0_ap_continue),
-    .ap_idle(flashReceiveNoFilter_U0_ap_idle),
-    .ap_ready(flashReceiveNoFilter_U0_ap_ready),
-    .flash_Disp2rec_V_V_dout(flash_Disp2rec_V_V_dout),
-    .flash_Disp2rec_V_V_empty_n(flash_Disp2rec_V_V_empty_n),
-    .flash_Disp2rec_V_V_read(flashReceiveNoFilter_U0_flash_Disp2rec_V_V_read),
-    .memRdData_V_V_TVALID(flashValueStoreMemRdData_V_V_TVALID),
-    .flashGetPath2remux_V_din(flashReceiveNoFilter_U0_flashGetPath2remux_V_din),
-    .flashGetPath2remux_V_full_n(flashGetPath2remux_V_full_n),
-    .flashGetPath2remux_V_write(flashReceiveNoFilter_U0_flashGetPath2remux_V_write),
-    .start_out(flashReceiveNoFilter_U0_start_out),
-    .start_write(flashReceiveNoFilter_U0_start_write),
-    .memRdData_V_V_TDATA(flashValueStoreMemRdData_V_V_TDATA),
-    .memRdData_V_V_TREADY(flashReceiveNoFilter_U0_memRdData_V_V_TREADY)
-);
-
-flashRemux flashRemux_U0(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst_n_inv),
-    .ap_start(flashRemux_U0_ap_start),
-    .ap_done(flashRemux_U0_ap_done),
-    .ap_continue(flashRemux_U0_ap_continue),
-    .ap_idle(flashRemux_U0_ap_idle),
-    .ap_ready(flashRemux_U0_ap_ready),
-    .flashKeyBuffer_V_V_dout(flashKeyBuffer_V_V_dout),
-    .flashKeyBuffer_V_V_empty_n(flashKeyBuffer_V_V_empty_n),
-    .flashKeyBuffer_V_V_read(flashRemux_U0_flashKeyBuffer_V_V_read),
-    .flashGetPath2remux_V_dout(flashGetPath2remux_V_dout),
-    .flashGetPath2remux_V_empty_n(flashGetPath2remux_V_empty_n),
-    .flashGetPath2remux_V_read(flashRemux_U0_flashGetPath2remux_V_read),
-    .flashMetadataBuffer_s_0_dout(flashMetadataBuffer_s_0_dout),
-    .flashMetadataBuffer_s_0_empty_n(flashMetadataBuffer_s_0_empty_n),
-    .flashMetadataBuffer_s_0_read(flashRemux_U0_flashMetadataBuffer_s_0_read),
-    .valueStoreFlash2merg_1_din(flashRemux_U0_valueStoreFlash2merg_1_din),
-    .valueStoreFlash2merg_1_full_n(valueStoreFlash2merg_1_full_n),
-    .valueStoreFlash2merg_1_write(flashRemux_U0_valueStoreFlash2merg_1_write)
-);
-
-merger merger_U0(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst_n_inv),
-    .ap_start(merger_U0_ap_start),
-    .start_full_n(start_for_response_f_U0_full_n),
-    .ap_done(merger_U0_ap_done),
-    .ap_continue(merger_U0_ap_continue),
-    .ap_idle(merger_U0_ap_idle),
-    .ap_ready(merger_U0_ap_ready),
-    .valueStoreDram2merge_1_dout(valueStoreDram2merge_1_dout),
-    .valueStoreDram2merge_1_empty_n(valueStoreDram2merge_1_empty_n),
-    .valueStoreDram2merge_1_read(merger_U0_valueStoreDram2merge_1_read),
-    .valueStoreFlash2merg_1_dout(valueStoreFlash2merg_1_dout),
-    .valueStoreFlash2merg_1_empty_n(valueStoreFlash2merg_1_empty_n),
-    .valueStoreFlash2merg_1_read(merger_U0_valueStoreFlash2merg_1_read),
-    .merger2responseForma_1_din(merger_U0_merger2responseForma_1_din),
-    .merger2responseForma_1_full_n(merger2responseForma_1_full_n),
-    .merger2responseForma_1_write(merger_U0_merger2responseForma_1_write),
-    .start_out(merger_U0_start_out),
-    .start_write(merger_U0_start_write)
-);
-
 response_f response_f_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
@@ -1409,9 +1077,9 @@ response_f response_f_U0(
     .metadataBuffer_rf_V_s_din(response_f_U0_metadataBuffer_rf_V_s_din),
     .metadataBuffer_rf_V_s_full_n(metadataBuffer_rf_V_s_full_n),
     .metadataBuffer_rf_V_s_write(response_f_U0_metadataBuffer_rf_V_s_write),
-    .merger2responseForma_1_dout(merger2responseForma_1_dout),
-    .merger2responseForma_1_empty_n(merger2responseForma_1_empty_n),
-    .merger2responseForma_1_read(response_f_U0_merger2responseForma_1_read)
+    .valueStoreDram2merge_1_dout(valueStoreDram2merge_1_dout),
+    .valueStoreDram2merge_1_empty_n(valueStoreDram2merge_1_empty_n),
+    .valueStoreDram2merge_1_read(response_f_U0_valueStoreDram2merge_1_read)
 );
 
 response_r response_r_U0(
@@ -1446,7 +1114,7 @@ fifo_w1_d2_A flushAck_V_c1_U(
     .if_write(memcachedPipeline_en_U0_flushAck_V_out_write),
     .if_dout(flushAck_V_c1_dout),
     .if_empty_n(flushAck_V_c1_empty_n),
-    .if_read(bp_f1192_U0_flushAck_V_read)
+    .if_read(bp_f1244_U0_flushAck_V_read)
 );
 
 fifo_w1_d9_A flushAck_V_c_U(
@@ -1454,9 +1122,9 @@ fifo_w1_d9_A flushAck_V_c_U(
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(bp_f1192_U0_flushAck_V_out_din),
+    .if_din(bp_f1244_U0_flushAck_V_out_din),
     .if_full_n(flushAck_V_c_full_n),
-    .if_write(bp_f1192_U0_flushAck_V_out_write),
+    .if_write(bp_f1244_U0_flushAck_V_out_write),
     .if_dout(flushAck_V_c_dout),
     .if_empty_n(flushAck_V_c_empty_n),
     .if_read(memWrite_U0_flushAck_V_read)
@@ -1467,9 +1135,9 @@ fifo_w248_d16_A metadataBuffer_rp_V_s_U(
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(bp_f1192_U0_metadataBuffer_rp_V_s_din),
+    .if_din(bp_f1244_U0_metadataBuffer_rp_V_s_din),
     .if_full_n(metadataBuffer_rp_V_s_full_n),
-    .if_write(bp_f1192_U0_metadataBuffer_rp_V_s_write),
+    .if_write(bp_f1244_U0_metadataBuffer_rp_V_s_write),
     .if_dout(metadataBuffer_rp_V_s_dout),
     .if_empty_n(metadataBuffer_rp_V_s_empty_n),
     .if_read(bp_r_U0_metadataBuffer_rp_V_s_read)
@@ -1480,9 +1148,9 @@ fifo_w64_d1024_A valueBuffer_rp_V_V_U(
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(bp_f1192_U0_valueBuffer_rp_V_V_din),
+    .if_din(bp_f1244_U0_valueBuffer_rp_V_V_din),
     .if_full_n(valueBuffer_rp_V_V_full_n),
-    .if_write(bp_f1192_U0_valueBuffer_rp_V_V_write),
+    .if_write(bp_f1244_U0_valueBuffer_rp_V_V_write),
     .if_dout(valueBuffer_rp_V_V_dout),
     .if_empty_n(valueBuffer_rp_V_V_empty_n),
     .if_read(bp_r_U0_valueBuffer_rp_V_V_read)
@@ -1493,9 +1161,9 @@ fifo_w64_d128_A keyBuffer_rp_V_V_U(
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(bp_f1192_U0_keyBuffer_rp_V_V_din),
+    .if_din(bp_f1244_U0_keyBuffer_rp_V_V_din),
     .if_full_n(keyBuffer_rp_V_V_full_n),
-    .if_write(bp_f1192_U0_keyBuffer_rp_V_V_write),
+    .if_write(bp_f1244_U0_keyBuffer_rp_V_V_write),
     .if_dout(keyBuffer_rp_V_V_dout),
     .if_empty_n(keyBuffer_rp_V_V_empty_n),
     .if_read(bp_r_U0_keyBuffer_rp_V_V_read)
@@ -1787,43 +1455,17 @@ fifo_w57_d2_A memWr2out_V_U(
     .if_read(ht_outputLogic_U0_memWr2out_V_read)
 );
 
-fifo_w256_d16_A hashTable2splitter_V_U(
+fifo_w256_d16_A hashTable2Dram_V_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(ht_outputLogic_U0_hashTable2splitter_V_din),
-    .if_full_n(hashTable2splitter_V_full_n),
-    .if_write(ht_outputLogic_U0_hashTable2splitter_V_write),
-    .if_dout(hashTable2splitter_V_dout),
-    .if_empty_n(hashTable2splitter_V_empty_n),
-    .if_read(splitter_U0_hashTable2splitter_V_read)
-);
-
-fifo_w256_d16_A splitter2valueStoreF_1_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(splitter_U0_splitter2valueStoreF_1_din),
-    .if_full_n(splitter2valueStoreF_1_full_n),
-    .if_write(splitter_U0_splitter2valueStoreF_1_write),
-    .if_dout(splitter2valueStoreF_1_dout),
-    .if_empty_n(splitter2valueStoreF_1_empty_n),
-    .if_read(flashDemux_U0_splitter2valueStoreF_1_read)
-);
-
-fifo_w256_d16_A splitter2valueStoreD_1_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(splitter_U0_splitter2valueStoreD_1_din),
-    .if_full_n(splitter2valueStoreD_1_full_n),
-    .if_write(splitter_U0_splitter2valueStoreD_1_write),
-    .if_dout(splitter2valueStoreD_1_dout),
-    .if_empty_n(splitter2valueStoreD_1_empty_n),
-    .if_read(accessControl_U0_splitter2valueStoreD_1_read)
+    .if_din(ht_outputLogic_U0_hashTable2Dram_V_din),
+    .if_full_n(hashTable2Dram_V_full_n),
+    .if_write(ht_outputLogic_U0_hashTable2Dram_V_write),
+    .if_dout(hashTable2Dram_V_dout),
+    .if_empty_n(hashTable2Dram_V_empty_n),
+    .if_read(accessControl_U0_hashTable2Dram_V_read)
 );
 
 fifo_w1_d16_A filterPopSet_V_V_U(
@@ -1966,124 +1608,7 @@ fifo_w256_d16_A valueStoreDram2merge_1_U(
     .if_write(remux_U0_valueStoreDram2merge_1_write),
     .if_dout(valueStoreDram2merge_1_dout),
     .if_empty_n(valueStoreDram2merge_1_empty_n),
-    .if_read(merger_U0_valueStoreDram2merge_1_read)
-);
-
-fifo_w128_d24_A flashMetadataBuffer_s_0_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(flashDemux_U0_flashMetadataBuffer_s_0_din),
-    .if_full_n(flashMetadataBuffer_s_0_full_n),
-    .if_write(flashDemux_U0_flashMetadataBuffer_s_0_write),
-    .if_dout(flashMetadataBuffer_s_0_dout),
-    .if_empty_n(flashMetadataBuffer_s_0_empty_n),
-    .if_read(flashRemux_U0_flashMetadataBuffer_s_0_read)
-);
-
-fifo_w64_d48_A flashKeyBuffer_V_V_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(flashDemux_U0_flashKeyBuffer_V_V_din),
-    .if_full_n(flashKeyBuffer_V_V_full_n),
-    .if_write(flashDemux_U0_flashKeyBuffer_V_V_write),
-    .if_dout(flashKeyBuffer_V_V_dout),
-    .if_empty_n(flashKeyBuffer_V_V_empty_n),
-    .if_read(flashRemux_U0_flashKeyBuffer_V_V_read)
-);
-
-fifo_w48_d16_A flashDemux2getPath_V_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(flashDemux_U0_flashDemux2getPath_V_din),
-    .if_full_n(flashDemux2getPath_V_full_n),
-    .if_write(flashDemux_U0_flashDemux2getPath_V_write),
-    .if_dout(flashDemux2getPath_V_dout),
-    .if_empty_n(flashDemux2getPath_V_empty_n),
-    .if_read(flashDispatch_U0_flashDemux2getPath_V_read)
-);
-
-fifo_w48_d16_A flashDemux2setPathMe_1_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(flashDemux_U0_flashDemux2setPathMe_1_din),
-    .if_full_n(flashDemux2setPathMe_1_full_n),
-    .if_write(flashDemux_U0_flashDemux2setPathMe_1_write),
-    .if_dout(flashDemux2setPathMe_1_dout),
-    .if_empty_n(flashDemux2setPathMe_1_empty_n),
-    .if_read(flashSetPathNoFilter_U0_flashDemux2setPathMe_1_read)
-);
-
-fifo_w66_d96_A flashDemux2setPathVa_1_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(flashDemux_U0_flashDemux2setPathVa_1_din),
-    .if_full_n(flashDemux2setPathVa_1_full_n),
-    .if_write(flashDemux_U0_flashDemux2setPathVa_1_write),
-    .if_dout(flashDemux2setPathVa_1_dout),
-    .if_empty_n(flashDemux2setPathVa_1_empty_n),
-    .if_read(flashSetPathNoFilter_U0_flashDemux2setPathVa_1_read)
-);
-
-fifo_w16_d16_A flash_Disp2rec_V_V_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(flashDispatch_U0_flash_Disp2rec_V_V_din),
-    .if_full_n(flash_Disp2rec_V_V_full_n),
-    .if_write(flashDispatch_U0_flash_Disp2rec_V_V_write),
-    .if_dout(flash_Disp2rec_V_V_dout),
-    .if_empty_n(flash_Disp2rec_V_V_empty_n),
-    .if_read(flashReceiveNoFilter_U0_flash_Disp2rec_V_V_read)
-);
-
-fifo_w64_d96_A flashGetPath2remux_V_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(flashReceiveNoFilter_U0_flashGetPath2remux_V_din),
-    .if_full_n(flashGetPath2remux_V_full_n),
-    .if_write(flashReceiveNoFilter_U0_flashGetPath2remux_V_write),
-    .if_dout(flashGetPath2remux_V_dout),
-    .if_empty_n(flashGetPath2remux_V_empty_n),
-    .if_read(flashRemux_U0_flashGetPath2remux_V_read)
-);
-
-fifo_w256_d16_A valueStoreFlash2merg_1_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(flashRemux_U0_valueStoreFlash2merg_1_din),
-    .if_full_n(valueStoreFlash2merg_1_full_n),
-    .if_write(flashRemux_U0_valueStoreFlash2merg_1_write),
-    .if_dout(valueStoreFlash2merg_1_dout),
-    .if_empty_n(valueStoreFlash2merg_1_empty_n),
-    .if_read(merger_U0_valueStoreFlash2merg_1_read)
-);
-
-fifo_w256_d16_A merger2responseForma_1_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(merger_U0_merger2responseForma_1_din),
-    .if_full_n(merger2responseForma_1_full_n),
-    .if_write(merger_U0_merger2responseForma_1_write),
-    .if_dout(merger2responseForma_1_dout),
-    .if_empty_n(merger2responseForma_1_empty_n),
-    .if_read(response_f_U0_merger2responseForma_1_read)
+    .if_read(response_f_U0_valueStoreDram2merge_1_read)
 );
 
 fifo_w64_d1024_A valueBuffer_rf_V_V_U(
@@ -2119,7 +1644,7 @@ start_for_bp_r_U0 start_for_bp_r_U0_U(
     .if_write_ce(1'b1),
     .if_din(start_for_bp_r_U0_din),
     .if_full_n(start_for_bp_r_U0_full_n),
-    .if_write(bp_f1192_U0_start_write),
+    .if_write(bp_f1244_U0_start_write),
     .if_dout(start_for_bp_r_U0_dout),
     .if_empty_n(start_for_bp_r_U0_empty_n),
     .if_read(bp_r_U0_ap_ready)
@@ -2203,43 +1728,17 @@ start_for_ht_outpg8j start_for_ht_outpg8j_U(
     .if_read(ht_outputLogic_U0_ap_ready)
 );
 
-start_for_splittehbi start_for_splittehbi_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(start_for_splitter_U0_din),
-    .if_full_n(start_for_splitter_U0_full_n),
-    .if_write(ht_outputLogic_U0_start_write),
-    .if_dout(start_for_splitter_U0_dout),
-    .if_empty_n(start_for_splitter_U0_empty_n),
-    .if_read(splitter_U0_ap_ready)
-);
-
-start_for_accessCibs start_for_accessCibs_U(
+start_for_accessChbi start_for_accessChbi_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
     .if_din(start_for_accessControl_U0_din),
     .if_full_n(start_for_accessControl_U0_full_n),
-    .if_write(splitter_U0_start_write),
+    .if_write(ht_outputLogic_U0_start_write),
     .if_dout(start_for_accessControl_U0_dout),
     .if_empty_n(start_for_accessControl_U0_empty_n),
     .if_read(accessControl_U0_ap_ready)
-);
-
-start_for_flashDejbC start_for_flashDejbC_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(start_for_flashDemux_U0_din),
-    .if_full_n(start_for_flashDemux_U0_full_n),
-    .if_write(splitter_U0_start_write),
-    .if_dout(start_for_flashDemux_U0_dout),
-    .if_empty_n(start_for_flashDemux_U0_empty_n),
-    .if_read(flashDemux_U0_ap_ready)
 );
 
 start_for_demux_U0 start_for_demux_U0_U(
@@ -2255,7 +1754,7 @@ start_for_demux_U0 start_for_demux_U0_U(
     .if_read(demux_U0_ap_ready)
 );
 
-start_for_setPathkbM start_for_setPathkbM_U(
+start_for_setPathibs start_for_setPathibs_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -2268,7 +1767,7 @@ start_for_setPathkbM start_for_setPathkbM_U(
     .if_read(setPath_U0_ap_ready)
 );
 
-start_for_dispatclbW start_for_dispatclbW_U(
+start_for_dispatcjbC start_for_dispatcjbC_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -2294,72 +1793,20 @@ start_for_remux_U0 start_for_remux_U0_U(
     .if_read(remux_U0_ap_ready)
 );
 
-start_for_merger_U0 start_for_merger_U0_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(start_for_merger_U0_din),
-    .if_full_n(start_for_merger_U0_full_n),
-    .if_write(remux_U0_start_write),
-    .if_dout(start_for_merger_U0_dout),
-    .if_empty_n(start_for_merger_U0_empty_n),
-    .if_read(merger_U0_ap_ready)
-);
-
-start_for_flashSemb6 start_for_flashSemb6_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(start_for_flashSetPathNoFilter_U0_din),
-    .if_full_n(start_for_flashSetPathNoFilter_U0_full_n),
-    .if_write(flashDemux_U0_start_write),
-    .if_dout(start_for_flashSetPathNoFilter_U0_dout),
-    .if_empty_n(start_for_flashSetPathNoFilter_U0_empty_n),
-    .if_read(flashSetPathNoFilter_U0_ap_ready)
-);
-
-start_for_flashDincg start_for_flashDincg_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(start_for_flashDispatch_U0_din),
-    .if_full_n(start_for_flashDispatch_U0_full_n),
-    .if_write(flashDemux_U0_start_write),
-    .if_dout(start_for_flashDispatch_U0_dout),
-    .if_empty_n(start_for_flashDispatch_U0_empty_n),
-    .if_read(flashDispatch_U0_ap_ready)
-);
-
-start_for_flashReocq start_for_flashReocq_U(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .if_read_ce(1'b1),
-    .if_write_ce(1'b1),
-    .if_din(start_for_flashRemux_U0_din),
-    .if_full_n(start_for_flashRemux_U0_full_n),
-    .if_write(flashReceiveNoFilter_U0_start_write),
-    .if_dout(start_for_flashRemux_U0_dout),
-    .if_empty_n(start_for_flashRemux_U0_empty_n),
-    .if_read(flashRemux_U0_ap_ready)
-);
-
-start_for_responspcA start_for_responspcA_U(
+start_for_responskbM start_for_responskbM_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
     .if_din(start_for_response_f_U0_din),
     .if_full_n(start_for_response_f_U0_full_n),
-    .if_write(merger_U0_start_write),
+    .if_write(remux_U0_start_write),
     .if_dout(start_for_response_f_U0_dout),
     .if_empty_n(start_for_response_f_U0_empty_n),
     .if_read(response_f_U0_ap_ready)
 );
 
-start_for_responsqcK start_for_responsqcK_U(
+start_for_responslbW start_for_responslbW_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -2398,9 +1845,9 @@ assign bobj_U0_start_full_n = 1'b1;
 
 assign bobj_U0_start_write = 1'b0;
 
-assign bp_f1192_U0_ap_continue = 1'b1;
+assign bp_f1244_U0_ap_continue = 1'b1;
 
-assign bp_f1192_U0_ap_start = 1'b1;
+assign bp_f1244_U0_ap_start = 1'b1;
 
 assign bp_r_U0_ap_continue = 1'b1;
 
@@ -2437,54 +1884,6 @@ assign dramValueStoreMemWrCmd_V_TVALID = setPath_U0_memWrCmd_V_TVALID;
 assign dramValueStoreMemWrData_V_V_TDATA = setPath_U0_memWrData_V_V_TDATA;
 
 assign dramValueStoreMemWrData_V_V_TVALID = setPath_U0_memWrData_V_V_TVALID;
-
-assign flashDemux_U0_ap_continue = 1'b1;
-
-assign flashDemux_U0_ap_start = start_for_flashDemux_U0_empty_n;
-
-assign flashDemux_U0_start_full_n = (start_for_flashSetPathNoFilter_U0_full_n & start_for_flashDispatch_U0_full_n);
-
-assign flashDispatch_U0_ap_continue = 1'b1;
-
-assign flashDispatch_U0_ap_start = start_for_flashDispatch_U0_empty_n;
-
-assign flashDispatch_U0_start_full_n = 1'b1;
-
-assign flashDispatch_U0_start_write = 1'b0;
-
-assign flashReceiveNoFilter_U0_ap_continue = 1'b1;
-
-assign flashReceiveNoFilter_U0_ap_start = 1'b1;
-
-assign flashRemux_U0_ap_continue = 1'b1;
-
-assign flashRemux_U0_ap_start = start_for_flashRemux_U0_empty_n;
-
-assign flashRemux_U0_start_full_n = 1'b1;
-
-assign flashRemux_U0_start_write = 1'b0;
-
-assign flashSetPathNoFilter_U0_ap_continue = 1'b1;
-
-assign flashSetPathNoFilter_U0_ap_start = start_for_flashSetPathNoFilter_U0_empty_n;
-
-assign flashSetPathNoFilter_U0_start_full_n = 1'b1;
-
-assign flashSetPathNoFilter_U0_start_write = 1'b0;
-
-assign flashValueStoreMemRdCmd_V_TDATA = flashDispatch_U0_memRdCmd_V_TDATA;
-
-assign flashValueStoreMemRdCmd_V_TVALID = flashDispatch_U0_memRdCmd_V_TVALID;
-
-assign flashValueStoreMemRdData_V_V_TREADY = flashReceiveNoFilter_U0_memRdData_V_V_TREADY;
-
-assign flashValueStoreMemWrCmd_V_TDATA = flashSetPathNoFilter_U0_memWrCmd_V_TDATA;
-
-assign flashValueStoreMemWrCmd_V_TVALID = flashSetPathNoFilter_U0_memWrCmd_V_TVALID;
-
-assign flashValueStoreMemWrData_V_V_TDATA = flashSetPathNoFilter_U0_memWrData_V_V_TDATA;
-
-assign flashValueStoreMemWrData_V_V_TVALID = flashSetPathNoFilter_U0_memWrData_V_V_TVALID;
 
 assign flushDone_V = memWrite_U0_flushDone_V;
 
@@ -2526,7 +1925,7 @@ assign ht_outputLogic_U0_ap_continue = 1'b1;
 
 assign ht_outputLogic_U0_ap_start = start_for_ht_outputLogic_U0_empty_n;
 
-assign inData_TREADY = bp_f1192_U0_inData_TREADY;
+assign inData_TREADY = bp_f1244_U0_inData_TREADY;
 
 assign memRead_U0_ap_continue = 1'b1;
 
@@ -2547,10 +1946,6 @@ assign memcachedPipeline_en_U0_ap_start = 1'b1;
 assign memcachedPipeline_en_U0_start_full_n = 1'b1;
 
 assign memcachedPipeline_en_U0_start_write = 1'b0;
-
-assign merger_U0_ap_continue = 1'b1;
-
-assign merger_U0_ap_start = start_for_merger_U0_empty_n;
 
 assign outData_TDATA = response_r_U0_outData_TDATA;
 
@@ -2590,12 +1985,6 @@ assign setPath_U0_start_full_n = 1'b1;
 
 assign setPath_U0_start_write = 1'b0;
 
-assign splitter_U0_ap_continue = 1'b1;
-
-assign splitter_U0_ap_start = start_for_splitter_U0_empty_n;
-
-assign splitter_U0_start_full_n = (start_for_flashDemux_U0_full_n & start_for_accessControl_U0_full_n);
-
 assign start_for_accessControl_U0_din = 1'b1;
 
 assign start_for_bobj_U0_din = 1'b1;
@@ -2608,14 +1997,6 @@ assign start_for_demux_U0_din = 1'b1;
 
 assign start_for_dispatch_U0_din = 1'b1;
 
-assign start_for_flashDemux_U0_din = 1'b1;
-
-assign start_for_flashDispatch_U0_din = 1'b1;
-
-assign start_for_flashRemux_U0_din = 1'b1;
-
-assign start_for_flashSetPathNoFilter_U0_din = 1'b1;
-
 assign start_for_hashKeyResizer_U0_din = 1'b1;
 
 assign start_for_ht_inputLogic_U0_din = 1'b1;
@@ -2624,8 +2005,6 @@ assign start_for_ht_outputLogic_U0_din = 1'b1;
 
 assign start_for_memRead_U0_din = 1'b1;
 
-assign start_for_merger_U0_din = 1'b1;
-
 assign start_for_remux_U0_din = 1'b1;
 
 assign start_for_response_f_U0_din = 1'b1;
@@ -2633,7 +2012,5 @@ assign start_for_response_f_U0_din = 1'b1;
 assign start_for_response_r_U0_din = 1'b1;
 
 assign start_for_setPath_U0_din = 1'b1;
-
-assign start_for_splitter_U0_din = 1'b1;
 
 endmodule //memcachedPipeline

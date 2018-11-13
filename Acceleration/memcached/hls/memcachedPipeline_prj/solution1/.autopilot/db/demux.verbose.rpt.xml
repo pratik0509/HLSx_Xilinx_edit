@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'demux'" level="0">
-<item name = "Date">Fri Nov  9 23:11:23 2018
+<item name = "Date">Tue Nov 13 22:52:33 2018
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">memcachedPipeline_prj</item>
@@ -77,9 +77,9 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="grp_fu_235_p2">+, 0, 0, 10, 1, 2</column>
-<column name="tmp_267_i_fu_341_p2">+, 0, 0, 23, 16, 5</column>
-<column name="tmp_272_i_fu_439_p2">+, 0, 0, 19, 12, 5</column>
+<column name="grp_fu_305_p2">+, 0, 0, 10, 1, 2</column>
+<column name="tmp_204_i_fu_411_p2">+, 0, 0, 23, 16, 5</column>
+<column name="tmp_209_i_fu_509_p2">+, 0, 0, 19, 12, 5</column>
 <column name="ap_condition_226">and, 0, 0, 2, 1, 1</column>
 <column name="ap_condition_306">and, 0, 0, 2, 1, 1</column>
 <column name="ap_condition_396">and, 0, 0, 2, 1, 1</column>
@@ -94,19 +94,19 @@
 <column name="ap_predicate_op90_write_state2">and, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op92_write_state2">and, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op96_write_state2">and, 0, 0, 2, 1, 1</column>
-<column name="tmp_266_i_fu_335_p2">icmp, 0, 0, 13, 16, 4</column>
-<column name="tmp_268_i_fu_411_p2">icmp, 0, 0, 11, 8, 1</column>
-<column name="tmp_269_i_fu_417_p2">icmp, 0, 0, 11, 8, 1</column>
-<column name="tmp_270_i_fu_479_p2">icmp, 0, 0, 11, 8, 4</column>
-<column name="tmp_504_fu_393_p2">icmp, 0, 0, 11, 8, 4</column>
-<column name="tmp_505_fu_399_p2">icmp, 0, 0, 11, 8, 3</column>
-<column name="tmp_EOP_V_2_fu_433_p2">icmp, 0, 0, 13, 12, 4</column>
+<column name="tmp_203_i_fu_405_p2">icmp, 0, 0, 13, 16, 4</column>
+<column name="tmp_205_i_fu_481_p2">icmp, 0, 0, 11, 8, 1</column>
+<column name="tmp_206_i_fu_487_p2">icmp, 0, 0, 11, 8, 1</column>
+<column name="tmp_207_i_fu_549_p2">icmp, 0, 0, 11, 8, 4</column>
+<column name="tmp_455_fu_463_p2">icmp, 0, 0, 11, 8, 4</column>
+<column name="tmp_456_fu_469_p2">icmp, 0, 0, 11, 8, 3</column>
+<column name="tmp_EOP_V_8_fu_503_p2">icmp, 0, 0, 13, 12, 4</column>
 <column name="ap_block_state1_pp0_stage0_iter0">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state2_pp0_stage0_iter1">or, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op128_write_state2">or, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op129_write_state2">or, 0, 0, 2, 1, 1</column>
-<column name="tmp_506_fu_405_p2">or, 0, 0, 2, 1, 1</column>
-<column name="storemerge_i_fu_445_p3">select, 0, 0, 12, 1, 12</column>
+<column name="tmp_457_fu_475_p2">or, 0, 0, 2, 1, 1</column>
+<column name="storemerge_i_fu_515_p3">select, 0, 0, 12, 1, 12</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -114,7 +114,7 @@
 <column name="accCtrl2demux_V_blk_n">9, 2, 1, 2</column>
 <column name="ap_NS_iter1_fsm">15, 3, 2, 6</column>
 <column name="ap_done">9, 2, 1, 2</column>
-<column name="ap_phi_reg_pp0_iter1_tmp_EOP_V_13_reg_179">15, 3, 1, 3</column>
+<column name="ap_phi_reg_pp0_iter1_tmp_EOP_V_7_reg_249">15, 3, 1, 3</column>
 <column name="demux2getPath_V_blk_n">9, 2, 1, 2</column>
 <column name="demux2setPathMetadat_1_blk_n">9, 2, 1, 2</column>
 <column name="demux2setPathValue_V_blk_n">9, 2, 1, 2</column>
@@ -133,33 +133,33 @@
 <column name="ap_CS_iter0_fsm">1, 0, 1, 0</column>
 <column name="ap_CS_iter1_fsm">2, 0, 2, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
-<column name="ap_phi_reg_pp0_iter1_tmp_EOP_V_13_reg_179">1, 0, 1, 0</column>
+<column name="ap_phi_reg_pp0_iter1_tmp_EOP_V_7_reg_249">1, 0, 1, 0</column>
 <column name="demuxState">2, 0, 2, 0</column>
-<column name="demuxState_load_reg_554">2, 0, 2, 0</column>
-<column name="metadataWrWord_SOP_V_reg_614">1, 0, 1, 0</column>
-<column name="metadataWrWord_keyVa_3_reg_586">1, 0, 1, 0</column>
-<column name="metadataWrWord_keyVa_4_reg_558">1, 0, 1, 0</column>
-<column name="metadataWrWord_keyVa_reg_618">1, 0, 1, 0</column>
-<column name="metadataWrWord_value_reg_562">1, 0, 1, 0</column>
-<column name="p_Val2_s_reg_607">124, 0, 124, 0</column>
-<column name="reg_288">64, 0, 64, 0</column>
-<column name="reg_292">64, 0, 64, 0</column>
-<column name="reg_297">3, 0, 3, 0</column>
-<column name="reg_301">32, 0, 32, 0</column>
-<column name="reg_305">13, 0, 13, 0</column>
+<column name="demuxState_load_reg_624">2, 0, 2, 0</column>
+<column name="metadataWrWord_SOP_V_reg_684">1, 0, 1, 0</column>
+<column name="metadataWrWord_keyVa_1_reg_656">1, 0, 1, 0</column>
+<column name="metadataWrWord_keyVa_2_reg_628">1, 0, 1, 0</column>
+<column name="metadataWrWord_keyVa_reg_688">1, 0, 1, 0</column>
+<column name="metadataWrWord_value_reg_632">1, 0, 1, 0</column>
+<column name="p_Val2_s_reg_677">124, 0, 124, 0</column>
+<column name="reg_358">64, 0, 64, 0</column>
+<column name="reg_362">64, 0, 64, 0</column>
+<column name="reg_367">3, 0, 3, 0</column>
+<column name="reg_371">32, 0, 32, 0</column>
+<column name="reg_375">13, 0, 13, 0</column>
 <column name="start_once_reg">1, 0, 1, 0</column>
-<column name="tmp_10_reg_574">128, 0, 128, 0</column>
-<column name="tmp_268_i_reg_630">1, 0, 1, 0</column>
-<column name="tmp_269_i_reg_634">1, 0, 1, 0</column>
-<column name="tmp_270_i_reg_643">1, 0, 1, 0</column>
-<column name="tmp_490_reg_582">1, 0, 1, 0</column>
-<column name="tmp_494_reg_570">1, 0, 1, 0</column>
-<column name="tmp_500_reg_594">1, 0, 1, 0</column>
-<column name="tmp_502_reg_622">1, 0, 1, 0</column>
-<column name="tmp_506_reg_626">1, 0, 1, 0</column>
-<column name="tmp_8_reg_598">128, 0, 128, 0</column>
-<column name="tmp_EOP_V_2_reg_638">1, 0, 1, 0</column>
-<column name="tmp_reg_603">1, 0, 1, 0</column>
+<column name="tmp_10_reg_644">128, 0, 128, 0</column>
+<column name="tmp_205_i_reg_700">1, 0, 1, 0</column>
+<column name="tmp_206_i_reg_704">1, 0, 1, 0</column>
+<column name="tmp_207_i_reg_713">1, 0, 1, 0</column>
+<column name="tmp_441_reg_652">1, 0, 1, 0</column>
+<column name="tmp_445_reg_640">1, 0, 1, 0</column>
+<column name="tmp_451_reg_664">1, 0, 1, 0</column>
+<column name="tmp_453_reg_692">1, 0, 1, 0</column>
+<column name="tmp_457_reg_696">1, 0, 1, 0</column>
+<column name="tmp_8_reg_668">128, 0, 128, 0</column>
+<column name="tmp_EOP_V_8_reg_708">1, 0, 1, 0</column>
+<column name="tmp_reg_673">1, 0, 1, 0</column>
 <column name="valueLength_V">16, 0, 16, 0</column>
 <column name="wordCounter_V">2, 0, 2, 0</column>
 </table>

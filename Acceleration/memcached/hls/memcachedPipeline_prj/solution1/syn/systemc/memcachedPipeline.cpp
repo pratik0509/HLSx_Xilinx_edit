@@ -18,7 +18,6 @@ const sc_lv<8> memcachedPipeline::ap_const_lv8_0 = "00000000";
 const sc_lv<1> memcachedPipeline::ap_const_lv1_0 = "0";
 const sc_lv<40> memcachedPipeline::ap_const_lv40_0 = "0000000000000000000000000000000000000000";
 const sc_lv<512> memcachedPipeline::ap_const_lv512_lc_1 = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-const sc_lv<48> memcachedPipeline::ap_const_lv48_0 = "000000000000000000000000000000000000000000000000";
 const sc_lv<32> memcachedPipeline::ap_const_lv32_0 = "00000000000000000000000000000000";
 const sc_logic memcachedPipeline::ap_const_logic_1 = sc_dt::Log_1;
 const sc_logic memcachedPipeline::ap_const_logic_0 = sc_dt::Log_0;
@@ -36,38 +35,38 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     memcachedPipeline_en_U0->flushAck_V_out_din(memcachedPipeline_en_U0_flushAck_V_out_din);
     memcachedPipeline_en_U0->flushAck_V_out_full_n(flushAck_V_c1_full_n);
     memcachedPipeline_en_U0->flushAck_V_out_write(memcachedPipeline_en_U0_flushAck_V_out_write);
-    bp_f1192_U0 = new bp_f1192("bp_f1192_U0");
-    bp_f1192_U0->ap_clk(ap_clk);
-    bp_f1192_U0->ap_rst(ap_rst_n_inv);
-    bp_f1192_U0->ap_start(bp_f1192_U0_ap_start);
-    bp_f1192_U0->start_full_n(start_for_bp_r_U0_full_n);
-    bp_f1192_U0->ap_done(bp_f1192_U0_ap_done);
-    bp_f1192_U0->ap_continue(bp_f1192_U0_ap_continue);
-    bp_f1192_U0->ap_idle(bp_f1192_U0_ap_idle);
-    bp_f1192_U0->ap_ready(bp_f1192_U0_ap_ready);
-    bp_f1192_U0->inData_TVALID(inData_TVALID);
-    bp_f1192_U0->flushAck_V_dout(flushAck_V_c1_dout);
-    bp_f1192_U0->flushAck_V_empty_n(flushAck_V_c1_empty_n);
-    bp_f1192_U0->flushAck_V_read(bp_f1192_U0_flushAck_V_read);
-    bp_f1192_U0->flushAck_V_out_din(bp_f1192_U0_flushAck_V_out_din);
-    bp_f1192_U0->flushAck_V_out_full_n(flushAck_V_c_full_n);
-    bp_f1192_U0->flushAck_V_out_write(bp_f1192_U0_flushAck_V_out_write);
-    bp_f1192_U0->valueBuffer_rp_V_V_din(bp_f1192_U0_valueBuffer_rp_V_V_din);
-    bp_f1192_U0->valueBuffer_rp_V_V_full_n(valueBuffer_rp_V_V_full_n);
-    bp_f1192_U0->valueBuffer_rp_V_V_write(bp_f1192_U0_valueBuffer_rp_V_V_write);
-    bp_f1192_U0->keyBuffer_rp_V_V_din(bp_f1192_U0_keyBuffer_rp_V_V_din);
-    bp_f1192_U0->keyBuffer_rp_V_V_full_n(keyBuffer_rp_V_V_full_n);
-    bp_f1192_U0->keyBuffer_rp_V_V_write(bp_f1192_U0_keyBuffer_rp_V_V_write);
-    bp_f1192_U0->metadataBuffer_rp_V_s_din(bp_f1192_U0_metadataBuffer_rp_V_s_din);
-    bp_f1192_U0->metadataBuffer_rp_V_s_full_n(metadataBuffer_rp_V_s_full_n);
-    bp_f1192_U0->metadataBuffer_rp_V_s_write(bp_f1192_U0_metadataBuffer_rp_V_s_write);
-    bp_f1192_U0->start_out(bp_f1192_U0_start_out);
-    bp_f1192_U0->start_write(bp_f1192_U0_start_write);
-    bp_f1192_U0->inData_TDATA(inData_TDATA);
-    bp_f1192_U0->inData_TREADY(bp_f1192_U0_inData_TREADY);
-    bp_f1192_U0->inData_TUSER(inData_TUSER);
-    bp_f1192_U0->inData_TKEEP(inData_TKEEP);
-    bp_f1192_U0->inData_TLAST(inData_TLAST);
+    bp_f1244_U0 = new bp_f1244("bp_f1244_U0");
+    bp_f1244_U0->ap_clk(ap_clk);
+    bp_f1244_U0->ap_rst(ap_rst_n_inv);
+    bp_f1244_U0->ap_start(bp_f1244_U0_ap_start);
+    bp_f1244_U0->start_full_n(start_for_bp_r_U0_full_n);
+    bp_f1244_U0->ap_done(bp_f1244_U0_ap_done);
+    bp_f1244_U0->ap_continue(bp_f1244_U0_ap_continue);
+    bp_f1244_U0->ap_idle(bp_f1244_U0_ap_idle);
+    bp_f1244_U0->ap_ready(bp_f1244_U0_ap_ready);
+    bp_f1244_U0->inData_TVALID(inData_TVALID);
+    bp_f1244_U0->flushAck_V_dout(flushAck_V_c1_dout);
+    bp_f1244_U0->flushAck_V_empty_n(flushAck_V_c1_empty_n);
+    bp_f1244_U0->flushAck_V_read(bp_f1244_U0_flushAck_V_read);
+    bp_f1244_U0->flushAck_V_out_din(bp_f1244_U0_flushAck_V_out_din);
+    bp_f1244_U0->flushAck_V_out_full_n(flushAck_V_c_full_n);
+    bp_f1244_U0->flushAck_V_out_write(bp_f1244_U0_flushAck_V_out_write);
+    bp_f1244_U0->valueBuffer_rp_V_V_din(bp_f1244_U0_valueBuffer_rp_V_V_din);
+    bp_f1244_U0->valueBuffer_rp_V_V_full_n(valueBuffer_rp_V_V_full_n);
+    bp_f1244_U0->valueBuffer_rp_V_V_write(bp_f1244_U0_valueBuffer_rp_V_V_write);
+    bp_f1244_U0->keyBuffer_rp_V_V_din(bp_f1244_U0_keyBuffer_rp_V_V_din);
+    bp_f1244_U0->keyBuffer_rp_V_V_full_n(keyBuffer_rp_V_V_full_n);
+    bp_f1244_U0->keyBuffer_rp_V_V_write(bp_f1244_U0_keyBuffer_rp_V_V_write);
+    bp_f1244_U0->metadataBuffer_rp_V_s_din(bp_f1244_U0_metadataBuffer_rp_V_s_din);
+    bp_f1244_U0->metadataBuffer_rp_V_s_full_n(metadataBuffer_rp_V_s_full_n);
+    bp_f1244_U0->metadataBuffer_rp_V_s_write(bp_f1244_U0_metadataBuffer_rp_V_s_write);
+    bp_f1244_U0->start_out(bp_f1244_U0_start_out);
+    bp_f1244_U0->start_write(bp_f1244_U0_start_write);
+    bp_f1244_U0->inData_TDATA(inData_TDATA);
+    bp_f1244_U0->inData_TREADY(bp_f1244_U0_inData_TREADY);
+    bp_f1244_U0->inData_TUSER(inData_TUSER);
+    bp_f1244_U0->inData_TKEEP(inData_TKEEP);
+    bp_f1244_U0->inData_TLAST(inData_TLAST);
     bp_r_U0 = new bp_r("bp_r_U0");
     bp_r_U0->ap_clk(ap_clk);
     bp_r_U0->ap_rst(ap_rst_n_inv);
@@ -308,7 +307,7 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     ht_outputLogic_U0->ap_clk(ap_clk);
     ht_outputLogic_U0->ap_rst(ap_rst_n_inv);
     ht_outputLogic_U0->ap_start(ht_outputLogic_U0_ap_start);
-    ht_outputLogic_U0->start_full_n(start_for_splitter_U0_full_n);
+    ht_outputLogic_U0->start_full_n(start_for_accessControl_U0_full_n);
     ht_outputLogic_U0->ap_done(ht_outputLogic_U0_ap_done);
     ht_outputLogic_U0->ap_continue(ht_outputLogic_U0_ap_continue);
     ht_outputLogic_U0->ap_idle(ht_outputLogic_U0_ap_idle);
@@ -325,31 +324,11 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     ht_outputLogic_U0->memWr2out_V_dout(memWr2out_V_dout);
     ht_outputLogic_U0->memWr2out_V_empty_n(memWr2out_V_empty_n);
     ht_outputLogic_U0->memWr2out_V_read(ht_outputLogic_U0_memWr2out_V_read);
-    ht_outputLogic_U0->hashTable2splitter_V_din(ht_outputLogic_U0_hashTable2splitter_V_din);
-    ht_outputLogic_U0->hashTable2splitter_V_full_n(hashTable2splitter_V_full_n);
-    ht_outputLogic_U0->hashTable2splitter_V_write(ht_outputLogic_U0_hashTable2splitter_V_write);
+    ht_outputLogic_U0->hashTable2Dram_V_din(ht_outputLogic_U0_hashTable2Dram_V_din);
+    ht_outputLogic_U0->hashTable2Dram_V_full_n(hashTable2Dram_V_full_n);
+    ht_outputLogic_U0->hashTable2Dram_V_write(ht_outputLogic_U0_hashTable2Dram_V_write);
     ht_outputLogic_U0->start_out(ht_outputLogic_U0_start_out);
     ht_outputLogic_U0->start_write(ht_outputLogic_U0_start_write);
-    splitter_U0 = new splitter("splitter_U0");
-    splitter_U0->ap_clk(ap_clk);
-    splitter_U0->ap_rst(ap_rst_n_inv);
-    splitter_U0->ap_start(splitter_U0_ap_start);
-    splitter_U0->start_full_n(splitter_U0_start_full_n);
-    splitter_U0->ap_done(splitter_U0_ap_done);
-    splitter_U0->ap_continue(splitter_U0_ap_continue);
-    splitter_U0->ap_idle(splitter_U0_ap_idle);
-    splitter_U0->ap_ready(splitter_U0_ap_ready);
-    splitter_U0->hashTable2splitter_V_dout(hashTable2splitter_V_dout);
-    splitter_U0->hashTable2splitter_V_empty_n(hashTable2splitter_V_empty_n);
-    splitter_U0->hashTable2splitter_V_read(splitter_U0_hashTable2splitter_V_read);
-    splitter_U0->splitter2valueStoreF_1_din(splitter_U0_splitter2valueStoreF_1_din);
-    splitter_U0->splitter2valueStoreF_1_full_n(splitter2valueStoreF_1_full_n);
-    splitter_U0->splitter2valueStoreF_1_write(splitter_U0_splitter2valueStoreF_1_write);
-    splitter_U0->splitter2valueStoreD_1_din(splitter_U0_splitter2valueStoreD_1_din);
-    splitter_U0->splitter2valueStoreD_1_full_n(splitter2valueStoreD_1_full_n);
-    splitter_U0->splitter2valueStoreD_1_write(splitter_U0_splitter2valueStoreD_1_write);
-    splitter_U0->start_out(splitter_U0_start_out);
-    splitter_U0->start_write(splitter_U0_start_write);
     accessControl_U0 = new accessControl("accessControl_U0");
     accessControl_U0->ap_clk(ap_clk);
     accessControl_U0->ap_rst(ap_rst_n_inv);
@@ -365,9 +344,9 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     accessControl_U0->filterPopSet_V_V_dout(filterPopSet_V_V_dout);
     accessControl_U0->filterPopSet_V_V_empty_n(filterPopSet_V_V_empty_n);
     accessControl_U0->filterPopSet_V_V_read(accessControl_U0_filterPopSet_V_V_read);
-    accessControl_U0->splitter2valueStoreD_1_dout(splitter2valueStoreD_1_dout);
-    accessControl_U0->splitter2valueStoreD_1_empty_n(splitter2valueStoreD_1_empty_n);
-    accessControl_U0->splitter2valueStoreD_1_read(accessControl_U0_splitter2valueStoreD_1_read);
+    accessControl_U0->hashTable2Dram_V_dout(hashTable2Dram_V_dout);
+    accessControl_U0->hashTable2Dram_V_empty_n(hashTable2Dram_V_empty_n);
+    accessControl_U0->hashTable2Dram_V_read(accessControl_U0_hashTable2Dram_V_read);
     accessControl_U0->accCtrl2demux_V_din(accessControl_U0_accCtrl2demux_V_din);
     accessControl_U0->accCtrl2demux_V_full_n(accCtrl2demux_V_full_n);
     accessControl_U0->accCtrl2demux_V_write(accessControl_U0_accCtrl2demux_V_write);
@@ -469,7 +448,7 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     remux_U0->ap_clk(ap_clk);
     remux_U0->ap_rst(ap_rst_n_inv);
     remux_U0->ap_start(remux_U0_ap_start);
-    remux_U0->start_full_n(start_for_merger_U0_full_n);
+    remux_U0->start_full_n(start_for_response_f_U0_full_n);
     remux_U0->ap_done(remux_U0_ap_done);
     remux_U0->ap_continue(remux_U0_ap_continue);
     remux_U0->ap_idle(remux_U0_ap_idle);
@@ -488,132 +467,6 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     remux_U0->valueStoreDram2merge_1_write(remux_U0_valueStoreDram2merge_1_write);
     remux_U0->start_out(remux_U0_start_out);
     remux_U0->start_write(remux_U0_start_write);
-    flashDemux_U0 = new flashDemux("flashDemux_U0");
-    flashDemux_U0->ap_clk(ap_clk);
-    flashDemux_U0->ap_rst(ap_rst_n_inv);
-    flashDemux_U0->ap_start(flashDemux_U0_ap_start);
-    flashDemux_U0->start_full_n(flashDemux_U0_start_full_n);
-    flashDemux_U0->ap_done(flashDemux_U0_ap_done);
-    flashDemux_U0->ap_continue(flashDemux_U0_ap_continue);
-    flashDemux_U0->ap_idle(flashDemux_U0_ap_idle);
-    flashDemux_U0->ap_ready(flashDemux_U0_ap_ready);
-    flashDemux_U0->splitter2valueStoreF_1_dout(splitter2valueStoreF_1_dout);
-    flashDemux_U0->splitter2valueStoreF_1_empty_n(splitter2valueStoreF_1_empty_n);
-    flashDemux_U0->splitter2valueStoreF_1_read(flashDemux_U0_splitter2valueStoreF_1_read);
-    flashDemux_U0->flashMetadataBuffer_s_0_din(flashDemux_U0_flashMetadataBuffer_s_0_din);
-    flashDemux_U0->flashMetadataBuffer_s_0_full_n(flashMetadataBuffer_s_0_full_n);
-    flashDemux_U0->flashMetadataBuffer_s_0_write(flashDemux_U0_flashMetadataBuffer_s_0_write);
-    flashDemux_U0->flashKeyBuffer_V_V_din(flashDemux_U0_flashKeyBuffer_V_V_din);
-    flashDemux_U0->flashKeyBuffer_V_V_full_n(flashKeyBuffer_V_V_full_n);
-    flashDemux_U0->flashKeyBuffer_V_V_write(flashDemux_U0_flashKeyBuffer_V_V_write);
-    flashDemux_U0->flashDemux2setPathVa_1_din(flashDemux_U0_flashDemux2setPathVa_1_din);
-    flashDemux_U0->flashDemux2setPathVa_1_full_n(flashDemux2setPathVa_1_full_n);
-    flashDemux_U0->flashDemux2setPathVa_1_write(flashDemux_U0_flashDemux2setPathVa_1_write);
-    flashDemux_U0->flashDemux2setPathMe_1_din(flashDemux_U0_flashDemux2setPathMe_1_din);
-    flashDemux_U0->flashDemux2setPathMe_1_full_n(flashDemux2setPathMe_1_full_n);
-    flashDemux_U0->flashDemux2setPathMe_1_write(flashDemux_U0_flashDemux2setPathMe_1_write);
-    flashDemux_U0->flashDemux2getPath_V_din(flashDemux_U0_flashDemux2getPath_V_din);
-    flashDemux_U0->flashDemux2getPath_V_full_n(flashDemux2getPath_V_full_n);
-    flashDemux_U0->flashDemux2getPath_V_write(flashDemux_U0_flashDemux2getPath_V_write);
-    flashDemux_U0->start_out(flashDemux_U0_start_out);
-    flashDemux_U0->start_write(flashDemux_U0_start_write);
-    flashSetPathNoFilter_U0 = new flashSetPathNoFilter("flashSetPathNoFilter_U0");
-    flashSetPathNoFilter_U0->ap_clk(ap_clk);
-    flashSetPathNoFilter_U0->ap_rst(ap_rst_n_inv);
-    flashSetPathNoFilter_U0->ap_start(flashSetPathNoFilter_U0_ap_start);
-    flashSetPathNoFilter_U0->ap_done(flashSetPathNoFilter_U0_ap_done);
-    flashSetPathNoFilter_U0->ap_continue(flashSetPathNoFilter_U0_ap_continue);
-    flashSetPathNoFilter_U0->ap_idle(flashSetPathNoFilter_U0_ap_idle);
-    flashSetPathNoFilter_U0->ap_ready(flashSetPathNoFilter_U0_ap_ready);
-    flashSetPathNoFilter_U0->flashDemux2setPathMe_1_dout(flashDemux2setPathMe_1_dout);
-    flashSetPathNoFilter_U0->flashDemux2setPathMe_1_empty_n(flashDemux2setPathMe_1_empty_n);
-    flashSetPathNoFilter_U0->flashDemux2setPathMe_1_read(flashSetPathNoFilter_U0_flashDemux2setPathMe_1_read);
-    flashSetPathNoFilter_U0->flashDemux2setPathVa_1_dout(flashDemux2setPathVa_1_dout);
-    flashSetPathNoFilter_U0->flashDemux2setPathVa_1_empty_n(flashDemux2setPathVa_1_empty_n);
-    flashSetPathNoFilter_U0->flashDemux2setPathVa_1_read(flashSetPathNoFilter_U0_flashDemux2setPathVa_1_read);
-    flashSetPathNoFilter_U0->memWrCmd_V_TREADY(flashValueStoreMemWrCmd_V_TREADY);
-    flashSetPathNoFilter_U0->memWrData_V_V_TREADY(flashValueStoreMemWrData_V_V_TREADY);
-    flashSetPathNoFilter_U0->memWrCmd_V_TDATA(flashSetPathNoFilter_U0_memWrCmd_V_TDATA);
-    flashSetPathNoFilter_U0->memWrCmd_V_TVALID(flashSetPathNoFilter_U0_memWrCmd_V_TVALID);
-    flashSetPathNoFilter_U0->memWrData_V_V_TDATA(flashSetPathNoFilter_U0_memWrData_V_V_TDATA);
-    flashSetPathNoFilter_U0->memWrData_V_V_TVALID(flashSetPathNoFilter_U0_memWrData_V_V_TVALID);
-    flashDispatch_U0 = new flashDispatch("flashDispatch_U0");
-    flashDispatch_U0->ap_clk(ap_clk);
-    flashDispatch_U0->ap_rst(ap_rst_n_inv);
-    flashDispatch_U0->ap_start(flashDispatch_U0_ap_start);
-    flashDispatch_U0->ap_done(flashDispatch_U0_ap_done);
-    flashDispatch_U0->ap_continue(flashDispatch_U0_ap_continue);
-    flashDispatch_U0->ap_idle(flashDispatch_U0_ap_idle);
-    flashDispatch_U0->ap_ready(flashDispatch_U0_ap_ready);
-    flashDispatch_U0->flashDemux2getPath_V_dout(flashDemux2getPath_V_dout);
-    flashDispatch_U0->flashDemux2getPath_V_empty_n(flashDemux2getPath_V_empty_n);
-    flashDispatch_U0->flashDemux2getPath_V_read(flashDispatch_U0_flashDemux2getPath_V_read);
-    flashDispatch_U0->flash_Disp2rec_V_V_din(flashDispatch_U0_flash_Disp2rec_V_V_din);
-    flashDispatch_U0->flash_Disp2rec_V_V_full_n(flash_Disp2rec_V_V_full_n);
-    flashDispatch_U0->flash_Disp2rec_V_V_write(flashDispatch_U0_flash_Disp2rec_V_V_write);
-    flashDispatch_U0->memRdCmd_V_TREADY(flashValueStoreMemRdCmd_V_TREADY);
-    flashDispatch_U0->memRdCmd_V_TDATA(flashDispatch_U0_memRdCmd_V_TDATA);
-    flashDispatch_U0->memRdCmd_V_TVALID(flashDispatch_U0_memRdCmd_V_TVALID);
-    flashReceiveNoFilter_U0 = new flashReceiveNoFilter("flashReceiveNoFilter_U0");
-    flashReceiveNoFilter_U0->ap_clk(ap_clk);
-    flashReceiveNoFilter_U0->ap_rst(ap_rst_n_inv);
-    flashReceiveNoFilter_U0->ap_start(flashReceiveNoFilter_U0_ap_start);
-    flashReceiveNoFilter_U0->start_full_n(start_for_flashRemux_U0_full_n);
-    flashReceiveNoFilter_U0->ap_done(flashReceiveNoFilter_U0_ap_done);
-    flashReceiveNoFilter_U0->ap_continue(flashReceiveNoFilter_U0_ap_continue);
-    flashReceiveNoFilter_U0->ap_idle(flashReceiveNoFilter_U0_ap_idle);
-    flashReceiveNoFilter_U0->ap_ready(flashReceiveNoFilter_U0_ap_ready);
-    flashReceiveNoFilter_U0->flash_Disp2rec_V_V_dout(flash_Disp2rec_V_V_dout);
-    flashReceiveNoFilter_U0->flash_Disp2rec_V_V_empty_n(flash_Disp2rec_V_V_empty_n);
-    flashReceiveNoFilter_U0->flash_Disp2rec_V_V_read(flashReceiveNoFilter_U0_flash_Disp2rec_V_V_read);
-    flashReceiveNoFilter_U0->memRdData_V_V_TVALID(flashValueStoreMemRdData_V_V_TVALID);
-    flashReceiveNoFilter_U0->flashGetPath2remux_V_din(flashReceiveNoFilter_U0_flashGetPath2remux_V_din);
-    flashReceiveNoFilter_U0->flashGetPath2remux_V_full_n(flashGetPath2remux_V_full_n);
-    flashReceiveNoFilter_U0->flashGetPath2remux_V_write(flashReceiveNoFilter_U0_flashGetPath2remux_V_write);
-    flashReceiveNoFilter_U0->start_out(flashReceiveNoFilter_U0_start_out);
-    flashReceiveNoFilter_U0->start_write(flashReceiveNoFilter_U0_start_write);
-    flashReceiveNoFilter_U0->memRdData_V_V_TDATA(flashValueStoreMemRdData_V_V_TDATA);
-    flashReceiveNoFilter_U0->memRdData_V_V_TREADY(flashReceiveNoFilter_U0_memRdData_V_V_TREADY);
-    flashRemux_U0 = new flashRemux("flashRemux_U0");
-    flashRemux_U0->ap_clk(ap_clk);
-    flashRemux_U0->ap_rst(ap_rst_n_inv);
-    flashRemux_U0->ap_start(flashRemux_U0_ap_start);
-    flashRemux_U0->ap_done(flashRemux_U0_ap_done);
-    flashRemux_U0->ap_continue(flashRemux_U0_ap_continue);
-    flashRemux_U0->ap_idle(flashRemux_U0_ap_idle);
-    flashRemux_U0->ap_ready(flashRemux_U0_ap_ready);
-    flashRemux_U0->flashKeyBuffer_V_V_dout(flashKeyBuffer_V_V_dout);
-    flashRemux_U0->flashKeyBuffer_V_V_empty_n(flashKeyBuffer_V_V_empty_n);
-    flashRemux_U0->flashKeyBuffer_V_V_read(flashRemux_U0_flashKeyBuffer_V_V_read);
-    flashRemux_U0->flashGetPath2remux_V_dout(flashGetPath2remux_V_dout);
-    flashRemux_U0->flashGetPath2remux_V_empty_n(flashGetPath2remux_V_empty_n);
-    flashRemux_U0->flashGetPath2remux_V_read(flashRemux_U0_flashGetPath2remux_V_read);
-    flashRemux_U0->flashMetadataBuffer_s_0_dout(flashMetadataBuffer_s_0_dout);
-    flashRemux_U0->flashMetadataBuffer_s_0_empty_n(flashMetadataBuffer_s_0_empty_n);
-    flashRemux_U0->flashMetadataBuffer_s_0_read(flashRemux_U0_flashMetadataBuffer_s_0_read);
-    flashRemux_U0->valueStoreFlash2merg_1_din(flashRemux_U0_valueStoreFlash2merg_1_din);
-    flashRemux_U0->valueStoreFlash2merg_1_full_n(valueStoreFlash2merg_1_full_n);
-    flashRemux_U0->valueStoreFlash2merg_1_write(flashRemux_U0_valueStoreFlash2merg_1_write);
-    merger_U0 = new merger("merger_U0");
-    merger_U0->ap_clk(ap_clk);
-    merger_U0->ap_rst(ap_rst_n_inv);
-    merger_U0->ap_start(merger_U0_ap_start);
-    merger_U0->start_full_n(start_for_response_f_U0_full_n);
-    merger_U0->ap_done(merger_U0_ap_done);
-    merger_U0->ap_continue(merger_U0_ap_continue);
-    merger_U0->ap_idle(merger_U0_ap_idle);
-    merger_U0->ap_ready(merger_U0_ap_ready);
-    merger_U0->valueStoreDram2merge_1_dout(valueStoreDram2merge_1_dout);
-    merger_U0->valueStoreDram2merge_1_empty_n(valueStoreDram2merge_1_empty_n);
-    merger_U0->valueStoreDram2merge_1_read(merger_U0_valueStoreDram2merge_1_read);
-    merger_U0->valueStoreFlash2merg_1_dout(valueStoreFlash2merg_1_dout);
-    merger_U0->valueStoreFlash2merg_1_empty_n(valueStoreFlash2merg_1_empty_n);
-    merger_U0->valueStoreFlash2merg_1_read(merger_U0_valueStoreFlash2merg_1_read);
-    merger_U0->merger2responseForma_1_din(merger_U0_merger2responseForma_1_din);
-    merger_U0->merger2responseForma_1_full_n(merger2responseForma_1_full_n);
-    merger_U0->merger2responseForma_1_write(merger_U0_merger2responseForma_1_write);
-    merger_U0->start_out(merger_U0_start_out);
-    merger_U0->start_write(merger_U0_start_write);
     response_f_U0 = new response_f("response_f_U0");
     response_f_U0->ap_clk(ap_clk);
     response_f_U0->ap_rst(ap_rst_n_inv);
@@ -631,9 +484,9 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     response_f_U0->metadataBuffer_rf_V_s_din(response_f_U0_metadataBuffer_rf_V_s_din);
     response_f_U0->metadataBuffer_rf_V_s_full_n(metadataBuffer_rf_V_s_full_n);
     response_f_U0->metadataBuffer_rf_V_s_write(response_f_U0_metadataBuffer_rf_V_s_write);
-    response_f_U0->merger2responseForma_1_dout(merger2responseForma_1_dout);
-    response_f_U0->merger2responseForma_1_empty_n(merger2responseForma_1_empty_n);
-    response_f_U0->merger2responseForma_1_read(response_f_U0_merger2responseForma_1_read);
+    response_f_U0->valueStoreDram2merge_1_dout(valueStoreDram2merge_1_dout);
+    response_f_U0->valueStoreDram2merge_1_empty_n(valueStoreDram2merge_1_empty_n);
+    response_f_U0->valueStoreDram2merge_1_read(response_f_U0_valueStoreDram2merge_1_read);
     response_r_U0 = new response_r("response_r_U0");
     response_r_U0->ap_clk(ap_clk);
     response_r_U0->ap_rst(ap_rst_n_inv);
@@ -664,15 +517,15 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     flushAck_V_c1_U->if_write(memcachedPipeline_en_U0_flushAck_V_out_write);
     flushAck_V_c1_U->if_dout(flushAck_V_c1_dout);
     flushAck_V_c1_U->if_empty_n(flushAck_V_c1_empty_n);
-    flushAck_V_c1_U->if_read(bp_f1192_U0_flushAck_V_read);
+    flushAck_V_c1_U->if_read(bp_f1244_U0_flushAck_V_read);
     flushAck_V_c_U = new fifo_w1_d9_A("flushAck_V_c_U");
     flushAck_V_c_U->clk(ap_clk);
     flushAck_V_c_U->reset(ap_rst_n_inv);
     flushAck_V_c_U->if_read_ce(ap_var_for_const0);
     flushAck_V_c_U->if_write_ce(ap_var_for_const0);
-    flushAck_V_c_U->if_din(bp_f1192_U0_flushAck_V_out_din);
+    flushAck_V_c_U->if_din(bp_f1244_U0_flushAck_V_out_din);
     flushAck_V_c_U->if_full_n(flushAck_V_c_full_n);
-    flushAck_V_c_U->if_write(bp_f1192_U0_flushAck_V_out_write);
+    flushAck_V_c_U->if_write(bp_f1244_U0_flushAck_V_out_write);
     flushAck_V_c_U->if_dout(flushAck_V_c_dout);
     flushAck_V_c_U->if_empty_n(flushAck_V_c_empty_n);
     flushAck_V_c_U->if_read(memWrite_U0_flushAck_V_read);
@@ -681,9 +534,9 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     metadataBuffer_rp_V_s_U->reset(ap_rst_n_inv);
     metadataBuffer_rp_V_s_U->if_read_ce(ap_var_for_const0);
     metadataBuffer_rp_V_s_U->if_write_ce(ap_var_for_const0);
-    metadataBuffer_rp_V_s_U->if_din(bp_f1192_U0_metadataBuffer_rp_V_s_din);
+    metadataBuffer_rp_V_s_U->if_din(bp_f1244_U0_metadataBuffer_rp_V_s_din);
     metadataBuffer_rp_V_s_U->if_full_n(metadataBuffer_rp_V_s_full_n);
-    metadataBuffer_rp_V_s_U->if_write(bp_f1192_U0_metadataBuffer_rp_V_s_write);
+    metadataBuffer_rp_V_s_U->if_write(bp_f1244_U0_metadataBuffer_rp_V_s_write);
     metadataBuffer_rp_V_s_U->if_dout(metadataBuffer_rp_V_s_dout);
     metadataBuffer_rp_V_s_U->if_empty_n(metadataBuffer_rp_V_s_empty_n);
     metadataBuffer_rp_V_s_U->if_read(bp_r_U0_metadataBuffer_rp_V_s_read);
@@ -692,9 +545,9 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     valueBuffer_rp_V_V_U->reset(ap_rst_n_inv);
     valueBuffer_rp_V_V_U->if_read_ce(ap_var_for_const0);
     valueBuffer_rp_V_V_U->if_write_ce(ap_var_for_const0);
-    valueBuffer_rp_V_V_U->if_din(bp_f1192_U0_valueBuffer_rp_V_V_din);
+    valueBuffer_rp_V_V_U->if_din(bp_f1244_U0_valueBuffer_rp_V_V_din);
     valueBuffer_rp_V_V_U->if_full_n(valueBuffer_rp_V_V_full_n);
-    valueBuffer_rp_V_V_U->if_write(bp_f1192_U0_valueBuffer_rp_V_V_write);
+    valueBuffer_rp_V_V_U->if_write(bp_f1244_U0_valueBuffer_rp_V_V_write);
     valueBuffer_rp_V_V_U->if_dout(valueBuffer_rp_V_V_dout);
     valueBuffer_rp_V_V_U->if_empty_n(valueBuffer_rp_V_V_empty_n);
     valueBuffer_rp_V_V_U->if_read(bp_r_U0_valueBuffer_rp_V_V_read);
@@ -703,9 +556,9 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     keyBuffer_rp_V_V_U->reset(ap_rst_n_inv);
     keyBuffer_rp_V_V_U->if_read_ce(ap_var_for_const0);
     keyBuffer_rp_V_V_U->if_write_ce(ap_var_for_const0);
-    keyBuffer_rp_V_V_U->if_din(bp_f1192_U0_keyBuffer_rp_V_V_din);
+    keyBuffer_rp_V_V_U->if_din(bp_f1244_U0_keyBuffer_rp_V_V_din);
     keyBuffer_rp_V_V_U->if_full_n(keyBuffer_rp_V_V_full_n);
-    keyBuffer_rp_V_V_U->if_write(bp_f1192_U0_keyBuffer_rp_V_V_write);
+    keyBuffer_rp_V_V_U->if_write(bp_f1244_U0_keyBuffer_rp_V_V_write);
     keyBuffer_rp_V_V_U->if_dout(keyBuffer_rp_V_V_dout);
     keyBuffer_rp_V_V_U->if_empty_n(keyBuffer_rp_V_V_empty_n);
     keyBuffer_rp_V_V_U->if_read(bp_r_U0_keyBuffer_rp_V_V_read);
@@ -951,39 +804,17 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     memWr2out_V_U->if_dout(memWr2out_V_dout);
     memWr2out_V_U->if_empty_n(memWr2out_V_empty_n);
     memWr2out_V_U->if_read(ht_outputLogic_U0_memWr2out_V_read);
-    hashTable2splitter_V_U = new fifo_w256_d16_A("hashTable2splitter_V_U");
-    hashTable2splitter_V_U->clk(ap_clk);
-    hashTable2splitter_V_U->reset(ap_rst_n_inv);
-    hashTable2splitter_V_U->if_read_ce(ap_var_for_const0);
-    hashTable2splitter_V_U->if_write_ce(ap_var_for_const0);
-    hashTable2splitter_V_U->if_din(ht_outputLogic_U0_hashTable2splitter_V_din);
-    hashTable2splitter_V_U->if_full_n(hashTable2splitter_V_full_n);
-    hashTable2splitter_V_U->if_write(ht_outputLogic_U0_hashTable2splitter_V_write);
-    hashTable2splitter_V_U->if_dout(hashTable2splitter_V_dout);
-    hashTable2splitter_V_U->if_empty_n(hashTable2splitter_V_empty_n);
-    hashTable2splitter_V_U->if_read(splitter_U0_hashTable2splitter_V_read);
-    splitter2valueStoreF_1_U = new fifo_w256_d16_A("splitter2valueStoreF_1_U");
-    splitter2valueStoreF_1_U->clk(ap_clk);
-    splitter2valueStoreF_1_U->reset(ap_rst_n_inv);
-    splitter2valueStoreF_1_U->if_read_ce(ap_var_for_const0);
-    splitter2valueStoreF_1_U->if_write_ce(ap_var_for_const0);
-    splitter2valueStoreF_1_U->if_din(splitter_U0_splitter2valueStoreF_1_din);
-    splitter2valueStoreF_1_U->if_full_n(splitter2valueStoreF_1_full_n);
-    splitter2valueStoreF_1_U->if_write(splitter_U0_splitter2valueStoreF_1_write);
-    splitter2valueStoreF_1_U->if_dout(splitter2valueStoreF_1_dout);
-    splitter2valueStoreF_1_U->if_empty_n(splitter2valueStoreF_1_empty_n);
-    splitter2valueStoreF_1_U->if_read(flashDemux_U0_splitter2valueStoreF_1_read);
-    splitter2valueStoreD_1_U = new fifo_w256_d16_A("splitter2valueStoreD_1_U");
-    splitter2valueStoreD_1_U->clk(ap_clk);
-    splitter2valueStoreD_1_U->reset(ap_rst_n_inv);
-    splitter2valueStoreD_1_U->if_read_ce(ap_var_for_const0);
-    splitter2valueStoreD_1_U->if_write_ce(ap_var_for_const0);
-    splitter2valueStoreD_1_U->if_din(splitter_U0_splitter2valueStoreD_1_din);
-    splitter2valueStoreD_1_U->if_full_n(splitter2valueStoreD_1_full_n);
-    splitter2valueStoreD_1_U->if_write(splitter_U0_splitter2valueStoreD_1_write);
-    splitter2valueStoreD_1_U->if_dout(splitter2valueStoreD_1_dout);
-    splitter2valueStoreD_1_U->if_empty_n(splitter2valueStoreD_1_empty_n);
-    splitter2valueStoreD_1_U->if_read(accessControl_U0_splitter2valueStoreD_1_read);
+    hashTable2Dram_V_U = new fifo_w256_d16_A("hashTable2Dram_V_U");
+    hashTable2Dram_V_U->clk(ap_clk);
+    hashTable2Dram_V_U->reset(ap_rst_n_inv);
+    hashTable2Dram_V_U->if_read_ce(ap_var_for_const0);
+    hashTable2Dram_V_U->if_write_ce(ap_var_for_const0);
+    hashTable2Dram_V_U->if_din(ht_outputLogic_U0_hashTable2Dram_V_din);
+    hashTable2Dram_V_U->if_full_n(hashTable2Dram_V_full_n);
+    hashTable2Dram_V_U->if_write(ht_outputLogic_U0_hashTable2Dram_V_write);
+    hashTable2Dram_V_U->if_dout(hashTable2Dram_V_dout);
+    hashTable2Dram_V_U->if_empty_n(hashTable2Dram_V_empty_n);
+    hashTable2Dram_V_U->if_read(accessControl_U0_hashTable2Dram_V_read);
     filterPopSet_V_V_U = new fifo_w1_d16_A("filterPopSet_V_V_U");
     filterPopSet_V_V_U->clk(ap_clk);
     filterPopSet_V_V_U->reset(ap_rst_n_inv);
@@ -1104,106 +935,7 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     valueStoreDram2merge_1_U->if_write(remux_U0_valueStoreDram2merge_1_write);
     valueStoreDram2merge_1_U->if_dout(valueStoreDram2merge_1_dout);
     valueStoreDram2merge_1_U->if_empty_n(valueStoreDram2merge_1_empty_n);
-    valueStoreDram2merge_1_U->if_read(merger_U0_valueStoreDram2merge_1_read);
-    flashMetadataBuffer_s_0_U = new fifo_w128_d24_A("flashMetadataBuffer_s_0_U");
-    flashMetadataBuffer_s_0_U->clk(ap_clk);
-    flashMetadataBuffer_s_0_U->reset(ap_rst_n_inv);
-    flashMetadataBuffer_s_0_U->if_read_ce(ap_var_for_const0);
-    flashMetadataBuffer_s_0_U->if_write_ce(ap_var_for_const0);
-    flashMetadataBuffer_s_0_U->if_din(flashDemux_U0_flashMetadataBuffer_s_0_din);
-    flashMetadataBuffer_s_0_U->if_full_n(flashMetadataBuffer_s_0_full_n);
-    flashMetadataBuffer_s_0_U->if_write(flashDemux_U0_flashMetadataBuffer_s_0_write);
-    flashMetadataBuffer_s_0_U->if_dout(flashMetadataBuffer_s_0_dout);
-    flashMetadataBuffer_s_0_U->if_empty_n(flashMetadataBuffer_s_0_empty_n);
-    flashMetadataBuffer_s_0_U->if_read(flashRemux_U0_flashMetadataBuffer_s_0_read);
-    flashKeyBuffer_V_V_U = new fifo_w64_d48_A("flashKeyBuffer_V_V_U");
-    flashKeyBuffer_V_V_U->clk(ap_clk);
-    flashKeyBuffer_V_V_U->reset(ap_rst_n_inv);
-    flashKeyBuffer_V_V_U->if_read_ce(ap_var_for_const0);
-    flashKeyBuffer_V_V_U->if_write_ce(ap_var_for_const0);
-    flashKeyBuffer_V_V_U->if_din(flashDemux_U0_flashKeyBuffer_V_V_din);
-    flashKeyBuffer_V_V_U->if_full_n(flashKeyBuffer_V_V_full_n);
-    flashKeyBuffer_V_V_U->if_write(flashDemux_U0_flashKeyBuffer_V_V_write);
-    flashKeyBuffer_V_V_U->if_dout(flashKeyBuffer_V_V_dout);
-    flashKeyBuffer_V_V_U->if_empty_n(flashKeyBuffer_V_V_empty_n);
-    flashKeyBuffer_V_V_U->if_read(flashRemux_U0_flashKeyBuffer_V_V_read);
-    flashDemux2getPath_V_U = new fifo_w48_d16_A("flashDemux2getPath_V_U");
-    flashDemux2getPath_V_U->clk(ap_clk);
-    flashDemux2getPath_V_U->reset(ap_rst_n_inv);
-    flashDemux2getPath_V_U->if_read_ce(ap_var_for_const0);
-    flashDemux2getPath_V_U->if_write_ce(ap_var_for_const0);
-    flashDemux2getPath_V_U->if_din(flashDemux_U0_flashDemux2getPath_V_din);
-    flashDemux2getPath_V_U->if_full_n(flashDemux2getPath_V_full_n);
-    flashDemux2getPath_V_U->if_write(flashDemux_U0_flashDemux2getPath_V_write);
-    flashDemux2getPath_V_U->if_dout(flashDemux2getPath_V_dout);
-    flashDemux2getPath_V_U->if_empty_n(flashDemux2getPath_V_empty_n);
-    flashDemux2getPath_V_U->if_read(flashDispatch_U0_flashDemux2getPath_V_read);
-    flashDemux2setPathMe_1_U = new fifo_w48_d16_A("flashDemux2setPathMe_1_U");
-    flashDemux2setPathMe_1_U->clk(ap_clk);
-    flashDemux2setPathMe_1_U->reset(ap_rst_n_inv);
-    flashDemux2setPathMe_1_U->if_read_ce(ap_var_for_const0);
-    flashDemux2setPathMe_1_U->if_write_ce(ap_var_for_const0);
-    flashDemux2setPathMe_1_U->if_din(flashDemux_U0_flashDemux2setPathMe_1_din);
-    flashDemux2setPathMe_1_U->if_full_n(flashDemux2setPathMe_1_full_n);
-    flashDemux2setPathMe_1_U->if_write(flashDemux_U0_flashDemux2setPathMe_1_write);
-    flashDemux2setPathMe_1_U->if_dout(flashDemux2setPathMe_1_dout);
-    flashDemux2setPathMe_1_U->if_empty_n(flashDemux2setPathMe_1_empty_n);
-    flashDemux2setPathMe_1_U->if_read(flashSetPathNoFilter_U0_flashDemux2setPathMe_1_read);
-    flashDemux2setPathVa_1_U = new fifo_w66_d96_A("flashDemux2setPathVa_1_U");
-    flashDemux2setPathVa_1_U->clk(ap_clk);
-    flashDemux2setPathVa_1_U->reset(ap_rst_n_inv);
-    flashDemux2setPathVa_1_U->if_read_ce(ap_var_for_const0);
-    flashDemux2setPathVa_1_U->if_write_ce(ap_var_for_const0);
-    flashDemux2setPathVa_1_U->if_din(flashDemux_U0_flashDemux2setPathVa_1_din);
-    flashDemux2setPathVa_1_U->if_full_n(flashDemux2setPathVa_1_full_n);
-    flashDemux2setPathVa_1_U->if_write(flashDemux_U0_flashDemux2setPathVa_1_write);
-    flashDemux2setPathVa_1_U->if_dout(flashDemux2setPathVa_1_dout);
-    flashDemux2setPathVa_1_U->if_empty_n(flashDemux2setPathVa_1_empty_n);
-    flashDemux2setPathVa_1_U->if_read(flashSetPathNoFilter_U0_flashDemux2setPathVa_1_read);
-    flash_Disp2rec_V_V_U = new fifo_w16_d16_A("flash_Disp2rec_V_V_U");
-    flash_Disp2rec_V_V_U->clk(ap_clk);
-    flash_Disp2rec_V_V_U->reset(ap_rst_n_inv);
-    flash_Disp2rec_V_V_U->if_read_ce(ap_var_for_const0);
-    flash_Disp2rec_V_V_U->if_write_ce(ap_var_for_const0);
-    flash_Disp2rec_V_V_U->if_din(flashDispatch_U0_flash_Disp2rec_V_V_din);
-    flash_Disp2rec_V_V_U->if_full_n(flash_Disp2rec_V_V_full_n);
-    flash_Disp2rec_V_V_U->if_write(flashDispatch_U0_flash_Disp2rec_V_V_write);
-    flash_Disp2rec_V_V_U->if_dout(flash_Disp2rec_V_V_dout);
-    flash_Disp2rec_V_V_U->if_empty_n(flash_Disp2rec_V_V_empty_n);
-    flash_Disp2rec_V_V_U->if_read(flashReceiveNoFilter_U0_flash_Disp2rec_V_V_read);
-    flashGetPath2remux_V_U = new fifo_w64_d96_A("flashGetPath2remux_V_U");
-    flashGetPath2remux_V_U->clk(ap_clk);
-    flashGetPath2remux_V_U->reset(ap_rst_n_inv);
-    flashGetPath2remux_V_U->if_read_ce(ap_var_for_const0);
-    flashGetPath2remux_V_U->if_write_ce(ap_var_for_const0);
-    flashGetPath2remux_V_U->if_din(flashReceiveNoFilter_U0_flashGetPath2remux_V_din);
-    flashGetPath2remux_V_U->if_full_n(flashGetPath2remux_V_full_n);
-    flashGetPath2remux_V_U->if_write(flashReceiveNoFilter_U0_flashGetPath2remux_V_write);
-    flashGetPath2remux_V_U->if_dout(flashGetPath2remux_V_dout);
-    flashGetPath2remux_V_U->if_empty_n(flashGetPath2remux_V_empty_n);
-    flashGetPath2remux_V_U->if_read(flashRemux_U0_flashGetPath2remux_V_read);
-    valueStoreFlash2merg_1_U = new fifo_w256_d16_A("valueStoreFlash2merg_1_U");
-    valueStoreFlash2merg_1_U->clk(ap_clk);
-    valueStoreFlash2merg_1_U->reset(ap_rst_n_inv);
-    valueStoreFlash2merg_1_U->if_read_ce(ap_var_for_const0);
-    valueStoreFlash2merg_1_U->if_write_ce(ap_var_for_const0);
-    valueStoreFlash2merg_1_U->if_din(flashRemux_U0_valueStoreFlash2merg_1_din);
-    valueStoreFlash2merg_1_U->if_full_n(valueStoreFlash2merg_1_full_n);
-    valueStoreFlash2merg_1_U->if_write(flashRemux_U0_valueStoreFlash2merg_1_write);
-    valueStoreFlash2merg_1_U->if_dout(valueStoreFlash2merg_1_dout);
-    valueStoreFlash2merg_1_U->if_empty_n(valueStoreFlash2merg_1_empty_n);
-    valueStoreFlash2merg_1_U->if_read(merger_U0_valueStoreFlash2merg_1_read);
-    merger2responseForma_1_U = new fifo_w256_d16_A("merger2responseForma_1_U");
-    merger2responseForma_1_U->clk(ap_clk);
-    merger2responseForma_1_U->reset(ap_rst_n_inv);
-    merger2responseForma_1_U->if_read_ce(ap_var_for_const0);
-    merger2responseForma_1_U->if_write_ce(ap_var_for_const0);
-    merger2responseForma_1_U->if_din(merger_U0_merger2responseForma_1_din);
-    merger2responseForma_1_U->if_full_n(merger2responseForma_1_full_n);
-    merger2responseForma_1_U->if_write(merger_U0_merger2responseForma_1_write);
-    merger2responseForma_1_U->if_dout(merger2responseForma_1_dout);
-    merger2responseForma_1_U->if_empty_n(merger2responseForma_1_empty_n);
-    merger2responseForma_1_U->if_read(response_f_U0_merger2responseForma_1_read);
+    valueStoreDram2merge_1_U->if_read(response_f_U0_valueStoreDram2merge_1_read);
     valueBuffer_rf_V_V_U = new fifo_w64_d1024_A("valueBuffer_rf_V_V_U");
     valueBuffer_rf_V_V_U->clk(ap_clk);
     valueBuffer_rf_V_V_U->reset(ap_rst_n_inv);
@@ -1233,7 +965,7 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     start_for_bp_r_U0_U->if_write_ce(ap_var_for_const0);
     start_for_bp_r_U0_U->if_din(start_for_bp_r_U0_din);
     start_for_bp_r_U0_U->if_full_n(start_for_bp_r_U0_full_n);
-    start_for_bp_r_U0_U->if_write(bp_f1192_U0_start_write);
+    start_for_bp_r_U0_U->if_write(bp_f1244_U0_start_write);
     start_for_bp_r_U0_U->if_dout(start_for_bp_r_U0_dout);
     start_for_bp_r_U0_U->if_empty_n(start_for_bp_r_U0_empty_n);
     start_for_bp_r_U0_U->if_read(bp_r_U0_ap_ready);
@@ -1303,39 +1035,17 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     start_for_ht_outpg8j_U->if_dout(start_for_ht_outputLogic_U0_dout);
     start_for_ht_outpg8j_U->if_empty_n(start_for_ht_outputLogic_U0_empty_n);
     start_for_ht_outpg8j_U->if_read(ht_outputLogic_U0_ap_ready);
-    start_for_splittehbi_U = new start_for_splittehbi("start_for_splittehbi_U");
-    start_for_splittehbi_U->clk(ap_clk);
-    start_for_splittehbi_U->reset(ap_rst_n_inv);
-    start_for_splittehbi_U->if_read_ce(ap_var_for_const0);
-    start_for_splittehbi_U->if_write_ce(ap_var_for_const0);
-    start_for_splittehbi_U->if_din(start_for_splitter_U0_din);
-    start_for_splittehbi_U->if_full_n(start_for_splitter_U0_full_n);
-    start_for_splittehbi_U->if_write(ht_outputLogic_U0_start_write);
-    start_for_splittehbi_U->if_dout(start_for_splitter_U0_dout);
-    start_for_splittehbi_U->if_empty_n(start_for_splitter_U0_empty_n);
-    start_for_splittehbi_U->if_read(splitter_U0_ap_ready);
-    start_for_accessCibs_U = new start_for_accessCibs("start_for_accessCibs_U");
-    start_for_accessCibs_U->clk(ap_clk);
-    start_for_accessCibs_U->reset(ap_rst_n_inv);
-    start_for_accessCibs_U->if_read_ce(ap_var_for_const0);
-    start_for_accessCibs_U->if_write_ce(ap_var_for_const0);
-    start_for_accessCibs_U->if_din(start_for_accessControl_U0_din);
-    start_for_accessCibs_U->if_full_n(start_for_accessControl_U0_full_n);
-    start_for_accessCibs_U->if_write(splitter_U0_start_write);
-    start_for_accessCibs_U->if_dout(start_for_accessControl_U0_dout);
-    start_for_accessCibs_U->if_empty_n(start_for_accessControl_U0_empty_n);
-    start_for_accessCibs_U->if_read(accessControl_U0_ap_ready);
-    start_for_flashDejbC_U = new start_for_flashDejbC("start_for_flashDejbC_U");
-    start_for_flashDejbC_U->clk(ap_clk);
-    start_for_flashDejbC_U->reset(ap_rst_n_inv);
-    start_for_flashDejbC_U->if_read_ce(ap_var_for_const0);
-    start_for_flashDejbC_U->if_write_ce(ap_var_for_const0);
-    start_for_flashDejbC_U->if_din(start_for_flashDemux_U0_din);
-    start_for_flashDejbC_U->if_full_n(start_for_flashDemux_U0_full_n);
-    start_for_flashDejbC_U->if_write(splitter_U0_start_write);
-    start_for_flashDejbC_U->if_dout(start_for_flashDemux_U0_dout);
-    start_for_flashDejbC_U->if_empty_n(start_for_flashDemux_U0_empty_n);
-    start_for_flashDejbC_U->if_read(flashDemux_U0_ap_ready);
+    start_for_accessChbi_U = new start_for_accessChbi("start_for_accessChbi_U");
+    start_for_accessChbi_U->clk(ap_clk);
+    start_for_accessChbi_U->reset(ap_rst_n_inv);
+    start_for_accessChbi_U->if_read_ce(ap_var_for_const0);
+    start_for_accessChbi_U->if_write_ce(ap_var_for_const0);
+    start_for_accessChbi_U->if_din(start_for_accessControl_U0_din);
+    start_for_accessChbi_U->if_full_n(start_for_accessControl_U0_full_n);
+    start_for_accessChbi_U->if_write(ht_outputLogic_U0_start_write);
+    start_for_accessChbi_U->if_dout(start_for_accessControl_U0_dout);
+    start_for_accessChbi_U->if_empty_n(start_for_accessControl_U0_empty_n);
+    start_for_accessChbi_U->if_read(accessControl_U0_ap_ready);
     start_for_demux_U0_U = new start_for_demux_U0("start_for_demux_U0_U");
     start_for_demux_U0_U->clk(ap_clk);
     start_for_demux_U0_U->reset(ap_rst_n_inv);
@@ -1347,28 +1057,28 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     start_for_demux_U0_U->if_dout(start_for_demux_U0_dout);
     start_for_demux_U0_U->if_empty_n(start_for_demux_U0_empty_n);
     start_for_demux_U0_U->if_read(demux_U0_ap_ready);
-    start_for_setPathkbM_U = new start_for_setPathkbM("start_for_setPathkbM_U");
-    start_for_setPathkbM_U->clk(ap_clk);
-    start_for_setPathkbM_U->reset(ap_rst_n_inv);
-    start_for_setPathkbM_U->if_read_ce(ap_var_for_const0);
-    start_for_setPathkbM_U->if_write_ce(ap_var_for_const0);
-    start_for_setPathkbM_U->if_din(start_for_setPath_U0_din);
-    start_for_setPathkbM_U->if_full_n(start_for_setPath_U0_full_n);
-    start_for_setPathkbM_U->if_write(demux_U0_start_write);
-    start_for_setPathkbM_U->if_dout(start_for_setPath_U0_dout);
-    start_for_setPathkbM_U->if_empty_n(start_for_setPath_U0_empty_n);
-    start_for_setPathkbM_U->if_read(setPath_U0_ap_ready);
-    start_for_dispatclbW_U = new start_for_dispatclbW("start_for_dispatclbW_U");
-    start_for_dispatclbW_U->clk(ap_clk);
-    start_for_dispatclbW_U->reset(ap_rst_n_inv);
-    start_for_dispatclbW_U->if_read_ce(ap_var_for_const0);
-    start_for_dispatclbW_U->if_write_ce(ap_var_for_const0);
-    start_for_dispatclbW_U->if_din(start_for_dispatch_U0_din);
-    start_for_dispatclbW_U->if_full_n(start_for_dispatch_U0_full_n);
-    start_for_dispatclbW_U->if_write(demux_U0_start_write);
-    start_for_dispatclbW_U->if_dout(start_for_dispatch_U0_dout);
-    start_for_dispatclbW_U->if_empty_n(start_for_dispatch_U0_empty_n);
-    start_for_dispatclbW_U->if_read(dispatch_U0_ap_ready);
+    start_for_setPathibs_U = new start_for_setPathibs("start_for_setPathibs_U");
+    start_for_setPathibs_U->clk(ap_clk);
+    start_for_setPathibs_U->reset(ap_rst_n_inv);
+    start_for_setPathibs_U->if_read_ce(ap_var_for_const0);
+    start_for_setPathibs_U->if_write_ce(ap_var_for_const0);
+    start_for_setPathibs_U->if_din(start_for_setPath_U0_din);
+    start_for_setPathibs_U->if_full_n(start_for_setPath_U0_full_n);
+    start_for_setPathibs_U->if_write(demux_U0_start_write);
+    start_for_setPathibs_U->if_dout(start_for_setPath_U0_dout);
+    start_for_setPathibs_U->if_empty_n(start_for_setPath_U0_empty_n);
+    start_for_setPathibs_U->if_read(setPath_U0_ap_ready);
+    start_for_dispatcjbC_U = new start_for_dispatcjbC("start_for_dispatcjbC_U");
+    start_for_dispatcjbC_U->clk(ap_clk);
+    start_for_dispatcjbC_U->reset(ap_rst_n_inv);
+    start_for_dispatcjbC_U->if_read_ce(ap_var_for_const0);
+    start_for_dispatcjbC_U->if_write_ce(ap_var_for_const0);
+    start_for_dispatcjbC_U->if_din(start_for_dispatch_U0_din);
+    start_for_dispatcjbC_U->if_full_n(start_for_dispatch_U0_full_n);
+    start_for_dispatcjbC_U->if_write(demux_U0_start_write);
+    start_for_dispatcjbC_U->if_dout(start_for_dispatch_U0_dout);
+    start_for_dispatcjbC_U->if_empty_n(start_for_dispatch_U0_empty_n);
+    start_for_dispatcjbC_U->if_read(dispatch_U0_ap_ready);
     start_for_remux_U0_U = new start_for_remux_U0("start_for_remux_U0_U");
     start_for_remux_U0_U->clk(ap_clk);
     start_for_remux_U0_U->reset(ap_rst_n_inv);
@@ -1380,72 +1090,28 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     start_for_remux_U0_U->if_dout(start_for_remux_U0_dout);
     start_for_remux_U0_U->if_empty_n(start_for_remux_U0_empty_n);
     start_for_remux_U0_U->if_read(remux_U0_ap_ready);
-    start_for_merger_U0_U = new start_for_merger_U0("start_for_merger_U0_U");
-    start_for_merger_U0_U->clk(ap_clk);
-    start_for_merger_U0_U->reset(ap_rst_n_inv);
-    start_for_merger_U0_U->if_read_ce(ap_var_for_const0);
-    start_for_merger_U0_U->if_write_ce(ap_var_for_const0);
-    start_for_merger_U0_U->if_din(start_for_merger_U0_din);
-    start_for_merger_U0_U->if_full_n(start_for_merger_U0_full_n);
-    start_for_merger_U0_U->if_write(remux_U0_start_write);
-    start_for_merger_U0_U->if_dout(start_for_merger_U0_dout);
-    start_for_merger_U0_U->if_empty_n(start_for_merger_U0_empty_n);
-    start_for_merger_U0_U->if_read(merger_U0_ap_ready);
-    start_for_flashSemb6_U = new start_for_flashSemb6("start_for_flashSemb6_U");
-    start_for_flashSemb6_U->clk(ap_clk);
-    start_for_flashSemb6_U->reset(ap_rst_n_inv);
-    start_for_flashSemb6_U->if_read_ce(ap_var_for_const0);
-    start_for_flashSemb6_U->if_write_ce(ap_var_for_const0);
-    start_for_flashSemb6_U->if_din(start_for_flashSetPathNoFilter_U0_din);
-    start_for_flashSemb6_U->if_full_n(start_for_flashSetPathNoFilter_U0_full_n);
-    start_for_flashSemb6_U->if_write(flashDemux_U0_start_write);
-    start_for_flashSemb6_U->if_dout(start_for_flashSetPathNoFilter_U0_dout);
-    start_for_flashSemb6_U->if_empty_n(start_for_flashSetPathNoFilter_U0_empty_n);
-    start_for_flashSemb6_U->if_read(flashSetPathNoFilter_U0_ap_ready);
-    start_for_flashDincg_U = new start_for_flashDincg("start_for_flashDincg_U");
-    start_for_flashDincg_U->clk(ap_clk);
-    start_for_flashDincg_U->reset(ap_rst_n_inv);
-    start_for_flashDincg_U->if_read_ce(ap_var_for_const0);
-    start_for_flashDincg_U->if_write_ce(ap_var_for_const0);
-    start_for_flashDincg_U->if_din(start_for_flashDispatch_U0_din);
-    start_for_flashDincg_U->if_full_n(start_for_flashDispatch_U0_full_n);
-    start_for_flashDincg_U->if_write(flashDemux_U0_start_write);
-    start_for_flashDincg_U->if_dout(start_for_flashDispatch_U0_dout);
-    start_for_flashDincg_U->if_empty_n(start_for_flashDispatch_U0_empty_n);
-    start_for_flashDincg_U->if_read(flashDispatch_U0_ap_ready);
-    start_for_flashReocq_U = new start_for_flashReocq("start_for_flashReocq_U");
-    start_for_flashReocq_U->clk(ap_clk);
-    start_for_flashReocq_U->reset(ap_rst_n_inv);
-    start_for_flashReocq_U->if_read_ce(ap_var_for_const0);
-    start_for_flashReocq_U->if_write_ce(ap_var_for_const0);
-    start_for_flashReocq_U->if_din(start_for_flashRemux_U0_din);
-    start_for_flashReocq_U->if_full_n(start_for_flashRemux_U0_full_n);
-    start_for_flashReocq_U->if_write(flashReceiveNoFilter_U0_start_write);
-    start_for_flashReocq_U->if_dout(start_for_flashRemux_U0_dout);
-    start_for_flashReocq_U->if_empty_n(start_for_flashRemux_U0_empty_n);
-    start_for_flashReocq_U->if_read(flashRemux_U0_ap_ready);
-    start_for_responspcA_U = new start_for_responspcA("start_for_responspcA_U");
-    start_for_responspcA_U->clk(ap_clk);
-    start_for_responspcA_U->reset(ap_rst_n_inv);
-    start_for_responspcA_U->if_read_ce(ap_var_for_const0);
-    start_for_responspcA_U->if_write_ce(ap_var_for_const0);
-    start_for_responspcA_U->if_din(start_for_response_f_U0_din);
-    start_for_responspcA_U->if_full_n(start_for_response_f_U0_full_n);
-    start_for_responspcA_U->if_write(merger_U0_start_write);
-    start_for_responspcA_U->if_dout(start_for_response_f_U0_dout);
-    start_for_responspcA_U->if_empty_n(start_for_response_f_U0_empty_n);
-    start_for_responspcA_U->if_read(response_f_U0_ap_ready);
-    start_for_responsqcK_U = new start_for_responsqcK("start_for_responsqcK_U");
-    start_for_responsqcK_U->clk(ap_clk);
-    start_for_responsqcK_U->reset(ap_rst_n_inv);
-    start_for_responsqcK_U->if_read_ce(ap_var_for_const0);
-    start_for_responsqcK_U->if_write_ce(ap_var_for_const0);
-    start_for_responsqcK_U->if_din(start_for_response_r_U0_din);
-    start_for_responsqcK_U->if_full_n(start_for_response_r_U0_full_n);
-    start_for_responsqcK_U->if_write(response_f_U0_start_write);
-    start_for_responsqcK_U->if_dout(start_for_response_r_U0_dout);
-    start_for_responsqcK_U->if_empty_n(start_for_response_r_U0_empty_n);
-    start_for_responsqcK_U->if_read(response_r_U0_ap_ready);
+    start_for_responskbM_U = new start_for_responskbM("start_for_responskbM_U");
+    start_for_responskbM_U->clk(ap_clk);
+    start_for_responskbM_U->reset(ap_rst_n_inv);
+    start_for_responskbM_U->if_read_ce(ap_var_for_const0);
+    start_for_responskbM_U->if_write_ce(ap_var_for_const0);
+    start_for_responskbM_U->if_din(start_for_response_f_U0_din);
+    start_for_responskbM_U->if_full_n(start_for_response_f_U0_full_n);
+    start_for_responskbM_U->if_write(remux_U0_start_write);
+    start_for_responskbM_U->if_dout(start_for_response_f_U0_dout);
+    start_for_responskbM_U->if_empty_n(start_for_response_f_U0_empty_n);
+    start_for_responskbM_U->if_read(response_f_U0_ap_ready);
+    start_for_responslbW_U = new start_for_responslbW("start_for_responslbW_U");
+    start_for_responslbW_U->clk(ap_clk);
+    start_for_responslbW_U->reset(ap_rst_n_inv);
+    start_for_responslbW_U->if_read_ce(ap_var_for_const0);
+    start_for_responslbW_U->if_write_ce(ap_var_for_const0);
+    start_for_responslbW_U->if_din(start_for_response_r_U0_din);
+    start_for_responslbW_U->if_full_n(start_for_response_r_U0_full_n);
+    start_for_responslbW_U->if_write(response_f_U0_start_write);
+    start_for_responslbW_U->if_dout(start_for_response_r_U0_dout);
+    start_for_responslbW_U->if_empty_n(start_for_response_r_U0_empty_n);
+    start_for_responslbW_U->if_read(response_r_U0_ap_ready);
 
     SC_METHOD(thread_accessControl_U0_ap_continue);
 
@@ -1478,9 +1144,9 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
 
     SC_METHOD(thread_bobj_U0_start_write);
 
-    SC_METHOD(thread_bp_f1192_U0_ap_continue);
+    SC_METHOD(thread_bp_f1244_U0_ap_continue);
 
-    SC_METHOD(thread_bp_f1192_U0_ap_start);
+    SC_METHOD(thread_bp_f1244_U0_ap_start);
 
     SC_METHOD(thread_bp_r_U0_ap_continue);
 
@@ -1530,67 +1196,6 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
 
     SC_METHOD(thread_dramValueStoreMemWrData_V_V_TVALID);
     sensitive << ( setPath_U0_memWrData_V_V_TVALID );
-
-    SC_METHOD(thread_flashDemux_U0_ap_continue);
-
-    SC_METHOD(thread_flashDemux_U0_ap_start);
-    sensitive << ( start_for_flashDemux_U0_empty_n );
-
-    SC_METHOD(thread_flashDemux_U0_start_full_n);
-    sensitive << ( start_for_flashSetPathNoFilter_U0_full_n );
-    sensitive << ( start_for_flashDispatch_U0_full_n );
-
-    SC_METHOD(thread_flashDispatch_U0_ap_continue);
-
-    SC_METHOD(thread_flashDispatch_U0_ap_start);
-    sensitive << ( start_for_flashDispatch_U0_empty_n );
-
-    SC_METHOD(thread_flashDispatch_U0_start_full_n);
-
-    SC_METHOD(thread_flashDispatch_U0_start_write);
-
-    SC_METHOD(thread_flashReceiveNoFilter_U0_ap_continue);
-
-    SC_METHOD(thread_flashReceiveNoFilter_U0_ap_start);
-
-    SC_METHOD(thread_flashRemux_U0_ap_continue);
-
-    SC_METHOD(thread_flashRemux_U0_ap_start);
-    sensitive << ( start_for_flashRemux_U0_empty_n );
-
-    SC_METHOD(thread_flashRemux_U0_start_full_n);
-
-    SC_METHOD(thread_flashRemux_U0_start_write);
-
-    SC_METHOD(thread_flashSetPathNoFilter_U0_ap_continue);
-
-    SC_METHOD(thread_flashSetPathNoFilter_U0_ap_start);
-    sensitive << ( start_for_flashSetPathNoFilter_U0_empty_n );
-
-    SC_METHOD(thread_flashSetPathNoFilter_U0_start_full_n);
-
-    SC_METHOD(thread_flashSetPathNoFilter_U0_start_write);
-
-    SC_METHOD(thread_flashValueStoreMemRdCmd_V_TDATA);
-    sensitive << ( flashDispatch_U0_memRdCmd_V_TDATA );
-
-    SC_METHOD(thread_flashValueStoreMemRdCmd_V_TVALID);
-    sensitive << ( flashDispatch_U0_memRdCmd_V_TVALID );
-
-    SC_METHOD(thread_flashValueStoreMemRdData_V_V_TREADY);
-    sensitive << ( flashReceiveNoFilter_U0_memRdData_V_V_TREADY );
-
-    SC_METHOD(thread_flashValueStoreMemWrCmd_V_TDATA);
-    sensitive << ( flashSetPathNoFilter_U0_memWrCmd_V_TDATA );
-
-    SC_METHOD(thread_flashValueStoreMemWrCmd_V_TVALID);
-    sensitive << ( flashSetPathNoFilter_U0_memWrCmd_V_TVALID );
-
-    SC_METHOD(thread_flashValueStoreMemWrData_V_V_TDATA);
-    sensitive << ( flashSetPathNoFilter_U0_memWrData_V_V_TDATA );
-
-    SC_METHOD(thread_flashValueStoreMemWrData_V_V_TVALID);
-    sensitive << ( flashSetPathNoFilter_U0_memWrData_V_V_TVALID );
 
     SC_METHOD(thread_flushDone_V);
     sensitive << ( memWrite_U0_flushDone_V );
@@ -1647,7 +1252,7 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     sensitive << ( start_for_ht_outputLogic_U0_empty_n );
 
     SC_METHOD(thread_inData_TREADY);
-    sensitive << ( bp_f1192_U0_inData_TREADY );
+    sensitive << ( bp_f1244_U0_inData_TREADY );
 
     SC_METHOD(thread_memRead_U0_ap_continue);
 
@@ -1669,11 +1274,6 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     SC_METHOD(thread_memcachedPipeline_en_U0_start_full_n);
 
     SC_METHOD(thread_memcachedPipeline_en_U0_start_write);
-
-    SC_METHOD(thread_merger_U0_ap_continue);
-
-    SC_METHOD(thread_merger_U0_ap_start);
-    sensitive << ( start_for_merger_U0_empty_n );
 
     SC_METHOD(thread_outData_TDATA);
     sensitive << ( response_r_U0_outData_TDATA );
@@ -1722,15 +1322,6 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
 
     SC_METHOD(thread_setPath_U0_start_write);
 
-    SC_METHOD(thread_splitter_U0_ap_continue);
-
-    SC_METHOD(thread_splitter_U0_ap_start);
-    sensitive << ( start_for_splitter_U0_empty_n );
-
-    SC_METHOD(thread_splitter_U0_start_full_n);
-    sensitive << ( start_for_accessControl_U0_full_n );
-    sensitive << ( start_for_flashDemux_U0_full_n );
-
     SC_METHOD(thread_start_for_accessControl_U0_din);
 
     SC_METHOD(thread_start_for_bobj_U0_din);
@@ -1743,14 +1334,6 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
 
     SC_METHOD(thread_start_for_dispatch_U0_din);
 
-    SC_METHOD(thread_start_for_flashDemux_U0_din);
-
-    SC_METHOD(thread_start_for_flashDispatch_U0_din);
-
-    SC_METHOD(thread_start_for_flashRemux_U0_din);
-
-    SC_METHOD(thread_start_for_flashSetPathNoFilter_U0_din);
-
     SC_METHOD(thread_start_for_hashKeyResizer_U0_din);
 
     SC_METHOD(thread_start_for_ht_inputLogic_U0_din);
@@ -1759,8 +1342,6 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
 
     SC_METHOD(thread_start_for_memRead_U0_din);
 
-    SC_METHOD(thread_start_for_merger_U0_din);
-
     SC_METHOD(thread_start_for_remux_U0_din);
 
     SC_METHOD(thread_start_for_response_f_U0_din);
@@ -1768,8 +1349,6 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     SC_METHOD(thread_start_for_response_r_U0_din);
 
     SC_METHOD(thread_start_for_setPath_U0_din);
-
-    SC_METHOD(thread_start_for_splitter_U0_din);
 
     SC_THREAD(thread_hdltv_gen);
     sensitive << ( ap_clk.pos() );
@@ -1796,10 +1375,6 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, dramValueStoreMemRdData_V_V_TDATA, "(port)dramValueStoreMemRdData_V_V_TDATA");
     sc_trace(mVcdFile, dramValueStoreMemWrCmd_V_TDATA, "(port)dramValueStoreMemWrCmd_V_TDATA");
     sc_trace(mVcdFile, dramValueStoreMemWrData_V_V_TDATA, "(port)dramValueStoreMemWrData_V_V_TDATA");
-    sc_trace(mVcdFile, flashValueStoreMemRdCmd_V_TDATA, "(port)flashValueStoreMemRdCmd_V_TDATA");
-    sc_trace(mVcdFile, flashValueStoreMemRdData_V_V_TDATA, "(port)flashValueStoreMemRdData_V_V_TDATA");
-    sc_trace(mVcdFile, flashValueStoreMemWrCmd_V_TDATA, "(port)flashValueStoreMemWrCmd_V_TDATA");
-    sc_trace(mVcdFile, flashValueStoreMemWrData_V_V_TDATA, "(port)flashValueStoreMemWrData_V_V_TDATA");
     sc_trace(mVcdFile, hashTableMemRdData_V_V_TDATA, "(port)hashTableMemRdData_V_V_TDATA");
     sc_trace(mVcdFile, hashTableMemRdCmd_V_TDATA, "(port)hashTableMemRdCmd_V_TDATA");
     sc_trace(mVcdFile, hashTableMemWrData_V_V_TDATA, "(port)hashTableMemWrData_V_V_TDATA");
@@ -1836,14 +1411,6 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, dramValueStoreMemRdCmd_V_TREADY, "(port)dramValueStoreMemRdCmd_V_TREADY");
     sc_trace(mVcdFile, dramValueStoreMemRdData_V_V_TVALID, "(port)dramValueStoreMemRdData_V_V_TVALID");
     sc_trace(mVcdFile, dramValueStoreMemRdData_V_V_TREADY, "(port)dramValueStoreMemRdData_V_V_TREADY");
-    sc_trace(mVcdFile, flashValueStoreMemWrCmd_V_TVALID, "(port)flashValueStoreMemWrCmd_V_TVALID");
-    sc_trace(mVcdFile, flashValueStoreMemWrCmd_V_TREADY, "(port)flashValueStoreMemWrCmd_V_TREADY");
-    sc_trace(mVcdFile, flashValueStoreMemWrData_V_V_TVALID, "(port)flashValueStoreMemWrData_V_V_TVALID");
-    sc_trace(mVcdFile, flashValueStoreMemWrData_V_V_TREADY, "(port)flashValueStoreMemWrData_V_V_TREADY");
-    sc_trace(mVcdFile, flashValueStoreMemRdCmd_V_TVALID, "(port)flashValueStoreMemRdCmd_V_TVALID");
-    sc_trace(mVcdFile, flashValueStoreMemRdCmd_V_TREADY, "(port)flashValueStoreMemRdCmd_V_TREADY");
-    sc_trace(mVcdFile, flashValueStoreMemRdData_V_V_TVALID, "(port)flashValueStoreMemRdData_V_V_TVALID");
-    sc_trace(mVcdFile, flashValueStoreMemRdData_V_V_TREADY, "(port)flashValueStoreMemRdData_V_V_TREADY");
     sc_trace(mVcdFile, outData_TVALID, "(port)outData_TVALID");
     sc_trace(mVcdFile, outData_TREADY, "(port)outData_TREADY");
 #endif
@@ -1856,23 +1423,23 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, memcachedPipeline_en_U0_ap_ready, "memcachedPipeline_en_U0_ap_ready");
     sc_trace(mVcdFile, memcachedPipeline_en_U0_flushAck_V_out_din, "memcachedPipeline_en_U0_flushAck_V_out_din");
     sc_trace(mVcdFile, memcachedPipeline_en_U0_flushAck_V_out_write, "memcachedPipeline_en_U0_flushAck_V_out_write");
-    sc_trace(mVcdFile, bp_f1192_U0_ap_start, "bp_f1192_U0_ap_start");
-    sc_trace(mVcdFile, bp_f1192_U0_ap_done, "bp_f1192_U0_ap_done");
-    sc_trace(mVcdFile, bp_f1192_U0_ap_continue, "bp_f1192_U0_ap_continue");
-    sc_trace(mVcdFile, bp_f1192_U0_ap_idle, "bp_f1192_U0_ap_idle");
-    sc_trace(mVcdFile, bp_f1192_U0_ap_ready, "bp_f1192_U0_ap_ready");
-    sc_trace(mVcdFile, bp_f1192_U0_flushAck_V_read, "bp_f1192_U0_flushAck_V_read");
-    sc_trace(mVcdFile, bp_f1192_U0_flushAck_V_out_din, "bp_f1192_U0_flushAck_V_out_din");
-    sc_trace(mVcdFile, bp_f1192_U0_flushAck_V_out_write, "bp_f1192_U0_flushAck_V_out_write");
-    sc_trace(mVcdFile, bp_f1192_U0_valueBuffer_rp_V_V_din, "bp_f1192_U0_valueBuffer_rp_V_V_din");
-    sc_trace(mVcdFile, bp_f1192_U0_valueBuffer_rp_V_V_write, "bp_f1192_U0_valueBuffer_rp_V_V_write");
-    sc_trace(mVcdFile, bp_f1192_U0_keyBuffer_rp_V_V_din, "bp_f1192_U0_keyBuffer_rp_V_V_din");
-    sc_trace(mVcdFile, bp_f1192_U0_keyBuffer_rp_V_V_write, "bp_f1192_U0_keyBuffer_rp_V_V_write");
-    sc_trace(mVcdFile, bp_f1192_U0_metadataBuffer_rp_V_s_din, "bp_f1192_U0_metadataBuffer_rp_V_s_din");
-    sc_trace(mVcdFile, bp_f1192_U0_metadataBuffer_rp_V_s_write, "bp_f1192_U0_metadataBuffer_rp_V_s_write");
-    sc_trace(mVcdFile, bp_f1192_U0_start_out, "bp_f1192_U0_start_out");
-    sc_trace(mVcdFile, bp_f1192_U0_start_write, "bp_f1192_U0_start_write");
-    sc_trace(mVcdFile, bp_f1192_U0_inData_TREADY, "bp_f1192_U0_inData_TREADY");
+    sc_trace(mVcdFile, bp_f1244_U0_ap_start, "bp_f1244_U0_ap_start");
+    sc_trace(mVcdFile, bp_f1244_U0_ap_done, "bp_f1244_U0_ap_done");
+    sc_trace(mVcdFile, bp_f1244_U0_ap_continue, "bp_f1244_U0_ap_continue");
+    sc_trace(mVcdFile, bp_f1244_U0_ap_idle, "bp_f1244_U0_ap_idle");
+    sc_trace(mVcdFile, bp_f1244_U0_ap_ready, "bp_f1244_U0_ap_ready");
+    sc_trace(mVcdFile, bp_f1244_U0_flushAck_V_read, "bp_f1244_U0_flushAck_V_read");
+    sc_trace(mVcdFile, bp_f1244_U0_flushAck_V_out_din, "bp_f1244_U0_flushAck_V_out_din");
+    sc_trace(mVcdFile, bp_f1244_U0_flushAck_V_out_write, "bp_f1244_U0_flushAck_V_out_write");
+    sc_trace(mVcdFile, bp_f1244_U0_valueBuffer_rp_V_V_din, "bp_f1244_U0_valueBuffer_rp_V_V_din");
+    sc_trace(mVcdFile, bp_f1244_U0_valueBuffer_rp_V_V_write, "bp_f1244_U0_valueBuffer_rp_V_V_write");
+    sc_trace(mVcdFile, bp_f1244_U0_keyBuffer_rp_V_V_din, "bp_f1244_U0_keyBuffer_rp_V_V_din");
+    sc_trace(mVcdFile, bp_f1244_U0_keyBuffer_rp_V_V_write, "bp_f1244_U0_keyBuffer_rp_V_V_write");
+    sc_trace(mVcdFile, bp_f1244_U0_metadataBuffer_rp_V_s_din, "bp_f1244_U0_metadataBuffer_rp_V_s_din");
+    sc_trace(mVcdFile, bp_f1244_U0_metadataBuffer_rp_V_s_write, "bp_f1244_U0_metadataBuffer_rp_V_s_write");
+    sc_trace(mVcdFile, bp_f1244_U0_start_out, "bp_f1244_U0_start_out");
+    sc_trace(mVcdFile, bp_f1244_U0_start_write, "bp_f1244_U0_start_write");
+    sc_trace(mVcdFile, bp_f1244_U0_inData_TREADY, "bp_f1244_U0_inData_TREADY");
     sc_trace(mVcdFile, bp_r_U0_ap_start, "bp_r_U0_ap_start");
     sc_trace(mVcdFile, bp_r_U0_ap_done, "bp_r_U0_ap_done");
     sc_trace(mVcdFile, bp_r_U0_ap_continue, "bp_r_U0_ap_continue");
@@ -2015,23 +1582,10 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, ht_outputLogic_U0_hashValueBuffer_V_V_read, "ht_outputLogic_U0_hashValueBuffer_V_V_read");
     sc_trace(mVcdFile, ht_outputLogic_U0_hashMdBuffer_V_V_read, "ht_outputLogic_U0_hashMdBuffer_V_V_read");
     sc_trace(mVcdFile, ht_outputLogic_U0_memWr2out_V_read, "ht_outputLogic_U0_memWr2out_V_read");
-    sc_trace(mVcdFile, ht_outputLogic_U0_hashTable2splitter_V_din, "ht_outputLogic_U0_hashTable2splitter_V_din");
-    sc_trace(mVcdFile, ht_outputLogic_U0_hashTable2splitter_V_write, "ht_outputLogic_U0_hashTable2splitter_V_write");
+    sc_trace(mVcdFile, ht_outputLogic_U0_hashTable2Dram_V_din, "ht_outputLogic_U0_hashTable2Dram_V_din");
+    sc_trace(mVcdFile, ht_outputLogic_U0_hashTable2Dram_V_write, "ht_outputLogic_U0_hashTable2Dram_V_write");
     sc_trace(mVcdFile, ht_outputLogic_U0_start_out, "ht_outputLogic_U0_start_out");
     sc_trace(mVcdFile, ht_outputLogic_U0_start_write, "ht_outputLogic_U0_start_write");
-    sc_trace(mVcdFile, splitter_U0_ap_start, "splitter_U0_ap_start");
-    sc_trace(mVcdFile, splitter_U0_start_full_n, "splitter_U0_start_full_n");
-    sc_trace(mVcdFile, splitter_U0_ap_done, "splitter_U0_ap_done");
-    sc_trace(mVcdFile, splitter_U0_ap_continue, "splitter_U0_ap_continue");
-    sc_trace(mVcdFile, splitter_U0_ap_idle, "splitter_U0_ap_idle");
-    sc_trace(mVcdFile, splitter_U0_ap_ready, "splitter_U0_ap_ready");
-    sc_trace(mVcdFile, splitter_U0_hashTable2splitter_V_read, "splitter_U0_hashTable2splitter_V_read");
-    sc_trace(mVcdFile, splitter_U0_splitter2valueStoreF_1_din, "splitter_U0_splitter2valueStoreF_1_din");
-    sc_trace(mVcdFile, splitter_U0_splitter2valueStoreF_1_write, "splitter_U0_splitter2valueStoreF_1_write");
-    sc_trace(mVcdFile, splitter_U0_splitter2valueStoreD_1_din, "splitter_U0_splitter2valueStoreD_1_din");
-    sc_trace(mVcdFile, splitter_U0_splitter2valueStoreD_1_write, "splitter_U0_splitter2valueStoreD_1_write");
-    sc_trace(mVcdFile, splitter_U0_start_out, "splitter_U0_start_out");
-    sc_trace(mVcdFile, splitter_U0_start_write, "splitter_U0_start_write");
     sc_trace(mVcdFile, accessControl_U0_ap_start, "accessControl_U0_ap_start");
     sc_trace(mVcdFile, accessControl_U0_ap_done, "accessControl_U0_ap_done");
     sc_trace(mVcdFile, accessControl_U0_ap_continue, "accessControl_U0_ap_continue");
@@ -2039,7 +1593,7 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, accessControl_U0_ap_ready, "accessControl_U0_ap_ready");
     sc_trace(mVcdFile, accessControl_U0_filterPopGet_V_V_read, "accessControl_U0_filterPopGet_V_V_read");
     sc_trace(mVcdFile, accessControl_U0_filterPopSet_V_V_read, "accessControl_U0_filterPopSet_V_V_read");
-    sc_trace(mVcdFile, accessControl_U0_splitter2valueStoreD_1_read, "accessControl_U0_splitter2valueStoreD_1_read");
+    sc_trace(mVcdFile, accessControl_U0_hashTable2Dram_V_read, "accessControl_U0_hashTable2Dram_V_read");
     sc_trace(mVcdFile, accessControl_U0_accCtrl2demux_V_din, "accessControl_U0_accCtrl2demux_V_din");
     sc_trace(mVcdFile, accessControl_U0_accCtrl2demux_V_write, "accessControl_U0_accCtrl2demux_V_write");
     sc_trace(mVcdFile, accessControl_U0_start_out, "accessControl_U0_start_out");
@@ -2111,78 +1665,6 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, remux_U0_valueStoreDram2merge_1_write, "remux_U0_valueStoreDram2merge_1_write");
     sc_trace(mVcdFile, remux_U0_start_out, "remux_U0_start_out");
     sc_trace(mVcdFile, remux_U0_start_write, "remux_U0_start_write");
-    sc_trace(mVcdFile, flashDemux_U0_ap_start, "flashDemux_U0_ap_start");
-    sc_trace(mVcdFile, flashDemux_U0_start_full_n, "flashDemux_U0_start_full_n");
-    sc_trace(mVcdFile, flashDemux_U0_ap_done, "flashDemux_U0_ap_done");
-    sc_trace(mVcdFile, flashDemux_U0_ap_continue, "flashDemux_U0_ap_continue");
-    sc_trace(mVcdFile, flashDemux_U0_ap_idle, "flashDemux_U0_ap_idle");
-    sc_trace(mVcdFile, flashDemux_U0_ap_ready, "flashDemux_U0_ap_ready");
-    sc_trace(mVcdFile, flashDemux_U0_splitter2valueStoreF_1_read, "flashDemux_U0_splitter2valueStoreF_1_read");
-    sc_trace(mVcdFile, flashDemux_U0_flashMetadataBuffer_s_0_din, "flashDemux_U0_flashMetadataBuffer_s_0_din");
-    sc_trace(mVcdFile, flashDemux_U0_flashMetadataBuffer_s_0_write, "flashDemux_U0_flashMetadataBuffer_s_0_write");
-    sc_trace(mVcdFile, flashDemux_U0_flashKeyBuffer_V_V_din, "flashDemux_U0_flashKeyBuffer_V_V_din");
-    sc_trace(mVcdFile, flashDemux_U0_flashKeyBuffer_V_V_write, "flashDemux_U0_flashKeyBuffer_V_V_write");
-    sc_trace(mVcdFile, flashDemux_U0_flashDemux2setPathVa_1_din, "flashDemux_U0_flashDemux2setPathVa_1_din");
-    sc_trace(mVcdFile, flashDemux_U0_flashDemux2setPathVa_1_write, "flashDemux_U0_flashDemux2setPathVa_1_write");
-    sc_trace(mVcdFile, flashDemux_U0_flashDemux2setPathMe_1_din, "flashDemux_U0_flashDemux2setPathMe_1_din");
-    sc_trace(mVcdFile, flashDemux_U0_flashDemux2setPathMe_1_write, "flashDemux_U0_flashDemux2setPathMe_1_write");
-    sc_trace(mVcdFile, flashDemux_U0_flashDemux2getPath_V_din, "flashDemux_U0_flashDemux2getPath_V_din");
-    sc_trace(mVcdFile, flashDemux_U0_flashDemux2getPath_V_write, "flashDemux_U0_flashDemux2getPath_V_write");
-    sc_trace(mVcdFile, flashDemux_U0_start_out, "flashDemux_U0_start_out");
-    sc_trace(mVcdFile, flashDemux_U0_start_write, "flashDemux_U0_start_write");
-    sc_trace(mVcdFile, flashSetPathNoFilter_U0_ap_start, "flashSetPathNoFilter_U0_ap_start");
-    sc_trace(mVcdFile, flashSetPathNoFilter_U0_ap_done, "flashSetPathNoFilter_U0_ap_done");
-    sc_trace(mVcdFile, flashSetPathNoFilter_U0_ap_continue, "flashSetPathNoFilter_U0_ap_continue");
-    sc_trace(mVcdFile, flashSetPathNoFilter_U0_ap_idle, "flashSetPathNoFilter_U0_ap_idle");
-    sc_trace(mVcdFile, flashSetPathNoFilter_U0_ap_ready, "flashSetPathNoFilter_U0_ap_ready");
-    sc_trace(mVcdFile, flashSetPathNoFilter_U0_flashDemux2setPathMe_1_read, "flashSetPathNoFilter_U0_flashDemux2setPathMe_1_read");
-    sc_trace(mVcdFile, flashSetPathNoFilter_U0_flashDemux2setPathVa_1_read, "flashSetPathNoFilter_U0_flashDemux2setPathVa_1_read");
-    sc_trace(mVcdFile, flashSetPathNoFilter_U0_memWrCmd_V_TDATA, "flashSetPathNoFilter_U0_memWrCmd_V_TDATA");
-    sc_trace(mVcdFile, flashSetPathNoFilter_U0_memWrCmd_V_TVALID, "flashSetPathNoFilter_U0_memWrCmd_V_TVALID");
-    sc_trace(mVcdFile, flashSetPathNoFilter_U0_memWrData_V_V_TDATA, "flashSetPathNoFilter_U0_memWrData_V_V_TDATA");
-    sc_trace(mVcdFile, flashSetPathNoFilter_U0_memWrData_V_V_TVALID, "flashSetPathNoFilter_U0_memWrData_V_V_TVALID");
-    sc_trace(mVcdFile, flashDispatch_U0_ap_start, "flashDispatch_U0_ap_start");
-    sc_trace(mVcdFile, flashDispatch_U0_ap_done, "flashDispatch_U0_ap_done");
-    sc_trace(mVcdFile, flashDispatch_U0_ap_continue, "flashDispatch_U0_ap_continue");
-    sc_trace(mVcdFile, flashDispatch_U0_ap_idle, "flashDispatch_U0_ap_idle");
-    sc_trace(mVcdFile, flashDispatch_U0_ap_ready, "flashDispatch_U0_ap_ready");
-    sc_trace(mVcdFile, flashDispatch_U0_flashDemux2getPath_V_read, "flashDispatch_U0_flashDemux2getPath_V_read");
-    sc_trace(mVcdFile, flashDispatch_U0_flash_Disp2rec_V_V_din, "flashDispatch_U0_flash_Disp2rec_V_V_din");
-    sc_trace(mVcdFile, flashDispatch_U0_flash_Disp2rec_V_V_write, "flashDispatch_U0_flash_Disp2rec_V_V_write");
-    sc_trace(mVcdFile, flashDispatch_U0_memRdCmd_V_TDATA, "flashDispatch_U0_memRdCmd_V_TDATA");
-    sc_trace(mVcdFile, flashDispatch_U0_memRdCmd_V_TVALID, "flashDispatch_U0_memRdCmd_V_TVALID");
-    sc_trace(mVcdFile, flashReceiveNoFilter_U0_ap_start, "flashReceiveNoFilter_U0_ap_start");
-    sc_trace(mVcdFile, flashReceiveNoFilter_U0_ap_done, "flashReceiveNoFilter_U0_ap_done");
-    sc_trace(mVcdFile, flashReceiveNoFilter_U0_ap_continue, "flashReceiveNoFilter_U0_ap_continue");
-    sc_trace(mVcdFile, flashReceiveNoFilter_U0_ap_idle, "flashReceiveNoFilter_U0_ap_idle");
-    sc_trace(mVcdFile, flashReceiveNoFilter_U0_ap_ready, "flashReceiveNoFilter_U0_ap_ready");
-    sc_trace(mVcdFile, flashReceiveNoFilter_U0_flash_Disp2rec_V_V_read, "flashReceiveNoFilter_U0_flash_Disp2rec_V_V_read");
-    sc_trace(mVcdFile, flashReceiveNoFilter_U0_flashGetPath2remux_V_din, "flashReceiveNoFilter_U0_flashGetPath2remux_V_din");
-    sc_trace(mVcdFile, flashReceiveNoFilter_U0_flashGetPath2remux_V_write, "flashReceiveNoFilter_U0_flashGetPath2remux_V_write");
-    sc_trace(mVcdFile, flashReceiveNoFilter_U0_start_out, "flashReceiveNoFilter_U0_start_out");
-    sc_trace(mVcdFile, flashReceiveNoFilter_U0_start_write, "flashReceiveNoFilter_U0_start_write");
-    sc_trace(mVcdFile, flashReceiveNoFilter_U0_memRdData_V_V_TREADY, "flashReceiveNoFilter_U0_memRdData_V_V_TREADY");
-    sc_trace(mVcdFile, flashRemux_U0_ap_start, "flashRemux_U0_ap_start");
-    sc_trace(mVcdFile, flashRemux_U0_ap_done, "flashRemux_U0_ap_done");
-    sc_trace(mVcdFile, flashRemux_U0_ap_continue, "flashRemux_U0_ap_continue");
-    sc_trace(mVcdFile, flashRemux_U0_ap_idle, "flashRemux_U0_ap_idle");
-    sc_trace(mVcdFile, flashRemux_U0_ap_ready, "flashRemux_U0_ap_ready");
-    sc_trace(mVcdFile, flashRemux_U0_flashKeyBuffer_V_V_read, "flashRemux_U0_flashKeyBuffer_V_V_read");
-    sc_trace(mVcdFile, flashRemux_U0_flashGetPath2remux_V_read, "flashRemux_U0_flashGetPath2remux_V_read");
-    sc_trace(mVcdFile, flashRemux_U0_flashMetadataBuffer_s_0_read, "flashRemux_U0_flashMetadataBuffer_s_0_read");
-    sc_trace(mVcdFile, flashRemux_U0_valueStoreFlash2merg_1_din, "flashRemux_U0_valueStoreFlash2merg_1_din");
-    sc_trace(mVcdFile, flashRemux_U0_valueStoreFlash2merg_1_write, "flashRemux_U0_valueStoreFlash2merg_1_write");
-    sc_trace(mVcdFile, merger_U0_ap_start, "merger_U0_ap_start");
-    sc_trace(mVcdFile, merger_U0_ap_done, "merger_U0_ap_done");
-    sc_trace(mVcdFile, merger_U0_ap_continue, "merger_U0_ap_continue");
-    sc_trace(mVcdFile, merger_U0_ap_idle, "merger_U0_ap_idle");
-    sc_trace(mVcdFile, merger_U0_ap_ready, "merger_U0_ap_ready");
-    sc_trace(mVcdFile, merger_U0_valueStoreDram2merge_1_read, "merger_U0_valueStoreDram2merge_1_read");
-    sc_trace(mVcdFile, merger_U0_valueStoreFlash2merg_1_read, "merger_U0_valueStoreFlash2merg_1_read");
-    sc_trace(mVcdFile, merger_U0_merger2responseForma_1_din, "merger_U0_merger2responseForma_1_din");
-    sc_trace(mVcdFile, merger_U0_merger2responseForma_1_write, "merger_U0_merger2responseForma_1_write");
-    sc_trace(mVcdFile, merger_U0_start_out, "merger_U0_start_out");
-    sc_trace(mVcdFile, merger_U0_start_write, "merger_U0_start_write");
     sc_trace(mVcdFile, response_f_U0_ap_start, "response_f_U0_ap_start");
     sc_trace(mVcdFile, response_f_U0_ap_done, "response_f_U0_ap_done");
     sc_trace(mVcdFile, response_f_U0_ap_continue, "response_f_U0_ap_continue");
@@ -2194,7 +1676,7 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, response_f_U0_valueBuffer_rf_V_V_write, "response_f_U0_valueBuffer_rf_V_V_write");
     sc_trace(mVcdFile, response_f_U0_metadataBuffer_rf_V_s_din, "response_f_U0_metadataBuffer_rf_V_s_din");
     sc_trace(mVcdFile, response_f_U0_metadataBuffer_rf_V_s_write, "response_f_U0_metadataBuffer_rf_V_s_write");
-    sc_trace(mVcdFile, response_f_U0_merger2responseForma_1_read, "response_f_U0_merger2responseForma_1_read");
+    sc_trace(mVcdFile, response_f_U0_valueStoreDram2merge_1_read, "response_f_U0_valueStoreDram2merge_1_read");
     sc_trace(mVcdFile, response_r_U0_ap_start, "response_r_U0_ap_start");
     sc_trace(mVcdFile, response_r_U0_ap_done, "response_r_U0_ap_done");
     sc_trace(mVcdFile, response_r_U0_ap_continue, "response_r_U0_ap_continue");
@@ -2288,15 +1770,9 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, memWr2out_V_full_n, "memWr2out_V_full_n");
     sc_trace(mVcdFile, memWr2out_V_dout, "memWr2out_V_dout");
     sc_trace(mVcdFile, memWr2out_V_empty_n, "memWr2out_V_empty_n");
-    sc_trace(mVcdFile, hashTable2splitter_V_full_n, "hashTable2splitter_V_full_n");
-    sc_trace(mVcdFile, hashTable2splitter_V_dout, "hashTable2splitter_V_dout");
-    sc_trace(mVcdFile, hashTable2splitter_V_empty_n, "hashTable2splitter_V_empty_n");
-    sc_trace(mVcdFile, splitter2valueStoreF_1_full_n, "splitter2valueStoreF_1_full_n");
-    sc_trace(mVcdFile, splitter2valueStoreF_1_dout, "splitter2valueStoreF_1_dout");
-    sc_trace(mVcdFile, splitter2valueStoreF_1_empty_n, "splitter2valueStoreF_1_empty_n");
-    sc_trace(mVcdFile, splitter2valueStoreD_1_full_n, "splitter2valueStoreD_1_full_n");
-    sc_trace(mVcdFile, splitter2valueStoreD_1_dout, "splitter2valueStoreD_1_dout");
-    sc_trace(mVcdFile, splitter2valueStoreD_1_empty_n, "splitter2valueStoreD_1_empty_n");
+    sc_trace(mVcdFile, hashTable2Dram_V_full_n, "hashTable2Dram_V_full_n");
+    sc_trace(mVcdFile, hashTable2Dram_V_dout, "hashTable2Dram_V_dout");
+    sc_trace(mVcdFile, hashTable2Dram_V_empty_n, "hashTable2Dram_V_empty_n");
     sc_trace(mVcdFile, filterPopSet_V_V_full_n, "filterPopSet_V_V_full_n");
     sc_trace(mVcdFile, filterPopSet_V_V_dout, "filterPopSet_V_V_dout");
     sc_trace(mVcdFile, filterPopSet_V_V_empty_n, "filterPopSet_V_V_empty_n");
@@ -2330,33 +1806,6 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, valueStoreDram2merge_1_full_n, "valueStoreDram2merge_1_full_n");
     sc_trace(mVcdFile, valueStoreDram2merge_1_dout, "valueStoreDram2merge_1_dout");
     sc_trace(mVcdFile, valueStoreDram2merge_1_empty_n, "valueStoreDram2merge_1_empty_n");
-    sc_trace(mVcdFile, flashMetadataBuffer_s_0_full_n, "flashMetadataBuffer_s_0_full_n");
-    sc_trace(mVcdFile, flashMetadataBuffer_s_0_dout, "flashMetadataBuffer_s_0_dout");
-    sc_trace(mVcdFile, flashMetadataBuffer_s_0_empty_n, "flashMetadataBuffer_s_0_empty_n");
-    sc_trace(mVcdFile, flashKeyBuffer_V_V_full_n, "flashKeyBuffer_V_V_full_n");
-    sc_trace(mVcdFile, flashKeyBuffer_V_V_dout, "flashKeyBuffer_V_V_dout");
-    sc_trace(mVcdFile, flashKeyBuffer_V_V_empty_n, "flashKeyBuffer_V_V_empty_n");
-    sc_trace(mVcdFile, flashDemux2getPath_V_full_n, "flashDemux2getPath_V_full_n");
-    sc_trace(mVcdFile, flashDemux2getPath_V_dout, "flashDemux2getPath_V_dout");
-    sc_trace(mVcdFile, flashDemux2getPath_V_empty_n, "flashDemux2getPath_V_empty_n");
-    sc_trace(mVcdFile, flashDemux2setPathMe_1_full_n, "flashDemux2setPathMe_1_full_n");
-    sc_trace(mVcdFile, flashDemux2setPathMe_1_dout, "flashDemux2setPathMe_1_dout");
-    sc_trace(mVcdFile, flashDemux2setPathMe_1_empty_n, "flashDemux2setPathMe_1_empty_n");
-    sc_trace(mVcdFile, flashDemux2setPathVa_1_full_n, "flashDemux2setPathVa_1_full_n");
-    sc_trace(mVcdFile, flashDemux2setPathVa_1_dout, "flashDemux2setPathVa_1_dout");
-    sc_trace(mVcdFile, flashDemux2setPathVa_1_empty_n, "flashDemux2setPathVa_1_empty_n");
-    sc_trace(mVcdFile, flash_Disp2rec_V_V_full_n, "flash_Disp2rec_V_V_full_n");
-    sc_trace(mVcdFile, flash_Disp2rec_V_V_dout, "flash_Disp2rec_V_V_dout");
-    sc_trace(mVcdFile, flash_Disp2rec_V_V_empty_n, "flash_Disp2rec_V_V_empty_n");
-    sc_trace(mVcdFile, flashGetPath2remux_V_full_n, "flashGetPath2remux_V_full_n");
-    sc_trace(mVcdFile, flashGetPath2remux_V_dout, "flashGetPath2remux_V_dout");
-    sc_trace(mVcdFile, flashGetPath2remux_V_empty_n, "flashGetPath2remux_V_empty_n");
-    sc_trace(mVcdFile, valueStoreFlash2merg_1_full_n, "valueStoreFlash2merg_1_full_n");
-    sc_trace(mVcdFile, valueStoreFlash2merg_1_dout, "valueStoreFlash2merg_1_dout");
-    sc_trace(mVcdFile, valueStoreFlash2merg_1_empty_n, "valueStoreFlash2merg_1_empty_n");
-    sc_trace(mVcdFile, merger2responseForma_1_full_n, "merger2responseForma_1_full_n");
-    sc_trace(mVcdFile, merger2responseForma_1_dout, "merger2responseForma_1_dout");
-    sc_trace(mVcdFile, merger2responseForma_1_empty_n, "merger2responseForma_1_empty_n");
     sc_trace(mVcdFile, valueBuffer_rf_V_V_full_n, "valueBuffer_rf_V_V_full_n");
     sc_trace(mVcdFile, valueBuffer_rf_V_V_dout, "valueBuffer_rf_V_V_dout");
     sc_trace(mVcdFile, valueBuffer_rf_V_V_empty_n, "valueBuffer_rf_V_V_empty_n");
@@ -2399,18 +1848,10 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, start_for_ht_outputLogic_U0_full_n, "start_for_ht_outputLogic_U0_full_n");
     sc_trace(mVcdFile, start_for_ht_outputLogic_U0_dout, "start_for_ht_outputLogic_U0_dout");
     sc_trace(mVcdFile, start_for_ht_outputLogic_U0_empty_n, "start_for_ht_outputLogic_U0_empty_n");
-    sc_trace(mVcdFile, start_for_splitter_U0_din, "start_for_splitter_U0_din");
-    sc_trace(mVcdFile, start_for_splitter_U0_full_n, "start_for_splitter_U0_full_n");
-    sc_trace(mVcdFile, start_for_splitter_U0_dout, "start_for_splitter_U0_dout");
-    sc_trace(mVcdFile, start_for_splitter_U0_empty_n, "start_for_splitter_U0_empty_n");
     sc_trace(mVcdFile, start_for_accessControl_U0_din, "start_for_accessControl_U0_din");
     sc_trace(mVcdFile, start_for_accessControl_U0_full_n, "start_for_accessControl_U0_full_n");
     sc_trace(mVcdFile, start_for_accessControl_U0_dout, "start_for_accessControl_U0_dout");
     sc_trace(mVcdFile, start_for_accessControl_U0_empty_n, "start_for_accessControl_U0_empty_n");
-    sc_trace(mVcdFile, start_for_flashDemux_U0_din, "start_for_flashDemux_U0_din");
-    sc_trace(mVcdFile, start_for_flashDemux_U0_full_n, "start_for_flashDemux_U0_full_n");
-    sc_trace(mVcdFile, start_for_flashDemux_U0_dout, "start_for_flashDemux_U0_dout");
-    sc_trace(mVcdFile, start_for_flashDemux_U0_empty_n, "start_for_flashDemux_U0_empty_n");
     sc_trace(mVcdFile, start_for_demux_U0_din, "start_for_demux_U0_din");
     sc_trace(mVcdFile, start_for_demux_U0_full_n, "start_for_demux_U0_full_n");
     sc_trace(mVcdFile, start_for_demux_U0_dout, "start_for_demux_U0_dout");
@@ -2431,28 +1872,6 @@ memcachedPipeline::memcachedPipeline(sc_module_name name) : sc_module(name), mVc
     sc_trace(mVcdFile, start_for_remux_U0_full_n, "start_for_remux_U0_full_n");
     sc_trace(mVcdFile, start_for_remux_U0_dout, "start_for_remux_U0_dout");
     sc_trace(mVcdFile, start_for_remux_U0_empty_n, "start_for_remux_U0_empty_n");
-    sc_trace(mVcdFile, start_for_merger_U0_din, "start_for_merger_U0_din");
-    sc_trace(mVcdFile, start_for_merger_U0_full_n, "start_for_merger_U0_full_n");
-    sc_trace(mVcdFile, start_for_merger_U0_dout, "start_for_merger_U0_dout");
-    sc_trace(mVcdFile, start_for_merger_U0_empty_n, "start_for_merger_U0_empty_n");
-    sc_trace(mVcdFile, start_for_flashSetPathNoFilter_U0_din, "start_for_flashSetPathNoFilter_U0_din");
-    sc_trace(mVcdFile, start_for_flashSetPathNoFilter_U0_full_n, "start_for_flashSetPathNoFilter_U0_full_n");
-    sc_trace(mVcdFile, start_for_flashSetPathNoFilter_U0_dout, "start_for_flashSetPathNoFilter_U0_dout");
-    sc_trace(mVcdFile, start_for_flashSetPathNoFilter_U0_empty_n, "start_for_flashSetPathNoFilter_U0_empty_n");
-    sc_trace(mVcdFile, start_for_flashDispatch_U0_din, "start_for_flashDispatch_U0_din");
-    sc_trace(mVcdFile, start_for_flashDispatch_U0_full_n, "start_for_flashDispatch_U0_full_n");
-    sc_trace(mVcdFile, start_for_flashDispatch_U0_dout, "start_for_flashDispatch_U0_dout");
-    sc_trace(mVcdFile, start_for_flashDispatch_U0_empty_n, "start_for_flashDispatch_U0_empty_n");
-    sc_trace(mVcdFile, flashSetPathNoFilter_U0_start_full_n, "flashSetPathNoFilter_U0_start_full_n");
-    sc_trace(mVcdFile, flashSetPathNoFilter_U0_start_write, "flashSetPathNoFilter_U0_start_write");
-    sc_trace(mVcdFile, flashDispatch_U0_start_full_n, "flashDispatch_U0_start_full_n");
-    sc_trace(mVcdFile, flashDispatch_U0_start_write, "flashDispatch_U0_start_write");
-    sc_trace(mVcdFile, start_for_flashRemux_U0_din, "start_for_flashRemux_U0_din");
-    sc_trace(mVcdFile, start_for_flashRemux_U0_full_n, "start_for_flashRemux_U0_full_n");
-    sc_trace(mVcdFile, start_for_flashRemux_U0_dout, "start_for_flashRemux_U0_dout");
-    sc_trace(mVcdFile, start_for_flashRemux_U0_empty_n, "start_for_flashRemux_U0_empty_n");
-    sc_trace(mVcdFile, flashRemux_U0_start_full_n, "flashRemux_U0_start_full_n");
-    sc_trace(mVcdFile, flashRemux_U0_start_write, "flashRemux_U0_start_write");
     sc_trace(mVcdFile, start_for_response_f_U0_din, "start_for_response_f_U0_din");
     sc_trace(mVcdFile, start_for_response_f_U0_full_n, "start_for_response_f_U0_full_n");
     sc_trace(mVcdFile, start_for_response_f_U0_dout, "start_for_response_f_U0_dout");
@@ -2479,7 +1898,7 @@ memcachedPipeline::~memcachedPipeline() {
     mHdltvinHandle.close();
     mHdltvoutHandle.close();
     delete memcachedPipeline_en_U0;
-    delete bp_f1192_U0;
+    delete bp_f1244_U0;
     delete bp_r_U0;
     delete ht_inputLogic_U0;
     delete hashKeyResizer_U0;
@@ -2489,19 +1908,12 @@ memcachedPipeline::~memcachedPipeline() {
     delete ht_compare_U0;
     delete memWrite_U0;
     delete ht_outputLogic_U0;
-    delete splitter_U0;
     delete accessControl_U0;
     delete demux_U0;
     delete setPath_U0;
     delete dispatch_U0;
     delete receive_U0;
     delete remux_U0;
-    delete flashDemux_U0;
-    delete flashSetPathNoFilter_U0;
-    delete flashDispatch_U0;
-    delete flashReceiveNoFilter_U0;
-    delete flashRemux_U0;
-    delete merger_U0;
     delete response_f_U0;
     delete response_r_U0;
     delete flushAck_V_c1_U;
@@ -2531,9 +1943,7 @@ memcachedPipeline::~memcachedPipeline() {
     delete comp2memWrMd_V_U;
     delete comp2memWrStatus_V_b_U;
     delete memWr2out_V_U;
-    delete hashTable2splitter_V_U;
-    delete splitter2valueStoreF_1_U;
-    delete splitter2valueStoreD_1_U;
+    delete hashTable2Dram_V_U;
     delete filterPopSet_V_V_U;
     delete filterPopGet_V_V_U;
     delete accCtrl2demux_V_U;
@@ -2545,15 +1955,6 @@ memcachedPipeline::~memcachedPipeline() {
     delete disp2rec_V_V_U;
     delete getPath2remux_V_V_U;
     delete valueStoreDram2merge_1_U;
-    delete flashMetadataBuffer_s_0_U;
-    delete flashKeyBuffer_V_V_U;
-    delete flashDemux2getPath_V_U;
-    delete flashDemux2setPathMe_1_U;
-    delete flashDemux2setPathVa_1_U;
-    delete flash_Disp2rec_V_V_U;
-    delete flashGetPath2remux_V_U;
-    delete valueStoreFlash2merg_1_U;
-    delete merger2responseForma_1_U;
     delete valueBuffer_rf_V_V_U;
     delete metadataBuffer_rf_V_s_U;
     delete start_for_bp_r_U0_U;
@@ -2563,19 +1964,13 @@ memcachedPipeline::~memcachedPipeline() {
     delete start_for_bobj_U0_U;
     delete start_for_memReadfYi_U;
     delete start_for_ht_outpg8j_U;
-    delete start_for_splittehbi_U;
-    delete start_for_accessCibs_U;
-    delete start_for_flashDejbC_U;
+    delete start_for_accessChbi_U;
     delete start_for_demux_U0_U;
-    delete start_for_setPathkbM_U;
-    delete start_for_dispatclbW_U;
+    delete start_for_setPathibs_U;
+    delete start_for_dispatcjbC_U;
     delete start_for_remux_U0_U;
-    delete start_for_merger_U0_U;
-    delete start_for_flashSemb6_U;
-    delete start_for_flashDincg_U;
-    delete start_for_flashReocq_U;
-    delete start_for_responspcA_U;
-    delete start_for_responsqcK_U;
+    delete start_for_responskbM_U;
+    delete start_for_responslbW_U;
 }
 
 void memcachedPipeline::thread_ap_var_for_const0() {
@@ -2630,12 +2025,12 @@ void memcachedPipeline::thread_bobj_U0_start_write() {
     bobj_U0_start_write = ap_const_logic_0;
 }
 
-void memcachedPipeline::thread_bp_f1192_U0_ap_continue() {
-    bp_f1192_U0_ap_continue = ap_const_logic_1;
+void memcachedPipeline::thread_bp_f1244_U0_ap_continue() {
+    bp_f1244_U0_ap_continue = ap_const_logic_1;
 }
 
-void memcachedPipeline::thread_bp_f1192_U0_ap_start() {
-    bp_f1192_U0_ap_start = ap_const_logic_1;
+void memcachedPipeline::thread_bp_f1244_U0_ap_start() {
+    bp_f1244_U0_ap_start = ap_const_logic_1;
 }
 
 void memcachedPipeline::thread_bp_r_U0_ap_continue() {
@@ -2708,102 +2103,6 @@ void memcachedPipeline::thread_dramValueStoreMemWrData_V_V_TDATA() {
 
 void memcachedPipeline::thread_dramValueStoreMemWrData_V_V_TVALID() {
     dramValueStoreMemWrData_V_V_TVALID = setPath_U0_memWrData_V_V_TVALID.read();
-}
-
-void memcachedPipeline::thread_flashDemux_U0_ap_continue() {
-    flashDemux_U0_ap_continue = ap_const_logic_1;
-}
-
-void memcachedPipeline::thread_flashDemux_U0_ap_start() {
-    flashDemux_U0_ap_start = start_for_flashDemux_U0_empty_n.read();
-}
-
-void memcachedPipeline::thread_flashDemux_U0_start_full_n() {
-    flashDemux_U0_start_full_n = (start_for_flashSetPathNoFilter_U0_full_n.read() & start_for_flashDispatch_U0_full_n.read());
-}
-
-void memcachedPipeline::thread_flashDispatch_U0_ap_continue() {
-    flashDispatch_U0_ap_continue = ap_const_logic_1;
-}
-
-void memcachedPipeline::thread_flashDispatch_U0_ap_start() {
-    flashDispatch_U0_ap_start = start_for_flashDispatch_U0_empty_n.read();
-}
-
-void memcachedPipeline::thread_flashDispatch_U0_start_full_n() {
-    flashDispatch_U0_start_full_n = ap_const_logic_1;
-}
-
-void memcachedPipeline::thread_flashDispatch_U0_start_write() {
-    flashDispatch_U0_start_write = ap_const_logic_0;
-}
-
-void memcachedPipeline::thread_flashReceiveNoFilter_U0_ap_continue() {
-    flashReceiveNoFilter_U0_ap_continue = ap_const_logic_1;
-}
-
-void memcachedPipeline::thread_flashReceiveNoFilter_U0_ap_start() {
-    flashReceiveNoFilter_U0_ap_start = ap_const_logic_1;
-}
-
-void memcachedPipeline::thread_flashRemux_U0_ap_continue() {
-    flashRemux_U0_ap_continue = ap_const_logic_1;
-}
-
-void memcachedPipeline::thread_flashRemux_U0_ap_start() {
-    flashRemux_U0_ap_start = start_for_flashRemux_U0_empty_n.read();
-}
-
-void memcachedPipeline::thread_flashRemux_U0_start_full_n() {
-    flashRemux_U0_start_full_n = ap_const_logic_1;
-}
-
-void memcachedPipeline::thread_flashRemux_U0_start_write() {
-    flashRemux_U0_start_write = ap_const_logic_0;
-}
-
-void memcachedPipeline::thread_flashSetPathNoFilter_U0_ap_continue() {
-    flashSetPathNoFilter_U0_ap_continue = ap_const_logic_1;
-}
-
-void memcachedPipeline::thread_flashSetPathNoFilter_U0_ap_start() {
-    flashSetPathNoFilter_U0_ap_start = start_for_flashSetPathNoFilter_U0_empty_n.read();
-}
-
-void memcachedPipeline::thread_flashSetPathNoFilter_U0_start_full_n() {
-    flashSetPathNoFilter_U0_start_full_n = ap_const_logic_1;
-}
-
-void memcachedPipeline::thread_flashSetPathNoFilter_U0_start_write() {
-    flashSetPathNoFilter_U0_start_write = ap_const_logic_0;
-}
-
-void memcachedPipeline::thread_flashValueStoreMemRdCmd_V_TDATA() {
-    flashValueStoreMemRdCmd_V_TDATA = flashDispatch_U0_memRdCmd_V_TDATA.read();
-}
-
-void memcachedPipeline::thread_flashValueStoreMemRdCmd_V_TVALID() {
-    flashValueStoreMemRdCmd_V_TVALID = flashDispatch_U0_memRdCmd_V_TVALID.read();
-}
-
-void memcachedPipeline::thread_flashValueStoreMemRdData_V_V_TREADY() {
-    flashValueStoreMemRdData_V_V_TREADY = flashReceiveNoFilter_U0_memRdData_V_V_TREADY.read();
-}
-
-void memcachedPipeline::thread_flashValueStoreMemWrCmd_V_TDATA() {
-    flashValueStoreMemWrCmd_V_TDATA = flashSetPathNoFilter_U0_memWrCmd_V_TDATA.read();
-}
-
-void memcachedPipeline::thread_flashValueStoreMemWrCmd_V_TVALID() {
-    flashValueStoreMemWrCmd_V_TVALID = flashSetPathNoFilter_U0_memWrCmd_V_TVALID.read();
-}
-
-void memcachedPipeline::thread_flashValueStoreMemWrData_V_V_TDATA() {
-    flashValueStoreMemWrData_V_V_TDATA = flashSetPathNoFilter_U0_memWrData_V_V_TDATA.read();
-}
-
-void memcachedPipeline::thread_flashValueStoreMemWrData_V_V_TVALID() {
-    flashValueStoreMemWrData_V_V_TVALID = flashSetPathNoFilter_U0_memWrData_V_V_TVALID.read();
 }
 
 void memcachedPipeline::thread_flushDone_V() {
@@ -2887,7 +2186,7 @@ void memcachedPipeline::thread_ht_outputLogic_U0_ap_start() {
 }
 
 void memcachedPipeline::thread_inData_TREADY() {
-    inData_TREADY = bp_f1192_U0_inData_TREADY.read();
+    inData_TREADY = bp_f1244_U0_inData_TREADY.read();
 }
 
 void memcachedPipeline::thread_memRead_U0_ap_continue() {
@@ -2928,14 +2227,6 @@ void memcachedPipeline::thread_memcachedPipeline_en_U0_start_full_n() {
 
 void memcachedPipeline::thread_memcachedPipeline_en_U0_start_write() {
     memcachedPipeline_en_U0_start_write = ap_const_logic_0;
-}
-
-void memcachedPipeline::thread_merger_U0_ap_continue() {
-    merger_U0_ap_continue = ap_const_logic_1;
-}
-
-void memcachedPipeline::thread_merger_U0_ap_start() {
-    merger_U0_ap_start = start_for_merger_U0_empty_n.read();
 }
 
 void memcachedPipeline::thread_outData_TDATA() {
@@ -3014,18 +2305,6 @@ void memcachedPipeline::thread_setPath_U0_start_write() {
     setPath_U0_start_write = ap_const_logic_0;
 }
 
-void memcachedPipeline::thread_splitter_U0_ap_continue() {
-    splitter_U0_ap_continue = ap_const_logic_1;
-}
-
-void memcachedPipeline::thread_splitter_U0_ap_start() {
-    splitter_U0_ap_start = start_for_splitter_U0_empty_n.read();
-}
-
-void memcachedPipeline::thread_splitter_U0_start_full_n() {
-    splitter_U0_start_full_n = (start_for_accessControl_U0_full_n.read() & start_for_flashDemux_U0_full_n.read());
-}
-
 void memcachedPipeline::thread_start_for_accessControl_U0_din() {
     start_for_accessControl_U0_din =  (sc_lv<1>) (ap_const_logic_1);
 }
@@ -3050,22 +2329,6 @@ void memcachedPipeline::thread_start_for_dispatch_U0_din() {
     start_for_dispatch_U0_din =  (sc_lv<1>) (ap_const_logic_1);
 }
 
-void memcachedPipeline::thread_start_for_flashDemux_U0_din() {
-    start_for_flashDemux_U0_din =  (sc_lv<1>) (ap_const_logic_1);
-}
-
-void memcachedPipeline::thread_start_for_flashDispatch_U0_din() {
-    start_for_flashDispatch_U0_din =  (sc_lv<1>) (ap_const_logic_1);
-}
-
-void memcachedPipeline::thread_start_for_flashRemux_U0_din() {
-    start_for_flashRemux_U0_din =  (sc_lv<1>) (ap_const_logic_1);
-}
-
-void memcachedPipeline::thread_start_for_flashSetPathNoFilter_U0_din() {
-    start_for_flashSetPathNoFilter_U0_din =  (sc_lv<1>) (ap_const_logic_1);
-}
-
 void memcachedPipeline::thread_start_for_hashKeyResizer_U0_din() {
     start_for_hashKeyResizer_U0_din =  (sc_lv<1>) (ap_const_logic_1);
 }
@@ -3082,10 +2345,6 @@ void memcachedPipeline::thread_start_for_memRead_U0_din() {
     start_for_memRead_U0_din =  (sc_lv<1>) (ap_const_logic_1);
 }
 
-void memcachedPipeline::thread_start_for_merger_U0_din() {
-    start_for_merger_U0_din =  (sc_lv<1>) (ap_const_logic_1);
-}
-
 void memcachedPipeline::thread_start_for_remux_U0_din() {
     start_for_remux_U0_din =  (sc_lv<1>) (ap_const_logic_1);
 }
@@ -3100,10 +2359,6 @@ void memcachedPipeline::thread_start_for_response_r_U0_din() {
 
 void memcachedPipeline::thread_start_for_setPath_U0_din() {
     start_for_setPath_U0_din =  (sc_lv<1>) (ap_const_logic_1);
-}
-
-void memcachedPipeline::thread_start_for_splitter_U0_din() {
-    start_for_splitter_U0_din =  (sc_lv<1>) (ap_const_logic_1);
 }
 
 void memcachedPipeline::thread_hdltv_gen() {
@@ -3130,10 +2385,6 @@ void memcachedPipeline::thread_hdltv_gen() {
         mHdltvinHandle << " , " <<  " \"dramValueStoreMemRdData_V_V_TDATA\" :  \"" << dramValueStoreMemRdData_V_V_TDATA.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"dramValueStoreMemWrCmd_V_TDATA\" :  \"" << dramValueStoreMemWrCmd_V_TDATA.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"dramValueStoreMemWrData_V_V_TDATA\" :  \"" << dramValueStoreMemWrData_V_V_TDATA.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"flashValueStoreMemRdCmd_V_TDATA\" :  \"" << flashValueStoreMemRdCmd_V_TDATA.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"flashValueStoreMemRdData_V_V_TDATA\" :  \"" << flashValueStoreMemRdData_V_V_TDATA.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"flashValueStoreMemWrCmd_V_TDATA\" :  \"" << flashValueStoreMemWrCmd_V_TDATA.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"flashValueStoreMemWrData_V_V_TDATA\" :  \"" << flashValueStoreMemWrData_V_V_TDATA.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"hashTableMemRdData_V_V_TDATA\" :  \"" << hashTableMemRdData_V_V_TDATA.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"hashTableMemRdCmd_V_TDATA\" :  \"" << hashTableMemRdCmd_V_TDATA.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"hashTableMemWrData_V_V_TDATA\" :  \"" << hashTableMemWrData_V_V_TDATA.read() << "\" ";
@@ -3169,14 +2420,6 @@ void memcachedPipeline::thread_hdltv_gen() {
         mHdltvinHandle << " , " <<  " \"dramValueStoreMemRdCmd_V_TREADY\" :  \"" << dramValueStoreMemRdCmd_V_TREADY.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"dramValueStoreMemRdData_V_V_TVALID\" :  \"" << dramValueStoreMemRdData_V_V_TVALID.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"dramValueStoreMemRdData_V_V_TREADY\" :  \"" << dramValueStoreMemRdData_V_V_TREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"flashValueStoreMemWrCmd_V_TVALID\" :  \"" << flashValueStoreMemWrCmd_V_TVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"flashValueStoreMemWrCmd_V_TREADY\" :  \"" << flashValueStoreMemWrCmd_V_TREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"flashValueStoreMemWrData_V_V_TVALID\" :  \"" << flashValueStoreMemWrData_V_V_TVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"flashValueStoreMemWrData_V_V_TREADY\" :  \"" << flashValueStoreMemWrData_V_V_TREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"flashValueStoreMemRdCmd_V_TVALID\" :  \"" << flashValueStoreMemRdCmd_V_TVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"flashValueStoreMemRdCmd_V_TREADY\" :  \"" << flashValueStoreMemRdCmd_V_TREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"flashValueStoreMemRdData_V_V_TVALID\" :  \"" << flashValueStoreMemRdData_V_V_TVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"flashValueStoreMemRdData_V_V_TREADY\" :  \"" << flashValueStoreMemRdData_V_V_TREADY.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"outData_TVALID\" :  \"" << outData_TVALID.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"outData_TREADY\" :  \"" << outData_TREADY.read() << "\" ";
         mHdltvinHandle << "}" << std::endl;

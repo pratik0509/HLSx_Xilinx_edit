@@ -14,12 +14,12 @@ set C_modelType { void 0 }
 set C_modelArgList {
 	{ valueBuffer_rf_V_V int 64 regular {fifo 1 volatile } {global 1}  }
 	{ metadataBuffer_rf_V_s int 248 regular {fifo 1 volatile } {global 1}  }
-	{ merger2responseForma_1 int 256 regular {fifo 0 volatile } {global 0}  }
+	{ valueStoreDram2merge_1 int 256 regular {fifo 0 volatile } {global 0}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "valueBuffer_rf_V_V", "interface" : "fifo", "bitwidth" : 64, "direction" : "WRITEONLY", "extern" : 0} , 
  	{ "Name" : "metadataBuffer_rf_V_s", "interface" : "fifo", "bitwidth" : 248, "direction" : "WRITEONLY", "extern" : 0} , 
- 	{ "Name" : "merger2responseForma_1", "interface" : "fifo", "bitwidth" : 256, "direction" : "READONLY", "extern" : 0} ]}
+ 	{ "Name" : "valueStoreDram2merge_1", "interface" : "fifo", "bitwidth" : 256, "direction" : "READONLY", "extern" : 0} ]}
 # RTL Port declarations: 
 set portNum 19
 set portList { 
@@ -39,9 +39,9 @@ set portList {
 	{ metadataBuffer_rf_V_s_din sc_out sc_lv 248 signal 1 } 
 	{ metadataBuffer_rf_V_s_full_n sc_in sc_logic 1 signal 1 } 
 	{ metadataBuffer_rf_V_s_write sc_out sc_logic 1 signal 1 } 
-	{ merger2responseForma_1_dout sc_in sc_lv 256 signal 2 } 
-	{ merger2responseForma_1_empty_n sc_in sc_logic 1 signal 2 } 
-	{ merger2responseForma_1_read sc_out sc_logic 1 signal 2 } 
+	{ valueStoreDram2merge_1_dout sc_in sc_lv 256 signal 2 } 
+	{ valueStoreDram2merge_1_empty_n sc_in sc_logic 1 signal 2 } 
+	{ valueStoreDram2merge_1_read sc_out sc_logic 1 signal 2 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -60,9 +60,9 @@ set NewPortList {[
  	{ "name": "metadataBuffer_rf_V_s_din", "direction": "out", "datatype": "sc_lv", "bitwidth":248, "type": "signal", "bundle":{"name": "metadataBuffer_rf_V_s", "role": "din" }} , 
  	{ "name": "metadataBuffer_rf_V_s_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "metadataBuffer_rf_V_s", "role": "full_n" }} , 
  	{ "name": "metadataBuffer_rf_V_s_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "metadataBuffer_rf_V_s", "role": "write" }} , 
- 	{ "name": "merger2responseForma_1_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":256, "type": "signal", "bundle":{"name": "merger2responseForma_1", "role": "dout" }} , 
- 	{ "name": "merger2responseForma_1_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "merger2responseForma_1", "role": "empty_n" }} , 
- 	{ "name": "merger2responseForma_1_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "merger2responseForma_1", "role": "read" }}  ]}
+ 	{ "name": "valueStoreDram2merge_1_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":256, "type": "signal", "bundle":{"name": "valueStoreDram2merge_1", "role": "dout" }} , 
+ 	{ "name": "valueStoreDram2merge_1_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "valueStoreDram2merge_1", "role": "empty_n" }} , 
+ 	{ "name": "valueStoreDram2merge_1_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "valueStoreDram2merge_1", "role": "read" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
@@ -85,9 +85,9 @@ set RtlHierarchyInfo {[
 			{"Name" : "metadataBuffer_rf_V_s", "Type" : "Fifo", "Direction" : "O", "DependentProc" : "0", "DependentChan" : "0",
 				"BlockSignal" : [
 					{"Name" : "metadataBuffer_rf_V_s_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "merger2responseForma_1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "0", "DependentChan" : "0",
+			{"Name" : "valueStoreDram2merge_1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "0", "DependentChan" : "0",
 				"BlockSignal" : [
-					{"Name" : "merger2responseForma_1_blk_n", "Type" : "RtlSignal"}]},
+					{"Name" : "valueStoreDram2merge_1_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "inWordCounter_V", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "bf_metadataTempBuffe", "Type" : "OVld", "Direction" : "IO"}]}]}
 
@@ -96,7 +96,7 @@ set ArgLastReadFirstWriteLatency {
 	response_f {
 		valueBuffer_rf_V_V {Type O LastRead 0 FirstWrite 0}
 		metadataBuffer_rf_V_s {Type O LastRead 0 FirstWrite 0}
-		merger2responseForma_1 {Type I LastRead 0 FirstWrite -1}
+		valueStoreDram2merge_1 {Type I LastRead 0 FirstWrite -1}
 		inWordCounter_V {Type IO LastRead -1 FirstWrite -1}
 		bf_metadataTempBuffe {Type IO LastRead -1 FirstWrite -1}}}
 
@@ -113,5 +113,5 @@ set PipelineEnableSignalInfo {[
 set Spec2ImplPortList { 
 	valueBuffer_rf_V_V { ap_fifo {  { valueBuffer_rf_V_V_din fifo_data 1 64 }  { valueBuffer_rf_V_V_full_n fifo_status 0 1 }  { valueBuffer_rf_V_V_write fifo_update 1 1 } } }
 	metadataBuffer_rf_V_s { ap_fifo {  { metadataBuffer_rf_V_s_din fifo_data 1 248 }  { metadataBuffer_rf_V_s_full_n fifo_status 0 1 }  { metadataBuffer_rf_V_s_write fifo_update 1 1 } } }
-	merger2responseForma_1 { ap_fifo {  { merger2responseForma_1_dout fifo_data 0 256 }  { merger2responseForma_1_empty_n fifo_status 0 1 }  { merger2responseForma_1_read fifo_update 1 1 } } }
+	valueStoreDram2merge_1 { ap_fifo {  { valueStoreDram2merge_1_dout fifo_data 0 256 }  { valueStoreDram2merge_1_empty_n fifo_status 0 1 }  { valueStoreDram2merge_1_read fifo_update 1 1 } } }
 }

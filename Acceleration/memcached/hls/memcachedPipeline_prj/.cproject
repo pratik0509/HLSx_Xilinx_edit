@@ -27,7 +27,6 @@
 								<option id="gnu.cpp.compiler.option.include.paths.1329391523" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/lnx64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/include/etc"/>
@@ -45,7 +44,6 @@
 								<option id="gnu.c.compiler.option.include.paths.948163352" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/lnx64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/include/etc"/>
@@ -128,7 +126,6 @@
 								<option id="gnu.cpp.compiler.option.include.paths.2057831330" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/lnx64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/include/etc"/>
@@ -141,7 +138,6 @@
 								<option id="gnu.c.compiler.option.include.paths.1082041040" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/lnx64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="/home/pratik0509/xillinx/Vivado/2018.2/include/etc"/>

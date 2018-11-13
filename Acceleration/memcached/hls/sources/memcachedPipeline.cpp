@@ -30,7 +30,6 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// Copyright (c) 2015 Xilinx, 
 
 void memcachedPipeline(stream<extendedAxiWord> &inData, stream<extendedAxiWord> &outData,
 					   stream<memCtrlWord> &dramValueStoreMemRdCmd, stream<ap_uint<512> > &dramValueStoreMemRdData, stream<memCtrlWord> &dramValueStoreMemWrCmd, stream<ap_uint<512> > &dramValueStoreMemWrData,
-					   stream<flashMemCtrlWord> &flashValueStoreMemRdCmd, stream<ap_uint<64> > &flashValueStoreMemRdData, stream<flashMemCtrlWord> &flashValueStoreMemWrCmd, stream<ap_uint<64> > &flashValueStoreMemWrData,
 					   stream<ap_uint<512> > &hashTableMemRdData, stream<memCtrlWord> &hashTableMemRdCmd, stream<ap_uint<512> > &hashTableMemWrData, stream<memCtrlWord> &hashTableMemWrCmd,
 					   stream<ap_uint<32> > &addressReturnOut, stream<ap_uint<32> > &addressAssignDramIn, stream<ap_uint<32> > &addressAssignFlashIn, ap_uint<1> &flushReq, ap_uint<1> flushAck, ap_uint<1> &flushDone) {
 
@@ -49,10 +48,6 @@ void memcachedPipeline(stream<extendedAxiWord> &inData, stream<extendedAxiWord> 
 	#pragma HLS DATA_PACK 	variable=dramValueStoreMemRdData
 	#pragma HLS DATA_PACK 	variable=dramValueStoreMemWrCmd
 	#pragma HLS DATA_PACK 	variable=dramValueStoreMemWrData
-	#pragma HLS DATA_PACK 	variable=flashValueStoreMemRdCmd
-	#pragma HLS DATA_PACK 	variable=flashValueStoreMemRdData
-	#pragma HLS DATA_PACK 	variable=flashValueStoreMemWrCmd
-	#pragma HLS DATA_PACK 	variable=flashValueStoreMemWrData
 
 #pragma HLS INTERFACE port=inData axis
 #pragma HLS INTERFACE port=outData axis
@@ -60,10 +55,6 @@ void memcachedPipeline(stream<extendedAxiWord> &inData, stream<extendedAxiWord> 
 #pragma HLS INTERFACE port=hashTableMemRdData axis
 #pragma HLS INTERFACE port=hashTableMemRdCmd axis
 #pragma HLS INTERFACE port=hashTableMemWrCmd axis
-#pragma HLS INTERFACE port=flashValueStoreMemRdCmd axis
-#pragma HLS INTERFACE port=flashValueStoreMemRdData axis
-#pragma HLS INTERFACE port=flashValueStoreMemWrCmd axis
-#pragma HLS INTERFACE port=flashValueStoreMemWrData axis
 #pragma HLS INTERFACE port=dramValueStoreMemRdCmd axis
 #pragma HLS INTERFACE port=dramValueStoreMemRdData axis
 #pragma HLS INTERFACE port=dramValueStoreMemWrCmd axis
@@ -92,37 +83,22 @@ void memcachedPipeline(stream<extendedAxiWord> &inData, stream<extendedAxiWord> 
 	#pragma HLS DATAFLOW interval=1
 
 	static stream<pipelineWord>	requestParser2hashTable("requestParser2hashTable");
-	static stream<pipelineWord>	hashTable2splitter("hashTable2splitter");
+	static stream<pipelineWord>	hashTable2Dram("hashTable2Dram");
 	static stream<pipelineWord> merger2responseFormatter("merger2responseFormatter");
-	static stream<pipelineWord> splitter2valueStoreFlash("splitter2valueStoreFlash");
-	static stream<pipelineWord> splitter2valueStoreDram("splitter2valueStoreDram");
-	static stream<pipelineWord> valueStoreFlash2merger("valueStoreFlash2merger");
 	static stream<pipelineWord> valueStoreDram2merger("valueStoreDram2Smerger");
 
 	#pragma HLS DATA_PACK 	variable=requestParser2hashTable
-	#pragma HLS DATA_PACK 	variable=hashTable2splitter
+	#pragma HLS DATA_PACK 	variable=hashTable2Dram
 	#pragma HLS DATA_PACK 	variable=merger2responseFormatter
-	#pragma HLS DATA_PACK 	variable=splitter2valueStoreFlash
-	#pragma HLS DATA_PACK 	variable=splitter2valueStoreDram
-	#pragma HLS DATA_PACK 	variable=valueStoreFlash2merger
 	#pragma HLS DATA_PACK 	variable=valueStoreDram2merger
 
 	#pragma HLS STREAM variable=requestParser2hashTable 		depth=16
-	#pragma HLS STREAM variable=hashTable2splitter				depth=16
+	#pragma HLS STREAM variable=hashTable2Dram					depth=16
 	#pragma HLS STREAM variable=merger2responseFormatter	 	depth=16
-	#pragma HLS STREAM variable=splitter2valueStoreFlash 		depth=16
-	#pragma HLS STREAM variable=splitter2valueStoreDram			depth=16
-	#pragma HLS STREAM variable=valueStoreFlash2merger	 		depth=16
 	#pragma HLS STREAM variable=valueStoreDram2merger			depth=16
 
 	binaryParser(inData, requestParser2hashTable);
-	hashTable(requestParser2hashTable, hashTable2splitter, hashTableMemRdData, hashTableMemRdCmd, hashTableMemWrData, hashTableMemWrCmd, addressReturnOut, addressAssignDramIn, addressAssignFlashIn, flushReq, flushAck, flushDone);
-	// REMOVE
-	splitter(hashTable2splitter, splitter2valueStoreFlash, splitter2valueStoreDram);
-	valueStoreDram(splitter2valueStoreDram, dramValueStoreMemRdCmd, dramValueStoreMemRdData, dramValueStoreMemWrCmd, dramValueStoreMemWrData, valueStoreDram2merger);
-	// REMOVE
-	valueStoreFlash(splitter2valueStoreFlash, flashValueStoreMemRdCmd, flashValueStoreMemRdData, flashValueStoreMemWrCmd, flashValueStoreMemWrData, valueStoreFlash2merger);
-	// REMOVE
-	merger(valueStoreFlash2merger, valueStoreDram2merger, merger2responseFormatter);
-	binaryResponse(merger2responseFormatter, outData);
+	hashTable(requestParser2hashTable, hashTable2Dram, hashTableMemRdData, hashTableMemRdCmd, hashTableMemWrData, hashTableMemWrCmd, addressReturnOut, addressAssignDramIn, addressAssignFlashIn, flushReq, flushAck, flushDone);
+	valueStoreDram(hashTable2Dram, dramValueStoreMemRdCmd, dramValueStoreMemRdData, dramValueStoreMemWrCmd, dramValueStoreMemWrData, valueStoreDram2merger);
+	binaryResponse(valueStoreDram2merger, outData);
 }
