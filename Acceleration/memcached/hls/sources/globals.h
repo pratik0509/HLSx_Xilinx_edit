@@ -36,6 +36,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.// Copyright (c) 2015 Xilinx, 
 #include <math.h>
 #include <hls_stream.h>
 #include "ap_int.h"
+//#include "ap_uint.h"
 #include <stdint.h>
 #include <vector>
 //#include "ap_cint.h"

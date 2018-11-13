@@ -1,0 +1,250 @@
+
+
+================================================================
+== Vivado HLS Report for 'setPath'
+================================================================
+* Date:           Fri Nov  9 23:11:24 2018
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        memcachedPipeline_prj
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1761-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   6.66|     5.598|        0.83|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    2|    2|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       0|   19484|
+|FIFO             |        -|      -|       -|       -|
+|Instance         |        -|      -|       -|       -|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|     237|
+|Register         |        -|      -|    2328|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |        0|      0|    2328|   19721|
++-----------------+---------+-------+--------+--------+
+|Available        |     2940|   3600|  866400|  433200|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |        0|      0|   ~0   |       4|
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+------+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF|  LUT | Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+------+------------+------------+
+    |grp_fu_290_p2                     |     +    |      0|  0|    15|           8|           1|
+    |tmp_14_i_fu_785_p2                |     +    |      0|  0|    15|           1|           8|
+    |tmp_13_fu_668_p2                  |     -    |      0|  0|    17|           9|          10|
+    |tmp_17_fu_693_p2                  |     -    |      0|  0|    17|           9|          10|
+    |tmp_38_fu_526_p2                  |     -    |      0|  0|    17|           9|          10|
+    |tmp_42_fu_551_p2                  |     -    |      0|  0|    17|           9|          10|
+    |ap_condition_474                  |    and   |      0|  0|     2|           1|           1|
+    |ap_predicate_op15_read_state1     |    and   |      0|  0|     2|           1|           1|
+    |ap_predicate_op39_read_state1     |    and   |      0|  0|     2|           1|           1|
+    |ap_predicate_op55_read_state1     |    and   |      0|  0|     2|           1|           1|
+    |memWrCmd_V_1_load_A               |    and   |      0|  0|     2|           1|           1|
+    |memWrCmd_V_1_load_B               |    and   |      0|  0|     2|           1|           1|
+    |memWrData_V_V_1_load_A            |    and   |      0|  0|     2|           1|           1|
+    |memWrData_V_V_1_load_B            |    and   |      0|  0|     2|           1|           1|
+    |p_demorgan1_fu_746_p2             |    and   |      0|  0|   512|         512|         512|
+    |p_demorgan_fu_604_p2              |    and   |      0|  0|   512|         512|         512|
+    |tmp_27_fu_758_p2                  |    and   |      0|  0|   512|         512|         512|
+    |tmp_28_fu_764_p2                  |    and   |      0|  0|   512|         512|         512|
+    |tmp_52_fu_616_p2                  |    and   |      0|  0|   512|         512|         512|
+    |tmp_53_fu_622_p2                  |    and   |      0|  0|   512|         512|         512|
+    |memWrCmd_V_1_state_cmp_full       |   icmp   |      0|  0|     8|           2|           1|
+    |memWrData_V_V_1_state_cmp_full    |   icmp   |      0|  0|     8|           2|           1|
+    |tmp_10_fu_394_p2                  |   icmp   |      0|  0|    13|          14|          14|
+    |tmp_11_i_fu_470_p2                |   icmp   |      0|  0|    13|          13|          13|
+    |tmp_12_i_fu_404_p2                |   icmp   |      0|  0|    11|           8|           3|
+    |tmp_13_i_fu_342_p2                |   icmp   |      0|  0|    11|           8|           3|
+    |tmp_34_fu_332_p2                  |   icmp   |      0|  0|    13|          14|          14|
+    |tmp_25_fu_740_p2                  |   lshr   |      0|  0|  2171|           2|         512|
+    |tmp_50_fu_598_p2                  |   lshr   |      0|  0|  2171|           2|         512|
+    |Hi_assign_1_fu_326_p2             |    or    |      0|  0|    14|           6|          14|
+    |Hi_assign_fu_388_p2               |    or    |      0|  0|    14|           6|          14|
+    |ap_block_state1_pp0_stage0_iter0  |    or    |      0|  0|     2|           1|           1|
+    |ap_block_state2_io                |    or    |      0|  0|     2|           1|           1|
+    |ap_block_state2_pp0_stage0_iter1  |    or    |      0|  0|     2|           1|           1|
+    |ap_block_state3_io                |    or    |      0|  0|     2|           1|           1|
+    |ap_block_state3_pp0_stage0_iter2  |    or    |      0|  0|     2|           1|           1|
+    |p_Result_1_fu_628_p2              |    or    |      0|  0|   512|         512|         512|
+    |p_Result_s_fu_770_p2              |    or    |      0|  0|   512|         512|         512|
+    |tmp_4_fu_418_p2                   |    or    |      0|  0|     2|           1|           1|
+    |tmp_5_fu_356_p2                   |    or    |      0|  0|     2|           1|           1|
+    |storemerge1_i_fu_410_p3           |  select  |      0|  0|     4|           1|           2|
+    |storemerge2_i_fu_424_p3           |  select  |      0|  0|     3|           1|           3|
+    |storemerge3_i_fu_362_p3           |  select  |      0|  0|     3|           1|           3|
+    |storemerge4_i_fu_791_p3           |  select  |      0|  0|     8|           1|           8|
+    |storemerge_i_fu_348_p3            |  select  |      0|  0|     3|           1|           3|
+    |tmp_14_fu_674_p3                  |  select  |      0|  0|    10|           1|          10|
+    |tmp_15_fu_680_p3                  |  select  |      0|  0|    10|           1|          10|
+    |tmp_16_fu_686_p3                  |  select  |      0|  0|    10|           1|          10|
+    |tmp_23_fu_727_p3                  |  select  |      0|  0|   512|           1|         512|
+    |tmp_39_fu_532_p3                  |  select  |      0|  0|    10|           1|          10|
+    |tmp_40_fu_538_p3                  |  select  |      0|  0|    10|           1|          10|
+    |tmp_41_fu_544_p3                  |  select  |      0|  0|    10|           1|          10|
+    |tmp_48_fu_585_p3                  |  select  |      0|  0|   512|           1|         512|
+    |tmp_21_fu_711_p2                  |    shl   |      0|  0|  2171|         512|         512|
+    |tmp_24_fu_734_p2                  |    shl   |      0|  0|  2171|           2|         512|
+    |tmp_46_fu_569_p2                  |    shl   |      0|  0|  2171|         512|         512|
+    |tmp_49_fu_592_p2                  |    shl   |      0|  0|  2171|           2|         512|
+    |tmp_26_fu_752_p2                  |    xor   |      0|  0|   512|         512|           2|
+    |tmp_51_fu_610_p2                  |    xor   |      0|  0|   512|         512|           2|
+    +----------------------------------+----------+-------+---+------+------------+------------+
+    |Total                             |          |      0|  0| 19484|        6298|        8416|
+    +----------------------------------+----------+-------+---+------+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------------------------------+----+-----------+-----+-----------+
+    |                        Name                       | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_iter1_fsm                                    |  15|          3|    2|          6|
+    |ap_NS_iter2_fsm                                    |  15|          3|    2|          6|
+    |ap_done                                            |   9|          2|    1|          2|
+    |ap_phi_mux_setValueBuffer_V_fla_phi_fu_179_p26     |   9|          2|    1|          2|
+    |ap_phi_mux_setValueBuffer_V_new_phi_fu_226_p26     |  15|          3|  512|       1536|
+    |ap_phi_reg_pp0_iter1_setValueBuffer_V_fla_reg_174  |  15|          3|    1|          3|
+    |ap_phi_reg_pp0_iter1_setValueBuffer_V_new_reg_221  |  15|          3|  512|       1536|
+    |counter                                            |   9|          2|    8|         16|
+    |demux2setPathMetadat_1_blk_n                       |   9|          2|    1|          2|
+    |demux2setPathValue_V_blk_n                         |   9|          2|    1|          2|
+    |filterPopSet_V_V_blk_n                             |   9|          2|    1|          2|
+    |memWrCmd_V_1_data_in                               |  15|          3|   40|        120|
+    |memWrCmd_V_1_data_out                              |   9|          2|   40|         80|
+    |memWrCmd_V_1_state                                 |  15|          3|    2|          6|
+    |memWrCmd_V_TDATA_blk_n                             |   9|          2|    1|          2|
+    |memWrData_V_V_1_data_out                           |   9|          2|  512|       1024|
+    |memWrData_V_V_1_state                              |  15|          3|    2|          6|
+    |memWrData_V_V_TDATA_blk_n                          |   9|          2|    1|          2|
+    |setState                                           |  27|          5|    3|         15|
+    +---------------------------------------------------+----+-----------+-----+-----------+
+    |Total                                              | 237|         49| 1643|       4368|
+    +---------------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------------------------+-----+----+-----+-----------+
+    |                        Name                       |  FF | LUT| Bits| Const Bits|
+    +---------------------------------------------------+-----+----+-----+-----------+
+    |ap_CS_iter0_fsm                                    |    1|   0|    1|          0|
+    |ap_CS_iter1_fsm                                    |    2|   0|    2|          0|
+    |ap_CS_iter2_fsm                                    |    2|   0|    2|          0|
+    |ap_done_reg                                        |    1|   0|    1|          0|
+    |ap_phi_reg_pp0_iter1_setValueBuffer_V_fla_reg_174  |    1|   0|    1|          0|
+    |ap_phi_reg_pp0_iter1_setValueBuffer_V_new_reg_221  |  512|   0|  512|          0|
+    |counter                                            |    8|   0|    8|          0|
+    |memWrCmd_V_1_payload_A                             |   40|   0|   40|          0|
+    |memWrCmd_V_1_payload_B                             |   40|   0|   40|          0|
+    |memWrCmd_V_1_sel_rd                                |    1|   0|    1|          0|
+    |memWrCmd_V_1_sel_wr                                |    1|   0|    1|          0|
+    |memWrCmd_V_1_state                                 |    2|   0|    2|          0|
+    |memWrData_V_V_1_payload_A                          |  512|   0|  512|          0|
+    |memWrData_V_V_1_payload_B                          |  512|   0|  512|          0|
+    |memWrData_V_V_1_sel_rd                             |    1|   0|    1|          0|
+    |memWrData_V_V_1_sel_wr                             |    1|   0|    1|          0|
+    |memWrData_V_V_1_state                              |    2|   0|    2|          0|
+    |reg_301                                            |   66|   0|   66|          0|
+    |setMdBuffer_address_s                              |   32|   0|   32|          0|
+    |setNumOfWords                                      |    8|   0|    8|          0|
+    |setState                                           |    3|   0|    3|          0|
+    |setState_load_reg_810                              |    3|   0|    3|          0|
+    |setState_load_reg_810_pp0_iter1_reg                |    3|   0|    3|          0|
+    |setValueBuffer_V                                   |  512|   0|  512|          0|
+    |tmp_10_reg_846                                     |    1|   0|    1|          0|
+    |tmp_11_i_reg_878                                   |    1|   0|    1|          0|
+    |tmp_12_reg_854                                     |    4|   0|   10|          6|
+    |tmp_1_reg_837                                      |    1|   0|    1|          0|
+    |tmp_2_reg_814                                      |    1|   0|    1|          0|
+    |tmp_33_reg_818                                     |    4|   0|    4|          0|
+    |tmp_34_reg_823                                     |    1|   0|    1|          0|
+    |tmp_37_reg_831                                     |    4|   0|   10|          6|
+    |tmp_3_reg_864                                      |    1|   0|    1|          0|
+    |tmp_55_reg_868                                     |   32|   0|   32|          0|
+    |tmp_6_reg_873                                      |    7|   0|    7|          0|
+    |tmp_9_reg_841                                      |    4|   0|    4|          0|
+    |tmp_reg_860                                        |    1|   0|    1|          0|
+    +---------------------------------------------------+-----+----+-----+-----------+
+    |Total                                              | 2328|   0| 2340|         12|
+    +---------------------------------------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------------+-----+-----+--------------+------------------------+--------------+
+|            RTL Ports           | Dir | Bits|   Protocol   |      Source Object     |    C Type    |
++--------------------------------+-----+-----+--------------+------------------------+--------------+
+|ap_clk                          |  in |    1| ap_ctrl_none |         setPath        | return value |
+|ap_rst                          |  in |    1| ap_ctrl_none |         setPath        | return value |
+|ap_start                        |  in |    1| ap_ctrl_none |         setPath        | return value |
+|ap_done                         | out |    1| ap_ctrl_none |         setPath        | return value |
+|ap_continue                     |  in |    1| ap_ctrl_none |         setPath        | return value |
+|ap_idle                         | out |    1| ap_ctrl_none |         setPath        | return value |
+|ap_ready                        | out |    1| ap_ctrl_none |         setPath        | return value |
+|demux2setPathValue_V_dout       |  in |   66|    ap_fifo   |  demux2setPathValue_V  |    pointer   |
+|demux2setPathValue_V_empty_n    |  in |    1|    ap_fifo   |  demux2setPathValue_V  |    pointer   |
+|demux2setPathValue_V_read       | out |    1|    ap_fifo   |  demux2setPathValue_V  |    pointer   |
+|demux2setPathMetadat_1_dout     |  in |   45|    ap_fifo   | demux2setPathMetadat_1 |    pointer   |
+|demux2setPathMetadat_1_empty_n  |  in |    1|    ap_fifo   | demux2setPathMetadat_1 |    pointer   |
+|demux2setPathMetadat_1_read     | out |    1|    ap_fifo   | demux2setPathMetadat_1 |    pointer   |
+|filterPopSet_V_V_din            | out |    1|    ap_fifo   |    filterPopSet_V_V    |    pointer   |
+|filterPopSet_V_V_full_n         |  in |    1|    ap_fifo   |    filterPopSet_V_V    |    pointer   |
+|filterPopSet_V_V_write          | out |    1|    ap_fifo   |    filterPopSet_V_V    |    pointer   |
+|memWrData_V_V_TREADY            |  in |    1|     axis     |      memWrData_V_V     |    pointer   |
+|memWrData_V_V_TDATA             | out |  512|     axis     |      memWrData_V_V     |    pointer   |
+|memWrData_V_V_TVALID            | out |    1|     axis     |      memWrData_V_V     |    pointer   |
+|memWrCmd_V_TREADY               |  in |    1|     axis     |       memWrCmd_V       |    pointer   |
+|memWrCmd_V_TDATA                | out |   40|     axis     |       memWrCmd_V       |    pointer   |
+|memWrCmd_V_TVALID               | out |    1|     axis     |       memWrCmd_V       |    pointer   |
++--------------------------------+-----+-----+--------------+------------------------+--------------+
+

@@ -117,9 +117,12 @@ void memcachedPipeline(stream<extendedAxiWord> &inData, stream<extendedAxiWord> 
 
 	binaryParser(inData, requestParser2hashTable);
 	hashTable(requestParser2hashTable, hashTable2splitter, hashTableMemRdData, hashTableMemRdCmd, hashTableMemWrData, hashTableMemWrCmd, addressReturnOut, addressAssignDramIn, addressAssignFlashIn, flushReq, flushAck, flushDone);
+	// REMOVE
 	splitter(hashTable2splitter, splitter2valueStoreFlash, splitter2valueStoreDram);
 	valueStoreDram(splitter2valueStoreDram, dramValueStoreMemRdCmd, dramValueStoreMemRdData, dramValueStoreMemWrCmd, dramValueStoreMemWrData, valueStoreDram2merger);
+	// REMOVE
 	valueStoreFlash(splitter2valueStoreFlash, flashValueStoreMemRdCmd, flashValueStoreMemRdData, flashValueStoreMemWrCmd, flashValueStoreMemWrData, valueStoreFlash2merger);
+	// REMOVE
 	merger(valueStoreFlash2merger, valueStoreDram2merger, merger2responseFormatter);
 	binaryResponse(merger2responseFormatter, outData);
 }

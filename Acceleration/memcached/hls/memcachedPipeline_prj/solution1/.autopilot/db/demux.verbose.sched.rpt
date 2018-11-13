@@ -1,0 +1,257 @@
+
+
+================================================================
+== Vivado HLS Report for 'demux'
+================================================================
+* Date:           Fri Nov  9 23:09:38 2018
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        memcachedPipeline_prj
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1761-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   6.66|     5.175|        0.83|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    1|    1|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 1
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 5.17>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%demuxState_load = load i2* @demuxState, align 1" [sources/valueStore/valueStore.cpp:161]   --->   Operation 3 'load' 'demuxState_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%wordCounter_V_load = load i2* @wordCounter_V, align 1" [sources/valueStore/valueStore.cpp:216]   --->   Operation 4 'load' 'wordCounter_V_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%valueLength_V_load = load i16* @valueLength_V, align 2" [sources/valueStore/valueStore.cpp:240]   --->   Operation 5 'load' 'valueLength_V_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.87ns)   --->   "switch i2 %demuxState_load, label %demux.exit [
+    i2 0, label %0
+    i2 -2, label %13
+    i2 1, label %18
+  ]" [sources/valueStore/valueStore.cpp:161]   --->   Operation 6 'switch' <Predicate = true> <Delay = 0.87>
+ST_1 : Operation 7 [1/1] (2.39ns)   --->   "%tmp_9 = call i256 @_ssdm_op_Read.ap_fifo.volatile.i256P(i256* @accCtrl2demux_V) nounwind"   --->   Operation 7 'read' 'tmp_9' <Predicate = (demuxState_load == 1)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%metadataWrWord_keyVa_4 = call i1 @_ssdm_op_BitSelect.i1.i256.i32(i256 %tmp_9, i32 125)" [sources/hashTable/../globals.h:104->sources/valueStore/valueStore.cpp:230]   --->   Operation 8 'bitselect' 'metadataWrWord_keyVa_4' <Predicate = (demuxState_load == 1)> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%metadataWrWord_value = call i1 @_ssdm_op_BitSelect.i1.i256.i32(i256 %tmp_9, i32 126)" [sources/hashTable/../globals.h:104->sources/valueStore/valueStore.cpp:230]   --->   Operation 9 'bitselect' 'metadataWrWord_value' <Predicate = (demuxState_load == 1)> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%metadataWrWord_EOP_V_4 = call i1 @_ssdm_op_BitSelect.i1.i256.i32(i256 %tmp_9, i32 127)" [sources/hashTable/../globals.h:104->sources/valueStore/valueStore.cpp:230]   --->   Operation 10 'bitselect' 'metadataWrWord_EOP_V_4' <Predicate = (demuxState_load == 1)> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%setData_data_V_4 = call i64 @_ssdm_op_PartSelect.i64.i256.i32.i32(i256 %tmp_9, i32 128, i32 191) nounwind" [sources/hashTable/../globals.h:104->sources/valueStore/valueStore.cpp:230]   --->   Operation 11 'partselect' 'setData_data_V_4' <Predicate = (demuxState_load == 1)> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%tmp_V = call i64 @_ssdm_op_PartSelect.i64.i256.i32.i32(i256 %tmp_9, i32 192, i32 255) nounwind" [sources/hashTable/../globals.h:104->sources/valueStore/valueStore.cpp:230]   --->   Operation 12 'partselect' 'tmp_V' <Predicate = (demuxState_load == 1)> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%tmp_494 = call i1 @_ssdm_op_BitSelect.i1.i2.i32(i2 %wordCounter_V_load, i32 1)" [sources/valueStore/valueStore.cpp:232]   --->   Operation 13 'bitselect' 'tmp_494' <Predicate = (demuxState_load == 1)> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "br i1 %tmp_494, label %._crit_edge19.i, label %19" [sources/valueStore/valueStore.cpp:232]   --->   Operation 14 'br' <Predicate = (demuxState_load == 1)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%tmp_10 = trunc i256 %tmp_9 to i128" [sources/valueStore/valueStore.cpp:234]   --->   Operation 15 'trunc' 'tmp_10' <Predicate = (demuxState_load == 1 & !tmp_494)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.85ns)   --->   "%tmp_264_i = add i2 1, %wordCounter_V_load" [sources/valueStore/valueStore.cpp:235]   --->   Operation 16 'add' 'tmp_264_i' <Predicate = (demuxState_load == 1 & !tmp_494)> <Delay = 0.85> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.33> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 17 [1/1] (0.92ns)   --->   "store i2 %tmp_264_i, i2* @wordCounter_V, align 1" [sources/valueStore/valueStore.cpp:235]   --->   Operation 17 'store' <Predicate = (demuxState_load == 1 & !tmp_494)> <Delay = 0.92>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "br i1 %metadataWrWord_keyVa_4, label %20, label %._crit_edge20.i" [sources/valueStore/valueStore.cpp:237]   --->   Operation 18 'br' <Predicate = (demuxState_load == 1)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (1.18ns)   --->   "%tmp_266_i = icmp ult i16 %valueLength_V_load, 9" [sources/valueStore/valueStore.cpp:240]   --->   Operation 19 'icmp' 'tmp_266_i' <Predicate = (demuxState_load == 1)> <Delay = 1.18> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 20 [1/1] (0.85ns)   --->   "br i1 %tmp_266_i, label %._crit_edge21.i, label %21" [sources/valueStore/valueStore.cpp:240]   --->   Operation 20 'br' <Predicate = (demuxState_load == 1)> <Delay = 0.85>
+ST_1 : Operation 21 [1/1] (1.30ns)   --->   "%tmp_267_i = add i16 %valueLength_V_load, -8" [sources/valueStore/valueStore.cpp:243]   --->   Operation 21 'add' 'tmp_267_i' <Predicate = (demuxState_load == 1 & !tmp_266_i)> <Delay = 1.30> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.33> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 22 [1/1] (0.85ns)   --->   "store i16 %tmp_267_i, i16* @valueLength_V, align 2" [sources/valueStore/valueStore.cpp:243]   --->   Operation 22 'store' <Predicate = (demuxState_load == 1 & !tmp_266_i)> <Delay = 0.85>
+ST_1 : Operation 23 [1/1] (0.85ns)   --->   "br label %._crit_edge21.i"   --->   Operation 23 'br' <Predicate = (demuxState_load == 1 & !tmp_266_i)> <Delay = 0.85>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "br i1 %metadataWrWord_value, label %22, label %._crit_edge22.i" [sources/valueStore/valueStore.cpp:244]   --->   Operation 24 'br' <Predicate = (demuxState_load == 1)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "br i1 %metadataWrWord_EOP_V_4, label %23, label %._crit_edge23.i" [sources/valueStore/valueStore.cpp:246]   --->   Operation 25 'br' <Predicate = (demuxState_load == 1)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.92ns)   --->   "store i2 0, i2* @demuxState, align 1" [sources/valueStore/valueStore.cpp:247]   --->   Operation 26 'store' <Predicate = (demuxState_load == 1 & metadataWrWord_EOP_V_4)> <Delay = 0.92>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%tmp_490 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i256P(i256* @accCtrl2demux_V, i32 1) nounwind"   --->   Operation 27 'nbreadreq' 'tmp_490' <Predicate = (demuxState_load == 2)> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 28 [1/1] (2.39ns)   --->   "%tmp_7 = call i256 @_ssdm_op_Read.ap_fifo.volatile.i256P(i256* @accCtrl2demux_V) nounwind"   --->   Operation 28 'read' 'tmp_7' <Predicate = (demuxState_load == 2 & tmp_490)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%metadataWrWord_keyVa_3 = call i1 @_ssdm_op_BitSelect.i1.i256.i32(i256 %tmp_7, i32 125)" [sources/hashTable/../globals.h:104->sources/valueStore/valueStore.cpp:214]   --->   Operation 29 'bitselect' 'metadataWrWord_keyVa_3' <Predicate = (demuxState_load == 2 & tmp_490)> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%metadataWrWord_EOP_V = call i1 @_ssdm_op_BitSelect.i1.i256.i32(i256 %tmp_7, i32 127)" [sources/hashTable/../globals.h:104->sources/valueStore/valueStore.cpp:214]   --->   Operation 30 'bitselect' 'metadataWrWord_EOP_V' <Predicate = (demuxState_load == 2 & tmp_490)> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%tmp_V_67 = call i64 @_ssdm_op_PartSelect.i64.i256.i32.i32(i256 %tmp_7, i32 192, i32 255) nounwind" [sources/hashTable/../globals.h:104->sources/valueStore/valueStore.cpp:214]   --->   Operation 31 'partselect' 'tmp_V_67' <Predicate = (demuxState_load == 2 & tmp_490)> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%tmp_500 = call i1 @_ssdm_op_BitSelect.i1.i2.i32(i2 %wordCounter_V_load, i32 1)" [sources/valueStore/valueStore.cpp:216]   --->   Operation 32 'bitselect' 'tmp_500' <Predicate = (demuxState_load == 2 & tmp_490)> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "br i1 %tmp_500, label %._crit_edge16.i, label %15" [sources/valueStore/valueStore.cpp:216]   --->   Operation 33 'br' <Predicate = (demuxState_load == 2 & tmp_490)> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%tmp_8 = trunc i256 %tmp_7 to i128" [sources/valueStore/valueStore.cpp:218]   --->   Operation 34 'trunc' 'tmp_8' <Predicate = (demuxState_load == 2 & tmp_490 & !tmp_500)> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.85ns)   --->   "%tmp_265_i = add i2 1, %wordCounter_V_load" [sources/valueStore/valueStore.cpp:219]   --->   Operation 35 'add' 'tmp_265_i' <Predicate = (demuxState_load == 2 & tmp_490 & !tmp_500)> <Delay = 0.85> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.33> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 36 [1/1] (0.92ns)   --->   "store i2 %tmp_265_i, i2* @wordCounter_V, align 1" [sources/valueStore/valueStore.cpp:219]   --->   Operation 36 'store' <Predicate = (demuxState_load == 2 & tmp_490 & !tmp_500)> <Delay = 0.92>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "br i1 %metadataWrWord_keyVa_3, label %16, label %._crit_edge17.i" [sources/valueStore/valueStore.cpp:221]   --->   Operation 37 'br' <Predicate = (demuxState_load == 2 & tmp_490)> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "br i1 %metadataWrWord_EOP_V, label %17, label %._crit_edge18.i" [sources/valueStore/valueStore.cpp:223]   --->   Operation 38 'br' <Predicate = (demuxState_load == 2 & tmp_490)> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.92ns)   --->   "store i2 0, i2* @demuxState, align 1" [sources/valueStore/valueStore.cpp:224]   --->   Operation 39 'store' <Predicate = (demuxState_load == 2 & tmp_490 & metadataWrWord_EOP_V)> <Delay = 0.92>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_NbReadReq.ap_fifo.i256P(i256* @accCtrl2demux_V, i32 1) nounwind"   --->   Operation 40 'nbreadreq' 'tmp' <Predicate = (demuxState_load == 0)> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 41 [1/1] (2.39ns)   --->   "%tmp308 = call i256 @_ssdm_op_Read.ap_fifo.volatile.i256P(i256* @accCtrl2demux_V) nounwind"   --->   Operation 41 'read' 'tmp308' <Predicate = (demuxState_load == 0 & tmp)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%p_Val2_s = trunc i256 %tmp308 to i124" [sources/hashTable/../globals.h:104->sources/valueStore/valueStore.cpp:167]   --->   Operation 42 'trunc' 'p_Val2_s' <Predicate = (demuxState_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%metadataWrWord_SOP_V = call i1 @_ssdm_op_BitSelect.i1.i256.i32(i256 %tmp308, i32 124)" [sources/hashTable/../globals.h:104->sources/valueStore/valueStore.cpp:167]   --->   Operation 43 'bitselect' 'metadataWrWord_SOP_V' <Predicate = (demuxState_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%metadataWrWord_keyVa = call i1 @_ssdm_op_BitSelect.i1.i256.i32(i256 %tmp308, i32 125)" [sources/hashTable/../globals.h:104->sources/valueStore/valueStore.cpp:167]   --->   Operation 44 'bitselect' 'metadataWrWord_keyVa' <Predicate = (demuxState_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%setData_data_V = call i64 @_ssdm_op_PartSelect.i64.i256.i32.i32(i256 %tmp308, i32 128, i32 191) nounwind" [sources/hashTable/../globals.h:104->sources/valueStore/valueStore.cpp:167]   --->   Operation 45 'partselect' 'setData_data_V' <Predicate = (demuxState_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%tmp_V_68 = call i64 @_ssdm_op_PartSelect.i64.i256.i32.i32(i256 %tmp308, i32 192, i32 255) nounwind" [sources/hashTable/../globals.h:104->sources/valueStore/valueStore.cpp:167]   --->   Operation 46 'partselect' 'tmp_V_68' <Predicate = (demuxState_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "br i1 %metadataWrWord_SOP_V, label %2, label %._crit_edge5.i" [sources/valueStore/valueStore.cpp:168]   --->   Operation 47 'br' <Predicate = (demuxState_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.92ns)   --->   "store i2 1, i2* @wordCounter_V, align 1" [sources/valueStore/valueStore.cpp:170]   --->   Operation 48 'store' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V)> <Delay = 0.92>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%tmp_502 = call i1 @_ssdm_op_BitSelect.i1.i256.i32(i256 %tmp308, i32 112)" [sources/valueStore/valueStore.cpp:171]   --->   Operation 49 'bitselect' 'tmp_502' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V)> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "br i1 %tmp_502, label %._crit_edge6.i, label %3" [sources/valueStore/valueStore.cpp:171]   --->   Operation 50 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V)> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%p_Result_i = call i8 @_ssdm_op_PartSelect.i8.i256.i32.i32(i256 %tmp308, i32 104, i32 111) nounwind" [sources/valueStore/valueStore.cpp:171]   --->   Operation 51 'partselect' 'p_Result_i' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502)> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.86ns)   --->   "%tmp_504 = icmp eq i8 %p_Result_i, 8" [sources/valueStore/valueStore.cpp:171]   --->   Operation 52 'icmp' 'tmp_504' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502)> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 53 [1/1] (0.86ns)   --->   "%tmp_505 = icmp eq i8 %p_Result_i, 4" [sources/valueStore/valueStore.cpp:171]   --->   Operation 53 'icmp' 'tmp_505' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502)> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 54 [1/1] (0.48ns)   --->   "%tmp_506 = or i1 %tmp_505, %tmp_504" [sources/valueStore/valueStore.cpp:171]   --->   Operation 54 'or' 'tmp_506' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502)> <Delay = 0.48> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "br i1 %tmp_506, label %._crit_edge6.i, label %6" [sources/valueStore/valueStore.cpp:171]   --->   Operation 55 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502)> <Delay = 0.00>
+ST_1 : Operation 56 [1/1] (0.86ns)   --->   "%tmp_268_i = icmp eq i8 %p_Result_i, 0" [sources/valueStore/valueStore.cpp:179]   --->   Operation 56 'icmp' 'tmp_268_i' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506)> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "br i1 %tmp_268_i, label %7, label %9" [sources/valueStore/valueStore.cpp:179]   --->   Operation 57 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506)> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.86ns)   --->   "%tmp_269_i = icmp eq i8 %p_Result_i, 1" [sources/valueStore/valueStore.cpp:189]   --->   Operation 58 'icmp' 'tmp_269_i' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i)> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "br i1 %tmp_269_i, label %._crit_edge13.i, label %._crit_edge12.i" [sources/valueStore/valueStore.cpp:189]   --->   Operation 59 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i)> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%tmp_89_i = call i3 @_ssdm_op_PartSelect.i3.i256.i32.i32(i256 %tmp308, i32 125, i32 127) nounwind" [sources/valueStore/valueStore.cpp:192]   --->   Operation 60 'partselect' 'tmp_89_i' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%setMd_address_V = call i32 @_ssdm_op_PartSelect.i32.i256.i32.i32(i256 %tmp308, i32 72, i32 103) nounwind" [sources/valueStore/valueStore.cpp:193]   --->   Operation 61 'partselect' 'setMd_address_V' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%setMd_length_V = call i13 @_ssdm_op_PartSelect.i13.i256.i32.i32(i256 %tmp308, i32 8, i32 20) nounwind" [sources/valueStore/valueStore.cpp:193]   --->   Operation 62 'partselect' 'setMd_length_V' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 0.00>
+ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%p_Result_60_i = call i12 @_ssdm_op_PartSelect.i12.i256.i32.i32(i256 %tmp308, i32 8, i32 19) nounwind" [sources/valueStore/valueStore.cpp:196]   --->   Operation 63 'partselect' 'p_Result_60_i' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 0.00>
+ST_1 : Operation 64 [1/1] (1.02ns)   --->   "%tmp_EOP_V_2 = icmp ult i12 %p_Result_60_i, 9" [sources/valueStore/valueStore.cpp:197]   --->   Operation 64 'icmp' 'tmp_EOP_V_2' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 1.02> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 65 [1/1] (1.33ns)   --->   "%tmp_272_i = add i12 %p_Result_60_i, -8" [sources/valueStore/valueStore.cpp:200]   --->   Operation 65 'add' 'tmp_272_i' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 1.33> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.33> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 66 [1/1] (0.60ns)   --->   "%storemerge_i = select i1 %tmp_EOP_V_2, i12 %p_Result_60_i, i12 %tmp_272_i" [sources/valueStore/valueStore.cpp:197]   --->   Operation 66 'select' 'storemerge_i' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 0.60> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.60> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 67 [1/1] (0.00ns)   --->   "%storemerge_cast_i = zext i12 %storemerge_i to i16" [sources/valueStore/valueStore.cpp:197]   --->   Operation 67 'zext' 'storemerge_cast_i' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 0.00>
+ST_1 : Operation 68 [1/1] (0.85ns)   --->   "store i16 %storemerge_cast_i, i16* @valueLength_V, align 2" [sources/valueStore/valueStore.cpp:196]   --->   Operation 68 'store' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 0.85>
+ST_1 : Operation 69 [1/1] (0.00ns)   --->   "br i1 %metadataWrWord_keyVa, label %10, label %._crit_edge14.i" [sources/valueStore/valueStore.cpp:202]   --->   Operation 69 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 0.00>
+ST_1 : Operation 70 [1/1] (0.92ns)   --->   "store i2 1, i2* @demuxState, align 1" [sources/valueStore/valueStore.cpp:204]   --->   Operation 70 'store' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 0.92>
+ST_1 : Operation 71 [1/1] (0.00ns)   --->   "%tmp_88_i = call i3 @_ssdm_op_PartSelect.i3.i256.i32.i32(i256 %tmp308, i32 125, i32 127) nounwind" [sources/valueStore/valueStore.cpp:182]   --->   Operation 71 'partselect' 'tmp_88_i' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & tmp_268_i)> <Delay = 0.00>
+ST_1 : Operation 72 [1/1] (0.00ns)   --->   "%getMd_address_V = call i32 @_ssdm_op_PartSelect.i32.i256.i32.i32(i256 %tmp308, i32 72, i32 103) nounwind" [sources/valueStore/valueStore.cpp:183]   --->   Operation 72 'partselect' 'getMd_address_V' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & tmp_268_i)> <Delay = 0.00>
+ST_1 : Operation 73 [1/1] (0.00ns)   --->   "%getMd_length_V = call i13 @_ssdm_op_PartSelect.i13.i256.i32.i32(i256 %tmp308, i32 8, i32 20) nounwind" [sources/valueStore/valueStore.cpp:183]   --->   Operation 73 'partselect' 'getMd_length_V' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & tmp_268_i)> <Delay = 0.00>
+ST_1 : Operation 74 [1/1] (0.00ns)   --->   "br i1 %metadataWrWord_keyVa, label %8, label %._crit_edge11.i" [sources/valueStore/valueStore.cpp:185]   --->   Operation 74 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & tmp_268_i)> <Delay = 0.00>
+ST_1 : Operation 75 [1/1] (0.92ns)   --->   "store i2 -2, i2* @demuxState, align 1" [sources/valueStore/valueStore.cpp:187]   --->   Operation 75 'store' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & tmp_268_i)> <Delay = 0.92>
+ST_1 : Operation 76 [1/1] (0.00ns)   --->   "%tmp_87_i = call i3 @_ssdm_op_PartSelect.i3.i256.i32.i32(i256 %tmp308, i32 125, i32 127) nounwind" [sources/valueStore/valueStore.cpp:174]   --->   Operation 76 'partselect' 'tmp_87_i' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_502) | (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_506)> <Delay = 0.00>
+ST_1 : Operation 77 [1/1] (0.00ns)   --->   "br i1 %metadataWrWord_keyVa, label %4, label %._crit_edge9.i" [sources/valueStore/valueStore.cpp:175]   --->   Operation 77 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_502) | (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_506)> <Delay = 0.00>
+ST_1 : Operation 78 [1/1] (0.00ns)   --->   "%p_Result_58_i = call i8 @_ssdm_op_PartSelect.i8.i256.i32.i32(i256 %tmp308, i32 104, i32 111) nounwind" [sources/valueStore/valueStore.cpp:175]   --->   Operation 78 'partselect' 'p_Result_58_i' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_502 & metadataWrWord_keyVa) | (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_506 & metadataWrWord_keyVa)> <Delay = 0.00>
+ST_1 : Operation 79 [1/1] (0.86ns)   --->   "%tmp_270_i = icmp eq i8 %p_Result_58_i, 8" [sources/valueStore/valueStore.cpp:175]   --->   Operation 79 'icmp' 'tmp_270_i' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_502 & metadataWrWord_keyVa) | (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_506 & metadataWrWord_keyVa)> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 80 [1/1] (0.00ns)   --->   "br i1 %tmp_270_i, label %._crit_edge9.i, label %5" [sources/valueStore/valueStore.cpp:175]   --->   Operation 80 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_502 & metadataWrWord_keyVa) | (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_506 & metadataWrWord_keyVa)> <Delay = 0.00>
+ST_1 : Operation 81 [1/1] (0.92ns)   --->   "store i2 -2, i2* @demuxState, align 1" [sources/valueStore/valueStore.cpp:177]   --->   Operation 81 'store' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_502) | (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_506)> <Delay = 0.92>
+
+State 2 <SV = 1> <Delay = 2.39>
+ST_2 : Operation 82 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i256* @accCtrl2demux_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 82 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 83 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i45* @demux2getPath_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 83 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 84 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i45* @demux2setPathMetadat_1, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 84 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i66* @demux2setPathValue_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 85 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 86 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* @keyBuffer_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 86 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 87 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i128* @metadataBuffer_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 87 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 88 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str65, i32 0, i32 0, [1 x i8]* @p_str166, i32 0, i32 0, [1 x i8]* @p_str166, [1 x i8]* @p_str166, [1 x i8]* @p_str166, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str166, [1 x i8]* @p_str166) nounwind" [sources/valueStore/valueStore.cpp:151]   --->   Operation 88 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 89 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 2, i32 1, i32 0, [1 x i8]* @p_str166) nounwind" [sources/valueStore/valueStore.cpp:154]   --->   Operation 89 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 90 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i128P(i128* @metadataBuffer_V, i128 %tmp_10) nounwind" [sources/valueStore/valueStore.cpp:234]   --->   Operation 90 'write' <Predicate = (demuxState_load == 1 & !tmp_494)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 91 [1/1] (0.00ns)   --->   "br label %._crit_edge19.i" [sources/valueStore/valueStore.cpp:236]   --->   Operation 91 'br' <Predicate = (demuxState_load == 1 & !tmp_494)> <Delay = 0.00>
+ST_2 : Operation 92 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i64P(i64* @keyBuffer_V_V, i64 %tmp_V) nounwind" [sources/valueStore/valueStore.cpp:238]   --->   Operation 92 'write' <Predicate = (demuxState_load == 1 & metadataWrWord_keyVa_4)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 93 [1/1] (0.00ns)   --->   "br label %._crit_edge20.i" [sources/valueStore/valueStore.cpp:238]   --->   Operation 93 'br' <Predicate = (demuxState_load == 1 & metadataWrWord_keyVa_4)> <Delay = 0.00>
+ST_2 : Operation 94 [1/1] (0.00ns)   --->   "%tmp_EOP_V_13 = phi i1 [ false, %21 ], [ true, %._crit_edge20.i ]"   --->   Operation 94 'phi' 'tmp_EOP_V_13' <Predicate = (demuxState_load == 1)> <Delay = 0.00>
+ST_2 : Operation 95 [1/1] (0.00ns)   --->   "%tmp_11 = call i66 @_ssdm_op_BitConcatenate.i66.i1.i1.i64(i1 %tmp_EOP_V_13, i1 false, i64 %setData_data_V_4) nounwind" [sources/valueStore/valueStore.cpp:245]   --->   Operation 95 'bitconcatenate' 'tmp_11' <Predicate = (demuxState_load == 1 & metadataWrWord_value)> <Delay = 0.00>
+ST_2 : Operation 96 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i66P(i66* @demux2setPathValue_V, i66 %tmp_11) nounwind" [sources/valueStore/valueStore.cpp:245]   --->   Operation 96 'write' <Predicate = (demuxState_load == 1 & metadataWrWord_value)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 97 [1/1] (0.00ns)   --->   "br label %._crit_edge22.i" [sources/valueStore/valueStore.cpp:245]   --->   Operation 97 'br' <Predicate = (demuxState_load == 1 & metadataWrWord_value)> <Delay = 0.00>
+ST_2 : Operation 98 [1/1] (0.00ns)   --->   "br label %._crit_edge23.i" [sources/valueStore/valueStore.cpp:247]   --->   Operation 98 'br' <Predicate = (demuxState_load == 1 & metadataWrWord_EOP_V_4)> <Delay = 0.00>
+ST_2 : Operation 99 [1/1] (0.00ns)   --->   "br label %demux.exit" [sources/valueStore/valueStore.cpp:248]   --->   Operation 99 'br' <Predicate = (demuxState_load == 1)> <Delay = 0.00>
+ST_2 : Operation 100 [1/1] (0.00ns)   --->   "br i1 %tmp_490, label %14, label %._crit_edge15.i" [sources/valueStore/valueStore.cpp:212]   --->   Operation 100 'br' <Predicate = (demuxState_load == 2)> <Delay = 0.00>
+ST_2 : Operation 101 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i128P(i128* @metadataBuffer_V, i128 %tmp_8) nounwind" [sources/valueStore/valueStore.cpp:218]   --->   Operation 101 'write' <Predicate = (demuxState_load == 2 & tmp_490 & !tmp_500)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 102 [1/1] (0.00ns)   --->   "br label %._crit_edge16.i" [sources/valueStore/valueStore.cpp:220]   --->   Operation 102 'br' <Predicate = (demuxState_load == 2 & tmp_490 & !tmp_500)> <Delay = 0.00>
+ST_2 : Operation 103 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i64P(i64* @keyBuffer_V_V, i64 %tmp_V_67) nounwind" [sources/valueStore/valueStore.cpp:222]   --->   Operation 103 'write' <Predicate = (demuxState_load == 2 & tmp_490 & metadataWrWord_keyVa_3)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 104 [1/1] (0.00ns)   --->   "br label %._crit_edge17.i" [sources/valueStore/valueStore.cpp:222]   --->   Operation 104 'br' <Predicate = (demuxState_load == 2 & tmp_490 & metadataWrWord_keyVa_3)> <Delay = 0.00>
+ST_2 : Operation 105 [1/1] (0.00ns)   --->   "br label %._crit_edge18.i" [sources/valueStore/valueStore.cpp:224]   --->   Operation 105 'br' <Predicate = (demuxState_load == 2 & tmp_490 & metadataWrWord_EOP_V)> <Delay = 0.00>
+ST_2 : Operation 106 [1/1] (0.00ns)   --->   "br label %._crit_edge15.i" [sources/valueStore/valueStore.cpp:225]   --->   Operation 106 'br' <Predicate = (demuxState_load == 2 & tmp_490)> <Delay = 0.00>
+ST_2 : Operation 107 [1/1] (0.00ns)   --->   "br label %demux.exit" [sources/valueStore/valueStore.cpp:226]   --->   Operation 107 'br' <Predicate = (demuxState_load == 2)> <Delay = 0.00>
+ST_2 : Operation 108 [1/1] (0.00ns)   --->   "br i1 %tmp, label %1, label %._crit_edge4.i" [sources/valueStore/valueStore.cpp:165]   --->   Operation 108 'br' <Predicate = (demuxState_load == 0)> <Delay = 0.00>
+ST_2 : Operation 109 [1/1] (0.00ns)   --->   "%tmp_4 = call i128 @_ssdm_op_BitConcatenate.i128.i3.i1.i124(i3 %tmp_89_i, i1 true, i124 %p_Val2_s) nounwind" [sources/valueStore/valueStore.cpp:192]   --->   Operation 109 'bitconcatenate' 'tmp_4' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 0.00>
+ST_2 : Operation 110 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i128P(i128* @metadataBuffer_V, i128 %tmp_4) nounwind" [sources/valueStore/valueStore.cpp:192]   --->   Operation 110 'write' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 111 [1/1] (0.00ns)   --->   "%tmp_5 = call i45 @_ssdm_op_BitConcatenate.i45.i13.i32(i13 %setMd_length_V, i32 %setMd_address_V) nounwind" [sources/valueStore/valueStore.cpp:194]   --->   Operation 111 'bitconcatenate' 'tmp_5' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 0.00>
+ST_2 : Operation 112 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i45P(i45* @demux2setPathMetadat_1, i45 %tmp_5) nounwind" [sources/valueStore/valueStore.cpp:194]   --->   Operation 112 'write' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 113 [1/1] (0.00ns)   --->   "%tmp_6 = call i66 @_ssdm_op_BitConcatenate.i66.i1.i1.i64(i1 %tmp_EOP_V_2, i1 true, i64 %setData_data_V) nounwind" [sources/valueStore/valueStore.cpp:201]   --->   Operation 113 'bitconcatenate' 'tmp_6' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 0.00>
+ST_2 : Operation 114 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i66P(i66* @demux2setPathValue_V, i66 %tmp_6) nounwind" [sources/valueStore/valueStore.cpp:201]   --->   Operation 114 'write' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 115 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i64P(i64* @keyBuffer_V_V, i64 %tmp_V_68) nounwind" [sources/valueStore/valueStore.cpp:203]   --->   Operation 115 'write' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i & metadataWrWord_keyVa)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 116 [1/1] (0.00ns)   --->   "br label %._crit_edge14.i" [sources/valueStore/valueStore.cpp:203]   --->   Operation 116 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i & metadataWrWord_keyVa)> <Delay = 0.00>
+ST_2 : Operation 117 [1/1] (0.00ns)   --->   "br label %._crit_edge12.i" [sources/valueStore/valueStore.cpp:205]   --->   Operation 117 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i & tmp_269_i)> <Delay = 0.00>
+ST_2 : Operation 118 [1/1] (0.00ns)   --->   "br label %11"   --->   Operation 118 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & !tmp_268_i)> <Delay = 0.00>
+ST_2 : Operation 119 [1/1] (0.00ns)   --->   "%tmp_2 = call i128 @_ssdm_op_BitConcatenate.i128.i3.i1.i124(i3 %tmp_88_i, i1 true, i124 %p_Val2_s) nounwind" [sources/valueStore/valueStore.cpp:182]   --->   Operation 119 'bitconcatenate' 'tmp_2' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & tmp_268_i)> <Delay = 0.00>
+ST_2 : Operation 120 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i128P(i128* @metadataBuffer_V, i128 %tmp_2) nounwind" [sources/valueStore/valueStore.cpp:182]   --->   Operation 120 'write' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & tmp_268_i)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 121 [1/1] (0.00ns)   --->   "%tmp_3 = call i45 @_ssdm_op_BitConcatenate.i45.i13.i32(i13 %getMd_length_V, i32 %getMd_address_V) nounwind" [sources/valueStore/valueStore.cpp:184]   --->   Operation 121 'bitconcatenate' 'tmp_3' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & tmp_268_i)> <Delay = 0.00>
+ST_2 : Operation 122 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i45P(i45* @demux2getPath_V, i45 %tmp_3) nounwind" [sources/valueStore/valueStore.cpp:184]   --->   Operation 122 'write' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & tmp_268_i)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 123 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i64P(i64* @keyBuffer_V_V, i64 %tmp_V_68) nounwind" [sources/valueStore/valueStore.cpp:186]   --->   Operation 123 'write' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & tmp_268_i & metadataWrWord_keyVa)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 124 [1/1] (0.00ns)   --->   "br label %._crit_edge11.i" [sources/valueStore/valueStore.cpp:186]   --->   Operation 124 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & tmp_268_i & metadataWrWord_keyVa)> <Delay = 0.00>
+ST_2 : Operation 125 [1/1] (0.00ns)   --->   "br label %11" [sources/valueStore/valueStore.cpp:188]   --->   Operation 125 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506 & tmp_268_i)> <Delay = 0.00>
+ST_2 : Operation 126 [1/1] (0.00ns)   --->   "br label %12"   --->   Operation 126 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & !tmp_502 & !tmp_506)> <Delay = 0.00>
+ST_2 : Operation 127 [1/1] (0.00ns)   --->   "%tmp_1 = call i128 @_ssdm_op_BitConcatenate.i128.i3.i1.i124(i3 %tmp_87_i, i1 true, i124 %p_Val2_s) nounwind" [sources/valueStore/valueStore.cpp:174]   --->   Operation 127 'bitconcatenate' 'tmp_1' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_502) | (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_506)> <Delay = 0.00>
+ST_2 : Operation 128 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i128P(i128* @metadataBuffer_V, i128 %tmp_1) nounwind" [sources/valueStore/valueStore.cpp:174]   --->   Operation 128 'write' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_502) | (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_506)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 129 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i64P(i64* @keyBuffer_V_V, i64 %tmp_V_68) nounwind" [sources/valueStore/valueStore.cpp:176]   --->   Operation 129 'write' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_502 & metadataWrWord_keyVa & !tmp_270_i) | (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_506 & metadataWrWord_keyVa & !tmp_270_i)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_2 : Operation 130 [1/1] (0.00ns)   --->   "br label %._crit_edge9.i" [sources/valueStore/valueStore.cpp:176]   --->   Operation 130 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_502 & metadataWrWord_keyVa & !tmp_270_i) | (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_506 & metadataWrWord_keyVa & !tmp_270_i)> <Delay = 0.00>
+ST_2 : Operation 131 [1/1] (0.00ns)   --->   "br label %12" [sources/valueStore/valueStore.cpp:178]   --->   Operation 131 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_502) | (demuxState_load == 0 & tmp & metadataWrWord_SOP_V & tmp_506)> <Delay = 0.00>
+ST_2 : Operation 132 [1/1] (0.00ns)   --->   "br label %._crit_edge5.i" [sources/valueStore/valueStore.cpp:206]   --->   Operation 132 'br' <Predicate = (demuxState_load == 0 & tmp & metadataWrWord_SOP_V)> <Delay = 0.00>
+ST_2 : Operation 133 [1/1] (0.00ns)   --->   "br label %._crit_edge4.i" [sources/valueStore/valueStore.cpp:207]   --->   Operation 133 'br' <Predicate = (demuxState_load == 0 & tmp)> <Delay = 0.00>
+ST_2 : Operation 134 [1/1] (0.00ns)   --->   "br label %demux.exit" [sources/valueStore/valueStore.cpp:208]   --->   Operation 134 'br' <Predicate = (demuxState_load == 0)> <Delay = 0.00>
+ST_2 : Operation 135 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 135 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 6.66ns, clock uncertainty: 0.832ns.
+
+ <State 1>: 5.18ns
+The critical path consists of the following:
+	fifo read on port 'accCtrl2demux_V' [97]  (2.39 ns)
+	'add' operation ('tmp_272_i', sources/valueStore/valueStore.cpp:200) [130]  (1.33 ns)
+	'select' operation ('storemerge_i', sources/valueStore/valueStore.cpp:197) [131]  (0.601 ns)
+	'store' operation (sources/valueStore/valueStore.cpp:196) of variable 'storemerge_cast_i', sources/valueStore/valueStore.cpp:197 on static variable 'valueLength_V' [133]  (0.85 ns)
+
+ <State 2>: 2.39ns
+The critical path consists of the following:
+	fifo write on port 'metadataBuffer_V' (sources/valueStore/valueStore.cpp:234) [33]  (2.39 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

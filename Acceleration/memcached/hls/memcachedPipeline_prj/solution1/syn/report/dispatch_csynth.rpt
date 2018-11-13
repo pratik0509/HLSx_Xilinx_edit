@@ -1,0 +1,162 @@
+
+
+================================================================
+== Vivado HLS Report for 'dispatch'
+================================================================
+* Date:           Fri Nov  9 23:11:25 2018
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        memcachedPipeline_prj
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1761-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   6.66|     3.452|        0.83|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    2|    2|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       0|      56|
+|FIFO             |        -|      -|       -|       -|
+|Instance         |        -|      -|       -|       -|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|      90|
+|Register         |        -|      -|     144|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |        0|      0|     144|     146|
++-----------------+---------+-------+--------+--------+
+|Available        |     2940|   3600|  866400|  433200|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |tmp_259_i_fu_139_p2               |     +    |      0|  0|  15|           1|           8|
+    |ap_block_state2_io                |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state2_pp0_stage0_iter1  |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state3_io                |    and   |      0|  0|   2|           1|           1|
+    |memRdCmd_V_1_load_A               |    and   |      0|  0|   2|           1|           1|
+    |memRdCmd_V_1_load_B               |    and   |      0|  0|   2|           1|           1|
+    |memRdCmd_V_1_state_cmp_full       |   icmp   |      0|  0|   8|           2|           1|
+    |tmp_258_i_fu_120_p2               |   icmp   |      0|  0|  13|          13|          13|
+    |ap_block_state1_pp0_stage0_iter0  |    or    |      0|  0|   2|           1|           1|
+    |tmp_count_V_fu_145_p3             |  select  |      0|  0|   8|           1|           8|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                             |          |      0|  0|  56|          23|          36|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------+----+-----------+-----+-----------+
+    |          Name          | LUT| Input Size| Bits| Total Bits|
+    +------------------------+----+-----------+-----+-----------+
+    |ap_NS_iter1_fsm         |  15|          3|    2|          6|
+    |ap_NS_iter2_fsm         |  15|          3|    2|          6|
+    |ap_done                 |   9|          2|    1|          2|
+    |demux2getPath_V_blk_n   |   9|          2|    1|          2|
+    |disp2rec_V_V_blk_n      |   9|          2|    1|          2|
+    |memRdCmd_V_1_data_out   |   9|          2|   40|         80|
+    |memRdCmd_V_1_state      |  15|          3|    2|          6|
+    |memRdCmd_V_TDATA_blk_n  |   9|          2|    1|          2|
+    +------------------------+----+-----------+-----+-----------+
+    |Total                   |  90|         19|   50|        106|
+    +------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------+----+----+-----+-----------+
+    |              Name             | FF | LUT| Bits| Const Bits|
+    +-------------------------------+----+----+-----+-----------+
+    |ap_CS_iter0_fsm                |   1|   0|    1|          0|
+    |ap_CS_iter1_fsm                |   2|   0|    2|          0|
+    |ap_CS_iter2_fsm                |   2|   0|    2|          0|
+    |ap_done_reg                    |   1|   0|    1|          0|
+    |getCtrlWord_address_s_reg_164  |  32|   0|   32|          0|
+    |memRdCmd_V_1_payload_A         |  40|   0|   40|          0|
+    |memRdCmd_V_1_payload_B         |  40|   0|   40|          0|
+    |memRdCmd_V_1_sel_rd            |   1|   0|    1|          0|
+    |memRdCmd_V_1_sel_wr            |   1|   0|    1|          0|
+    |memRdCmd_V_1_state             |   2|   0|    2|          0|
+    |tmp_258_i_reg_174              |   1|   0|    1|          0|
+    |tmp_V_reg_179                  |  12|   0|   12|          0|
+    |tmp_reg_160                    |   1|   0|    1|          0|
+    |tmp_reg_160_pp0_iter1_reg      |   1|   0|    1|          0|
+    |tmp_s_reg_169                  |   7|   0|    7|          0|
+    +-------------------------------+----+----+-----+-----------+
+    |Total                          | 144|   0|  144|          0|
+    +-------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------+-----+-----+------------+-----------------+--------------+
+|        RTL Ports        | Dir | Bits|  Protocol  |  Source Object  |    C Type    |
++-------------------------+-----+-----+------------+-----------------+--------------+
+|ap_clk                   |  in |    1| ap_ctrl_hs |     dispatch    | return value |
+|ap_rst                   |  in |    1| ap_ctrl_hs |     dispatch    | return value |
+|ap_start                 |  in |    1| ap_ctrl_hs |     dispatch    | return value |
+|ap_done                  | out |    1| ap_ctrl_hs |     dispatch    | return value |
+|ap_continue              |  in |    1| ap_ctrl_hs |     dispatch    | return value |
+|ap_idle                  | out |    1| ap_ctrl_hs |     dispatch    | return value |
+|ap_ready                 | out |    1| ap_ctrl_hs |     dispatch    | return value |
+|demux2getPath_V_dout     |  in |   45|   ap_fifo  | demux2getPath_V |    pointer   |
+|demux2getPath_V_empty_n  |  in |    1|   ap_fifo  | demux2getPath_V |    pointer   |
+|demux2getPath_V_read     | out |    1|   ap_fifo  | demux2getPath_V |    pointer   |
+|disp2rec_V_V_din         | out |   12|   ap_fifo  |   disp2rec_V_V  |    pointer   |
+|disp2rec_V_V_full_n      |  in |    1|   ap_fifo  |   disp2rec_V_V  |    pointer   |
+|disp2rec_V_V_write       | out |    1|   ap_fifo  |   disp2rec_V_V  |    pointer   |
+|memRdCmd_V_TREADY        |  in |    1|    axis    |    memRdCmd_V   |    pointer   |
+|memRdCmd_V_TDATA         | out |   40|    axis    |    memRdCmd_V   |    pointer   |
+|memRdCmd_V_TVALID        | out |    1|    axis    |    memRdCmd_V   |    pointer   |
++-------------------------+-----+-----+------------+-----------------+--------------+
+

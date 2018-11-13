@@ -1,0 +1,245 @@
+
+
+================================================================
+== Vivado HLS Report for 'hashKeyResizer'
+================================================================
+* Date:           Fri Nov  9 23:08:35 2018
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        memcachedPipeline_prj
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1761-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   6.66|     4.057|        0.83|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    1|    1|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 1
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.05>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%keyResizerState_load = load i3* @keyResizerState, align 1" [sources/hashTable/hash.cpp:206]   --->   Operation 3 'load' 'keyResizerState_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%keyResizerLength_V_l = load i8* @keyResizerLength_V, align 1" [sources/hashTable/hash.cpp:232]   --->   Operation 4 'load' 'keyResizerLength_V_l' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%p_Val2_s = load i128* @tempInput_data_V, align 8" [sources/hashTable/hash.cpp:233]   --->   Operation 5 'load' 'p_Val2_s' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.87ns)   --->   "switch i3 %keyResizerState_load, label %hashKeyResizer.exit [
+    i3 0, label %0
+    i3 1, label %4
+    i3 2, label %5
+    i3 3, label %6
+    i3 -4, label %7
+    i3 -3, label %10
+    i3 -2, label %11
+    i3 -1, label %12
+  ]" [sources/hashTable/hash.cpp:206]   --->   Operation 6 'switch' <Predicate = true> <Delay = 0.87>
+ST_1 : Operation 7 [1/1] (1.15ns)   --->   "store i3 0, i3* @keyResizerState, align 1" [sources/hashTable/hash.cpp:311]   --->   Operation 7 'store' <Predicate = (keyResizerState_load == 7)> <Delay = 1.15>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "br label %hashKeyResizer.exit" [sources/hashTable/hash.cpp:312]   --->   Operation 8 'br' <Predicate = (keyResizerState_load == 7)> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (1.15ns)   --->   "store i3 0, i3* @keyResizerState, align 1" [sources/hashTable/hash.cpp:304]   --->   Operation 9 'store' <Predicate = (keyResizerState_load == 6)> <Delay = 1.15>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "br label %hashKeyResizer.exit" [sources/hashTable/hash.cpp:305]   --->   Operation 10 'br' <Predicate = (keyResizerState_load == 6)> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (1.15ns)   --->   "store i3 0, i3* @keyResizerState, align 1" [sources/hashTable/hash.cpp:297]   --->   Operation 11 'store' <Predicate = (keyResizerState_load == 5)> <Delay = 1.15>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "br label %hashKeyResizer.exit" [sources/hashTable/hash.cpp:298]   --->   Operation 12 'br' <Predicate = (keyResizerState_load == 5)> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%tmp_431 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i130P(i130* @in2hash_V, i32 1) nounwind"   --->   Operation 13 'nbreadreq' 'tmp_431' <Predicate = (keyResizerState_load == 4)> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_1 : Operation 14 [1/1] (2.39ns)   --->   "%tmp_3 = call i130 @_ssdm_op_Read.ap_fifo.volatile.i130P(i130* @in2hash_V) nounwind"   --->   Operation 14 'read' 'tmp_3' <Predicate = (keyResizerState_load == 4 & tmp_431)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%p_Val2_26 = trunc i130 %tmp_3 to i128" [sources/hashTable/../globals.h:120->sources/hashTable/hash.cpp:281]   --->   Operation 15 'trunc' 'p_Val2_26' <Predicate = (keyResizerState_load == 4 & tmp_431)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (1.00ns)   --->   "store i128 %p_Val2_26, i128* @tempInput_data_V, align 16" [sources/hashTable/../globals.h:120->sources/hashTable/hash.cpp:281]   --->   Operation 16 'store' <Predicate = (keyResizerState_load == 4 & tmp_431)> <Delay = 1.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%tmp_440 = call i1 @_ssdm_op_BitSelect.i1.i130.i32(i130 %tmp_3, i32 129)" [sources/hashTable/../globals.h:120->sources/hashTable/hash.cpp:281]   --->   Operation 17 'bitselect' 'tmp_440' <Predicate = (keyResizerState_load == 4 & tmp_431)> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%tmp_V_51 = trunc i130 %tmp_3 to i96" [sources/hashTable/hash.cpp:282]   --->   Operation 18 'trunc' 'tmp_V_51' <Predicate = (keyResizerState_load == 4 & tmp_431)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.86ns)   --->   "%tmp_190_i = icmp ugt i8 %keyResizerLength_V_l, 12" [sources/hashTable/hash.cpp:284]   --->   Operation 19 'icmp' 'tmp_190_i' <Predicate = (keyResizerState_load == 4 & tmp_431)> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "br i1 %tmp_190_i, label %9, label %._crit_edge12.i" [sources/hashTable/hash.cpp:284]   --->   Operation 20 'br' <Predicate = (keyResizerState_load == 4 & tmp_431)> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.51ns)   --->   "%storemerge_i = select i1 %tmp_440, i3 -3, i3 1" [sources/hashTable/hash.cpp:285]   --->   Operation 21 'select' 'storemerge_i' <Predicate = (keyResizerState_load == 4 & tmp_431 & tmp_190_i)> <Delay = 0.51> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 22 [1/1] (1.15ns)   --->   "store i3 %storemerge_i, i3* @keyResizerState, align 1" [sources/hashTable/hash.cpp:286]   --->   Operation 22 'store' <Predicate = (keyResizerState_load == 4 & tmp_431 & tmp_190_i)> <Delay = 1.15>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "br label %hashKeyResizer.exit" [sources/hashTable/hash.cpp:291]   --->   Operation 23 'br' <Predicate = (keyResizerState_load == 4)> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (1.35ns)   --->   "%tmp_i = add i8 %keyResizerLength_V_l, -16" [sources/hashTable/hash.cpp:269]   --->   Operation 24 'add' 'tmp_i' <Predicate = (keyResizerState_load == 3)> <Delay = 1.35> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.35> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 25 [1/1] (1.00ns)   --->   "store i8 %tmp_i, i8* @keyResizerLength_V, align 1" [sources/hashTable/hash.cpp:269]   --->   Operation 25 'store' <Predicate = (keyResizerState_load == 3)> <Delay = 1.00>
+ST_1 : Operation 26 [1/1] (0.86ns)   --->   "%tmp_183_i = icmp eq i8 %tmp_i, 0" [sources/hashTable/hash.cpp:272]   --->   Operation 26 'icmp' 'tmp_183_i' <Predicate = (keyResizerState_load == 3)> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 27 [1/1] (0.51ns)   --->   "%storemerge16_i = select i1 %tmp_183_i, i3 0, i3 -4" [sources/hashTable/hash.cpp:272]   --->   Operation 27 'select' 'storemerge16_i' <Predicate = (keyResizerState_load == 3)> <Delay = 0.51> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 28 [1/1] (1.15ns)   --->   "store i3 %storemerge16_i, i3* @keyResizerState, align 1" [sources/hashTable/hash.cpp:273]   --->   Operation 28 'store' <Predicate = (keyResizerState_load == 3)> <Delay = 1.15>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "br label %hashKeyResizer.exit" [sources/hashTable/hash.cpp:276]   --->   Operation 29 'br' <Predicate = (keyResizerState_load == 3)> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%tmp_430 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i130P(i130* @in2hash_V, i32 1) nounwind"   --->   Operation 30 'nbreadreq' 'tmp_430' <Predicate = (keyResizerState_load == 2)> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_1 : Operation 31 [1/1] (1.35ns)   --->   "%tmp_188_i = add i8 -16, %keyResizerLength_V_l" [sources/hashTable/hash.cpp:251]   --->   Operation 31 'add' 'tmp_188_i' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 1.35> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.35> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 32 [1/1] (1.00ns)   --->   "store i8 %tmp_188_i, i8* @keyResizerLength_V, align 1" [sources/hashTable/hash.cpp:251]   --->   Operation 32 'store' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 1.00>
+ST_1 : Operation 33 [1/1] (2.39ns)   --->   "%tmp_2 = call i130 @_ssdm_op_Read.ap_fifo.volatile.i130P(i130* @in2hash_V) nounwind"   --->   Operation 33 'read' 'tmp_2' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%p_Val2_25 = trunc i130 %tmp_2 to i128" [sources/hashTable/../globals.h:120->sources/hashTable/hash.cpp:253]   --->   Operation 34 'trunc' 'p_Val2_25' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (1.00ns)   --->   "store i128 %p_Val2_25, i128* @tempInput_data_V, align 16" [sources/hashTable/../globals.h:120->sources/hashTable/hash.cpp:253]   --->   Operation 35 'store' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 1.00>
+ST_1 : Operation 36 [1/1] (0.00ns) (grouped into LUT with out node storemerge20_i)   --->   "%tmp_437 = call i1 @_ssdm_op_BitSelect.i1.i130.i32(i130 %tmp_2, i32 129)" [sources/hashTable/../globals.h:120->sources/hashTable/hash.cpp:253]   --->   Operation 36 'bitselect' 'tmp_437' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%tmp_438 = trunc i130 %tmp_2 to i32" [sources/hashTable/hash.cpp:254]   --->   Operation 37 'trunc' 'tmp_438' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.86ns)   --->   "%tmp_189_i = icmp ugt i8 %tmp_188_i, 4" [sources/hashTable/hash.cpp:256]   --->   Operation 38 'icmp' 'tmp_189_i' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 39 [1/1] (0.00ns) (grouped into LUT with out node storemerge20_i)   --->   "%storemerge19_i = select i1 %tmp_437, i3 -1, i3 3" [sources/hashTable/hash.cpp:257]   --->   Operation 39 'select' 'storemerge19_i' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 40 [1/1] (0.51ns) (out node of the LUT)   --->   "%storemerge20_i = select i1 %tmp_189_i, i3 %storemerge19_i, i3 0" [sources/hashTable/hash.cpp:256]   --->   Operation 40 'select' 'storemerge20_i' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 0.51> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 41 [1/1] (1.15ns)   --->   "store i3 %storemerge20_i, i3* @keyResizerState, align 1" [sources/hashTable/hash.cpp:263]   --->   Operation 41 'store' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 1.15>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "br label %hashKeyResizer.exit" [sources/hashTable/hash.cpp:265]   --->   Operation 42 'br' <Predicate = (keyResizerState_load == 2)> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%tmp_429 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i130P(i130* @in2hash_V, i32 1) nounwind"   --->   Operation 43 'nbreadreq' 'tmp_429' <Predicate = (keyResizerState_load == 1)> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_1 : Operation 44 [1/1] (1.35ns)   --->   "%tmp_186_i = add i8 -16, %keyResizerLength_V_l" [sources/hashTable/hash.cpp:232]   --->   Operation 44 'add' 'tmp_186_i' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 1.35> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.35> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 45 [1/1] (1.00ns)   --->   "store i8 %tmp_186_i, i8* @keyResizerLength_V, align 1" [sources/hashTable/hash.cpp:232]   --->   Operation 45 'store' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 1.00>
+ST_1 : Operation 46 [1/1] (2.39ns)   --->   "%tmp_1 = call i130 @_ssdm_op_Read.ap_fifo.volatile.i130P(i130* @in2hash_V) nounwind"   --->   Operation 46 'read' 'tmp_1' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%p_Val2_24 = trunc i130 %tmp_1 to i128" [sources/hashTable/../globals.h:120->sources/hashTable/hash.cpp:234]   --->   Operation 47 'trunc' 'p_Val2_24' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (1.00ns)   --->   "store i128 %p_Val2_24, i128* @tempInput_data_V, align 16" [sources/hashTable/../globals.h:120->sources/hashTable/hash.cpp:234]   --->   Operation 48 'store' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 1.00>
+ST_1 : Operation 49 [1/1] (0.00ns) (grouped into LUT with out node storemerge18_i)   --->   "%tmp_434 = call i1 @_ssdm_op_BitSelect.i1.i130.i32(i130 %tmp_1, i32 129)" [sources/hashTable/../globals.h:120->sources/hashTable/hash.cpp:234]   --->   Operation 49 'bitselect' 'tmp_434' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%tmp_435 = trunc i130 %tmp_1 to i64" [sources/hashTable/hash.cpp:235]   --->   Operation 50 'trunc' 'tmp_435' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.86ns)   --->   "%tmp_187_i = icmp ugt i8 %tmp_186_i, 8" [sources/hashTable/hash.cpp:237]   --->   Operation 51 'icmp' 'tmp_187_i' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 52 [1/1] (0.00ns) (grouped into LUT with out node storemerge18_i)   --->   "%storemerge17_i = select i1 %tmp_434, i3 -2, i3 2" [sources/hashTable/hash.cpp:238]   --->   Operation 52 'select' 'storemerge17_i' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 53 [1/1] (0.51ns) (out node of the LUT)   --->   "%storemerge18_i = select i1 %tmp_187_i, i3 %storemerge17_i, i3 0" [sources/hashTable/hash.cpp:237]   --->   Operation 53 'select' 'storemerge18_i' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 0.51> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 54 [1/1] (1.15ns)   --->   "store i3 %storemerge18_i, i3* @keyResizerState, align 1" [sources/hashTable/hash.cpp:244]   --->   Operation 54 'store' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 1.15>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "br label %hashKeyResizer.exit" [sources/hashTable/hash.cpp:246]   --->   Operation 55 'br' <Predicate = (keyResizerState_load == 1)> <Delay = 0.00>
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_NbReadReq.ap_fifo.i8P(i8* @in2hashKeyLength_V_V, i32 1) nounwind" [sources/hashTable/hash.cpp:210]   --->   Operation 56 'nbreadreq' 'tmp' <Predicate = (keyResizerState_load == 0)> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "br i1 %tmp, label %1, label %._crit_edge4.i" [sources/hashTable/hash.cpp:210]   --->   Operation 57 'br' <Predicate = (keyResizerState_load == 0)> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%tmp_432 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i130P(i130* @in2hash_V, i32 1) nounwind"   --->   Operation 58 'nbreadreq' 'tmp_432' <Predicate = (keyResizerState_load == 0 & tmp)> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_1 : Operation 59 [1/1] (2.39ns)   --->   "%tmp_V_52 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* @in2hashKeyLength_V_V) nounwind" [sources/hashTable/hash.cpp:212]   --->   Operation 59 'read' 'tmp_V_52' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_1 : Operation 60 [1/1] (1.00ns)   --->   "store i8 %tmp_V_52, i8* @keyResizerLength_V, align 1" [sources/hashTable/hash.cpp:212]   --->   Operation 60 'store' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 1.00>
+ST_1 : Operation 61 [1/1] (2.39ns)   --->   "%tmp111 = call i130 @_ssdm_op_Read.ap_fifo.volatile.i130P(i130* @in2hash_V) nounwind"   --->   Operation 61 'read' 'tmp111' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%p_Val2_27 = trunc i130 %tmp111 to i128" [sources/hashTable/../globals.h:120->sources/hashTable/hash.cpp:213]   --->   Operation 62 'trunc' 'p_Val2_27' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 0.00>
+ST_1 : Operation 63 [1/1] (1.00ns)   --->   "store i128 %p_Val2_27, i128* @tempInput_data_V, align 16" [sources/hashTable/../globals.h:120->sources/hashTable/hash.cpp:213]   --->   Operation 63 'store' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 1.00>
+ST_1 : Operation 64 [1/1] (0.00ns)   --->   "%tmp_443 = call i1 @_ssdm_op_BitSelect.i1.i130.i32(i130 %tmp111, i32 129)" [sources/hashTable/../globals.h:120->sources/hashTable/hash.cpp:213]   --->   Operation 64 'bitselect' 'tmp_443' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 0.00>
+ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%tmp_V_53 = trunc i130 %tmp111 to i96" [sources/hashTable/hash.cpp:217]   --->   Operation 65 'trunc' 'tmp_V_53' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 0.00>
+ST_1 : Operation 66 [1/1] (0.86ns)   --->   "%tmp_191_i = icmp ugt i8 %tmp_V_52, 12" [sources/hashTable/hash.cpp:220]   --->   Operation 66 'icmp' 'tmp_191_i' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 0.86> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 67 [1/1] (0.00ns)   --->   "br i1 %tmp_191_i, label %3, label %._crit_edge6.i" [sources/hashTable/hash.cpp:220]   --->   Operation 67 'br' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 0.00>
+ST_1 : Operation 68 [1/1] (0.51ns)   --->   "%storemerge21_i = select i1 %tmp_443, i3 -3, i3 1" [sources/hashTable/hash.cpp:221]   --->   Operation 68 'select' 'storemerge21_i' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432 & tmp_191_i)> <Delay = 0.51> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 69 [1/1] (1.15ns)   --->   "store i3 %storemerge21_i, i3* @keyResizerState, align 1" [sources/hashTable/hash.cpp:222]   --->   Operation 69 'store' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432 & tmp_191_i)> <Delay = 1.15>
+ST_1 : Operation 70 [1/1] (0.00ns)   --->   "br label %hashKeyResizer.exit" [sources/hashTable/hash.cpp:227]   --->   Operation 70 'br' <Predicate = (keyResizerState_load == 0)> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 2.39>
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i130* @in2hash_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 71 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 72 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* @in2hashKeyLength_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 72 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* @resizedInitValue_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 73 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i96* @resizedKey_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 74 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 75 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* @resizedKeyLength_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 75 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 76 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str10, i32 0, i32 0, [1 x i8]* @p_str10, [1 x i8]* @p_str10, [1 x i8]* @p_str10, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str10, [1 x i8]* @p_str10) nounwind" [sources/hashTable/hash.cpp:196]   --->   Operation 76 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 2, i32 1, i32 0, [1 x i8]* @p_str10) nounwind" [sources/hashTable/hash.cpp:199]   --->   Operation 77 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "%p_Val2_23 = load i96* @resizedKeyOutput_V, align 8" [sources/hashTable/hash.cpp:295]   --->   Operation 78 'load' 'p_Val2_23' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 79 [1/1] (0.00ns)   --->   "%tmp_V_48 = call i96 @_ssdm_op_PartSelect.i96.i128.i32.i32(i128 %p_Val2_s, i32 32, i32 127) nounwind" [sources/hashTable/hash.cpp:309]   --->   Operation 79 'partselect' 'tmp_V_48' <Predicate = (keyResizerState_load == 7)> <Delay = 0.00>
+ST_2 : Operation 80 [1/1] (1.20ns)   --->   "store i96 %tmp_V_48, i96* @resizedKeyOutput_V, align 8" [sources/hashTable/hash.cpp:309]   --->   Operation 80 'store' <Predicate = (keyResizerState_load == 7)> <Delay = 1.20>
+ST_2 : Operation 81 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i96P(i96* @resizedKey_V_V, i96 %tmp_V_48) nounwind" [sources/hashTable/hash.cpp:310]   --->   Operation 81 'write' <Predicate = (keyResizerState_load == 7)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_2 : Operation 82 [1/1] (0.00ns)   --->   "%p_Result_41_i = call i64 @_ssdm_op_PartSelect.i64.i128.i32.i32(i128 %p_Val2_s, i32 64, i32 127) nounwind" [sources/hashTable/hash.cpp:302]   --->   Operation 82 'partselect' 'p_Result_41_i' <Predicate = (keyResizerState_load == 6)> <Delay = 0.00>
+ST_2 : Operation 83 [1/1] (0.00ns)   --->   "%p_Result_40 = call i96 @llvm.part.set.i96.i64(i96 %p_Val2_23, i64 %p_Result_41_i, i32 0, i32 63) nounwind" [sources/hashTable/hash.cpp:302]   --->   Operation 83 'partset' 'p_Result_40' <Predicate = (keyResizerState_load == 6)> <Delay = 0.00>
+ST_2 : Operation 84 [1/1] (1.20ns)   --->   "store i96 %p_Result_40, i96* @resizedKeyOutput_V, align 8" [sources/hashTable/hash.cpp:302]   --->   Operation 84 'store' <Predicate = (keyResizerState_load == 6)> <Delay = 1.20>
+ST_2 : Operation 85 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i96P(i96* @resizedKey_V_V, i96 %p_Result_40) nounwind" [sources/hashTable/hash.cpp:303]   --->   Operation 85 'write' <Predicate = (keyResizerState_load == 6)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_2 : Operation 86 [1/1] (0.00ns)   --->   "%p_Result_i = call i32 @_ssdm_op_PartSelect.i32.i128.i32.i32(i128 %p_Val2_s, i32 96, i32 127) nounwind" [sources/hashTable/hash.cpp:295]   --->   Operation 86 'partselect' 'p_Result_i' <Predicate = (keyResizerState_load == 5)> <Delay = 0.00>
+ST_2 : Operation 87 [1/1] (0.00ns)   --->   "%p_Result_39 = call i96 @llvm.part.set.i96.i32(i96 %p_Val2_23, i32 %p_Result_i, i32 0, i32 31) nounwind" [sources/hashTable/hash.cpp:295]   --->   Operation 87 'partset' 'p_Result_39' <Predicate = (keyResizerState_load == 5)> <Delay = 0.00>
+ST_2 : Operation 88 [1/1] (1.20ns)   --->   "store i96 %p_Result_39, i96* @resizedKeyOutput_V, align 8" [sources/hashTable/hash.cpp:295]   --->   Operation 88 'store' <Predicate = (keyResizerState_load == 5)> <Delay = 1.20>
+ST_2 : Operation 89 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i96P(i96* @resizedKey_V_V, i96 %p_Result_39) nounwind" [sources/hashTable/hash.cpp:296]   --->   Operation 89 'write' <Predicate = (keyResizerState_load == 5)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_2 : Operation 90 [1/1] (0.00ns)   --->   "br i1 %tmp_431, label %8, label %._crit_edge11.i" [sources/hashTable/hash.cpp:280]   --->   Operation 90 'br' <Predicate = (keyResizerState_load == 4)> <Delay = 0.00>
+ST_2 : Operation 91 [1/1] (1.20ns)   --->   "store i96 %tmp_V_51, i96* @resizedKeyOutput_V, align 8" [sources/hashTable/hash.cpp:282]   --->   Operation 91 'store' <Predicate = (keyResizerState_load == 4 & tmp_431)> <Delay = 1.20>
+ST_2 : Operation 92 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i96P(i96* @resizedKey_V_V, i96 %tmp_V_51) nounwind" [sources/hashTable/hash.cpp:283]   --->   Operation 92 'write' <Predicate = (keyResizerState_load == 4 & tmp_431)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_2 : Operation 93 [1/1] (0.00ns)   --->   "br label %._crit_edge12.i" [sources/hashTable/hash.cpp:289]   --->   Operation 93 'br' <Predicate = (keyResizerState_load == 4 & tmp_431 & tmp_190_i)> <Delay = 0.00>
+ST_2 : Operation 94 [1/1] (0.00ns)   --->   "br label %._crit_edge11.i" [sources/hashTable/hash.cpp:290]   --->   Operation 94 'br' <Predicate = (keyResizerState_load == 4 & tmp_431)> <Delay = 0.00>
+ST_2 : Operation 95 [1/1] (0.00ns)   --->   "%tmp_V = call i96 @_ssdm_op_PartSelect.i96.i128.i32.i32(i128 %p_Val2_s, i32 32, i32 127) nounwind" [sources/hashTable/hash.cpp:270]   --->   Operation 95 'partselect' 'tmp_V' <Predicate = (keyResizerState_load == 3)> <Delay = 0.00>
+ST_2 : Operation 96 [1/1] (1.20ns)   --->   "store i96 %tmp_V, i96* @resizedKeyOutput_V, align 8" [sources/hashTable/hash.cpp:270]   --->   Operation 96 'store' <Predicate = (keyResizerState_load == 3)> <Delay = 1.20>
+ST_2 : Operation 97 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i96P(i96* @resizedKey_V_V, i96 %tmp_V) nounwind" [sources/hashTable/hash.cpp:271]   --->   Operation 97 'write' <Predicate = (keyResizerState_load == 3)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_2 : Operation 98 [1/1] (0.00ns)   --->   "br i1 %tmp_430, label %_ifconv1, label %._crit_edge9.i" [sources/hashTable/hash.cpp:250]   --->   Operation 98 'br' <Predicate = (keyResizerState_load == 2)> <Delay = 0.00>
+ST_2 : Operation 99 [1/1] (0.00ns)   --->   "%p_Result_47_i = call i64 @_ssdm_op_PartSelect.i64.i128.i32.i32(i128 %p_Val2_s, i32 64, i32 127) nounwind" [sources/hashTable/hash.cpp:252]   --->   Operation 99 'partselect' 'p_Result_47_i' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 0.00>
+ST_2 : Operation 100 [1/1] (0.00ns)   --->   "%p_Result_38 = call i96 @_ssdm_op_BitConcatenate.i96.i32.i64(i32 %tmp_438, i64 %p_Result_47_i) nounwind" [sources/hashTable/hash.cpp:254]   --->   Operation 100 'bitconcatenate' 'p_Result_38' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 0.00>
+ST_2 : Operation 101 [1/1] (1.20ns)   --->   "store i96 %p_Result_38, i96* @resizedKeyOutput_V, align 8" [sources/hashTable/hash.cpp:254]   --->   Operation 101 'store' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 1.20>
+ST_2 : Operation 102 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i96P(i96* @resizedKey_V_V, i96 %p_Result_38) nounwind" [sources/hashTable/hash.cpp:255]   --->   Operation 102 'write' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_2 : Operation 103 [1/1] (0.00ns)   --->   "br label %._crit_edge9.i" [sources/hashTable/hash.cpp:264]   --->   Operation 103 'br' <Predicate = (keyResizerState_load == 2 & tmp_430)> <Delay = 0.00>
+ST_2 : Operation 104 [1/1] (0.00ns)   --->   "br i1 %tmp_429, label %_ifconv, label %._crit_edge7.i" [sources/hashTable/hash.cpp:231]   --->   Operation 104 'br' <Predicate = (keyResizerState_load == 1)> <Delay = 0.00>
+ST_2 : Operation 105 [1/1] (0.00ns)   --->   "%p_Result_44_i = call i32 @_ssdm_op_PartSelect.i32.i128.i32.i32(i128 %p_Val2_s, i32 96, i32 127) nounwind" [sources/hashTable/hash.cpp:233]   --->   Operation 105 'partselect' 'p_Result_44_i' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 0.00>
+ST_2 : Operation 106 [1/1] (0.00ns)   --->   "%p_Result_s = call i96 @_ssdm_op_BitConcatenate.i96.i64.i32(i64 %tmp_435, i32 %p_Result_44_i) nounwind" [sources/hashTable/hash.cpp:235]   --->   Operation 106 'bitconcatenate' 'p_Result_s' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 0.00>
+ST_2 : Operation 107 [1/1] (1.20ns)   --->   "store i96 %p_Result_s, i96* @resizedKeyOutput_V, align 8" [sources/hashTable/hash.cpp:235]   --->   Operation 107 'store' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 1.20>
+ST_2 : Operation 108 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i96P(i96* @resizedKey_V_V, i96 %p_Result_s) nounwind" [sources/hashTable/hash.cpp:236]   --->   Operation 108 'write' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_2 : Operation 109 [1/1] (0.00ns)   --->   "br label %._crit_edge7.i" [sources/hashTable/hash.cpp:245]   --->   Operation 109 'br' <Predicate = (keyResizerState_load == 1 & tmp_429)> <Delay = 0.00>
+ST_2 : Operation 110 [1/1] (0.00ns)   --->   "br i1 %tmp_432, label %2, label %._crit_edge4.i" [sources/hashTable/hash.cpp:210]   --->   Operation 110 'br' <Predicate = (keyResizerState_load == 0 & tmp)> <Delay = 0.00>
+ST_2 : Operation 111 [1/1] (0.00ns)   --->   "%tmp_49 = zext i8 %tmp_V_52 to i32" [sources/hashTable/hash.cpp:215]   --->   Operation 111 'zext' 'tmp_49' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 0.00>
+ST_2 : Operation 112 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i32P(i32* @resizedKeyLength_V, i32 %tmp_49) nounwind" [sources/hashTable/hash.cpp:215]   --->   Operation 112 'write' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_2 : Operation 113 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i32P(i32* @resizedInitValue_V, i32 13) nounwind" [sources/hashTable/hash.cpp:216]   --->   Operation 113 'write' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_2 : Operation 114 [1/1] (1.20ns)   --->   "store i96 %tmp_V_53, i96* @resizedKeyOutput_V, align 8" [sources/hashTable/hash.cpp:217]   --->   Operation 114 'store' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 1.20>
+ST_2 : Operation 115 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i96P(i96* @resizedKey_V_V, i96 %tmp_V_53) nounwind" [sources/hashTable/hash.cpp:218]   --->   Operation 115 'write' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 96> <Depth = 2> <FIFO>
+ST_2 : Operation 116 [1/1] (0.00ns)   --->   "br label %._crit_edge6.i" [sources/hashTable/hash.cpp:225]   --->   Operation 116 'br' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432 & tmp_191_i)> <Delay = 0.00>
+ST_2 : Operation 117 [1/1] (0.00ns)   --->   "br label %._crit_edge4.i" [sources/hashTable/hash.cpp:226]   --->   Operation 117 'br' <Predicate = (keyResizerState_load == 0 & tmp & tmp_432)> <Delay = 0.00>
+ST_2 : Operation 118 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 118 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 6.66ns, clock uncertainty: 0.832ns.
+
+ <State 1>: 4.06ns
+The critical path consists of the following:
+	fifo read on port 'in2hash_V' [46]  (2.39 ns)
+	'select' operation ('storemerge_i', sources/hashTable/hash.cpp:285) [56]  (0.51 ns)
+	'store' operation (sources/hashTable/hash.cpp:286) of variable 'storemerge_i', sources/hashTable/hash.cpp:285 on static variable 'keyResizerState' [57]  (1.16 ns)
+
+ <State 2>: 2.39ns
+The critical path consists of the following:
+	'load' operation ('__Val2__', sources/hashTable/hash.cpp:295) on static variable 'resizedKeyOutput_V' [20]  (0 ns)
+	fifo write on port 'resizedKey_V_V' (sources/hashTable/hash.cpp:303) [32]  (2.39 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

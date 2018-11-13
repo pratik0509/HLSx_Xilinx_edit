@@ -1,0 +1,195 @@
+
+
+================================================================
+== Vivado HLS Report for 'hashKeyResizer'
+================================================================
+* Date:           Fri Nov  9 23:10:39 2018
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        memcachedPipeline_prj
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1761-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   6.66|     4.057|        0.83|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    1|    1|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       0|     125|
+|FIFO             |        -|      -|       -|       -|
+|Instance         |        -|      -|       -|       -|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|     220|
+|Register         |        -|      -|     672|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |        0|      0|     672|     345|
++-----------------+---------+-------+--------+--------+
+|Available        |     2940|   3600|  866400|  433200|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |grp_fu_186_p2                     |     +    |      0|  0|  15|           6|           8|
+    |tmp_i_fu_264_p2                   |     +    |      0|  0|  15|           8|           6|
+    |ap_condition_174                  |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op102_write_state2   |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op108_write_state2   |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op112_write_state2   |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op14_read_state1     |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op33_read_state1     |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op46_read_state1     |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op59_read_state1     |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op92_write_state2    |    and   |      0|  0|   2|           1|           1|
+    |tmp_183_i_fu_276_p2               |   icmp   |      0|  0|  11|           8|           1|
+    |tmp_187_i_fu_368_p2               |   icmp   |      0|  0|  11|           8|           4|
+    |tmp_189_i_fu_318_p2               |   icmp   |      0|  0|  11|           8|           3|
+    |tmp_190_i_fu_258_p2               |   icmp   |      0|  0|  11|           8|           4|
+    |tmp_191_i_fu_416_p2               |   icmp   |      0|  0|  11|           8|           4|
+    |ap_block_state1_pp0_stage0_iter0  |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state2_pp0_stage0_iter1  |    or    |      0|  0|   2|           1|           1|
+    |grp_fu_172_p3                     |  select  |      0|  0|   3|           1|           3|
+    |storemerge16_i_fu_282_p3          |  select  |      0|  0|   4|           1|           1|
+    |storemerge17_i_fu_374_p3          |  select  |      0|  0|   3|           1|           3|
+    |storemerge18_i_fu_382_p3          |  select  |      0|  0|   3|           1|           3|
+    |storemerge19_i_fu_324_p3          |  select  |      0|  0|   2|           1|           2|
+    |storemerge20_i_fu_332_p3          |  select  |      0|  0|   3|           1|           3|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                             |          |      0|  0| 125|          71|          56|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------+----+-----------+-----+-----------+
+    |            Name            | LUT| Input Size| Bits| Total Bits|
+    +----------------------------+----+-----------+-----+-----------+
+    |ap_NS_iter1_fsm             |  15|          3|    2|          6|
+    |ap_done                     |   9|          2|    1|          2|
+    |in2hashKeyLength_V_V_blk_n  |   9|          2|    1|          2|
+    |in2hash_V_blk_n             |   9|          2|    1|          2|
+    |keyResizerLength_V          |  15|          3|    8|         24|
+    |keyResizerState             |  27|          5|    3|         15|
+    |real_start                  |   9|          2|    1|          2|
+    |resizedInitValue_V_blk_n    |   9|          2|    1|          2|
+    |resizedKeyLength_V_blk_n    |   9|          2|    1|          2|
+    |resizedKeyOutput_V          |  38|          7|   96|        672|
+    |resizedKey_V_V_blk_n        |   9|          2|    1|          2|
+    |resizedKey_V_V_din          |  41|          8|   96|        768|
+    |tempInput_data_V            |  21|          4|  128|        512|
+    +----------------------------+----+-----------+-----+-----------+
+    |Total                       | 220|         44|  340|       2011|
+    +----------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------+-----+----+-----+-----------+
+    |             Name             |  FF | LUT| Bits| Const Bits|
+    +------------------------------+-----+----+-----+-----------+
+    |ap_CS_iter0_fsm               |    1|   0|    1|          0|
+    |ap_CS_iter1_fsm               |    2|   0|    2|          0|
+    |ap_done_reg                   |    1|   0|    1|          0|
+    |keyResizerLength_V            |    8|   0|    8|          0|
+    |keyResizerState               |    3|   0|    3|          0|
+    |keyResizerState_load_reg_506  |    3|   0|    3|          0|
+    |p_Val2_s_reg_510              |  128|   0|  128|          0|
+    |resizedKeyOutput_V            |   96|   0|   96|          0|
+    |start_once_reg                |    1|   0|    1|          0|
+    |tempInput_data_V              |  128|   0|  128|          0|
+    |tmp_429_reg_540               |    1|   0|    1|          0|
+    |tmp_430_reg_531               |    1|   0|    1|          0|
+    |tmp_431_reg_517               |    1|   0|    1|          0|
+    |tmp_432_reg_553               |    1|   0|    1|          0|
+    |tmp_435_reg_544               |   64|   0|   64|          0|
+    |tmp_438_reg_535               |   32|   0|   32|          0|
+    |tmp_V_51_reg_521              |   96|   0|   96|          0|
+    |tmp_V_52_reg_557              |    8|   0|    8|          0|
+    |tmp_V_53_reg_562              |   96|   0|   96|          0|
+    |tmp_reg_549                   |    1|   0|    1|          0|
+    +------------------------------+-----+----+-----+-----------+
+    |Total                         |  672|   0|  672|          0|
+    +------------------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------------+-----+-----+--------------+----------------------+--------------+
+|           RTL Ports          | Dir | Bits|   Protocol   |     Source Object    |    C Type    |
++------------------------------+-----+-----+--------------+----------------------+--------------+
+|ap_clk                        |  in |    1| ap_ctrl_none |    hashKeyResizer    | return value |
+|ap_rst                        |  in |    1| ap_ctrl_none |    hashKeyResizer    | return value |
+|ap_start                      |  in |    1| ap_ctrl_none |    hashKeyResizer    | return value |
+|start_full_n                  |  in |    1| ap_ctrl_none |    hashKeyResizer    | return value |
+|ap_done                       | out |    1| ap_ctrl_none |    hashKeyResizer    | return value |
+|ap_continue                   |  in |    1| ap_ctrl_none |    hashKeyResizer    | return value |
+|ap_idle                       | out |    1| ap_ctrl_none |    hashKeyResizer    | return value |
+|ap_ready                      | out |    1| ap_ctrl_none |    hashKeyResizer    | return value |
+|start_out                     | out |    1| ap_ctrl_none |    hashKeyResizer    | return value |
+|start_write                   | out |    1| ap_ctrl_none |    hashKeyResizer    | return value |
+|in2hash_V_dout                |  in |  130|    ap_fifo   |       in2hash_V      |    pointer   |
+|in2hash_V_empty_n             |  in |    1|    ap_fifo   |       in2hash_V      |    pointer   |
+|in2hash_V_read                | out |    1|    ap_fifo   |       in2hash_V      |    pointer   |
+|in2hashKeyLength_V_V_dout     |  in |    8|    ap_fifo   | in2hashKeyLength_V_V |    pointer   |
+|in2hashKeyLength_V_V_empty_n  |  in |    1|    ap_fifo   | in2hashKeyLength_V_V |    pointer   |
+|in2hashKeyLength_V_V_read     | out |    1|    ap_fifo   | in2hashKeyLength_V_V |    pointer   |
+|resizedKey_V_V_din            | out |   96|    ap_fifo   |    resizedKey_V_V    |    pointer   |
+|resizedKey_V_V_full_n         |  in |    1|    ap_fifo   |    resizedKey_V_V    |    pointer   |
+|resizedKey_V_V_write          | out |    1|    ap_fifo   |    resizedKey_V_V    |    pointer   |
+|resizedKeyLength_V_din        | out |   32|    ap_fifo   |  resizedKeyLength_V  |    pointer   |
+|resizedKeyLength_V_full_n     |  in |    1|    ap_fifo   |  resizedKeyLength_V  |    pointer   |
+|resizedKeyLength_V_write      | out |    1|    ap_fifo   |  resizedKeyLength_V  |    pointer   |
+|resizedInitValue_V_din        | out |   32|    ap_fifo   |  resizedInitValue_V  |    pointer   |
+|resizedInitValue_V_full_n     |  in |    1|    ap_fifo   |  resizedInitValue_V  |    pointer   |
+|resizedInitValue_V_write      | out |    1|    ap_fifo   |  resizedInitValue_V  |    pointer   |
++------------------------------+-----+-----+--------------+----------------------+--------------+
+

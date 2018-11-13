@@ -1,0 +1,71 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'memcachedPipeline'" level="0">
+<item name = "Date">Fri Nov  9 23:10:30 2018
+</item>
+<item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
+<item name = "Project">memcachedPipeline_prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">virtex7</item>
+<item name = "Target device">xc7vx690tffg1761-2</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">6.66, 9.738, 0.83</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">42, 42, 1, 1, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_memWrite_fu_756">memWrite, 4, 4, 1, 1, function</column>
+<column name="grp_setPath_fu_827">setPath, 2, 2, 1, 1, function</column>
+<column name="grp_response_r_fu_851">response_r, 2, 2, 1, 1, function</column>
+<column name="grp_bp_f1192_fu_881">bp_f1192, 1, 1, 1, 1, function</column>
+<column name="grp_receive_fu_921">receive, 1, 1, 1, 1, function</column>
+<column name="grp_ht_inputLogic_fu_941">ht_inputLogic, 2, 2, 1, 1, function</column>
+<column name="grp_bobj_fu_977">bobj, 1, 1, 1, 1, function</column>
+<column name="grp_ht_outputLogic_fu_999">ht_outputLogic, 1, 1, 1, 1, function</column>
+<column name="grp_flashRemux_fu_1019">flashRemux, 1, 1, 1, 1, function</column>
+<column name="grp_remux_fu_1039">remux, 1, 1, 1, 1, function</column>
+<column name="grp_ht_compare_fu_1059">ht_compare, 1, 1, 1, 1, function</column>
+<column name="grp_bp_r_fu_1107">bp_r, 1, 1, 1, 1, function</column>
+<column name="grp_concurrencyControl_fu_1131">concurrencyControl, 1, 1, 1, 1, function</column>
+<column name="grp_accessControl_fu_1221">accessControl, 1, 1, 1, 1, function</column>
+<column name="grp_memRead_fu_1311">memRead, 2, 2, 1, 1, function</column>
+<column name="grp_flashDemux_fu_1327">flashDemux, 1, 1, 1, 1, function</column>
+<column name="grp_demux_fu_1349">demux, 1, 1, 1, 1, function</column>
+<column name="grp_hashKeyResizer_fu_1371">hashKeyResizer, 1, 1, 1, 1, function</column>
+<column name="grp_merger_fu_1393">merger, 1, 1, 1, 1, function</column>
+<column name="grp_splitter_fu_1407">splitter, 2, 2, 1, 1, function</column>
+<column name="grp_flashSetPathNoFilter_fu_1421">flashSetPathNoFilter, 2, 2, 1, 1, function</column>
+<column name="grp_flashReceiveNoFilter_fu_1435">flashReceiveNoFilter, 1, 1, 1, 1, function</column>
+<column name="grp_flashDispatch_fu_1451">flashDispatch, 2, 2, 1, 1, function</column>
+<column name="grp_dispatch_fu_1461">dispatch, 2, 2, 1, 1, function</column>
+<column name="StgValue_104_response_f_fu_1471">response_f, 0, 0, 1, 1, function</column>
+<column name="StgValue_53_memcachedPipeline_en_fu_1485">memcachedPipeline_en, 0, 0, 0, 0, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

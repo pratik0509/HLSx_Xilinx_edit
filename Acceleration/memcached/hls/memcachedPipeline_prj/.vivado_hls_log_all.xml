@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Port 'flushDone_V' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="memcachedPipeline_prj" solutionName="solution1" date="2018-11-09T23:13:01.952+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'flushReq_V' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="memcachedPipeline_prj" solutionName="solution1" date="2018-11-09T23:13:00.180+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="memcachedPipeline_prj" solutionName="solution1" date="2018-11-09T23:12:49.313+0530" type="Warning"/>
+      </synLog>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

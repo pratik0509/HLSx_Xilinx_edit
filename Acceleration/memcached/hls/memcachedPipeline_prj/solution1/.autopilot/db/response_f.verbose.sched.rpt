@@ -1,0 +1,162 @@
+
+
+================================================================
+== Vivado HLS Report for 'response_f'
+================================================================
+* Date:           Fri Nov  9 23:09:56 2018
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        memcachedPipeline_prj
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1761-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   6.66|     4.782|        0.83|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    0|    0|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 1
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.78>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i256* @merger2responseForma_1, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 2 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i248* @metadataBuffer_rf_V_s, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 3 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* @valueBuffer_rf_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 4 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 2, i32 1, i32 0, [1 x i8]* @p_str56) nounwind" [sources/responseFormatter/binResponse.cpp:66]   --->   Operation 5 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_NbWriteReq.ap_fifo.i64P(i64* @valueBuffer_rf_V_V, i32 1) nounwind" [sources/responseFormatter/binResponse.cpp:71]   --->   Operation 6 'nbwritereq' 'tmp' <Predicate = true> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "br i1 %tmp, label %0, label %response_f.exit" [sources/responseFormatter/binResponse.cpp:71]   --->   Operation 7 'br' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%tmp_7 = call i1 @_ssdm_op_NbWriteReq.ap_fifo.i248P(i248* @metadataBuffer_rf_V_s, i32 1) nounwind" [sources/responseFormatter/binResponse.cpp:71]   --->   Operation 8 'nbwritereq' 'tmp_7' <Predicate = (tmp)> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "br i1 %tmp_7, label %1, label %response_f.exit" [sources/responseFormatter/binResponse.cpp:71]   --->   Operation 9 'br' <Predicate = (tmp)> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%tmp_8 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i256P(i256* @merger2responseForma_1, i32 1) nounwind"   --->   Operation 10 'nbreadreq' 'tmp_8' <Predicate = (tmp & tmp_7)> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "br i1 %tmp_8, label %2, label %response_f.exit" [sources/responseFormatter/binResponse.cpp:71]   --->   Operation 11 'br' <Predicate = (tmp & tmp_7)> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (2.39ns)   --->   "%tmp31 = call i256 @_ssdm_op_Read.ap_fifo.volatile.i256P(i256* @merger2responseForma_1) nounwind"   --->   Operation 12 'read' 'tmp31' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%tmp_92 = trunc i256 %tmp31 to i124" [sources/hashTable/../globals.h:104->sources/responseFormatter/binResponse.cpp:73]   --->   Operation 13 'trunc' 'tmp_92' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%tmp_93 = call i1 @_ssdm_op_BitSelect.i1.i256.i32(i256 %tmp31, i32 124)" [sources/hashTable/../globals.h:104->sources/responseFormatter/binResponse.cpp:73]   --->   Operation 14 'bitselect' 'tmp_93' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%tmp_94 = call i1 @_ssdm_op_BitSelect.i1.i256.i32(i256 %tmp31, i32 126)" [sources/hashTable/../globals.h:104->sources/responseFormatter/binResponse.cpp:73]   --->   Operation 15 'bitselect' 'tmp_94' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%tmp_95 = call i1 @_ssdm_op_BitSelect.i1.i256.i32(i256 %tmp31, i32 127)" [sources/hashTable/../globals.h:104->sources/responseFormatter/binResponse.cpp:73]   --->   Operation 16 'bitselect' 'tmp_95' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%tmp_V = call i64 @_ssdm_op_PartSelect.i64.i256.i32.i32(i256 %tmp31, i32 128, i32 191) nounwind" [sources/hashTable/../globals.h:104->sources/responseFormatter/binResponse.cpp:73]   --->   Operation 17 'partselect' 'tmp_V' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%inWordCounter_V_load = load i2* @inWordCounter_V, align 1" [sources/responseFormatter/binResponse.cpp:74]   --->   Operation 18 'load' 'inWordCounter_V_load' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.48ns)   --->   "%tmp_i = icmp eq i2 %inWordCounter_V_load, 0" [sources/responseFormatter/binResponse.cpp:74]   --->   Operation 19 'icmp' 'tmp_i' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.48> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 20 [1/1] (0.48ns)   --->   "%or_cond_i = and i1 %tmp_93, %tmp_i" [sources/responseFormatter/binResponse.cpp:74]   --->   Operation 20 'and' 'or_cond_i' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.48> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%p_Val2_s = load i248* @bf_metadataTempBuffe, align 16" [sources/responseFormatter/binResponse.cpp:75]   --->   Operation 21 'load' 'p_Val2_s' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "br i1 %or_cond_i, label %3, label %._crit_edge5.i" [sources/responseFormatter/binResponse.cpp:74]   --->   Operation 22 'br' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.92ns)   --->   "br i1 %tmp_i, label %._crit_edge8.i, label %5" [sources/responseFormatter/binResponse.cpp:80]   --->   Operation 23 'br' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i)> <Delay = 0.92>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%tmp_96 = call i1 @_ssdm_op_BitSelect.i1.i2.i32(i2 %inWordCounter_V_load, i32 1)" [sources/responseFormatter/binResponse.cpp:81]   --->   Operation 24 'bitselect' 'tmp_96' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.85ns)   --->   "br i1 %tmp_96, label %._crit_edge9.i, label %6" [sources/responseFormatter/binResponse.cpp:81]   --->   Operation 25 'br' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i)> <Delay = 0.85>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%p_Result_12 = call i248 @llvm.part.set.i248.i124(i248 %p_Val2_s, i124 %tmp_92, i32 124, i32 247) nounwind" [sources/responseFormatter/binResponse.cpp:82]   --->   Operation 26 'partset' 'p_Result_12' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i & !tmp_96)> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.85ns)   --->   "store i248 %p_Result_12, i248* @bf_metadataTempBuffe, align 16" [sources/responseFormatter/binResponse.cpp:82]   --->   Operation 27 'store' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i & !tmp_96)> <Delay = 0.85>
+ST_1 : Operation 28 [1/1] (0.48ns)   --->   "%tmp_53_i = icmp eq i2 %inWordCounter_V_load, 1" [sources/responseFormatter/binResponse.cpp:83]   --->   Operation 28 'icmp' 'tmp_53_i' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i & !tmp_96)> <Delay = 0.48> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "br i1 %tmp_53_i, label %7, label %._crit_edge10.i" [sources/responseFormatter/binResponse.cpp:83]   --->   Operation 29 'br' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i & !tmp_96)> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i248P(i248* @metadataBuffer_rf_V_s, i248 %p_Result_12) nounwind" [sources/responseFormatter/binResponse.cpp:84]   --->   Operation 30 'write' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i & !tmp_96 & tmp_53_i)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "br label %._crit_edge10.i" [sources/responseFormatter/binResponse.cpp:84]   --->   Operation 31 'br' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i & !tmp_96 & tmp_53_i)> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.85ns)   --->   "%tmp_54_i = add i2 %inWordCounter_V_load, 1" [sources/responseFormatter/binResponse.cpp:85]   --->   Operation 32 'add' 'tmp_54_i' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i & !tmp_96 & !tmp_95)> <Delay = 0.85> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 33 [1/1] (0.85ns)   --->   "br label %._crit_edge9.i" [sources/responseFormatter/binResponse.cpp:86]   --->   Operation 33 'br' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i & !tmp_96)> <Delay = 0.85>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%inWordCounter_V_flag = phi i1 [ true, %._crit_edge10.i ], [ false, %5 ]"   --->   Operation 34 'phi' 'inWordCounter_V_flag' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i)> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%inWordCounter_V_new_s = phi i2 [ %tmp_54_i, %._crit_edge10.i ], [ undef, %5 ]" [sources/responseFormatter/binResponse.cpp:85]   --->   Operation 35 'phi' 'inWordCounter_V_new_s' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i & !tmp_95)> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "br i1 %tmp_94, label %8, label %._crit_edge11.i" [sources/responseFormatter/binResponse.cpp:87]   --->   Operation 36 'br' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i)> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i64P(i64* @valueBuffer_rf_V_V, i64 %tmp_V) nounwind" [sources/responseFormatter/binResponse.cpp:88]   --->   Operation 37 'write' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i & tmp_94)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "br label %._crit_edge11.i" [sources/responseFormatter/binResponse.cpp:88]   --->   Operation 38 'br' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i & tmp_94)> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.48ns)   --->   "%p_inWordCounter_V_fla = or i1 %tmp_95, %inWordCounter_V_flag" [sources/responseFormatter/binResponse.cpp:89]   --->   Operation 39 'or' 'p_inWordCounter_V_fla' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i)> <Delay = 0.48> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.48> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 40 [1/1] (0.49ns)   --->   "%p_inWordCounter_V_new = select i1 %tmp_95, i2 0, i2 %inWordCounter_V_new_s" [sources/responseFormatter/binResponse.cpp:89]   --->   Operation 40 'select' 'p_inWordCounter_V_new' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i)> <Delay = 0.49> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 41 [1/1] (0.92ns)   --->   "br label %._crit_edge8.i" [sources/responseFormatter/binResponse.cpp:92]   --->   Operation 41 'br' <Predicate = (tmp & tmp_7 & tmp_8 & !or_cond_i & !tmp_i)> <Delay = 0.92>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%p_Result_s = call i248 @llvm.part.set.i248.i124(i248 %p_Val2_s, i124 %tmp_92, i32 0, i32 123) nounwind" [sources/responseFormatter/binResponse.cpp:75]   --->   Operation 42 'partset' 'p_Result_s' <Predicate = (tmp & tmp_7 & tmp_8 & or_cond_i)> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.85ns)   --->   "store i248 %p_Result_s, i248* @bf_metadataTempBuffe, align 16" [sources/responseFormatter/binResponse.cpp:75]   --->   Operation 43 'store' <Predicate = (tmp & tmp_7 & tmp_8 & or_cond_i)> <Delay = 0.85>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "br i1 %tmp_94, label %4, label %._crit_edge7.i" [sources/responseFormatter/binResponse.cpp:76]   --->   Operation 44 'br' <Predicate = (tmp & tmp_7 & tmp_8 & or_cond_i)> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (2.39ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i64P(i64* @valueBuffer_rf_V_V, i64 %tmp_V) nounwind" [sources/responseFormatter/binResponse.cpp:77]   --->   Operation 45 'write' <Predicate = (tmp & tmp_7 & tmp_8 & or_cond_i & tmp_94)> <Delay = 2.39> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "br label %._crit_edge7.i" [sources/responseFormatter/binResponse.cpp:77]   --->   Operation 46 'br' <Predicate = (tmp & tmp_7 & tmp_8 & or_cond_i & tmp_94)> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.92ns)   --->   "br label %._crit_edge8.i" [sources/responseFormatter/binResponse.cpp:79]   --->   Operation 47 'br' <Predicate = (tmp & tmp_7 & tmp_8 & or_cond_i)> <Delay = 0.92>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%inWordCounter_V_flag_1 = phi i1 [ true, %._crit_edge7.i ], [ false, %._crit_edge5.i ], [ %p_inWordCounter_V_fla, %._crit_edge11.i ]" [sources/responseFormatter/binResponse.cpp:89]   --->   Operation 48 'phi' 'inWordCounter_V_flag_1' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%inWordCounter_V_new_1 = phi i2 [ 1, %._crit_edge7.i ], [ undef, %._crit_edge5.i ], [ %p_inWordCounter_V_new, %._crit_edge11.i ]" [sources/responseFormatter/binResponse.cpp:89]   --->   Operation 49 'phi' 'inWordCounter_V_new_1' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "br i1 %inWordCounter_V_flag_1, label %mergeST.i, label %.new.i" [sources/responseFormatter/binResponse.cpp:89]   --->   Operation 50 'br' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "store i2 %inWordCounter_V_new_1, i2* @inWordCounter_V, align 1" [sources/responseFormatter/binResponse.cpp:78]   --->   Operation 51 'store' <Predicate = (tmp & tmp_7 & tmp_8 & inWordCounter_V_flag_1)> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "br label %.new.i"   --->   Operation 52 'br' <Predicate = (tmp & tmp_7 & tmp_8 & inWordCounter_V_flag_1)> <Delay = 0.00>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "br label %response_f.exit" [sources/responseFormatter/binResponse.cpp:93]   --->   Operation 53 'br' <Predicate = (tmp & tmp_7 & tmp_8)> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 54 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 6.66ns, clock uncertainty: 0.832ns.
+
+ <State 1>: 4.78ns
+The critical path consists of the following:
+	fifo read on port 'merger2responseForma_1' [19]  (2.39 ns)
+	fifo write on port 'valueBuffer_rf_V_V' (sources/responseFormatter/binResponse.cpp:77) [62]  (2.39 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,287 @@
+
+
+================================================================
+== Vivado HLS Report for 'memcachedPipeline'
+================================================================
+* Date:           Fri Nov  9 23:13:07 2018
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        memcachedPipeline_prj
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1761-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   6.66|     9.738|        0.83|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   42|   42|    1|    1| dataflow |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------+----------------------+-----+-----+-----+-----+----------+
+        |                         |                      |  Latency  |  Interval | Pipeline |
+        |         Instance        |        Module        | min | max | min | max |   Type   |
+        +-------------------------+----------------------+-----+-----+-----+-----+----------+
+        |memWrite_U0              |memWrite              |    4|    4|    1|    1| function |
+        |setPath_U0               |setPath               |    2|    2|    1|    1| function |
+        |response_r_U0            |response_r            |    2|    2|    1|    1| function |
+        |bp_f1192_U0              |bp_f1192              |    1|    1|    1|    1| function |
+        |receive_U0               |receive               |    1|    1|    1|    1| function |
+        |ht_inputLogic_U0         |ht_inputLogic         |    2|    2|    1|    1| function |
+        |bobj_U0                  |bobj                  |    1|    1|    1|    1| function |
+        |ht_outputLogic_U0        |ht_outputLogic        |    1|    1|    1|    1| function |
+        |flashRemux_U0            |flashRemux            |    1|    1|    1|    1| function |
+        |remux_U0                 |remux                 |    1|    1|    1|    1| function |
+        |ht_compare_U0            |ht_compare            |    1|    1|    1|    1| function |
+        |bp_r_U0                  |bp_r                  |    1|    1|    1|    1| function |
+        |concurrencyControl_U0    |concurrencyControl    |    1|    1|    1|    1| function |
+        |accessControl_U0         |accessControl         |    1|    1|    1|    1| function |
+        |memRead_U0               |memRead               |    2|    2|    1|    1| function |
+        |flashDemux_U0            |flashDemux            |    1|    1|    1|    1| function |
+        |demux_U0                 |demux                 |    1|    1|    1|    1| function |
+        |hashKeyResizer_U0        |hashKeyResizer        |    1|    1|    1|    1| function |
+        |merger_U0                |merger                |    1|    1|    1|    1| function |
+        |splitter_U0              |splitter              |    2|    2|    1|    1| function |
+        |flashSetPathNoFilter_U0  |flashSetPathNoFilter  |    2|    2|    1|    1| function |
+        |flashReceiveNoFilter_U0  |flashReceiveNoFilter  |    1|    1|    1|    1| function |
+        |flashDispatch_U0         |flashDispatch         |    2|    2|    1|    1| function |
+        |dispatch_U0              |dispatch              |    2|    2|    1|    1| function |
+        |response_f_U0            |response_f            |    0|    0|    1|    1| function |
+        |memcachedPipeline_en_U0  |memcachedPipeline_en  |    0|    0|    0|    0|   none   |
+        +-------------------------+----------------------+-----+-----+-----+-----+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       0|       8|
+|FIFO             |      311|      -|    5945|    4700|
+|Instance         |        0|      -|   27228|  140826|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|       -|
+|Register         |        -|      -|       -|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |      311|      0|   33173|  145534|
++-----------------+---------+-------+--------+--------+
+|Available        |     2940|   3600|  866400|  433200|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |       10|      0|       3|      33|
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+----------------------+---------+-------+------+-------+
+    |         Instance        |        Module        | BRAM_18K| DSP48E|  FF  |  LUT  |
+    +-------------------------+----------------------+---------+-------+------+-------+
+    |accessControl_U0         |accessControl         |        0|      0|   932|    841|
+    |bobj_U0                  |bobj                  |        0|      0|   801|   2644|
+    |bp_f1192_U0              |bp_f1192              |        0|      0|   779|   5335|
+    |bp_r_U0                  |bp_r                  |        0|      0|   809|    806|
+    |concurrencyControl_U0    |concurrencyControl    |        0|      0|   494|    964|
+    |demux_U0                 |demux                 |        0|      0|   599|    366|
+    |dispatch_U0              |dispatch              |        0|      0|   144|    146|
+    |flashDemux_U0            |flashDemux            |        0|      0|   602|    374|
+    |flashDispatch_U0         |flashDispatch         |        0|      0|   169|    156|
+    |flashReceiveNoFilter_U0  |flashReceiveNoFilter  |        0|      0|    99|    201|
+    |flashRemux_U0            |flashRemux            |        0|      0|  1004|   1050|
+    |flashSetPathNoFilter_U0  |flashSetPathNoFilter  |        0|      0|   422|    234|
+    |hashKeyResizer_U0        |hashKeyResizer        |        0|      0|   672|    345|
+    |ht_compare_U0            |ht_compare            |        0|      0|   840|   1179|
+    |ht_inputLogic_U0         |ht_inputLogic         |        0|      0|  1157|   6086|
+    |ht_outputLogic_U0        |ht_outputLogic        |        0|      0|   851|    786|
+    |memRead_U0               |memRead               |        0|      0|   428|   1469|
+    |memWrite_U0              |memWrite              |        0|      0|  9473|  83515|
+    |memcachedPipeline_en_U0  |memcachedPipeline_en  |        0|      0|     2|     20|
+    |merger_U0                |merger                |        0|      0|   524|     86|
+    |receive_U0               |receive               |        0|      0|  1127|   5731|
+    |remux_U0                 |remux                 |        0|      0|  1005|   1053|
+    |response_f_U0            |response_f            |        0|      0|   253|    155|
+    |response_r_U0            |response_r            |        0|      0|  1186|   7385|
+    |setPath_U0               |setPath               |        0|      0|  2328|  19721|
+    |splitter_U0              |splitter              |        0|      0|   528|    178|
+    +-------------------------+----------------------+---------+-------+------+-------+
+    |Total                    |                      |        0|      0| 27228| 140826|
+    +-------------------------+----------------------+---------+-------+------+-------+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +---------------------------+---------+-----+-----+------+-----+---------+
+    |            Name           | BRAM_18K|  FF | LUT | Depth| Bits| Size:D*B|
+    +---------------------------+---------+-----+-----+------+-----+---------+
+    |accCtrl2demux_V_U          |       15|  272|  126|    16|  256|     4096|
+    |cc2memReadMd_V_U           |        4|   77|   67|    10|   64|      640|
+    |cc2memRead_V_U             |        8|  143|  115|    10|  130|     1300|
+    |comp2memWrKey_V_U          |        8|  143|  115|    10|  130|     1300|
+    |comp2memWrMd_V_U           |        4|   77|   67|    10|   64|      640|
+    |comp2memWrMemData_V_s_U    |       29|  525|  396|    10|  512|     5120|
+    |comp2memWrStatus_V_b_U     |        0|    5|   20|     2|    8|       16|
+    |dec2cc_V_V_U               |        0|    5|   16|     2|    1|        2|
+    |demux2getPath_V_U          |        3|   61|   47|    16|   45|      720|
+    |demux2setPathMetadat_1_U   |        3|   61|   47|    16|   45|      720|
+    |demux2setPathValue_V_U     |        4|   86|   91|    96|   66|     6336|
+    |disp2rec_V_V_U             |        0|    7|   28|    16|   12|      192|
+    |filterPopGet_V_V_U         |        0|    7|   20|    16|    1|       16|
+    |filterPopSet_V_V_U         |        0|    7|   20|    16|    1|       16|
+    |flashDemux2getPath_V_U     |        3|   64|   48|    16|   48|      768|
+    |flashDemux2setPathMe_1_U   |        3|   64|   48|    16|   48|      768|
+    |flashDemux2setPathVa_1_U   |        4|   86|   91|    96|   66|     6336|
+    |flashGetPath2remux_V_U     |        4|   84|   89|    96|   64|     6144|
+    |flashKeyBuffer_V_V_U       |        4|   82|   80|    48|   64|     3072|
+    |flashMetadataBuffer_s_0_U  |        8|  145|   92|    24|  128|     3072|
+    |flash_Disp2rec_V_V_U       |        0|    7|   32|    16|   16|      256|
+    |flushAck_V_c1_U            |        0|    5|   16|     2|    1|        2|
+    |flushAck_V_c_U             |        0|    6|   18|     9|    1|        9|
+    |getPath2remux_V_V_U        |        4|   84|   89|    96|   64|     6144|
+    |hash2cc_V_V_U              |        0|    5|   44|     2|   32|       64|
+    |hashKeyBuffer_V_V_U        |        4|   85|   85|   128|   64|     8192|
+    |hashMdBuffer_V_V_U         |        8|  145|  106|    32|  128|     4096|
+    |hashTable2splitter_V_U     |       15|  272|  126|    16|  256|     4096|
+    |hashValueBuffer_V_V_U      |        4|   98|  138|  1024|   64|    65536|
+    |in2ccMd_V_U                |        4|   77|   67|    10|   64|      640|
+    |in2cc_V_U                  |        8|  143|  115|    10|  130|     1300|
+    |in2hashKeyLength_V_V_U     |        0|    5|   20|     2|    8|       16|
+    |in2hash_V_U                |        0|    5|  142|     2|  130|      260|
+    |keyBuffer_V_V_U            |        4|   82|   80|    48|   64|     3072|
+    |keyBuffer_rp_V_V_U         |        4|   85|   85|   128|   64|     8192|
+    |memRd2compMd_V_U           |        4|   77|   67|    10|   64|      640|
+    |memRd2comp_V_U             |        8|  143|  115|    10|  130|     1300|
+    |memWr2out_V_U              |        0|    5|   69|     2|   57|      114|
+    |merger2responseForma_1_U   |       15|  272|  126|    16|  256|     4096|
+    |metadataBuffer_V_U         |        8|  145|   92|    24|  128|     3072|
+    |metadataBuffer_rf_V_s_U    |       14|  260|  229|     8|  248|     1984|
+    |metadataBuffer_rp_V_s_U    |       14|  264|  123|    16|  248|     3968|
+    |requestParser2hashTa_1_U   |       15|  272|  126|    16|  256|     4096|
+    |resizedInitValue_V_U       |        0|    5|   44|     2|   32|       64|
+    |resizedKeyLength_V_U       |        0|    5|   44|     2|   32|       64|
+    |resizedKey_V_V_U           |        6|  108|   99|     8|   96|      768|
+    |splitter2valueStoreD_1_U   |       15|  272|  126|    16|  256|     4096|
+    |splitter2valueStoreF_1_U   |       15|  272|  126|    16|  256|     4096|
+    |valueBuffer_rf_V_V_U       |        4|   98|  138|  1024|   64|    65536|
+    |valueBuffer_rp_V_V_U       |        4|   98|  138|  1024|   64|    65536|
+    |valueStoreDram2merge_1_U   |       15|  272|  126|    16|  256|     4096|
+    |valueStoreFlash2merg_1_U   |       15|  272|  126|    16|  256|     4096|
+    +---------------------------+---------+-----+-----+------+-----+---------+
+    |Total                      |      311| 5945| 4700|  4293| 5538|   310771|
+    +---------------------------+---------+-----+-----+------+-----+---------+
+
+    * Expression: 
+    +-------------------------------+----------+-------+---+----+------------+------------+
+    |         Variable Name         | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------------------+----------+-------+---+----+------------+------------+
+    |demux_U0_start_full_n          |    and   |      0|  0|   2|           1|           1|
+    |flashDemux_U0_start_full_n     |    and   |      0|  0|   2|           1|           1|
+    |ht_inputLogic_U0_start_full_n  |    and   |      0|  0|   2|           1|           1|
+    |splitter_U0_start_full_n       |    and   |      0|  0|   2|           1|           1|
+    +-------------------------------+----------+-------+---+----+------------+------------+
+    |Total                          |          |      0|  0|   8|           4|           4|
+    +-------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------------------+-----+-----+--------------+------------------------------+--------------+
+|              RTL Ports              | Dir | Bits|   Protocol   |         Source Object        |    C Type    |
++-------------------------------------+-----+-----+--------------+------------------------------+--------------+
+|inData_TDATA                         |  in |   64|     axis     |        inData_V_data_V       |    pointer   |
+|inData_TUSER                         |  in |  112|     axis     |        inData_V_user_V       |    pointer   |
+|inData_TKEEP                         |  in |    8|     axis     |        inData_V_keep_V       |    pointer   |
+|inData_TLAST                         |  in |    1|     axis     |        inData_V_last_V       |    pointer   |
+|inData_TVALID                        |  in |    1|     axis     |        inData_V_last_V       |    pointer   |
+|inData_TREADY                        | out |    1|     axis     |        inData_V_last_V       |    pointer   |
+|outData_TDATA                        | out |   64|     axis     |       outData_V_data_V       |    pointer   |
+|outData_TUSER                        | out |  112|     axis     |       outData_V_user_V       |    pointer   |
+|outData_TKEEP                        | out |    8|     axis     |       outData_V_keep_V       |    pointer   |
+|outData_TLAST                        | out |    1|     axis     |       outData_V_last_V       |    pointer   |
+|outData_TVALID                       | out |    1|     axis     |       outData_V_last_V       |    pointer   |
+|outData_TREADY                       |  in |    1|     axis     |       outData_V_last_V       |    pointer   |
+|dramValueStoreMemRdCmd_V_TDATA       | out |   40|     axis     |   dramValueStoreMemRdCmd_V   |    pointer   |
+|dramValueStoreMemRdCmd_V_TVALID      | out |    1|     axis     |   dramValueStoreMemRdCmd_V   |    pointer   |
+|dramValueStoreMemRdCmd_V_TREADY      |  in |    1|     axis     |   dramValueStoreMemRdCmd_V   |    pointer   |
+|dramValueStoreMemRdData_V_V_TDATA    |  in |  512|     axis     |  dramValueStoreMemRdData_V_V |    pointer   |
+|dramValueStoreMemRdData_V_V_TVALID   |  in |    1|     axis     |  dramValueStoreMemRdData_V_V |    pointer   |
+|dramValueStoreMemRdData_V_V_TREADY   | out |    1|     axis     |  dramValueStoreMemRdData_V_V |    pointer   |
+|dramValueStoreMemWrCmd_V_TDATA       | out |   40|     axis     |   dramValueStoreMemWrCmd_V   |    pointer   |
+|dramValueStoreMemWrCmd_V_TVALID      | out |    1|     axis     |   dramValueStoreMemWrCmd_V   |    pointer   |
+|dramValueStoreMemWrCmd_V_TREADY      |  in |    1|     axis     |   dramValueStoreMemWrCmd_V   |    pointer   |
+|dramValueStoreMemWrData_V_V_TDATA    | out |  512|     axis     |  dramValueStoreMemWrData_V_V |    pointer   |
+|dramValueStoreMemWrData_V_V_TVALID   | out |    1|     axis     |  dramValueStoreMemWrData_V_V |    pointer   |
+|dramValueStoreMemWrData_V_V_TREADY   |  in |    1|     axis     |  dramValueStoreMemWrData_V_V |    pointer   |
+|flashValueStoreMemRdCmd_V_TDATA      | out |   48|     axis     |   flashValueStoreMemRdCmd_V  |    pointer   |
+|flashValueStoreMemRdCmd_V_TVALID     | out |    1|     axis     |   flashValueStoreMemRdCmd_V  |    pointer   |
+|flashValueStoreMemRdCmd_V_TREADY     |  in |    1|     axis     |   flashValueStoreMemRdCmd_V  |    pointer   |
+|flashValueStoreMemRdData_V_V_TDATA   |  in |   64|     axis     | flashValueStoreMemRdData_V_V |    pointer   |
+|flashValueStoreMemRdData_V_V_TVALID  |  in |    1|     axis     | flashValueStoreMemRdData_V_V |    pointer   |
+|flashValueStoreMemRdData_V_V_TREADY  | out |    1|     axis     | flashValueStoreMemRdData_V_V |    pointer   |
+|flashValueStoreMemWrCmd_V_TDATA      | out |   48|     axis     |   flashValueStoreMemWrCmd_V  |    pointer   |
+|flashValueStoreMemWrCmd_V_TVALID     | out |    1|     axis     |   flashValueStoreMemWrCmd_V  |    pointer   |
+|flashValueStoreMemWrCmd_V_TREADY     |  in |    1|     axis     |   flashValueStoreMemWrCmd_V  |    pointer   |
+|flashValueStoreMemWrData_V_V_TDATA   | out |   64|     axis     | flashValueStoreMemWrData_V_V |    pointer   |
+|flashValueStoreMemWrData_V_V_TVALID  | out |    1|     axis     | flashValueStoreMemWrData_V_V |    pointer   |
+|flashValueStoreMemWrData_V_V_TREADY  |  in |    1|     axis     | flashValueStoreMemWrData_V_V |    pointer   |
+|hashTableMemRdData_V_V_TDATA         |  in |  512|     axis     |    hashTableMemRdData_V_V    |    pointer   |
+|hashTableMemRdData_V_V_TVALID        |  in |    1|     axis     |    hashTableMemRdData_V_V    |    pointer   |
+|hashTableMemRdData_V_V_TREADY        | out |    1|     axis     |    hashTableMemRdData_V_V    |    pointer   |
+|hashTableMemRdCmd_V_TDATA            | out |   40|     axis     |      hashTableMemRdCmd_V     |    pointer   |
+|hashTableMemRdCmd_V_TVALID           | out |    1|     axis     |      hashTableMemRdCmd_V     |    pointer   |
+|hashTableMemRdCmd_V_TREADY           |  in |    1|     axis     |      hashTableMemRdCmd_V     |    pointer   |
+|hashTableMemWrData_V_V_TDATA         | out |  512|     axis     |    hashTableMemWrData_V_V    |    pointer   |
+|hashTableMemWrData_V_V_TVALID        | out |    1|     axis     |    hashTableMemWrData_V_V    |    pointer   |
+|hashTableMemWrData_V_V_TREADY        |  in |    1|     axis     |    hashTableMemWrData_V_V    |    pointer   |
+|hashTableMemWrCmd_V_TDATA            | out |   40|     axis     |      hashTableMemWrCmd_V     |    pointer   |
+|hashTableMemWrCmd_V_TVALID           | out |    1|     axis     |      hashTableMemWrCmd_V     |    pointer   |
+|hashTableMemWrCmd_V_TREADY           |  in |    1|     axis     |      hashTableMemWrCmd_V     |    pointer   |
+|addressReturnOut_V_V_TDATA           | out |   32|     axis     |     addressReturnOut_V_V     |    pointer   |
+|addressReturnOut_V_V_TVALID          | out |    1|     axis     |     addressReturnOut_V_V     |    pointer   |
+|addressReturnOut_V_V_TREADY          |  in |    1|     axis     |     addressReturnOut_V_V     |    pointer   |
+|addressAssignDramIn_V_V_TDATA        |  in |   32|     axis     |    addressAssignDramIn_V_V   |    pointer   |
+|addressAssignDramIn_V_V_TVALID       |  in |    1|     axis     |    addressAssignDramIn_V_V   |    pointer   |
+|addressAssignDramIn_V_V_TREADY       | out |    1|     axis     |    addressAssignDramIn_V_V   |    pointer   |
+|addressAssignFlashIn_V_V_TDATA       |  in |   32|     axis     |   addressAssignFlashIn_V_V   |    pointer   |
+|addressAssignFlashIn_V_V_TVALID      |  in |    1|     axis     |   addressAssignFlashIn_V_V   |    pointer   |
+|addressAssignFlashIn_V_V_TREADY      | out |    1|     axis     |   addressAssignFlashIn_V_V   |    pointer   |
+|flushReq_V                           | out |    1|    ap_none   |          flushReq_V          |    pointer   |
+|flushAck_V                           |  in |    1|    ap_none   |          flushAck_V          |    scalar    |
+|flushDone_V                          | out |    1|    ap_none   |          flushDone_V         |    pointer   |
+|ap_clk                               |  in |    1| ap_ctrl_none |       memcachedPipeline      | return value |
+|ap_rst_n                             |  in |    1| ap_ctrl_none |       memcachedPipeline      | return value |
++-------------------------------------+-----+-----+--------------+------------------------------+--------------+
+

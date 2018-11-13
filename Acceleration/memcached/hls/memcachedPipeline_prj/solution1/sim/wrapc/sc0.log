@@ -1,0 +1,18 @@
+   Build using "/home/pratik0509/xillinx/Vivado/2018.2/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling memcachedPipeline.cpp_pre.cpp.tb.cpp
+   Compiling merger.cpp_pre.cpp.tb.cpp
+   Compiling cc.cpp_pre.cpp.tb.cpp
+   Compiling compare.cpp_pre.cpp.tb.cpp
+   Compiling memWrite.cpp_pre.cpp.tb.cpp
+   Compiling globals.cpp_pre.cpp.tb.cpp
+   Compiling hashTable.cpp_pre.cpp.tb.cpp
+   Compiling flashValueStore.cpp_pre.cpp.tb.cpp
+   Compiling memcachedPipeline_tb.cpp_pre.cpp.tb.cpp
+   Compiling memRead.cpp_pre.cpp.tb.cpp
+   Compiling binResponse.cpp_pre.cpp.tb.cpp
+   Compiling valueStore.cpp_pre.cpp.tb.cpp
+   Compiling hash.cpp_pre.cpp.tb.cpp
+   Compiling splitter.cpp_pre.cpp.tb.cpp
+   Compiling apatb_memcachedPipeline.cpp
+   Compiling requestParser.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe

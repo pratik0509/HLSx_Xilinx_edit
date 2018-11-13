@@ -1,0 +1,875 @@
+INFO: [HLS 200-10] Running '/home/pratik0509/xillinx/Vivado/2018.2/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'pratik0509' on host 'localhost.localdomain' (Linux_x86_64 version 4.18.6-arch1-1-ARCH) on Fri Nov 09 23:02:32 IST 2018
+INFO: [HLS 200-10] On os "Arch Linux"
+INFO: [HLS 200-10] In directory '/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls'
+INFO: [HLS 200-10] Opening project '/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/memcachedPipeline_prj'.
+INFO: [HLS 200-10] Adding design file 'sources/memcachedPipeline.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sources/splitter.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sources/merger.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sources/globals.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sources/valueStore/flashValueStore.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sources/valueStore/valueStore.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sources/responseFormatter/binResponse.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sources/requestParser/requestParser.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sources/hashTable/memWrite.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sources/hashTable/memRead.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sources/hashTable/hashTable.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sources/hashTable/hash.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sources/hashTable/compare.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sources/hashTable/cc.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'sources/memcachedPipeline_tb.cpp' to the project
+INFO: [HLS 200-10] Opening solution '/home/pratik0509/Projects/HLx_Examples/Acceleration/memcached/hls/memcachedPipeline_prj/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.66ns.
+INFO: [HLS 200-10] Setting target device to 'xc7vx690tffg1761-2'
+INFO: [HLS 200-10] Analyzing design file 'sources/hashTable/cc.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'sources/hashTable/compare.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'sources/hashTable/hash.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'sources/hashTable/hashTable.cpp' ... 
+WARNING: [HLS 200-40] In file included from sources/hashTable/hashTable.cpp:1:
+sources/hashTable/hashTable.cpp:167:10: warning: enumeration value 'OL_W1' not handled in switch [-Wswitch]
+ switch (olState) {
+         ^
+1 warning generated.\n
+INFO: [HLS 200-10] Analyzing design file 'sources/hashTable/memRead.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'sources/hashTable/memWrite.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'sources/requestParser/requestParser.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'sources/responseFormatter/binResponse.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'sources/valueStore/valueStore.cpp' ... 
+WARNING: [HLS 200-40] In file included from sources/valueStore/valueStore.cpp:1:
+sources/valueStore/valueStore.cpp:598:9: warning: enumeration values 'RMUX_REST_MD2' and 'RMUX_GET_MD2' not handled in switch [-Wswitch]
+ switch(remuxState) {
+        ^
+1 warning generated.\n
+INFO: [HLS 200-10] Analyzing design file 'sources/valueStore/flashValueStore.cpp' ... 
+WARNING: [HLS 200-40] In file included from sources/valueStore/flashValueStore.cpp:1:
+sources/valueStore/flashValueStore.cpp:257:9: warning: enumeration values 'FRMUX_REST_MD2' and 'FRMUX_GET_MD2' not handled in switch [-Wswitch]
+ switch(flashRemuxState) {
+        ^
+1 warning generated.\n
+INFO: [HLS 200-10] Analyzing design file 'sources/globals.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'sources/merger.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'sources/splitter.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'sources/memcachedPipeline.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:02:39 ; elapsed = 00:03:27 . Memory (MB): peak = 346.684 ; gain = 0.199 ; free physical = 268 ; free virtual = 2505
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:02:39 ; elapsed = 00:03:27 . Memory (MB): peak = 346.684 ; gain = 0.199 ; free physical = 270 ; free virtual = 2505
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'binaryParser' into 'memcachedPipeline' (sources/memcachedPipeline.cpp:118).
+INFO: [XFORM 203-603] Inlining function 'hash' into 'hashTable' (sources/hashTable/hashTable.cpp:322).
+INFO: [XFORM 203-603] Inlining function 'concurrencyFilter::compare' into 'concurrencyControl' (sources/hashTable/cc.cpp:59).
+INFO: [XFORM 203-603] Inlining function 'concurrencyFilter::full' into 'concurrencyControl' (sources/hashTable/cc.cpp:59).
+INFO: [XFORM 203-603] Inlining function 'concurrencyFilter::full' into 'concurrencyControl' (sources/hashTable/cc.cpp:78).
+INFO: [XFORM 203-603] Inlining function 'concurrencyFilter::compare' into 'concurrencyControl' (sources/hashTable/cc.cpp:78).
+INFO: [XFORM 203-603] Inlining function 'concurrencyFilter::push' into 'concurrencyControl' (sources/hashTable/cc.cpp:86).
+INFO: [XFORM 203-603] Inlining function 'concurrencyFilter::pop' into 'concurrencyControl' (sources/hashTable/cc.cpp:108).
+INFO: [XFORM 203-603] Inlining function 'concurrencyFilter::pop' into 'concurrencyControl' (sources/hashTable/cc.cpp:117).
+INFO: [XFORM 203-603] Inlining function 'hashTable' into 'memcachedPipeline' (sources/memcachedPipeline.cpp:119).
+INFO: [XFORM 203-603] Inlining function 'accessFilter::compare' into 'accessControl' (sources/valueStore/valueStore.cpp:73).
+INFO: [XFORM 203-603] Inlining function 'accessFilter::full' into 'accessControl' (sources/valueStore/valueStore.cpp:73).
+INFO: [XFORM 203-603] Inlining function 'accessFilter::push' into 'accessControl' (sources/valueStore/valueStore.cpp:93).
+INFO: [XFORM 203-603] Inlining function 'accessFilter::compare' into 'accessControl' (sources/valueStore/valueStore.cpp:113).
+INFO: [XFORM 203-603] Inlining function 'accessFilter::full' into 'accessControl' (sources/valueStore/valueStore.cpp:113).
+INFO: [XFORM 203-603] Inlining function 'accessFilter::pop' into 'accessControl' (sources/valueStore/valueStore.cpp:128).
+INFO: [XFORM 203-603] Inlining function 'accessFilter::pop' into 'accessControl' (sources/valueStore/valueStore.cpp:142).
+INFO: [XFORM 203-603] Inlining function 'getPath' into 'valueStoreDram' (sources/valueStore/valueStore.cpp:777).
+INFO: [XFORM 203-603] Inlining function 'valueStoreDram' into 'memcachedPipeline' (sources/memcachedPipeline.cpp:121).
+INFO: [XFORM 203-603] Inlining function 'flashGetPathNoFilter' into 'valueStoreFlash' (sources/valueStore/flashValueStore.cpp:649).
+INFO: [XFORM 203-603] Inlining function 'valueStoreFlash' into 'memcachedPipeline' (sources/memcachedPipeline.cpp:122).
+INFO: [XFORM 203-603] Inlining function 'binaryResponse' into 'memcachedPipeline' (sources/memcachedPipeline.cpp:124).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:02:46 ; elapsed = 00:03:54 . Memory (MB): peak = 543.949 ; gain = 197.465 ; free physical = 154 ; free virtual = 2285
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'byteSwap32' into 'bp_f' (sources/requestParser/requestParser.cpp:69) automatically.
+INFO: [XFORM 203-602] Inlining function 'myPow' into 'memWrite' (sources/hashTable/memWrite.cpp:218) automatically.
+INFO: [XFORM 203-602] Inlining function 'byteSwap32' into 'response_r' (sources/responseFormatter/binResponse.cpp:159) automatically.
+WARNING: [SYNCHK 200-23] sources/valueStore/valueStore.cpp:293: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:02:54 ; elapsed = 00:04:03 . Memory (MB): peak = 622.605 ; gain = 276.121 ; free physical = 111 ; free virtual = 2124
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'hashTableMemRdData.V.V' (sources/memcachedPipeline.cpp:34).
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'hashTableMemWrData.V.V' (sources/memcachedPipeline.cpp:34).
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'dramValueStoreMemRdData.V.V' (sources/memcachedPipeline.cpp:32).
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'dramValueStoreMemWrData.V.V' (sources/memcachedPipeline.cpp:32).
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'flashValueStoreMemRdData.V.V' (sources/memcachedPipeline.cpp:33).
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'flashValueStoreMemWrData.V.V' (sources/memcachedPipeline.cpp:33).
+INFO: [XFORM 203-1101] Packing variable 'hashTableMemRdCmd.V' (sources/memcachedPipeline.cpp:34) into a 40-bit variable.
+INFO: [XFORM 203-1101] Packing variable 'hashTableMemWrCmd.V' (sources/memcachedPipeline.cpp:34) into a 40-bit variable.
+INFO: [XFORM 203-1101] Packing variable 'dramValueStoreMemRdCmd.V' (sources/memcachedPipeline.cpp:32) into a 40-bit variable.
+INFO: [XFORM 203-1101] Packing variable 'dramValueStoreMemWrCmd.V' (sources/memcachedPipeline.cpp:32) into a 40-bit variable.
+INFO: [XFORM 203-1101] Packing variable 'flashValueStoreMemRdCmd.V' (sources/memcachedPipeline.cpp:33) into a 45-bit variable.
+INFO: [XFORM 203-1101] Packing variable 'flashValueStoreMemWrCmd.V' (sources/memcachedPipeline.cpp:33) into a 45-bit variable.
+WARNING: [XFORM 203-1102] Ignored multiple data pack pragma for variable 'merger2responseFormatter.V'.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'myPow' (sources/globals.cpp:117).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'ht_compare' (sources/hashTable/compare.cpp:31).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'concurrencyControl' (sources/globals.cpp:35:47).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'accessControl' (sources/globals.cpp:32:139).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'memWrite' (sources/hashTable/memWrite.cpp:32).
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (sources/globals.cpp:119) in function 'myPow' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (sources/hashTable/compare.cpp:39) in function 'ht_compare' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2' (sources/hashTable/compare.cpp:52) in function 'ht_compare' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-3' (sources/hashTable/compare.cpp:61) in function 'ht_compare' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-4' (sources/hashTable/compare.cpp:75) in function 'ht_compare' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (sources/globals.cpp:101) in function 'concurrencyControl' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2' (sources/globals.cpp:101) in function 'concurrencyControl' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (sources/globals.cpp:59) in function 'accessControl' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2' (sources/globals.cpp:59) in function 'accessControl' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (sources/hashTable/memWrite.cpp:38) in function 'memWrite' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2' (sources/hashTable/../globals.h:167) in function 'memWrite' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-3' (sources/hashTable/memWrite.cpp:94) in function 'memWrite' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-4' (sources/hashTable/memWrite.cpp:115) in function 'memWrite' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-5' (sources/hashTable/memWrite.cpp:163) in function 'memWrite' completely.
+INFO: [XFORM 203-102] Partitioning array 'statusOutput.bin.match.V' automatically.
+INFO: [XFORM 203-102] Partitioning array 'statusOutput.bin.free.V' automatically.
+INFO: [XFORM 203-102] Partitioning array 'htMemWriteInputStatusWord.bin.match.V' automatically.
+INFO: [XFORM 203-102] Partitioning array 'htMemWriteInputStatusWord.bin.free.V' automatically.
+INFO: [XFORM 203-101] Partitioning array 'hashFilter.filterEntries.address.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'hashFilter.filterEntries.valueLength.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'hashFilter.filterEntries.operation.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'hashFilter.filterEntries.status.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'accessCtrl.filterEntries.address.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'accessCtrl.filterEntries.operation.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'accessCtrl.filterEntries.status.V'  in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'byteSwap32' into 'bp_f' (sources/requestParser/requestParser.cpp:69) automatically.
+INFO: [XFORM 203-602] Inlining function 'byteSwap32' into 'response_r' (sources/responseFormatter/binResponse.cpp:159) automatically.
+INFO: [XFORM 203-602] Inlining function 'length2keep_mapping' into 'response_r' (sources/responseFormatter/binResponse.cpp:188) automatically.
+INFO: [XFORM 203-712] Applying dataflow to function 'memcachedPipeline', detected/extracted 25 process function(s): 
+	 'bp_f1192'
+	 'bp_r'
+	 'ht_inputLogic'
+	 'hashKeyResizer'
+	 'bobj'
+	 'concurrencyControl'
+	 'memRead'
+	 'ht_compare'
+	 'memWrite'
+	 'ht_outputLogic'
+	 'splitter'
+	 'accessControl'
+	 'demux'
+	 'setPath'
+	 'dispatch'
+	 'receive'
+	 'remux'
+	 'flashDemux'
+	 'flashSetPathNoFilter'
+	 'flashDispatch'
+	 'flashReceiveNoFilter'
+	 'flashRemux'
+	 'merger'
+	 'response_f'
+	 'response_r'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (sources/valueStore/valueStore.cpp:291:5) to (sources/valueStore/valueStore.cpp:300:4) in function 'setPath'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (sources/valueStore/valueStore.cpp:328:5) to (sources/valueStore/valueStore.cpp:337:4) in function 'setPath'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (sources/responseFormatter/binResponse.cpp:123:28) to (sources/responseFormatter/binResponse.cpp:138:4) in function 'response_r'... converting 6 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'memWrite'... converting 13 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (sources/hashTable/memRead.cpp:60:9) to (sources/hashTable/memRead.cpp:67:9) in function 'memRead'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (sources/hashTable/hashTable.cpp:58:31) to (sources/hashTable/hashTable.cpp:69:10) in function 'ht_inputLogic'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (sources/hashTable/compare.cpp:60:5) to (sources/hashTable/compare.cpp:69:4) in function 'ht_compare'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (sources/hashTable/hash.cpp:232:5) to (sources/hashTable/hash.cpp:245:4) in function 'hashKeyResizer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (sources/hashTable/hash.cpp:251:5) to (sources/hashTable/hash.cpp:264:4) in function 'hashKeyResizer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (sources/hashTable/cc.cpp:53:5) to (sources/hashTable/cc.cpp:70:4) in function 'concurrencyControl'... converting 28 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (sources/requestParser/requestParser.cpp:246:4) in function 'bp_r'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (sources/requestParser/requestParser.cpp:125:7) to (sources/requestParser/requestParser.cpp:127:11) in function 'bp_f1192'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (sources/globals.cpp:61:106) to (sources/valueStore/valueStore.cpp:81:4) in function 'accessControl'... converting 20 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'memWrite' (sources/hashTable/memWrite.cpp:32)...6 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'concurrencyControl' (sources/hashTable/cc.cpp:35:6)...24 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'accessControl' (sources/valueStore/valueStore.cpp:32:6)...32 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:03:15 ; elapsed = 00:04:58 . Memory (MB): peak = 810.488 ; gain = 464.004 ; free physical = 138 ; free virtual = 1908
+WARNING: [XFORM 203-631] Renaming function 'memcachedPipeline.entry3' to 'memcachedPipeline.en' 
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:03:27 ; elapsed = 00:05:23 . Memory (MB): peak = 1066.488 ; gain = 720.004 ; free physical = 123 ; free virtual = 1569
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'memcachedPipeline' ...
+WARNING: [SYN 201-103] Legalizing function name 'memcachedPipeline.en' to 'memcachedPipeline_en'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'memcachedPipeline_en' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 347.32 seconds; current allocated memory: 692.476 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.65 seconds; current allocated memory: 692.516 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'bp_f1192' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'bp_f1192'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+WARNING: [SCHED 204-70] Cannot meet target clock period from 'sub' operation ('tmp_579') to 'store' operation of variable 'storemerge1_i_i_i_i' on static variable 'bpf_valueLengthBuffe' (combination delay: 8.53595 ns) to honor II or Latency constraint in region 'bp_f1192'.
+WARNING: [SCHED 204-21] Estimated clock period (9.7378ns) exceeds the target (target clock period: 6.66ns, clock uncertainty: 0.8325ns, effective delay budget: 5.8275ns).
+WARNING: [SCHED 204-21] The critical path consists of the following:
+	'load' operation ('i_op', sources/requestParser/requestParser.cpp:70) on static variable 'keyLengthBuffer' (0 ns)
+	'sub' operation ('tmp_324_i_i_i_i', sources/requestParser/requestParser.cpp:125) (1.1 ns)
+	'sub' operation ('Lo', sources/requestParser/requestParser.cpp:128) (1.36 ns)
+	'sub' operation ('tmp_626', sources/requestParser/requestParser.cpp:128) (1.27 ns)
+	'select' operation ('tmp_630', sources/requestParser/requestParser.cpp:128) (0 ns)
+	'lshr' operation ('tmp_634', sources/requestParser/requestParser.cpp:128) (2.35 ns)
+	'and' operation ('__Result__', sources/requestParser/requestParser.cpp:128) (0 ns)
+	'and' operation ('tmp_642', sources/requestParser/requestParser.cpp:128) (0 ns)
+	'or' operation ('__Result__', sources/requestParser/requestParser.cpp:128) (1.58 ns)
+	multiplexor before 'phi' operation ('storemerge38_i_i_i_i') (0.85 ns)
+	'phi' operation ('storemerge38_i_i_i_i') (0 ns)
+	'store' operation (sources/requestParser/requestParser.cpp:130) of variable 'storemerge38_cast_ca', sources/requestParser/requestParser.cpp:130 on static variable 'bpf_wordCounter' (1.22 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.31 seconds; current allocated memory: 693.871 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 2.87 seconds; current allocated memory: 695.810 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'bp_r' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'bp_r'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 4.52 seconds; current allocated memory: 696.485 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.89 seconds; current allocated memory: 696.939 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ht_inputLogic' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'ht_inputLogic'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.67 seconds; current allocated memory: 697.800 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.82 seconds; current allocated memory: 698.553 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'hashKeyResizer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'hashKeyResizer'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.95 seconds; current allocated memory: 699.089 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.4 seconds; current allocated memory: 699.454 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'bobj' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'bobj'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 6.43 seconds; current allocated memory: 700.409 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 6.65 seconds; current allocated memory: 701.294 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'concurrencyControl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'concurrencyControl'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+WARNING: [SCHED 204-70] Cannot meet target clock period from fifo read on port 'hash2cc_V_V' to 'store' operation of variable 'storemerge32_cast_i_s' on static variable 'ccState' (combination delay: 6.4017 ns) to honor II or Latency constraint in region 'concurrencyControl'.
+WARNING: [SCHED 204-21] Estimated clock period (6.4017ns) exceeds the target (target clock period: 6.66ns, clock uncertainty: 0.8325ns, effective delay budget: 5.8275ns).
+WARNING: [SCHED 204-21] The critical path consists of the following:
+	fifo read on port 'hash2cc_V_V' (sources/hashTable/cc.cpp:55) (2.39 ns)
+	'icmp' operation ('tmp_413_i', sources/globals.cpp:103->sources/hashTable/cc.cpp:59) (0.867 ns)
+	'and' operation ('or_cond_i', sources/globals.cpp:103->sources/hashTable/cc.cpp:59) (0.485 ns)
+	'and' operation ('sel_tmp16', sources/globals.cpp:103->sources/hashTable/cc.cpp:59) (0 ns)
+	'or' operation ('tmp3', sources/globals.cpp:104->sources/hashTable/cc.cpp:59) (0.485 ns)
+	'or' operation ('tmp2', sources/globals.cpp:104->sources/hashTable/cc.cpp:59) (0 ns)
+	'or' operation ('tmp1', sources/globals.cpp:104->sources/hashTable/cc.cpp:59) (0.485 ns)
+	'or' operation ('sel_tmp40', sources/globals.cpp:111->sources/hashTable/cc.cpp:59) (0 ns)
+	'select' operation ('storemerge32_cast_i_s', sources/hashTable/cc.cpp:60) (0.51 ns)
+	'store' operation (sources/hashTable/cc.cpp:60) of variable 'storemerge32_cast_i_s', sources/hashTable/cc.cpp:60 on static variable 'ccState' (1.18 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.01 seconds; current allocated memory: 706.800 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 2.42 seconds; current allocated memory: 707.892 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'memRead' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'memRead'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 3.97 seconds; current allocated memory: 708.361 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 708.607 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ht_compare' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'ht_compare'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.82 seconds; current allocated memory: 709.330 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.58 seconds; current allocated memory: 710.332 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'memWrite' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'memWrite'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 5.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.2 seconds; current allocated memory: 712.699 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 14.7 seconds; current allocated memory: 715.087 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ht_outputLogic' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'ht_outputLogic'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+WARNING: [SCHED 204-70] Cannot meet target clock period from fifo read on port 'hashMdBuffer_V_V' to 'br' operation (combination delay: 5.974 ns) to honor II or Latency constraint in region 'ht_outputLogic'.
+WARNING: [SCHED 204-21] Estimated clock period (5.974ns) exceeds the target (target clock period: 6.66ns, clock uncertainty: 0.8325ns, effective delay budget: 5.8275ns).
+WARNING: [SCHED 204-21] The critical path consists of the following:
+	fifo read on port 'hashMdBuffer_V_V' (sources/hashTable/hashTable.cpp:182) (2.39 ns)
+	'add' operation ('tmp_148_i', sources/hashTable/hashTable.cpp:204) (1.36 ns)
+	'select' operation ('tmp_218_i', sources/hashTable/hashTable.cpp:204) (0.372 ns)
+	multiplexor before 'phi' operation ('ol_keyLength_V_new_i', sources/hashTable/hashTable.cpp:183) with incoming values : ('tmp_353', sources/hashTable/hashTable.cpp:183) ('tmp_218_i', sources/hashTable/hashTable.cpp:204) (0.85 ns)
+	'phi' operation ('ol_keyLength_V_new_i', sources/hashTable/hashTable.cpp:183) with incoming values : ('tmp_353', sources/hashTable/hashTable.cpp:183) ('tmp_218_i', sources/hashTable/hashTable.cpp:204) (0 ns)
+	multiplexor before 'phi' operation ('tmp.keyValid.V') (1 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 3.54 seconds; current allocated memory: 716.122 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.85 seconds; current allocated memory: 716.731 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'splitter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'splitter'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.13 seconds; current allocated memory: 716.945 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.8 seconds; current allocated memory: 717.102 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'accessControl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'accessControl'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.32 seconds; current allocated memory: 723.545 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 6.59 seconds; current allocated memory: 724.587 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'demux' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'demux'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.06 seconds; current allocated memory: 725.370 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.4 seconds; current allocated memory: 725.785 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'setPath' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'setPath'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.07 seconds; current allocated memory: 726.311 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.92 seconds; current allocated memory: 726.896 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dispatch' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'dispatch'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.64 seconds; current allocated memory: 727.133 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 727.251 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'receive' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'receive'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.3 seconds; current allocated memory: 727.519 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.23 seconds; current allocated memory: 727.764 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'remux' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'remux'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+WARNING: [SCHED 204-70] Cannot meet target clock period from fifo read on port 'metadataBuffer_V' to 'br' operation (combination delay: 7.5154 ns) to honor II or Latency constraint in region 'remux'.
+WARNING: [SCHED 204-21] Estimated clock period (7.5154ns) exceeds the target (target clock period: 6.66ns, clock uncertainty: 0.8325ns, effective delay budget: 5.8275ns).
+WARNING: [SCHED 204-21] The critical path consists of the following:
+	fifo read on port 'metadataBuffer_V' (2.39 ns)
+	'select' operation ('p_s', sources/valueStore/valueStore.cpp:603) (0.494 ns)
+	multiplexor before 'phi' operation ('rmKeyLength_loc_2_i', sources/valueStore/valueStore.cpp:611) with incoming values : ('rmKeyLength_load', sources/valueStore/valueStore.cpp:611) ('p_rmKeyLength_load', sources/valueStore/valueStore.cpp:603) (0.85 ns)
+	'phi' operation ('rmKeyLength_loc_2_i', sources/valueStore/valueStore.cpp:611) with incoming values : ('rmKeyLength_load', sources/valueStore/valueStore.cpp:611) ('p_rmKeyLength_load', sources/valueStore/valueStore.cpp:603) (0 ns)
+	'add' operation ('tmp_87_i', sources/valueStore/valueStore.cpp:633) (1.36 ns)
+	'select' operation ('storemerge3_i', sources/valueStore/valueStore.cpp:633) (0.372 ns)
+	multiplexor before 'phi' operation ('rmKeyLength_flag_5_i', sources/valueStore/valueStore.cpp:603) with incoming values : ('p_s', sources/valueStore/valueStore.cpp:603) (0.85 ns)
+	'phi' operation ('rmKeyLength_flag_5_i', sources/valueStore/valueStore.cpp:603) with incoming values : ('p_s', sources/valueStore/valueStore.cpp:603) (0 ns)
+	multiplexor before 'phi' operation ('tmp.EOP.V') with incoming values : ('tmp.EOP.V', sources/valueStore/valueStore.cpp:729) ('tmp.EOP.V', sources/valueStore/valueStore.cpp:682) ('p_s', sources/valueStore/valueStore.cpp:603) (1.2 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.21 seconds; current allocated memory: 728.695 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.59 seconds; current allocated memory: 729.596 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'flashDemux' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'flashDemux'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.62 seconds; current allocated memory: 730.285 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 2.36 seconds; current allocated memory: 730.695 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'flashSetPathNoFilter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'flashSetPathNoFilter'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.66 seconds; current allocated memory: 730.945 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 731.161 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'flashDispatch' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'flashDispatch'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.27 seconds; current allocated memory: 731.273 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 731.387 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'flashReceiveNoFilter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'flashReceiveNoFilter'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.3 seconds; current allocated memory: 731.572 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 731.713 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'flashRemux' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'flashRemux'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+WARNING: [SCHED 204-70] Cannot meet target clock period from fifo read on port 'flashMetadataBuffer_s_0' to 'br' operation (combination delay: 7.5154 ns) to honor II or Latency constraint in region 'flashRemux'.
+WARNING: [SCHED 204-21] Estimated clock period (7.5154ns) exceeds the target (target clock period: 6.66ns, clock uncertainty: 0.8325ns, effective delay budget: 5.8275ns).
+WARNING: [SCHED 204-21] The critical path consists of the following:
+	fifo read on port 'flashMetadataBuffer_s_0' (2.39 ns)
+	'select' operation ('p_s', sources/valueStore/flashValueStore.cpp:262) (0.494 ns)
+	multiplexor before 'phi' operation ('flashRmKeyLength_loc', sources/valueStore/flashValueStore.cpp:270) with incoming values : ('flashRmKeyLength_loa', sources/valueStore/flashValueStore.cpp:270) ('p_flashRmKeyLength_lo', sources/valueStore/flashValueStore.cpp:262) (0.85 ns)
+	'phi' operation ('flashRmKeyLength_loc', sources/valueStore/flashValueStore.cpp:270) with incoming values : ('flashRmKeyLength_loa', sources/valueStore/flashValueStore.cpp:270) ('p_flashRmKeyLength_lo', sources/valueStore/flashValueStore.cpp:262) (0 ns)
+	'add' operation ('tmp_230_i', sources/valueStore/flashValueStore.cpp:292) (1.36 ns)
+	'select' operation ('storemerge29_i', sources/valueStore/flashValueStore.cpp:292) (0.372 ns)
+	multiplexor before 'phi' operation ('flashRmKeyLength_fla', sources/valueStore/flashValueStore.cpp:262) with incoming values : ('p_s', sources/valueStore/flashValueStore.cpp:262) (0.85 ns)
+	'phi' operation ('flashRmKeyLength_fla', sources/valueStore/flashValueStore.cpp:262) with incoming values : ('p_s', sources/valueStore/flashValueStore.cpp:262) (0 ns)
+	multiplexor before 'phi' operation ('tmp.EOP.V') with incoming values : ('tmp.EOP.V', sources/valueStore/flashValueStore.cpp:388) ('tmp.EOP.V', sources/valueStore/flashValueStore.cpp:341) ('p_s', sources/valueStore/flashValueStore.cpp:262) (1.2 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.18 seconds; current allocated memory: 732.625 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.52 seconds; current allocated memory: 733.554 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'merger' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'merger'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.55 seconds; current allocated memory: 733.805 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 733.942 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'response_f' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'response_f'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.57 seconds; current allocated memory: 734.289 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 734.494 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'response_r' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'response_r'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.84 seconds; current allocated memory: 735.483 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.97 seconds; current allocated memory: 737.176 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'memcachedPipeline' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 6.16 seconds; current allocated memory: 737.751 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 24.33 seconds; current allocated memory: 742.422 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'memcachedPipeline_en' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'memcachedPipeline_en'.
+INFO: [HLS 200-111]  Elapsed time: 2.74 seconds; current allocated memory: 743.625 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'bp_f1192' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'bp_f1192'.
+INFO: [HLS 200-111]  Elapsed time: 2.04 seconds; current allocated memory: 745.828 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'bp_r' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'bp_r'.
+INFO: [HLS 200-111]  Elapsed time: 2.17 seconds; current allocated memory: 751.763 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ht_inputLogic' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ht_inputLogic'.
+INFO: [HLS 200-111]  Elapsed time: 1.15 seconds; current allocated memory: 754.970 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hashKeyResizer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'hashKeyResizer'.
+INFO: [HLS 200-111]  Elapsed time: 1.06 seconds; current allocated memory: 758.704 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'bobj' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'bobj'.
+INFO: [HLS 200-111]  Elapsed time: 0.66 seconds; current allocated memory: 761.738 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'concurrencyControl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'concurrencyControl'.
+INFO: [HLS 200-111]  Elapsed time: 2.61 seconds; current allocated memory: 774.371 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'memRead' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'memRead'.
+INFO: [HLS 200-111]  Elapsed time: 7.29 seconds; current allocated memory: 779.824 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ht_compare' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ht_compare'.
+INFO: [HLS 200-111]  Elapsed time: 2.85 seconds; current allocated memory: 782.371 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'memWrite' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-104] Estimated max fanout for 'memWrite' is 9597 from HDL expression: ap_rst
+INFO: [RTGEN 206-100] Finished creating RTL model for 'memWrite'.
+INFO: [HLS 200-111]  Elapsed time: 2.78 seconds; current allocated memory: 790.886 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ht_outputLogic' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ht_outputLogic'.
+INFO: [HLS 200-111]  Elapsed time: 13.59 seconds; current allocated memory: 801.731 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'splitter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'splitter'.
+INFO: [HLS 200-111]  Elapsed time: 0.94 seconds; current allocated memory: 804.368 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'accessControl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'accessControl'.
+INFO: [HLS 200-111]  Elapsed time: 5.23 seconds; current allocated memory: 874.462 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'demux' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'demux'.
+INFO: [HLS 200-111]  Elapsed time: 4.57 seconds; current allocated memory: 878.648 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'setPath' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'setPath'.
+INFO: [HLS 200-111]  Elapsed time: 0.94 seconds; current allocated memory: 881.717 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dispatch' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dispatch'.
+INFO: [HLS 200-111]  Elapsed time: 1.16 seconds; current allocated memory: 884.310 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'receive' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'receive'.
+INFO: [HLS 200-111]  Elapsed time: 0.98 seconds; current allocated memory: 885.267 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'remux' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'remux'.
+INFO: [HLS 200-111]  Elapsed time: 1.6 seconds; current allocated memory: 889.007 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'flashDemux' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'flashDemux'.
+INFO: [HLS 200-111]  Elapsed time: 8.53 seconds; current allocated memory: 892.944 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'flashSetPathNoFilter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'flashSetPathNoFilter'.
+INFO: [HLS 200-111]  Elapsed time: 3.84 seconds; current allocated memory: 895.503 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'flashDispatch' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'flashDispatch'.
+INFO: [HLS 200-111]  Elapsed time: 1.37 seconds; current allocated memory: 896.644 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'flashReceiveNoFilter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'flashReceiveNoFilter'.
+INFO: [HLS 200-111]  Elapsed time: 1.12 seconds; current allocated memory: 897.416 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'flashRemux' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'flashRemux'.
+INFO: [HLS 200-111]  Elapsed time: 1.21 seconds; current allocated memory: 899.740 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'merger' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'merger'.
+INFO: [HLS 200-111]  Elapsed time: 1.44 seconds; current allocated memory: 903.153 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'response_f' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'response_f'.
+INFO: [HLS 200-111]  Elapsed time: 1.39 seconds; current allocated memory: 904.262 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'response_r' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'memcachedPipeline_mux_2568_8_1_1' to 'memcachedPipelinebkb' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'memcachedPipelinebkb': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'response_r'.
+INFO: [HLS 200-111]  Elapsed time: 15.48 seconds; current allocated memory: 910.927 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'memcachedPipeline' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/inData_V_data_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/inData_V_user_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/inData_V_keep_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/inData_V_last_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/outData_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/outData_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/outData_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/outData_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/dramValueStoreMemRdCmd_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/dramValueStoreMemRdData_V_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/dramValueStoreMemWrCmd_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/dramValueStoreMemWrData_V_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/flashValueStoreMemRdCmd_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/flashValueStoreMemRdData_V_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/flashValueStoreMemWrCmd_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/flashValueStoreMemWrData_V_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/hashTableMemRdData_V_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/hashTableMemRdCmd_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/hashTableMemWrData_V_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/hashTableMemWrCmd_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/addressReturnOut_V_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/addressAssignDramIn_V_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/addressAssignFlashIn_V_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/flushReq_V' to 'ap_none' (register).
+WARNING: [RTGEN 206-101] Port 'flushReq_V' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/flushAck_V' to 'ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'memcachedPipeline/flushDone_V' to 'ap_none' (register).
+WARNING: [RTGEN 206-101] Port 'flushDone_V' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on function 'memcachedPipeline' to 'ap_ctrl_none'.
+INFO: [SYN 201-210] Renamed object name 'start_for_ht_inputLogic_U0' to 'start_for_ht_inpucud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_hashKeyResizer_U0' to 'start_for_hashKeydEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_concurrencyControl_U0' to 'start_for_concurreOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_memRead_U0' to 'start_for_memReadfYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_ht_outputLogic_U0' to 'start_for_ht_outpg8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_splitter_U0' to 'start_for_splittehbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_accessControl_U0' to 'start_for_accessCibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_flashDemux_U0' to 'start_for_flashDejbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_setPath_U0' to 'start_for_setPathkbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_dispatch_U0' to 'start_for_dispatclbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_flashSetPathNoFilter_U0' to 'start_for_flashSemb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_flashDispatch_U0' to 'start_for_flashDincg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_flashRemux_U0' to 'start_for_flashReocq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_response_f_U0' to 'start_for_responspcA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_response_r_U0' to 'start_for_responsqcK' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'memcachedPipeline'.
+INFO: [HLS 200-111]  Elapsed time: 37.05 seconds; current allocated memory: 919.519 MB.
+INFO: [RTMG 210-285] Implementing FIFO 'filterSeq_V_V_U(fifo_w2_d16_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'flushAck_V_c1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'flushAck_V_c_U(fifo_w1_d9_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'metadataBuffer_rp_V_s_U(fifo_w248_d16_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'valueBuffer_rp_V_V_U(fifo_w64_d1024_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'keyBuffer_rp_V_V_U(fifo_w64_d128_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'requestParser2hashTa_1_U(fifo_w256_d16_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'hashKeyBuffer_V_V_U(fifo_w64_d128_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'in2hashKeyLength_V_V_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'in2cc_V_U(fifo_w130_d10_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'in2ccMd_V_U(fifo_w64_d10_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'in2hash_V_U(fifo_w130_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hashValueBuffer_V_V_U(fifo_w64_d1024_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'hashMdBuffer_V_V_U(fifo_w128_d32_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'resizedKeyLength_V_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'resizedInitValue_V_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'resizedKey_V_V_U(fifo_w96_d8_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hash2cc_V_V_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'dec2cc_V_V_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'cc2memReadMd_V_U(fifo_w64_d10_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'cc2memRead_V_U(fifo_w130_d10_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'memRd2comp_V_U(fifo_w130_d10_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'memRd2compMd_V_U(fifo_w64_d10_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'comp2memWrMemData_V_s_U(fifo_w512_d10_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'comp2memWrKey_V_U(fifo_w130_d10_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'comp2memWrMd_V_U(fifo_w64_d10_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'comp2memWrStatus_V_b_U(fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'memWr2out_V_U(fifo_w57_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'hashTable2splitter_V_U(fifo_w256_d16_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'splitter2valueStoreF_1_U(fifo_w256_d16_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'splitter2valueStoreD_1_U(fifo_w256_d16_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'filterPopSet_V_V_U(fifo_w1_d16_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'filterPopGet_V_V_U(fifo_w1_d16_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'accCtrl2demux_V_U(fifo_w256_d16_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'metadataBuffer_V_U(fifo_w128_d24_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'keyBuffer_V_V_U(fifo_w64_d48_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'demux2getPath_V_U(fifo_w45_d16_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'demux2setPathMetadat_1_U(fifo_w45_d16_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'demux2setPathValue_V_U(fifo_w66_d96_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'disp2rec_V_V_U(fifo_w12_d16_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'getPath2remux_V_V_U(fifo_w64_d96_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'valueStoreDram2merge_1_U(fifo_w256_d16_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'flashMetadataBuffer_s_0_U(fifo_w128_d24_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'flashKeyBuffer_V_V_U(fifo_w64_d48_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'flashDemux2getPath_V_U(fifo_w48_d16_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'flashDemux2setPathMe_1_U(fifo_w48_d16_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'flashDemux2setPathVa_1_U(fifo_w66_d96_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'flash_Disp2rec_V_V_U(fifo_w16_d16_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'flashGetPath2remux_V_U(fifo_w64_d96_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'valueStoreFlash2merg_1_U(fifo_w256_d16_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'merger2responseForma_1_U(fifo_w256_d16_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'valueBuffer_rf_V_V_U(fifo_w64_d1024_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'metadataBuffer_rf_V_s_U(fifo_w248_d8_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_bp_r_U0_U(start_for_bp_r_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_ht_inpucud_U(start_for_ht_inpucud)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_hashKeydEe_U(start_for_hashKeydEe)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_concurreOg_U(start_for_concurreOg)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_bobj_U0_U(start_for_bobj_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_memReadfYi_U(start_for_memReadfYi)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_ht_outpg8j_U(start_for_ht_outpg8j)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_splittehbi_U(start_for_splittehbi)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_accessCibs_U(start_for_accessCibs)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_flashDejbC_U(start_for_flashDejbC)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_demux_U0_U(start_for_demux_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_setPathkbM_U(start_for_setPathkbM)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_dispatclbW_U(start_for_dispatclbW)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_remux_U0_U(start_for_remux_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_merger_U0_U(start_for_merger_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_flashSemb6_U(start_for_flashSemb6)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_flashDincg_U(start_for_flashDincg)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_flashReocq_U(start_for_flashReocq)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_responspcA_U(start_for_responspcA)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_responsqcK_U(start_for_responsqcK)' using Shift Registers.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:04:54 ; elapsed = 00:10:55 . Memory (MB): peak = 1322.488 ; gain = 976.004 ; free physical = 168 ; free virtual = 672
+INFO: [SYSC 207-301] Generating SystemC RTL for memcachedPipeline.
+INFO: [VHDL 208-304] Generating VHDL RTL for memcachedPipeline.
+INFO: [VLOG 209-307] Generating Verilog RTL for memcachedPipeline.
+INFO: [HLS 200-112] Total elapsed time: 659.11 seconds; peak allocated memory: 919.519 MB.

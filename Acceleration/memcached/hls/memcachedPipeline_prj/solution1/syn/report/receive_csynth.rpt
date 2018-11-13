@@ -1,0 +1,189 @@
+
+
+================================================================
+== Vivado HLS Report for 'receive'
+================================================================
+* Date:           Fri Nov  9 23:11:26 2018
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        memcachedPipeline_prj
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1761-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   6.66|     4.574|        0.83|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    1|    1|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       0|    5614|
+|FIFO             |        -|      -|       -|       -|
+|Instance         |        -|      -|       -|       -|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|     117|
+|Register         |        -|      -|    1127|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |        0|      0|    1127|    5731|
++-----------------+---------+-------+--------+--------+
+|Available        |     2940|   3600|  866400|  433200|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |        0|      0|   ~0   |       1|
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+------+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF|  LUT | Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+------+------------+------------+
+    |tmp_100_i_fu_180_p2               |     +    |      0|  0|    15|           1|           8|
+    |tmp_95_i_fu_322_p2                |     +    |      0|  0|    19|          12|           5|
+    |tmp_98_i_fu_354_p2                |     +    |      0|  0|    15|           8|           1|
+    |tmp_99_i_fu_168_p2                |     +    |      0|  0|    19|           5|          12|
+    |tmp_118_fu_248_p2                 |     -    |      0|  0|    17|          10|          10|
+    |tmp_119_fu_254_p2                 |     -    |      0|  0|    17|           9|          10|
+    |tmp_120_fu_260_p2                 |     -    |      0|  0|    17|          10|          10|
+    |tmp_124_fu_290_p2                 |     -    |      0|  0|    17|           9|          10|
+    |ap_condition_120                  |    and   |      0|  0|     2|           1|           1|
+    |ap_condition_192                  |    and   |      0|  0|     2|           1|           1|
+    |ap_predicate_op10_read_state1     |    and   |      0|  0|     2|           1|           1|
+    |ap_predicate_op47_read_state1     |    and   |      0|  0|     2|           1|           1|
+    |ap_predicate_op60_write_state2    |    and   |      0|  0|     2|           1|           1|
+    |ap_predicate_op68_write_state2    |    and   |      0|  0|     2|           1|           1|
+    |p_Result_s_fu_382_p2              |    and   |      0|  0|   512|         512|         512|
+    |icmp_fu_316_p2                    |   icmp   |      0|  0|    13|           9|           1|
+    |tmp_114_fu_220_p2                 |   icmp   |      0|  0|    13|          14|          14|
+    |tmp_96_i_fu_342_p2                |   icmp   |      0|  0|    13|          12|           1|
+    |tmp_97_i_fu_348_p2                |   icmp   |      0|  0|    11|           8|           3|
+    |tmp_127_fu_300_p2                 |   lshr   |      0|  0|  2171|         512|         512|
+    |tmp_128_fu_376_p2                 |   lshr   |      0|  0|  2171|           2|         512|
+    |Hi_assign_fu_210_p2               |    or    |      0|  0|    14|           6|          14|
+    |ap_block_state1_pp0_stage0_iter0  |    or    |      0|  0|     2|           1|           1|
+    |ap_block_state2_pp0_stage0_iter1  |    or    |      0|  0|     2|           1|           1|
+    |storemerge_i_fu_328_p3            |  select  |      0|  0|    12|           1|          12|
+    |tmp_121_fu_266_p3                 |  select  |      0|  0|    10|           1|          10|
+    |tmp_122_fu_274_p3                 |  select  |      0|  0|   512|           1|         512|
+    |tmp_123_fu_282_p3                 |  select  |      0|  0|    10|           1|          10|
+    +----------------------------------+----------+-------+---+------+------------+------------+
+    |Total                             |          |      0|  0|  5614|        1151|        2187|
+    +----------------------------------+----------+-------+---+------+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------------------+----+-----------+-----+-----------+
+    |                   Name                  | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_iter1_fsm                          |  15|          3|    2|          6|
+    |ap_done                                  |   9|          2|    1|          2|
+    |ap_phi_mux_storemerge11_i_phi_fu_136_p6  |  15|          3|    8|         24|
+    |disp2rec_V_V_blk_n                       |   9|          2|    1|          2|
+    |filterPopGet_V_V_blk_n                   |   9|          2|    1|          2|
+    |getCounter                               |   9|          2|    8|         16|
+    |getPath2remux_V_V_blk_n                  |   9|          2|    1|          2|
+    |getPath2remux_V_V_din                    |  15|          3|   64|        192|
+    |getValueLength_V_1                       |   9|          2|   12|         24|
+    |memRdData_V_V_TDATA_blk_n                |   9|          2|    1|          2|
+    |real_start                               |   9|          2|    1|          2|
+    +-----------------------------------------+----+-----------+-----+-----------+
+    |Total                                    | 117|         25|  100|        274|
+    +-----------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------+-----+----+-----+-----------+
+    |          Name         |  FF | LUT| Bits| Const Bits|
+    +-----------------------+-----+----+-----+-----------+
+    |ap_CS_iter0_fsm        |    1|   0|    1|          0|
+    |ap_CS_iter1_fsm        |    2|   0|    2|          0|
+    |ap_done_reg            |    1|   0|    1|          0|
+    |getCounter             |    8|   0|    8|          0|
+    |getState               |    1|   0|    1|          0|
+    |getState_load_reg_392  |    1|   0|    1|          0|
+    |getValueLength_V_1     |   12|   0|   12|          0|
+    |memInputWord_V         |  512|   0|  512|          0|
+    |start_once_reg         |    1|   0|    1|          0|
+    |tmp_124_reg_409        |    9|   0|   10|          1|
+    |tmp_127_reg_414        |  512|   0|  512|          0|
+    |tmp_132_reg_400        |    1|   0|    1|          0|
+    |tmp_96_i_reg_419       |    1|   0|    1|          0|
+    |tmp_V_18_reg_404       |   64|   0|   64|          0|
+    |tmp_reg_396            |    1|   0|    1|          0|
+    +-----------------------+-----+----+-----+-----------+
+    |Total                  | 1127|   0| 1128|          1|
+    +-----------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------+-----+-----+------------+-------------------+--------------+
+|         RTL Ports        | Dir | Bits|  Protocol  |   Source Object   |    C Type    |
++--------------------------+-----+-----+------------+-------------------+--------------+
+|ap_clk                    |  in |    1| ap_ctrl_hs |      receive      | return value |
+|ap_rst                    |  in |    1| ap_ctrl_hs |      receive      | return value |
+|ap_start                  |  in |    1| ap_ctrl_hs |      receive      | return value |
+|start_full_n              |  in |    1| ap_ctrl_hs |      receive      | return value |
+|ap_done                   | out |    1| ap_ctrl_hs |      receive      | return value |
+|ap_continue               |  in |    1| ap_ctrl_hs |      receive      | return value |
+|ap_idle                   | out |    1| ap_ctrl_hs |      receive      | return value |
+|ap_ready                  | out |    1| ap_ctrl_hs |      receive      | return value |
+|start_out                 | out |    1| ap_ctrl_hs |      receive      | return value |
+|start_write               | out |    1| ap_ctrl_hs |      receive      | return value |
+|disp2rec_V_V_dout         |  in |   12|   ap_fifo  |    disp2rec_V_V   |    pointer   |
+|disp2rec_V_V_empty_n      |  in |    1|   ap_fifo  |    disp2rec_V_V   |    pointer   |
+|disp2rec_V_V_read         | out |    1|   ap_fifo  |    disp2rec_V_V   |    pointer   |
+|memRdData_V_V_TVALID      |  in |    1|    axis    |   memRdData_V_V   |    pointer   |
+|memRdData_V_V_TDATA       |  in |  512|    axis    |   memRdData_V_V   |    pointer   |
+|memRdData_V_V_TREADY      | out |    1|    axis    |   memRdData_V_V   |    pointer   |
+|getPath2remux_V_V_din     | out |   64|   ap_fifo  | getPath2remux_V_V |    pointer   |
+|getPath2remux_V_V_full_n  |  in |    1|   ap_fifo  | getPath2remux_V_V |    pointer   |
+|getPath2remux_V_V_write   | out |    1|   ap_fifo  | getPath2remux_V_V |    pointer   |
+|filterPopGet_V_V_din      | out |    1|   ap_fifo  |  filterPopGet_V_V |    pointer   |
+|filterPopGet_V_V_full_n   |  in |    1|   ap_fifo  |  filterPopGet_V_V |    pointer   |
+|filterPopGet_V_V_write    | out |    1|   ap_fifo  |  filterPopGet_V_V |    pointer   |
++--------------------------+-----+-----+------------+-------------------+--------------+
+

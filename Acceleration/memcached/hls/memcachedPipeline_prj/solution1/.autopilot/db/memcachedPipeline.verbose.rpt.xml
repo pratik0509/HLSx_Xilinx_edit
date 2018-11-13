@@ -1,0 +1,270 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'memcachedPipeline'" level="0">
+<item name = "Date">Fri Nov  9 23:13:07 2018
+</item>
+<item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
+<item name = "Project">memcachedPipeline_prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">virtex7</item>
+<item name = "Target device">xc7vx690tffg1761-2</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">6.66, 9.738, 0.83</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">42, 42, 1, 1, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="memWrite_U0">memWrite, 4, 4, 1, 1, function</column>
+<column name="setPath_U0">setPath, 2, 2, 1, 1, function</column>
+<column name="response_r_U0">response_r, 2, 2, 1, 1, function</column>
+<column name="bp_f1192_U0">bp_f1192, 1, 1, 1, 1, function</column>
+<column name="receive_U0">receive, 1, 1, 1, 1, function</column>
+<column name="ht_inputLogic_U0">ht_inputLogic, 2, 2, 1, 1, function</column>
+<column name="bobj_U0">bobj, 1, 1, 1, 1, function</column>
+<column name="ht_outputLogic_U0">ht_outputLogic, 1, 1, 1, 1, function</column>
+<column name="flashRemux_U0">flashRemux, 1, 1, 1, 1, function</column>
+<column name="remux_U0">remux, 1, 1, 1, 1, function</column>
+<column name="ht_compare_U0">ht_compare, 1, 1, 1, 1, function</column>
+<column name="bp_r_U0">bp_r, 1, 1, 1, 1, function</column>
+<column name="concurrencyControl_U0">concurrencyControl, 1, 1, 1, 1, function</column>
+<column name="accessControl_U0">accessControl, 1, 1, 1, 1, function</column>
+<column name="memRead_U0">memRead, 2, 2, 1, 1, function</column>
+<column name="flashDemux_U0">flashDemux, 1, 1, 1, 1, function</column>
+<column name="demux_U0">demux, 1, 1, 1, 1, function</column>
+<column name="hashKeyResizer_U0">hashKeyResizer, 1, 1, 1, 1, function</column>
+<column name="merger_U0">merger, 1, 1, 1, 1, function</column>
+<column name="splitter_U0">splitter, 2, 2, 1, 1, function</column>
+<column name="flashSetPathNoFilter_U0">flashSetPathNoFilter, 2, 2, 1, 1, function</column>
+<column name="flashReceiveNoFilter_U0">flashReceiveNoFilter, 1, 1, 1, 1, function</column>
+<column name="flashDispatch_U0">flashDispatch, 2, 2, 1, 1, function</column>
+<column name="dispatch_U0">dispatch, 2, 2, 1, 1, function</column>
+<column name="response_f_U0">response_f, 0, 0, 1, 1, function</column>
+<column name="memcachedPipeline_en_U0">memcachedPipeline_en, 0, 0, 0, 0, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, -, -, -</column>
+<column name="Expression">-, -, 0, 8</column>
+<column name="FIFO">311, -, 5945, 4700</column>
+<column name="Instance">0, -, 27228, 140826</column>
+<column name="Memory">-, -, -, -</column>
+<column name="Multiplexer">-, -, -, -</column>
+<column name="Register">-, -, -, -</column>
+<specialColumn name="Available">2940, 3600, 866400, 433200</specialColumn>
+<specialColumn name="Utilization (%)">10, 0, 3, 33</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="accessControl_U0">accessControl, 0, 0, 932, 841</column>
+<column name="bobj_U0">bobj, 0, 0, 801, 2644</column>
+<column name="bp_f1192_U0">bp_f1192, 0, 0, 779, 5335</column>
+<column name="bp_r_U0">bp_r, 0, 0, 809, 806</column>
+<column name="concurrencyControl_U0">concurrencyControl, 0, 0, 494, 964</column>
+<column name="demux_U0">demux, 0, 0, 599, 366</column>
+<column name="dispatch_U0">dispatch, 0, 0, 144, 146</column>
+<column name="flashDemux_U0">flashDemux, 0, 0, 602, 374</column>
+<column name="flashDispatch_U0">flashDispatch, 0, 0, 169, 156</column>
+<column name="flashReceiveNoFilter_U0">flashReceiveNoFilter, 0, 0, 99, 201</column>
+<column name="flashRemux_U0">flashRemux, 0, 0, 1004, 1050</column>
+<column name="flashSetPathNoFilter_U0">flashSetPathNoFilter, 0, 0, 422, 234</column>
+<column name="hashKeyResizer_U0">hashKeyResizer, 0, 0, 672, 345</column>
+<column name="ht_compare_U0">ht_compare, 0, 0, 840, 1179</column>
+<column name="ht_inputLogic_U0">ht_inputLogic, 0, 0, 1157, 6086</column>
+<column name="ht_outputLogic_U0">ht_outputLogic, 0, 0, 851, 786</column>
+<column name="memRead_U0">memRead, 0, 0, 428, 1469</column>
+<column name="memWrite_U0">memWrite, 0, 0, 9473, 83515</column>
+<column name="memcachedPipeline_en_U0">memcachedPipeline_en, 0, 0, 2, 20</column>
+<column name="merger_U0">merger, 0, 0, 524, 86</column>
+<column name="receive_U0">receive, 0, 0, 1127, 5731</column>
+<column name="remux_U0">remux, 0, 0, 1005, 1053</column>
+<column name="response_f_U0">response_f, 0, 0, 253, 155</column>
+<column name="response_r_U0">response_r, 0, 0, 1186, 7385</column>
+<column name="setPath_U0">setPath, 0, 0, 2328, 19721</column>
+<column name="splitter_U0">splitter, 0, 0, 528, 178</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+<column name="accCtrl2demux_V_U">15, 272, 126, 16, 256, 4096</column>
+<column name="cc2memReadMd_V_U">4, 77, 67, 10, 64, 640</column>
+<column name="cc2memRead_V_U">8, 143, 115, 10, 130, 1300</column>
+<column name="comp2memWrKey_V_U">8, 143, 115, 10, 130, 1300</column>
+<column name="comp2memWrMd_V_U">4, 77, 67, 10, 64, 640</column>
+<column name="comp2memWrMemData_V_s_U">29, 525, 396, 10, 512, 5120</column>
+<column name="comp2memWrStatus_V_b_U">0, 5, 20, 2, 8, 16</column>
+<column name="dec2cc_V_V_U">0, 5, 16, 2, 1, 2</column>
+<column name="demux2getPath_V_U">3, 61, 47, 16, 45, 720</column>
+<column name="demux2setPathMetadat_1_U">3, 61, 47, 16, 45, 720</column>
+<column name="demux2setPathValue_V_U">4, 86, 91, 96, 66, 6336</column>
+<column name="disp2rec_V_V_U">0, 7, 28, 16, 12, 192</column>
+<column name="filterPopGet_V_V_U">0, 7, 20, 16, 1, 16</column>
+<column name="filterPopSet_V_V_U">0, 7, 20, 16, 1, 16</column>
+<column name="flashDemux2getPath_V_U">3, 64, 48, 16, 48, 768</column>
+<column name="flashDemux2setPathMe_1_U">3, 64, 48, 16, 48, 768</column>
+<column name="flashDemux2setPathVa_1_U">4, 86, 91, 96, 66, 6336</column>
+<column name="flashGetPath2remux_V_U">4, 84, 89, 96, 64, 6144</column>
+<column name="flashKeyBuffer_V_V_U">4, 82, 80, 48, 64, 3072</column>
+<column name="flashMetadataBuffer_s_0_U">8, 145, 92, 24, 128, 3072</column>
+<column name="flash_Disp2rec_V_V_U">0, 7, 32, 16, 16, 256</column>
+<column name="flushAck_V_c1_U">0, 5, 16, 2, 1, 2</column>
+<column name="flushAck_V_c_U">0, 6, 18, 9, 1, 9</column>
+<column name="getPath2remux_V_V_U">4, 84, 89, 96, 64, 6144</column>
+<column name="hash2cc_V_V_U">0, 5, 44, 2, 32, 64</column>
+<column name="hashKeyBuffer_V_V_U">4, 85, 85, 128, 64, 8192</column>
+<column name="hashMdBuffer_V_V_U">8, 145, 106, 32, 128, 4096</column>
+<column name="hashTable2splitter_V_U">15, 272, 126, 16, 256, 4096</column>
+<column name="hashValueBuffer_V_V_U">4, 98, 138, 1024, 64, 65536</column>
+<column name="in2ccMd_V_U">4, 77, 67, 10, 64, 640</column>
+<column name="in2cc_V_U">8, 143, 115, 10, 130, 1300</column>
+<column name="in2hashKeyLength_V_V_U">0, 5, 20, 2, 8, 16</column>
+<column name="in2hash_V_U">0, 5, 142, 2, 130, 260</column>
+<column name="keyBuffer_V_V_U">4, 82, 80, 48, 64, 3072</column>
+<column name="keyBuffer_rp_V_V_U">4, 85, 85, 128, 64, 8192</column>
+<column name="memRd2compMd_V_U">4, 77, 67, 10, 64, 640</column>
+<column name="memRd2comp_V_U">8, 143, 115, 10, 130, 1300</column>
+<column name="memWr2out_V_U">0, 5, 69, 2, 57, 114</column>
+<column name="merger2responseForma_1_U">15, 272, 126, 16, 256, 4096</column>
+<column name="metadataBuffer_V_U">8, 145, 92, 24, 128, 3072</column>
+<column name="metadataBuffer_rf_V_s_U">14, 260, 229, 8, 248, 1984</column>
+<column name="metadataBuffer_rp_V_s_U">14, 264, 123, 16, 248, 3968</column>
+<column name="requestParser2hashTa_1_U">15, 272, 126, 16, 256, 4096</column>
+<column name="resizedInitValue_V_U">0, 5, 44, 2, 32, 64</column>
+<column name="resizedKeyLength_V_U">0, 5, 44, 2, 32, 64</column>
+<column name="resizedKey_V_V_U">6, 108, 99, 8, 96, 768</column>
+<column name="splitter2valueStoreD_1_U">15, 272, 126, 16, 256, 4096</column>
+<column name="splitter2valueStoreF_1_U">15, 272, 126, 16, 256, 4096</column>
+<column name="valueBuffer_rf_V_V_U">4, 98, 138, 1024, 64, 65536</column>
+<column name="valueBuffer_rp_V_V_U">4, 98, 138, 1024, 64, 65536</column>
+<column name="valueStoreDram2merge_1_U">15, 272, 126, 16, 256, 4096</column>
+<column name="valueStoreFlash2merg_1_U">15, 272, 126, 16, 256, 4096</column>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="demux_U0_start_full_n">and, 0, 0, 2, 1, 1</column>
+<column name="flashDemux_U0_start_full_n">and, 0, 0, 2, 1, 1</column>
+<column name="ht_inputLogic_U0_start_full_n">and, 0, 0, 2, 1, 1</column>
+<column name="splitter_U0_start_full_n">and, 0, 0, 2, 1, 1</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="inData_TDATA">in, 64, axis, inData_V_data_V, pointer</column>
+<column name="inData_TUSER">in, 112, axis, inData_V_user_V, pointer</column>
+<column name="inData_TKEEP">in, 8, axis, inData_V_keep_V, pointer</column>
+<column name="inData_TLAST">in, 1, axis, inData_V_last_V, pointer</column>
+<column name="inData_TVALID">in, 1, axis, inData_V_last_V, pointer</column>
+<column name="inData_TREADY">out, 1, axis, inData_V_last_V, pointer</column>
+<column name="outData_TDATA">out, 64, axis, outData_V_data_V, pointer</column>
+<column name="outData_TUSER">out, 112, axis, outData_V_user_V, pointer</column>
+<column name="outData_TKEEP">out, 8, axis, outData_V_keep_V, pointer</column>
+<column name="outData_TLAST">out, 1, axis, outData_V_last_V, pointer</column>
+<column name="outData_TVALID">out, 1, axis, outData_V_last_V, pointer</column>
+<column name="outData_TREADY">in, 1, axis, outData_V_last_V, pointer</column>
+<column name="dramValueStoreMemRdCmd_V_TDATA">out, 40, axis, dramValueStoreMemRdCmd_V, pointer</column>
+<column name="dramValueStoreMemRdCmd_V_TVALID">out, 1, axis, dramValueStoreMemRdCmd_V, pointer</column>
+<column name="dramValueStoreMemRdCmd_V_TREADY">in, 1, axis, dramValueStoreMemRdCmd_V, pointer</column>
+<column name="dramValueStoreMemRdData_V_V_TDATA">in, 512, axis, dramValueStoreMemRdData_V_V, pointer</column>
+<column name="dramValueStoreMemRdData_V_V_TVALID">in, 1, axis, dramValueStoreMemRdData_V_V, pointer</column>
+<column name="dramValueStoreMemRdData_V_V_TREADY">out, 1, axis, dramValueStoreMemRdData_V_V, pointer</column>
+<column name="dramValueStoreMemWrCmd_V_TDATA">out, 40, axis, dramValueStoreMemWrCmd_V, pointer</column>
+<column name="dramValueStoreMemWrCmd_V_TVALID">out, 1, axis, dramValueStoreMemWrCmd_V, pointer</column>
+<column name="dramValueStoreMemWrCmd_V_TREADY">in, 1, axis, dramValueStoreMemWrCmd_V, pointer</column>
+<column name="dramValueStoreMemWrData_V_V_TDATA">out, 512, axis, dramValueStoreMemWrData_V_V, pointer</column>
+<column name="dramValueStoreMemWrData_V_V_TVALID">out, 1, axis, dramValueStoreMemWrData_V_V, pointer</column>
+<column name="dramValueStoreMemWrData_V_V_TREADY">in, 1, axis, dramValueStoreMemWrData_V_V, pointer</column>
+<column name="flashValueStoreMemRdCmd_V_TDATA">out, 48, axis, flashValueStoreMemRdCmd_V, pointer</column>
+<column name="flashValueStoreMemRdCmd_V_TVALID">out, 1, axis, flashValueStoreMemRdCmd_V, pointer</column>
+<column name="flashValueStoreMemRdCmd_V_TREADY">in, 1, axis, flashValueStoreMemRdCmd_V, pointer</column>
+<column name="flashValueStoreMemRdData_V_V_TDATA">in, 64, axis, flashValueStoreMemRdData_V_V, pointer</column>
+<column name="flashValueStoreMemRdData_V_V_TVALID">in, 1, axis, flashValueStoreMemRdData_V_V, pointer</column>
+<column name="flashValueStoreMemRdData_V_V_TREADY">out, 1, axis, flashValueStoreMemRdData_V_V, pointer</column>
+<column name="flashValueStoreMemWrCmd_V_TDATA">out, 48, axis, flashValueStoreMemWrCmd_V, pointer</column>
+<column name="flashValueStoreMemWrCmd_V_TVALID">out, 1, axis, flashValueStoreMemWrCmd_V, pointer</column>
+<column name="flashValueStoreMemWrCmd_V_TREADY">in, 1, axis, flashValueStoreMemWrCmd_V, pointer</column>
+<column name="flashValueStoreMemWrData_V_V_TDATA">out, 64, axis, flashValueStoreMemWrData_V_V, pointer</column>
+<column name="flashValueStoreMemWrData_V_V_TVALID">out, 1, axis, flashValueStoreMemWrData_V_V, pointer</column>
+<column name="flashValueStoreMemWrData_V_V_TREADY">in, 1, axis, flashValueStoreMemWrData_V_V, pointer</column>
+<column name="hashTableMemRdData_V_V_TDATA">in, 512, axis, hashTableMemRdData_V_V, pointer</column>
+<column name="hashTableMemRdData_V_V_TVALID">in, 1, axis, hashTableMemRdData_V_V, pointer</column>
+<column name="hashTableMemRdData_V_V_TREADY">out, 1, axis, hashTableMemRdData_V_V, pointer</column>
+<column name="hashTableMemRdCmd_V_TDATA">out, 40, axis, hashTableMemRdCmd_V, pointer</column>
+<column name="hashTableMemRdCmd_V_TVALID">out, 1, axis, hashTableMemRdCmd_V, pointer</column>
+<column name="hashTableMemRdCmd_V_TREADY">in, 1, axis, hashTableMemRdCmd_V, pointer</column>
+<column name="hashTableMemWrData_V_V_TDATA">out, 512, axis, hashTableMemWrData_V_V, pointer</column>
+<column name="hashTableMemWrData_V_V_TVALID">out, 1, axis, hashTableMemWrData_V_V, pointer</column>
+<column name="hashTableMemWrData_V_V_TREADY">in, 1, axis, hashTableMemWrData_V_V, pointer</column>
+<column name="hashTableMemWrCmd_V_TDATA">out, 40, axis, hashTableMemWrCmd_V, pointer</column>
+<column name="hashTableMemWrCmd_V_TVALID">out, 1, axis, hashTableMemWrCmd_V, pointer</column>
+<column name="hashTableMemWrCmd_V_TREADY">in, 1, axis, hashTableMemWrCmd_V, pointer</column>
+<column name="addressReturnOut_V_V_TDATA">out, 32, axis, addressReturnOut_V_V, pointer</column>
+<column name="addressReturnOut_V_V_TVALID">out, 1, axis, addressReturnOut_V_V, pointer</column>
+<column name="addressReturnOut_V_V_TREADY">in, 1, axis, addressReturnOut_V_V, pointer</column>
+<column name="addressAssignDramIn_V_V_TDATA">in, 32, axis, addressAssignDramIn_V_V, pointer</column>
+<column name="addressAssignDramIn_V_V_TVALID">in, 1, axis, addressAssignDramIn_V_V, pointer</column>
+<column name="addressAssignDramIn_V_V_TREADY">out, 1, axis, addressAssignDramIn_V_V, pointer</column>
+<column name="addressAssignFlashIn_V_V_TDATA">in, 32, axis, addressAssignFlashIn_V_V, pointer</column>
+<column name="addressAssignFlashIn_V_V_TVALID">in, 1, axis, addressAssignFlashIn_V_V, pointer</column>
+<column name="addressAssignFlashIn_V_V_TREADY">out, 1, axis, addressAssignFlashIn_V_V, pointer</column>
+<column name="flushReq_V">out, 1, ap_none, flushReq_V, pointer</column>
+<column name="flushAck_V">in, 1, ap_none, flushAck_V, scalar</column>
+<column name="flushDone_V">out, 1, ap_none, flushDone_V, pointer</column>
+<column name="ap_clk">in, 1, ap_ctrl_none, memcachedPipeline, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_none, memcachedPipeline, return value</column>
+</table>
+</item>
+</section>
+</profile>

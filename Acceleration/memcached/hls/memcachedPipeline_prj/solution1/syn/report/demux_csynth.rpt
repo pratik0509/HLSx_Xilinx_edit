@@ -1,0 +1,218 @@
+
+
+================================================================
+== Vivado HLS Report for 'demux'
+================================================================
+* Date:           Fri Nov  9 23:11:23 2018
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        memcachedPipeline_prj
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1761-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   6.66|     5.175|        0.83|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    1|    1|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       0|     183|
+|FIFO             |        -|      -|       -|       -|
+|Instance         |        -|      -|       -|       -|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|     183|
+|Register         |        -|      -|     599|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |        0|      0|     599|     366|
++-----------------+---------+-------+--------+--------+
+|Available        |     2940|   3600|  866400|  433200|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |grp_fu_235_p2                     |     +    |      0|  0|  10|           1|           2|
+    |tmp_267_i_fu_341_p2               |     +    |      0|  0|  23|          16|           5|
+    |tmp_272_i_fu_439_p2               |     +    |      0|  0|  19|          12|           5|
+    |ap_condition_226                  |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_306                  |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_396                  |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op101_write_state2   |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op103_write_state2   |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op110_write_state2   |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op115_write_state2   |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op120_write_state2   |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op123_write_state2   |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op28_read_state1     |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op41_read_state1     |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op90_write_state2    |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op92_write_state2    |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op96_write_state2    |    and   |      0|  0|   2|           1|           1|
+    |tmp_266_i_fu_335_p2               |   icmp   |      0|  0|  13|          16|           4|
+    |tmp_268_i_fu_411_p2               |   icmp   |      0|  0|  11|           8|           1|
+    |tmp_269_i_fu_417_p2               |   icmp   |      0|  0|  11|           8|           1|
+    |tmp_270_i_fu_479_p2               |   icmp   |      0|  0|  11|           8|           4|
+    |tmp_504_fu_393_p2                 |   icmp   |      0|  0|  11|           8|           4|
+    |tmp_505_fu_399_p2                 |   icmp   |      0|  0|  11|           8|           3|
+    |tmp_EOP_V_2_fu_433_p2             |   icmp   |      0|  0|  13|          12|           4|
+    |ap_block_state1_pp0_stage0_iter0  |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state2_pp0_stage0_iter1  |    or    |      0|  0|   2|           1|           1|
+    |ap_predicate_op128_write_state2   |    or    |      0|  0|   2|           1|           1|
+    |ap_predicate_op129_write_state2   |    or    |      0|  0|   2|           1|           1|
+    |tmp_506_fu_405_p2                 |    or    |      0|  0|   2|           1|           1|
+    |storemerge_i_fu_445_p3            |  select  |      0|  0|  12|           1|          12|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                             |          |      0|  0| 183|         117|          64|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------------------+----+-----------+-----+-----------+
+    |                    Name                   | LUT| Input Size| Bits| Total Bits|
+    +-------------------------------------------+----+-----------+-----+-----------+
+    |accCtrl2demux_V_blk_n                      |   9|          2|    1|          2|
+    |ap_NS_iter1_fsm                            |  15|          3|    2|          6|
+    |ap_done                                    |   9|          2|    1|          2|
+    |ap_phi_reg_pp0_iter1_tmp_EOP_V_13_reg_179  |  15|          3|    1|          3|
+    |demux2getPath_V_blk_n                      |   9|          2|    1|          2|
+    |demux2setPathMetadat_1_blk_n               |   9|          2|    1|          2|
+    |demux2setPathValue_V_blk_n                 |   9|          2|    1|          2|
+    |demux2setPathValue_V_din                   |  15|          3|   66|        198|
+    |demuxState                                 |  15|          3|    2|          6|
+    |keyBuffer_V_V_blk_n                        |   9|          2|    1|          2|
+    |metadataBuffer_V_blk_n                     |   9|          2|    1|          2|
+    |metadataBuffer_V_din                       |  33|          6|  128|        768|
+    |real_start                                 |   9|          2|    1|          2|
+    |valueLength_V                              |   9|          2|   16|         32|
+    |wordCounter_V                              |   9|          2|    2|          4|
+    +-------------------------------------------+----+-----------+-----+-----------+
+    |Total                                      | 183|         38|  225|       1033|
+    +-------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------------------+-----+----+-----+-----------+
+    |                    Name                   |  FF | LUT| Bits| Const Bits|
+    +-------------------------------------------+-----+----+-----+-----------+
+    |ap_CS_iter0_fsm                            |    1|   0|    1|          0|
+    |ap_CS_iter1_fsm                            |    2|   0|    2|          0|
+    |ap_done_reg                                |    1|   0|    1|          0|
+    |ap_phi_reg_pp0_iter1_tmp_EOP_V_13_reg_179  |    1|   0|    1|          0|
+    |demuxState                                 |    2|   0|    2|          0|
+    |demuxState_load_reg_554                    |    2|   0|    2|          0|
+    |metadataWrWord_SOP_V_reg_614               |    1|   0|    1|          0|
+    |metadataWrWord_keyVa_3_reg_586             |    1|   0|    1|          0|
+    |metadataWrWord_keyVa_4_reg_558             |    1|   0|    1|          0|
+    |metadataWrWord_keyVa_reg_618               |    1|   0|    1|          0|
+    |metadataWrWord_value_reg_562               |    1|   0|    1|          0|
+    |p_Val2_s_reg_607                           |  124|   0|  124|          0|
+    |reg_288                                    |   64|   0|   64|          0|
+    |reg_292                                    |   64|   0|   64|          0|
+    |reg_297                                    |    3|   0|    3|          0|
+    |reg_301                                    |   32|   0|   32|          0|
+    |reg_305                                    |   13|   0|   13|          0|
+    |start_once_reg                             |    1|   0|    1|          0|
+    |tmp_10_reg_574                             |  128|   0|  128|          0|
+    |tmp_268_i_reg_630                          |    1|   0|    1|          0|
+    |tmp_269_i_reg_634                          |    1|   0|    1|          0|
+    |tmp_270_i_reg_643                          |    1|   0|    1|          0|
+    |tmp_490_reg_582                            |    1|   0|    1|          0|
+    |tmp_494_reg_570                            |    1|   0|    1|          0|
+    |tmp_500_reg_594                            |    1|   0|    1|          0|
+    |tmp_502_reg_622                            |    1|   0|    1|          0|
+    |tmp_506_reg_626                            |    1|   0|    1|          0|
+    |tmp_8_reg_598                              |  128|   0|  128|          0|
+    |tmp_EOP_V_2_reg_638                        |    1|   0|    1|          0|
+    |tmp_reg_603                                |    1|   0|    1|          0|
+    |valueLength_V                              |   16|   0|   16|          0|
+    |wordCounter_V                              |    2|   0|    2|          0|
+    +-------------------------------------------+-----+----+-----+-----------+
+    |Total                                      |  599|   0|  599|          0|
+    +-------------------------------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------------+-----+-----+--------------+------------------------+--------------+
+|           RTL Ports           | Dir | Bits|   Protocol   |      Source Object     |    C Type    |
++-------------------------------+-----+-----+--------------+------------------------+--------------+
+|ap_clk                         |  in |    1| ap_ctrl_none |          demux         | return value |
+|ap_rst                         |  in |    1| ap_ctrl_none |          demux         | return value |
+|ap_start                       |  in |    1| ap_ctrl_none |          demux         | return value |
+|start_full_n                   |  in |    1| ap_ctrl_none |          demux         | return value |
+|ap_done                        | out |    1| ap_ctrl_none |          demux         | return value |
+|ap_continue                    |  in |    1| ap_ctrl_none |          demux         | return value |
+|ap_idle                        | out |    1| ap_ctrl_none |          demux         | return value |
+|ap_ready                       | out |    1| ap_ctrl_none |          demux         | return value |
+|start_out                      | out |    1| ap_ctrl_none |          demux         | return value |
+|start_write                    | out |    1| ap_ctrl_none |          demux         | return value |
+|accCtrl2demux_V_dout           |  in |  256|    ap_fifo   |     accCtrl2demux_V    |    pointer   |
+|accCtrl2demux_V_empty_n        |  in |    1|    ap_fifo   |     accCtrl2demux_V    |    pointer   |
+|accCtrl2demux_V_read           | out |    1|    ap_fifo   |     accCtrl2demux_V    |    pointer   |
+|metadataBuffer_V_din           | out |  128|    ap_fifo   |    metadataBuffer_V    |    pointer   |
+|metadataBuffer_V_full_n        |  in |    1|    ap_fifo   |    metadataBuffer_V    |    pointer   |
+|metadataBuffer_V_write         | out |    1|    ap_fifo   |    metadataBuffer_V    |    pointer   |
+|keyBuffer_V_V_din              | out |   64|    ap_fifo   |      keyBuffer_V_V     |    pointer   |
+|keyBuffer_V_V_full_n           |  in |    1|    ap_fifo   |      keyBuffer_V_V     |    pointer   |
+|keyBuffer_V_V_write            | out |    1|    ap_fifo   |      keyBuffer_V_V     |    pointer   |
+|demux2setPathValue_V_din       | out |   66|    ap_fifo   |  demux2setPathValue_V  |    pointer   |
+|demux2setPathValue_V_full_n    |  in |    1|    ap_fifo   |  demux2setPathValue_V  |    pointer   |
+|demux2setPathValue_V_write     | out |    1|    ap_fifo   |  demux2setPathValue_V  |    pointer   |
+|demux2setPathMetadat_1_din     | out |   45|    ap_fifo   | demux2setPathMetadat_1 |    pointer   |
+|demux2setPathMetadat_1_full_n  |  in |    1|    ap_fifo   | demux2setPathMetadat_1 |    pointer   |
+|demux2setPathMetadat_1_write   | out |    1|    ap_fifo   | demux2setPathMetadat_1 |    pointer   |
+|demux2getPath_V_din            | out |   45|    ap_fifo   |     demux2getPath_V    |    pointer   |
+|demux2getPath_V_full_n         |  in |    1|    ap_fifo   |     demux2getPath_V    |    pointer   |
+|demux2getPath_V_write          | out |    1|    ap_fifo   |     demux2getPath_V    |    pointer   |
++-------------------------------+-----+-----+--------------+------------------------+--------------+
+

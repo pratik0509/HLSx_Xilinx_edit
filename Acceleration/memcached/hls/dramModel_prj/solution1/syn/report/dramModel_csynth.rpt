@@ -1,0 +1,131 @@
+
+
+================================================================
+== Vivado HLS Report for 'dramModel'
+================================================================
+* Date:           Fri Nov  2 21:51:14 2018
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        dramModel_prj
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1157-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   6.40|     3.317|        0.80|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    4|    4|    1|    1| dataflow |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +------------------+---------------+-----+-----+-----+-----+----------+
+        |                  |               |  Latency  |  Interval | Pipeline |
+        |     Instance     |     Module    | min | max | min | max |   Type   |
+        +------------------+---------------+-----+-----+-----+-----+----------+
+        |memAccess_U0      |memAccess      |    2|    2|    1|    1| function |
+        |cmdAggregator_U0  |cmdAggregator  |    1|    1|    1|    1| function |
+        +------------------+---------------+-----+-----+-----+-----+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       -|       -|
+|FIFO             |        0|      -|       7|      37|
+|Instance         |      114|      -|    1106|     270|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|       -|
+|Register         |        -|      -|       -|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |      114|      0|    1113|     307|
++-----------------+---------+-------+--------+--------+
+|Available        |     2940|   3600|  866400|  433200|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |        3|      0|   ~0   |   ~0   |
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    +------------------+---------------+---------+-------+------+-----+
+    |     Instance     |     Module    | BRAM_18K| DSP48E|  FF  | LUT |
+    +------------------+---------------+---------+-------+------+-----+
+    |cmdAggregator_U0  |cmdAggregator  |        0|      0|    46|   76|
+    |memAccess_U0      |memAccess      |      114|      0|  1060|  194|
+    +------------------+---------------+---------+-------+------+-----+
+    |Total             |               |      114|      0|  1106|  270|
+    +------------------+---------------+---------+-------+------+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +---------------------+---------+---+----+------+-----+---------+
+    |         Name        | BRAM_18K| FF| LUT| Depth| Bits| Size:D*B|
+    +---------------------+---------+---+----+------+-----+---------+
+    |aggregateMemCmd_V_U  |        0|  7|  37|    16|   21|      336|
+    +---------------------+---------+---+----+------+-----+---------+
+    |Total                |        0|  7|  37|    16|   21|      336|
+    +---------------------+---------+---+----+------+-----+---------+
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+--------------+---------------+--------------+
+|       RTL Ports      | Dir | Bits|   Protocol   | Source Object |    C Type    |
++----------------------+-----+-----+--------------+---------------+--------------+
+|rdCmdIn_V_TDATA       |  in |   40|     axis     |   rdCmdIn_V   |    pointer   |
+|rdCmdIn_V_TVALID      |  in |    1|     axis     |   rdCmdIn_V   |    pointer   |
+|rdCmdIn_V_TREADY      | out |    1|     axis     |   rdCmdIn_V   |    pointer   |
+|rdDataOut_V_V_TDATA   | out |  512|     axis     | rdDataOut_V_V |    pointer   |
+|rdDataOut_V_V_TVALID  | out |    1|     axis     | rdDataOut_V_V |    pointer   |
+|rdDataOut_V_V_TREADY  |  in |    1|     axis     | rdDataOut_V_V |    pointer   |
+|wrCmdIn_V_TDATA       |  in |   40|     axis     |   wrCmdIn_V   |    pointer   |
+|wrCmdIn_V_TVALID      |  in |    1|     axis     |   wrCmdIn_V   |    pointer   |
+|wrCmdIn_V_TREADY      | out |    1|     axis     |   wrCmdIn_V   |    pointer   |
+|wrDataIn_V_V_TDATA    |  in |  512|     axis     |  wrDataIn_V_V |    pointer   |
+|wrDataIn_V_V_TVALID   |  in |    1|     axis     |  wrDataIn_V_V |    pointer   |
+|wrDataIn_V_V_TREADY   | out |    1|     axis     |  wrDataIn_V_V |    pointer   |
+|ap_clk                |  in |    1| ap_ctrl_none |   dramModel   | return value |
+|ap_rst_n              |  in |    1| ap_ctrl_none |   dramModel   | return value |
++----------------------+-----+-----+--------------+---------------+--------------+
+
